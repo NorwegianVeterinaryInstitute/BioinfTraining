@@ -19,7 +19,7 @@ The instructors are:
 
 
 | Date| Subject| Taught by|
-----------------------------
+|------|-------|----------|
 |2017-11-30 (full day)| Virtualbox, File system, UNIX part I |Thomas/Karin|
 |2017-12-07 (full day) | UNIX part II, Abel, SLURM, ssh, File transfer (scp, rsync), editor (nano)| Arvind/Karin|
 |2017-12-14 (full day)|QC - FastQC, Trimmomatic and cutadapt, duplicates (samtools)|Arvind|
