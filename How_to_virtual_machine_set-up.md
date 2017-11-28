@@ -1,9 +1,9 @@
-##Setting up and running the Biolinux Virtual machine on a windows 10 laptop.
+## Setting up and running the Biolinux Virtual machine on a windows 10 laptop.
 
 The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and below you find the steps to set-up the bio-linux virtualmachine correctly.
 
 
-####*This first section (steps 1-5) is only needed as a control to check your hardware set-up*
+#### *This first section (steps 1-5) is only needed as a control to check your hardware set-up*
 
 1. start-up your computer and press `F1` as soon as possible. Now we enter the BIOS system of our laptop.
 2. Go to section: `Virtualization`
@@ -12,7 +12,7 @@ The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and bel
 5.  When both options are enabled, you can press `F10` to save and exit the bios. 
 6. Then normal start-up is proceeded.
 
-####*Installation with a normal start-up of the laptop*
+#### *Installation with a normal start-up of the laptop*
 1.  Login to your computer and create on the Data drive `D:` a folder called: `virtual_machines`
 2.  When you receive  one of the memory sticks copy the two files to the directory: `virtual_machines`
 		
