@@ -31,7 +31,7 @@ The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and bel
 8. Now click `import`, this will use the image to create the virtualmachine disk on your harddisk.
 	
 	After this we are back at the VM main controller window. 
-9. 13) Select the Bio-linux-8.0.7, by clicking once. Than click the yellow icon "settings".
+9. Select the Bio-linux-8.0.7, by clicking once. Than click the yellow icon "settings".
 
 	This opens up a window, to change the configuration of your virtual machine. The section we see is called "General"
 10. Click the tab: `Advanced`
