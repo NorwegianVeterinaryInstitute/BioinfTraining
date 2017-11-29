@@ -53,7 +53,7 @@ tips, hints, links etc. Please note, this document is public, and hence,
 you should not write anything there that you wouldn't talk about on
 the bus on your way to work!
 
-[You can find the etherpad for this course here](https://github.com/NorwegianVeterinaryInstitute/BioinfTraining.git)
+[You can find the etherpad for this course here](https://etherpad.wikimedia.org/p/nvi-bioinf)
 
 ### Computers
 
