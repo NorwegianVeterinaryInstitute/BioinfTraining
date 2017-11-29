@@ -55,7 +55,6 @@ the bus on your way to work!
 
 [You can find the etherpad for this course here](https://etherpad.wikimedia.org/p/nvi-bioinf)
 
-
 ### Computers
 
 All participants will be handed a laptop with Virtualbox installed. All 
