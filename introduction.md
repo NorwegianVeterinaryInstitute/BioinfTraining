@@ -26,3 +26,4 @@ During this session you will:
  * [Biolinux manual (available within Biolinux after you install)](https://www.bioinformatics.org/downloads/index.php?file_id=624)
  * [Setup info, incl. download info for the unix sesssion (you will be instructed to download this later in the day)](http://swcarpentry.github.io/shell-novice/setup/)
  
+
