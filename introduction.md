@@ -19,10 +19,11 @@ During this session you will:
  * [How to use your virtualbox, and how to get biolinux installed](How_to_virtual_machine_set-up.md)
  * [Using the unix shell](http://swcarpentry.github.io/shell-novice/)
  
-### Downloads for today's session
+### Files necessary for today's session
  
  * [The virtualbox program (already installed on VI computers)](https://www.virtualbox.org/wiki/Downloads)
- * [Biolinux image](https://www.bioinformatics.org/downloads/index.php?file_id=626)
- * [Biolinux manua](https://www.bioinformatics.org/downloads/index.php?file_id=624)
- * [Setup info, incl. download info for the unix sesssion](http://swcarpentry.github.io/shell-novice/setup/)
+ * [Biolinux image (This will provided to you in a USB drive)](https://www.bioinformatics.org/downloads/index.php?file_id=626)
+ * [Biolinux manual (available within Biolinux after you install)](https://www.bioinformatics.org/downloads/index.php?file_id=624)
+ * [Setup info, incl. download info for the unix sesssion (you will be instructed to download this later in the day)](http://swcarpentry.github.io/shell-novice/setup/)
  
+
