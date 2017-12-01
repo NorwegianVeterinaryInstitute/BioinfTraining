@@ -34,7 +34,26 @@ The instructors are:
 |2018-05-03 onwards |Analyse own data | All|
 
 
+## Course pages
+
+We have created specific pages for each part of the course.
+
+  * [Common introduction](introduction.md)
+  * [Comparative genomics](compgenomics.md)
+  * [Metagenomics](metagenomics.md)
+  * [Transcriptomics](transcriptomics.md)
+
+
 ## Practical information
+
+### Etherpad
+
+An Etherpad is a collaborative document where all can write down notes,
+tips, hints, links etc. Please note, this document is public, and hence,
+you should not write anything there that you wouldn't talk about on
+the bus on your way to work!
+
+[You can find the etherpad for this course here](https://etherpad.wikimedia.org/p/nvi-bioinf)
 
 ### Computers
 
@@ -48,7 +67,6 @@ inside your computer. You will "install" a specific version of linux inside
 virtualbox. This is what we will use to interface with the cluster that we will
 use for processing the data.
 
-
 ### Abel
 We will use the University of Oslo's High Performance Computing cluster for 
 most of our work. For more about how Abel works. see here.
@@ -56,12 +74,14 @@ most of our work. For more about how Abel works. see here.
 Please note: transfer and storage of data on abel is only allowed with prior
 approval by Karin.
 
+You can find out more about [how to use abel here.](https://github.com/NorwegianVeterinaryInstitute/Info/wiki)
+
 
 ## Contact
 
 To contact the instructors, please leave an issue in the github repo. Karin is 
 also available on twitter, as @karinlag .
 
-Veterinary Institute people can contact Karin Lagesen on her veterinary 
-institute email.
+Veterinary Institute people should contact the instructors on the instructors
+email list, or contact Karin via her vetinst email.
 
