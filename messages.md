@@ -12,7 +12,7 @@ Information that will not be included:
  * email addresses
  * locations of files on the internal network
  
-## 2016-12-01 Homework
+## 2017-12-01 Homework
 
   * You can find almost all information about the course 
   [on this webpage](https://norwegianveterinaryinstitute.github.io/BioinfTraining/).
