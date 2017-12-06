@@ -79,7 +79,7 @@ Next we will do a bit of setup to get you set up properly on abel.
 
 --------
 
-**Task**  
+**Task**
 Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/Info/wiki/AbelUserGuide.md)
 and follow the instructions that is under "On first time login".
 
@@ -126,10 +126,10 @@ $ scp mb.fsa your_user_name@abel.uio.no:
 2. open a different terminal window and log in to abel
 3. find out where the file is now (hint: `ls`)
 
+--------
+
 You need to have the colon on the end, otherwise you just end up
 copying the file to a file named `your_user_name@abel.uio.no`.
-
---------
 
 Note: if you have the same username on your virtual machine as on abel,
 you don't need to type in your user name or the at sign.
@@ -190,9 +190,9 @@ our own local machine.
 --------
 
 **Task**
-1. Right click on the url for the file (see above), and copy the link.
-2. Go in your abel terminal window
-3. Make sure that you are in your projects home area
+1. right click on the url for the file (see above), and copy the link.
+2. go in your abel terminal window
+3. make sure that you are in your projects home area
 3. type and paste in
 
 ```
@@ -214,10 +214,10 @@ toes. To organize software, the abel system uses the `module` system.
 --------
 
 **Task**
-1. On abel, type in `$ module avail`
+1. On abel, type in `module avail`
 2. Wait for a bit
 3. Can you figure out how many versions of blast is installed?
-4. Try typing in `$ module avail blast`, and see what happens.
+4. Try typing in `module avail blast`, and see what happens.
 
 --------
 
@@ -225,7 +225,7 @@ As you see, one of these have the word (default) typed into it. This
 means that if you do
 
 ```
-$ module load softare_name_before_slash
+$ module load <software_name_before_slash>
 ```
 
 that is the version of the program that will be loaded.
@@ -362,7 +362,7 @@ $ sbatch sample_slurm.slurm
 
 **Task**
 
-We will now look at how to look at jobs submitted to the cluster.
+We will now look at jobs submitted to the cluster.
 
 1. try out the command `squeue`
 2. try looking at just jobs under our project, by adding `-A nn9305k`
