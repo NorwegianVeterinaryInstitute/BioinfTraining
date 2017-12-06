@@ -3,6 +3,14 @@
 This page will contain information regarding the common introduction part
 for the bioinformatics course at the NVI.
 
+## 2017-12-07
+
+For this session, you will:
+
+ * continue on the Unix intro module from last time
+ * [learn about how to work on abel](working_with_hpc.md)
+
+
 ## 2017-11-30
 
 During this session you will:
