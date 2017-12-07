@@ -43,8 +43,8 @@ are.
 --------
 **Task**
 
-1. Type in `uname` in a terminal window on your computer
-2. Type in `uname` in a terminal window
+1. type in `uname` in a terminal window on your computer
+2. type in `uname` in a terminal window
 
 --------
 
@@ -67,10 +67,11 @@ There is also a forth area that will be discussed below.
 --------
 
 **Task**
-1. Use `cd` to go to the project area.
-2. Read the `README` file that is in the top directory of the home area
-3. Use the knowledge gained from the README file to figure out where
+1. use `cd` to go to the project area.
+2. read the `README` file that is in the top directory of the home area
+3. use the knowledge gained from the README file to figure out where
 adapter files are stored on abel.
+
 ---------
 
 ### Setting up your working directory
@@ -104,10 +105,10 @@ NOTE: any transfer of data to abel happens with permission from Karin!
 --------
 
 **Task**
-1. [Right click on this link and download the file.](mb.fsa)
-2. Go to the directory you downloaded the file to on your computer
+1. [right click on this link and download the file.](mb.fsa)
+2. go to the directory you downloaded the file to on your computer
 and locate the file
-3. Open the file - how many fasta sequences are in the file?
+3. open the file - how many fasta sequences are in the file?
 
 ---------
 
@@ -119,7 +120,6 @@ We will now transfer this file to abel.
 
 **Task**
 1. on the virtual machine, type in
-
 ```
 $ scp mb.fsa your_user_name@abel.uio.no:
 ```
@@ -205,7 +205,7 @@ You will now have downloaded the file directly onto abel.
 
 --------
 
-## Bioinf software on abel
+## Bioinformatics software on abel
 
 There is a lot of software available on abel. We cannot have all of it
 available at the same time, because they would step on each others'
@@ -214,10 +214,10 @@ toes. To organize software, the abel system uses the `module` system.
 --------
 
 **Task**
-1. On abel, type in `module avail`
-2. Wait for a bit
-3. Can you figure out how many versions of blast is installed?
-4. Try typing in `module avail blast`, and see what happens.
+1. on abel, type in `module avail`
+2. wait for a bit
+3. can you figure out how many versions of blast is installed?
+4. try typing in `module avail blast`, and see what happens.
 
 --------
 
@@ -254,26 +254,20 @@ versions of the ncbi databases that live here:
 --------
 
 **Task**
-1. On abel, type in
-
+1. on abel, type in
 ```
-$ module load blast
+$ module load blast+
 ```
 2. type in
-
 ```
 $ blastn -help
 ```
-
 Can you figure out which options that you need to specify a query and
 a database?
-
 3. On abel, type in
-
 ```
 $ blastn -query mb.fsa -db /work/databases/bio/ncbi/refseqgene
 ```
-
 You will get output fairly quickly. You might want to save that output,
 do that by repeating the command and add `-out <a_new_filename>`.
 
@@ -303,17 +297,13 @@ The more you ask for, the longer you have to wait for things to start.
 
 **Task**
 1. Start `qlogin` with the following options
-
 ```
 qlogin --account=nn9305k --time=00:30:00 --ntasks=4 --mem-per-cpu=4G
 ```
-
 You might have to wait a bit to get the prompt back.
-
 2. Run `ls`. You will see that you are now in your home area. Use
 `cd` and `ls` to go to the location where the `mb.fsa` file is. You
 also have to re-load the blast module.
-
 3. Try running the same blast command as above. However, do the
 following changes:
 
@@ -345,7 +335,7 @@ queueing system in this way, we need to know a few commands:
 We will now create a slurm script, and put our blast command into it.
 
 1. make sure you are in your project home area
-2. copy the file `sample_slurm.slurm` file to this location
+2. copy the file `sample_slurm.slurm` file in samplefiles to this location
 3. open the file using `nano`
 4. edit the file so that you are using the same options that
 you used with the `qlogin` command above.
