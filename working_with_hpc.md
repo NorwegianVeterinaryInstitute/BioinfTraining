@@ -305,15 +305,11 @@ You might have to wait a bit to get the prompt back.
 `cd` and `ls` to go to the location where the `mb.fsa` file is. You
 also have to re-load the blast module.
 3. Try running the same blast command as above. However, do the
-following changes:
+following change:
 
-  - use the database /work/databases/bio/ncbi/refseq_genome
   - use multiple cpus, by adding `-num_threads 4`
 
 --------
-
-Note: you will have to wait a bit. This is a great time to get a
-coffee!
 
 Note: we are here using 4 cpus, which is the same number of CPUs
 that we asked for when we started `qlogin`. It is important that these
@@ -400,3 +396,13 @@ will take a long time!
 
 After editing the file, submit it to the queue system using `sbatch`.
 Then, use `squeue` and `scancel` to stop the job.
+
+
+--------
+
+**Optional task**
+
+If there's time, restart the slurm job above, and let it finish. Have
+a look at the output both from slurm and bash
+
+---------
