@@ -37,14 +37,14 @@ the ssh command.
 ### Figuring out which computer you're on
 
 Sometimes you might get confused about which computer you're
-currently on. You can use the command `uname` to figure out where you
+currently on. You can use the command `hostname` to figure out where you
 are.
 
 --------
 **Task**
 
-1. type in `uname` in a terminal window on your computer
-2. type in `uname` in a terminal window
+1. type in `hostname` in a terminal window on your computer
+2. type in `hostname` in a terminal window
 
 --------
 
@@ -155,7 +155,7 @@ We have now transferred to abel. How do we get files to our local
 computer? To do that, we switch things up in the command:
 
 ```
-$ scp your_user_name@abel.uio.no:/path/to/file local_place_path
+$ scp filename your_user_name@abel.uio.no:/path/to/file
 ```
 
 More often than not, you want to store things in the location you're
