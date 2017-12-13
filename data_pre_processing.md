@@ -29,6 +29,29 @@ We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 $ fastqc Ha_R1.fq.gz
 ```
 
-Try to find help for `fastqc` and discuss what flags one can use to process multiple samples and use slrum to process the other four samples
+3. Try to find help for `fastqc` and discuss what flags one can use to process multiple samples
+4. Use `SLURM` to process the other four files
+5. Move the `html` and `zip` files to BioLinux and dicuss the results
+--------
 
+## Trimmomatic - adapter trimming and removing
+
+We wll use [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic) to trim and remove adapter and low quality reads.
+This tool is NOT available via `module load` in abel but available at `/work/projects/nn9305k/bin/`. Make sure you know where the adapter sequences are available.
+
+--------
+
+**Task**
+1. Run `trimmomatic-0.36.jar` on the three sets of fastq files.
+2. Run `fastqc`on the output fastq files
+--------
+
+## FastX-Toolkit
+
+One quick example with [FastX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/index.html)
+--------
+
+**Task**
+1. Run `trimmomatic-0.36.jar` on the three sets of fastq files.
+2. Run `fastqc`on the output fastq files
 --------
