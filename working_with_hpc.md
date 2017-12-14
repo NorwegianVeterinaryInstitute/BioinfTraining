@@ -155,11 +155,12 @@ We have now transferred to abel. How do we get files to our local
 computer? To do that, we switch things up in the command:
 
 ```
-$ scp filename your_user_name@abel.uio.no:/path/to/file
+$ scp your_user_name@abel.uio.no:/path/to/file/on/abel local_place_path
 ```
+You need to do this on your local machine.
 
 More often than not, you want to store things in the location you're
-at, which meas that `local_place_path` would be a simple dot, i.e. `.`.
+at, which means that `local_place_path` would be a simple dot, i.e. `.`.
 
 
 ### rsync
