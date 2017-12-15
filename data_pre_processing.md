@@ -87,7 +87,7 @@ $ fastqc Ha_R1.fq.gz
   module load fastqc
   
   fastqc -t 4 Br_R* Ed_R*
- </details>
+</details>
 
 
 5. Move the `html` and `zip` files to `raw_fastqc`
@@ -115,6 +115,8 @@ This tool is NOT available via `module load` in abel but available at `/work/pro
 `cd ../trim`
 
 2. Run `trimmomatic-0.36.jar` on Ha_R1.fq.gz file.
+
+
 <details>
  <summary>Click here for SLURM script (trim.slurm) to trim Ha_R1.fq.gz</summary>
   
@@ -154,9 +156,8 @@ This tool is NOT available via `module load` in abel but available at `/work/pro
   
   source /cluster/bin/jobsetup
   
-  java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar SE -threads 12 -phred33 ../data/Ha_R1.fq.gz Ha_trim_R1.fq.gz ILLUMINACLIP:/work/projects/nn9305k/db_flatfiles/trimmomatic_adapters/TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:15 CROP:75
-  </details>
-
+  java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar SE -threads 12 -phred33 ../data/Ha_R1.fq.gz Ha_trim_R1.fq.gz ILLUMINACLIP:/work/projects/nn9305k/db_flatfiles/trimmomatic_adapters/TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:15 CROP:75*
+</details>
 
 
 3. Run `fastqc`on the output fastq files and copy the html and zip to BioLinux and view them in the browser
