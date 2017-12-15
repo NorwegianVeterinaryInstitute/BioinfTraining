@@ -166,3 +166,57 @@ This tool is NOT available via `module load` in abel but available at `/work/pro
 
 One quick example with [FastX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/index.html)
 
+
+# Homework
+
+Use trimmomatic to trim/remove adapters and low quality reads in Br_R1.fq.gz and Br_R2.fq.gz (or Ed_R1.fq.gz and Ed_R2.fq.gz)
+1. Remember that you are working with paired end data.
+2. Change 'SE' to 'PE'
+3. There are two input files and four output files
+4. Use 'TruSeq3-PE-2.fa' instead of 'TruSeq3-SE.fa'
+4. Change MINLEN parameter to 36
+5. Use appropriate value for CROP (check the fastqc output and use the correct value)
+
+<details>
+ <summary>Click here for SLURM script for homework. Please do check this AFTER performing the task yourself</summary>
+  
+  \#!/bin/bash
+  
+  \#
+  
+  \# Job name:
+  
+  \#SBATCH --job-name=trim
+  
+  \#
+  
+  \# Project:
+  
+  \#SBATCH --account=nn9305k
+  
+  \#
+  
+  \# Wall clock limit:
+  
+  \#SBATCH --time=01:00:00
+  
+  \#
+  
+  \#SBATCH --ntasks=12
+  
+  \#
+  
+  \# Max memory usage:
+  
+  \## A good suggestion here is 4GB
+  
+  \#SBATCH --mem-per-cpu=4Gb
+  
+  \## Set up job environment
+  
+  source /cluster/bin/jobsetup
+  
+  java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 12 -phred33 ../data/Br_R1.fq.gz ../data/Br_R2.fq.gz Br_trim_R1.fq.gz Br_trim_R1_UNPAIRED.fq.gz Br_trim_R2.fq.gz Br_trim_R2_UNPAIRED.fq.gz ILLUMINACLIP:/work/projects/nn9305k/db_flatfiles/trimmomatic_adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 CROP:150
+  
+  java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 12 -phred33 ../data/Ed_R1.fq.gz ../data/Ed_R2.fq.gz Ed_trim_R1.fq.gz Ed_trim_R1_UNPAIRED.fq.gz Ed_trim_R2.fq.gz Ed_trim_R2_UNPAIRED.fq.gz ILLUMINACLIP:/work/projects/nn9305k/db_flatfiles/trimmomatic_adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 CROP:150
+  </details>
