@@ -177,6 +177,8 @@ Use trimmomatic to trim/remove adapters and low quality reads in Br_R1.fq.gz and
 4. Change MINLEN parameter to 36
 5. Use appropriate value for CROP (check the fastqc output and use the correct value)
 
+6. Also, remember to change `#SBATCH --mem-per-cpu=4Gb`to `#SBATCH --mem-per-cpu=12Gb`. This is a bigger job and needs more memory (12Gb instead of 4Gb)
+
 <details>
  <summary>Click here for SLURM script for homework. Please do check this AFTER performing the task yourself</summary>
   
@@ -210,7 +212,7 @@ Use trimmomatic to trim/remove adapters and low quality reads in Br_R1.fq.gz and
   
   \## A good suggestion here is 4GB
   
-  \#SBATCH --mem-per-cpu=4Gb
+  \#SBATCH --mem-per-cpu=12Gb
   
   \## Set up job environment
   
