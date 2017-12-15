@@ -111,17 +111,58 @@ This tool is NOT available via `module load` in abel but available at `/work/pro
 --------
 
 **Task**
-1. Run `trimmomatic-0.36.jar` on the three sets of fastq files.
-2. Run `fastqc`on the output fastq files
+1. Move to `trim`folder.
+`cd ../trim`
+
+2. Run `trimmomatic-0.36.jar` on Ha_R1.fq.gz file.
+<details>
+ <summary>Click here for SLURM script (trim.slurm) to trim Ha_R1.fq.gz</summary>
+  
+  \#!/bin/bash
+  
+  \#
+  
+  \# Job name:
+  
+  \#SBATCH --job-name=trim
+  
+  \#
+  
+  \# Project:
+  
+  \#SBATCH --account=nn9305k
+  
+  \#
+  
+  \# Wall clock limit:
+  
+  \#SBATCH --time=01:00:00
+  
+  \#
+  
+  \#SBATCH --ntasks=12
+  
+  \#
+  
+  \# Max memory usage:
+  
+  \## A good suggestion here is 4GB
+  
+  \#SBATCH --mem-per-cpu=4Gb
+  
+  \## Set up job environment
+  
+  source /cluster/bin/jobsetup
+  
+  java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar SE -threads 12 -phred33 ../data/Ha_R1.fq.gz Ha_trim_R1.fq.gz ILLUMINACLIP:/work/projects/nn9305k/db_flatfiles/trimmomatic_adapters/TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:15 CROP:75
+  </details>
+
+
+
+3. Run `fastqc`on the output fastq files and copy the html and zip to BioLinux and view them in the browser
 --------
 
 ## FastX-Toolkit
 
 One quick example with [FastX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/index.html)
---------
-
-**Task**
-1. Run `trimmomatic-0.36.jar` on the three sets of fastq files.
-2. Run `fastqc`on the output fastq files
---------
 
