@@ -39,31 +39,27 @@ $ fastqc Ha_R1.fq.gz
 
 <details>
  <summary>Click here for SLURM script to process four fastq files</summary>
- ```shell
-  !/bin/bash
-  
-   Job name:
-  SBATCH --job-name=raw_fastq
-  
-   Project:
-  SBATCH --account=nn9305k
-  
-   Wall clock limit:
-  SBATCH --time=01:00:00
-  
-  SBATCH --ntasks=4
-  
-   Max memory usage:
-   A good suggestion here is 4GB
-  SBATCH --mem-per-cpu=4Gb
-
-   Set up job environment
-  source /cluster/bin/jobsetup
-
-  module load fastqc
-  fastqc -t 4 Br_R* Ed_R*
- ```
-</details>
+ #!/bin/bash
+ #
+ # Job name:
+ #SBATCH --job-name=raw_fastq
+ #
+ # Project:
+ #SBATCH --account=nn9305k
+ #
+ # Wall clock limit:
+ #SBATCH --time=01:00:00
+ #
+ #SBATCH --ntasks=4
+ #
+ # Max memory usage:
+ ## A good suggestion here is 4GB
+ #SBATCH --mem-per-cpu=4Gb
+ ## Set up job environment
+ source /cluster/bin/jobsetup
+ module load fastqc
+ fastqc -t 4 Br_R* Ed_R*
+ </details>
 
 5. Move the `html` and `zip` files to BioLinux and dicuss the results
 --------
