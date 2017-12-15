@@ -6,12 +6,19 @@ Dataset used during this session can be found in the following location within a
 
 `/work/projects/nn9305k/tmp/Files_for_Dec14/`
 
+## NB: Replace <your_user_name> with your abel username
 
-Create a new folder called `Data_pre_processing_Dec14`at your home area `/work/projects/nn9305k/home/<your_user_name>/`
+Create a new folder called `Data_pre_processing_Dec14`at your home area `/work/projects/nn9305k/home/<your_user_name>/` and move there.
 
-Create a new folder called `data` in `/work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14`.
+`cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14`
 
-Move to the `data` folder as well:
+Create three folder here.
+
+`mkdir data`
+`mkdir raw_fastqc`
+`mkdir trim`
+
+Move to the `data` folder.
 
 `cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/data`
 
@@ -37,31 +44,63 @@ $ fastqc Ha_R1.fq.gz
 3. Try to find help for `fastqc` and discuss what flags one can use to process multiple samples
 4. Use `SLURM` to process the other four files
 
+
 <details>
- <summary>Click here for SLURM script to process four fastq files</summary>
- #!/bin/bash
- #
- # Job name:
- #SBATCH --job-name=raw_fastq
- #
- # Project:
- #SBATCH --account=nn9305k
- #
- # Wall clock limit:
- #SBATCH --time=01:00:00
- #
- #SBATCH --ntasks=4
- #
- # Max memory usage:
- ## A good suggestion here is 4GB
- #SBATCH --mem-per-cpu=4Gb
- ## Set up job environment
- source /cluster/bin/jobsetup
- module load fastqc
- fastqc -t 4 Br_R* Ed_R*
+ <summary>Click here for SLURM script (fastq.slurm) to process four fastq files</summary>
+  
+  \#!/bin/bash
+  
+  \#
+  
+  \# Job name:
+  
+  \#SBATCH --job-name=raw_fastq
+  
+  \#
+  
+  \# Project:
+  
+  \#SBATCH --account=nn9305k
+  
+  \#
+  
+  \# Wall clock limit:
+  
+  \#SBATCH --time=01:00:00
+  
+  \#
+  
+  \#SBATCH --ntasks=4
+  
+  \#
+  
+  \# Max memory usage:
+  
+  \## A good suggestion here is 4GB
+  
+  \#SBATCH --mem-per-cpu=4Gb
+  
+  \## Set up job environment
+  
+  source /cluster/bin/jobsetup
+  
+  module load fastqc
+  
+  fastqc -t 4 Br_R* Ed_R*
  </details>
 
-5. Move the `html` and `zip` files to BioLinux and dicuss the results
+
+5. Move the `html` and `zip` files to `raw_fastqc`
+`cd ../raw_fastqc`
+`mv ../data/*html .`
+`mv ../data/*.zip .`
+
+6. Copy the raw_fastqc folder to Biolinux
+In Biolinux 
+`scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .`
+
+7. Go through the html files and discuss.
+
 --------
 
 ## Trimmomatic - adapter trimming and removing
