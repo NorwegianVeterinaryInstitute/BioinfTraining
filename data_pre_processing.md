@@ -34,7 +34,7 @@ ln -s /work/projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .
 ## Fastq quality check
 
 We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to check the quality of raw sequenced data.
-It is important to check most of the graphs and make sure that the data represents the sample that was library prep'd and sequenced. For more information regarding the graphs, either visit the above website or [Check this video](https://www.youtube.com/watch?v=bz93ReOv87Y)
+It is important to check most of the graphs and make sure that the data represents the sample that was library prep'd and sequenced. For more information regarding the graphs, either visit the above website or [check this video](https://www.youtube.com/watch?v=bz93ReOv87Y)
 
 --------
 **Task**
@@ -49,6 +49,7 @@ $ fastqc Ha_R1.fq.gz
   You will use _-t_ option to use multiple threads. One thread will analyse one file at a time.
 4. Use _SLURM_ to process the other four files.
 
+_SLURM script_
 ```
 #!/bin/bash
 #
@@ -82,7 +83,7 @@ mv ../data/*.zip .
 ```
 
 6. Copy the _raw_fastqc_ folder from abel to Biolinux in a folder called _Data_pre_processing_Dec14_ in _Desktop_ using scp.
-  Option _-r_ will help in copying folders and all the content inside. _-r_ stands for _recursively_.
+  Option _-r (stands for recursively)_ will help in copying folders and all the content inside (and do not forget the _'.'_ at the end of the command. 
   
   **In Biolinux:**
 ```
@@ -98,7 +99,7 @@ scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>
 --------
 ## Trimmomatic - adapter trimming and removing
 
-We wll use [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic) to trim and remove adapter and low quality reads.
+We wll use [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic) to trim/remove adapter and low quality reads.
 This tool is NOT available via _module load_ in abel but available at _/work/projects/nn9305k/bin/_. Make sure you know where the adapter sequences are available.
 
 --------
@@ -110,6 +111,7 @@ cd ../trim
 
 2. Run _trimmomatic-0.36.jar_ on _Ha_R1.fq.gz_ file.
 
+_SLURM script_
 ```
 #!/bin/bash
 #
@@ -153,6 +155,7 @@ java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar SE -threads 12 -phred3
 # Homework
 
 Use trimmomatic to trim/remove adapters and low quality reads in _Br_R1.fq.gz_ and _Br_R2.fq.gz_ (or/and _Ed_R1.fq.gz_ and _Ed_R2.fq.gz_)
+
 1. Remember that you are working with paired end data (Change _SE_ to _PE_). 
 2. There are two input files and four output files.
 3. Use _TruSeq3-PE-2.fa_ instead of _TruSeq3-SE.fa_ since we are dealing with paired end reads.
@@ -160,6 +163,7 @@ Use trimmomatic to trim/remove adapters and low quality reads in _Br_R1.fq.gz_ a
 5. Use appropriate value for _CROP_ (check the fastqc output for raw reads and use the correct value).
 6. Also, remember to change _#SBATCH --mem-per-cpu=4Gb_ to _#SBATCH --mem-per-cpu=12Gb_. This is a bigger job and needs more memory (12Gb instead of 4Gb).
 
+_SLURM script_
 ```
 #!/bin/bash
 #
