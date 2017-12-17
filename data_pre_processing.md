@@ -8,17 +8,17 @@ Dataset used during this session can be found in the following location within a
 
 ## NB: Replace <your_user_name> with your abel username
 
-Create a new folder called `Data_pre_processing_Dec14`at your home area `/work/projects/nn9305k/home/<your_user_name>/` and move there.
+Create a new folder called _Data_pre_processing_Dec14_ in your home area _/work/projects/nn9305k/home/<your_user_name>/_ and move there.
 
 `cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14`
 
-Create three folder here.
+Create three folders here.
 
 `mkdir data`
 `mkdir raw_fastqc`
 `mkdir trim`
 
-Move to the `data` folder.
+Move to the _data_ folder.
 
 `cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/data`
 
@@ -34,7 +34,7 @@ We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 --------
 
 **Task**
-1. Run `fastqc` on the file `Ha_R1.fq.gz` (in the login node).
+1. Run _fastqc_ on the file _Ha_R1.fq.gz_ (in the login node).
 2. type in the following (don't include the `$`).
 
 ```
@@ -45,49 +45,44 @@ $ fastqc Ha_R1.fq.gz
 4. Use `SLURM` to process the other four files
 
 
-<details>
- <summary>Click here for SLURM script (fastq.slurm) to process four fastq files</summary>
+```
+#!/bin/bash
+#
+# Job name:
   
-  \#!/bin/bash
+#SBATCH --job-name=raw_fastq
   
-  \#
+#
   
-  \# Job name:
+# Project:
   
-  \#SBATCH --job-name=raw_fastq
+#SBATCH --account=nn9305k
   
-  \#
+#
   
-  \# Project:
+# Wall clock limit:
   
-  \#SBATCH --account=nn9305k
+#SBATCH --time=01:00:00
   
-  \#
+#
   
-  \# Wall clock limit:
+#SBATCH --ntasks=4
   
-  \#SBATCH --time=01:00:00
+#
   
-  \#
+# Max memory usage:
   
-  \#SBATCH --ntasks=4
+## A good suggestion here is 4GB
   
-  \#
+#SBATCH --mem-per-cpu=4Gb
   
-  \# Max memory usage:
-  
-  \## A good suggestion here is 4GB
-  
-  \#SBATCH --mem-per-cpu=4Gb
-  
-  \## Set up job environment
+## Set up job environment
   
   source /cluster/bin/jobsetup
   
-  module load fastqc
-  
-  fastqc -t 4 Br_R* Ed_R*
-</details>
+module load fastqc
+fastqc -t 4 Br_R* Ed_R*
+```
 
 
 5. Move the `html` and `zip` files to `raw_fastqc`
