@@ -3,37 +3,29 @@
 ## Datasets used for this session
 
 Dataset used during this session can be found in the following location within abel:
-
 ```
 /work/projects/nn9305k/tmp/Files_for_Dec14/
 ```
 
 ## NB: Replace <your_user_name> with your abel username
 
-Create a new folder called _Data_pre_processing_Dec14_ in your home area _/work/projects/nn9305k/home/<your_user_name>/_ and move there.
-
+Create a new folder called _Data_pre_processing_Dec14_ in your home area and move there.
 ```
 cd /work/projects/nn9305k/home/<your_user_name>/
 mkdir Data_pre_processing_Dec14
 cd Data_pre_processing_Dec14
 ```
 
-Create three folders here:
-
+Create three folders here and move to the _data_ folder:
 ```
 mkdir data
 mkdir raw_fastqc
 mkdir trim
-```
 
-Move to the _data_ folder.
-
-```
-cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/data
+cd data
 ```
 
 Type the following command to link the files (not copy):
-
 ```
 ln -s /work/projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .
 ```
@@ -44,9 +36,7 @@ ln -s /work/projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .
 We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to check the quality of raw sequenced data.
 It is important to check most of the graphs and make sure that the data represents the sample that was library prep'd and sequenced. For more information regarding the graphs, either visit the above website or [Check this video](https://www.youtube.com/watch?v=bz93ReOv87Y)
 
-
 --------
-
 **Task**
 1. Run _fastqc_ on the file _Ha_R1.fq.gz_ (in the login node).
 2. type in the following (don't include the `$`).
@@ -106,14 +96,12 @@ scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>
 7. Go through the html files and discuss.
 
 --------
-
 ## Trimmomatic - adapter trimming and removing
 
 We wll use [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic) to trim and remove adapter and low quality reads.
 This tool is NOT available via _module load_ in abel but available at _/work/projects/nn9305k/bin/_. Make sure you know where the adapter sequences are available.
 
 --------
-
 **Task**
 1. Move to _trim_ folder.
 ```
