@@ -4,32 +4,42 @@
 
 Dataset used during this session can be found in the following location within abel:
 
-`/work/projects/nn9305k/tmp/Files_for_Dec14/`
+```
+/work/projects/nn9305k/tmp/Files_for_Dec14/
+```
 
 ## NB: Replace <your_user_name> with your abel username
 
 Create a new folder called _Data_pre_processing_Dec14_ in your home area _/work/projects/nn9305k/home/<your_user_name>/_ and move there.
 
-`cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14`
+```
+cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14
+```
 
-Create three folders here.
+Create three folders here:
 
-`mkdir data`
-`mkdir raw_fastqc`
-`mkdir trim`
+```
+mkdir data
+mkdir raw_fastqc
+mkdir trim
+```
 
 Move to the _data_ folder.
 
-`cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/data`
+```
+cd /work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/data
+```
 
 Type the following command to link the files (not copy):
 
-`ln -s /work/projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .`
+```
+ln -s /work/projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .
+```
 
 
 ## Fastq quality check
 
-We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to check the quality of raw sequenced data 
+We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to check the quality of raw sequenced data.
 
 --------
 
@@ -41,58 +51,48 @@ We will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 $ fastqc Ha_R1.fq.gz
 ```
 
-3. Try to find help for `fastqc` and discuss what flags one can use to process multiple samples
-4. Use `SLURM` to process the other four files
+3. Try to find help for _fastqc_ and discuss what flags one can use to process multiple samples.
+  You will use _-t_ option to use multiple threads. One thread will analyse one file at a time.
+4. Use _SLURM_ to process the other four files.
 
 
 ```
 #!/bin/bash
 #
 # Job name:
-  
 #SBATCH --job-name=raw_fastq
-  
 #
-  
-# Project:
-  
+# Project: 
 #SBATCH --account=nn9305k
-  
 #
-  
-# Wall clock limit:
-  
+# Wall clock limit: 
 #SBATCH --time=01:00:00
-  
 #
-  
-#SBATCH --ntasks=4
-  
+#SBATCH --ntasks=4 
 #
-  
-# Max memory usage:
-  
+# Max memory usage: 
 ## A good suggestion here is 4GB
-  
 #SBATCH --mem-per-cpu=4Gb
-  
 ## Set up job environment
-  
-  source /cluster/bin/jobsetup
+
+source /cluster/bin/jobsetup
   
 module load fastqc
 fastqc -t 4 Br_R* Ed_R*
 ```
 
+5. Move the _html_ and _zip_ files to _raw_fastqc_
+```
+cd ../raw_fastqc
+mv ../data/*html .
+mv ../data/*.zip .
+```
 
-5. Move the `html` and `zip` files to `raw_fastqc`
-`cd ../raw_fastqc`
-`mv ../data/*html .`
-`mv ../data/*.zip .`
-
-6. Copy the raw_fastqc folder to Biolinux
+6. Copy the raw_fastqc folder to Biolinux.
 In Biolinux 
-`scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .`
+```
+scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .
+```
 
 7. Go through the html files and discuss.
 
