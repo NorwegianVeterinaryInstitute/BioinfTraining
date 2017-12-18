@@ -35,7 +35,7 @@ Information that will not be included:
 ## 2017-12-14 Homework
 
   * Refer to the [session's page](data_pre_processing.md) for more information regarding the homework (and example SLURM scripts)
-  * Use trimmomatic to trim/remove adapters and low quality reads in _Br_R1.fq.gz_ and _Br_R2.fq.gz_ (or/and _Ed_R1.fq.gz_ and _Ed_R2.fq.gz_)
+  * Use trimmomatic to trim/remove adapters and low quality reads in _Br_R1.fq.gz_ and _Br_R2.fq.gz_ (or/and _Ed_R1.fq.gz_ and _Ed_R2.fq.gz_)<br/>
   **DEADLINE: Tuesday Jan 9th.**
 
 1. Remember that you are working with paired end data (Change _SE_ to _PE_). 
