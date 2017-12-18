@@ -38,7 +38,7 @@ During this session you will:
 ## 2017-12-14
 
 During this session you will:
- * learn how to use FastQC to check the quality of fastq files
+ * learn how to use FastQC to check the quality of fastq data.
  * learn how to use Trimmomatic to trim/remove adapter and low quality reads.
  
  
