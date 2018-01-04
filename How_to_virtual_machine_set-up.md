@@ -31,7 +31,7 @@ The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and bel
 8. Now click `import`, this will use the image to create the virtualmachine disk on your harddisk.
 	
 	After this we are back at the VM main controller window. 
-9. 13) Select the Bio-linux-8.0.7, by clicking once. Than click the yellow icon "settings".
+9. Select the Bio-linux-8.0.7, by clicking once. Than click the yellow icon "settings".
 
 	This opens up a window, to change the configuration of your virtual machine. The section we see is called "General"
 10. Click the tab: `Advanced`
@@ -98,5 +98,32 @@ In the VM main controller window you see the virtual machines installed on your 
 	Now you are ready to start exploring the Linux computer and now we can explain about the file-system on linux computers.
 
 
+## Creating a normal account on your virtual machine
+
+The acount you are now using on your virtual machine is the system administrator
+account. This user has permission to pretty much anything. Thus, using that account
+for your work could become risky if you're not complettely sure of what you're
+doing. Thus we'll have you make another one.
+
+1. Click on the 'Settings' button in the Dash. You will see a 'Users' icon, click
+on that.
+2. On the window that now appears, click 'Unlock' in the upper right corner. You
+will be asked for a password to do this, this password is 'manager'.
+3. Click on the small plus sign under the square on the left side. You should now
+get up a new window.
+4. Select account type 'Standard', and write in your full name. You will next 
+select a username. If you have had an account on the UiO system at any point, 
+please use that. If not, create a username that combines some letters from your
+first and your last name.
+5. Click 'Add'
+6. While your new acount is selected in the menu, click on the password field on
+the right side, where it says 'Account disabled'. You will now get up a new window
+where you will fill in a password. Please: do not use your vetinst password or 
+any other existing password. Also, do not use Norwegian characters or special 
+characters. Click 'Change'.
+7. Log out from the system manager account by clicking on the 'Gears' (settings) 
+icon in the upper right corner, and select 'Log out'.
+8. You will now get a login screen. Select your new account, and type in your
+password, and you're ready to go.
 
 
