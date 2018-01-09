@@ -54,3 +54,14 @@ During this session you will:
 ```
 
 
+## 2018-01-11
+
+During this session you will:
+* be introduced to the programming language R.
+* Learn how to use R-studio.
+* Learn how to write and and run R programs.
+* Learn how to write reproducible code in R.
+
+### Links for this session
+
+* [Lecture: preparation for the lecture](Rstatistics_intro.md)
