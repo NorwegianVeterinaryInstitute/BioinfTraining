@@ -1,5 +1,3 @@
-#R for Reproducible Scientific Analysis
-
 Setting up the Linux Virtual machine for the lecture: `Programming with R`
 
 Start the Linux Virtual Machine (VM) and make sure your are logged in as a "user" and not as the "administrator". The Linux VM will automatically log you in as a administrator, when you start it up, so when that is the case, logout, and login again with your username and password.
