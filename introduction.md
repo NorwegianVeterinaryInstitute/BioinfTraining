@@ -34,4 +34,34 @@ During this session you will:
  * [Biolinux manual (available within Biolinux after you install)](https://www.bioinformatics.org/downloads/index.php?file_id=624)
  * [Setup info, incl. download info for the unix sesssion (you will be instructed to download this later in the day)](http://swcarpentry.github.io/shell-novice/setup/)
  
+ 
+## 2017-12-14
 
+During this session you will:
+ * learn how to use FastQC to check the quality of fastq data.
+ * learn how to use Trimmomatic to trim/remove adapter and low quality reads.
+ 
+ 
+### Links for this session
+
+ * [Data pre-processing with FastQC and Trimmomatic](data_pre_processing.md)
+ 
+### Files necessary for today's session
+ 
+ * Files necessary for this session is available within abel and information is available in the above link on how to use it
+ ```
+ /work/projects/nn9305k/tmp/Files_for_Dec14/
+```
+
+
+## 2018-01-11
+
+During this session you will:
+* be introduced to the programming language R.
+* Learn how to use R-studio.
+* Learn how to write and and run R programs.
+* Learn how to write reproducible code in R.
+
+### Links for this session
+
+* [Lecture: preparation for the lecture](Rstatistics_intro.md)
