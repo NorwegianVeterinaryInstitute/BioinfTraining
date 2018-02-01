@@ -37,7 +37,8 @@ The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and bel
 10. Click the tab: `Advanced`
 11.  Set `Shared Clipboard` to: `Bidirectional`
 
-	Now we can copy something from the windows machine and drag it the Linux machine, and vice versa
+    Now we can copy something from the windows machine and drag it the Linux machine, and vice versa
+    
 12. Now click the box called `System`. We now see three tabs `Motherboard, Processor` and `Acceleration`.
 	
 	`Motherboard` includes how much of the memory from the laptop we can reserve for the Linux Virtualmachine. The amount of RAM memory on your laptop is `32 Gb`, the maximum is indicated at `Base-memory`.
@@ -46,7 +47,7 @@ The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and bel
 15. Your computer is equipped with 4 cpu's or cores. We set the cpu to `2`. 
 16. Than we click `Ok` and we are done with the configuration.
 
-### Finished with the configuration of the Virtualmachine
+You are now inished with the configuration of the virtual machine
 
 _______
 _______
