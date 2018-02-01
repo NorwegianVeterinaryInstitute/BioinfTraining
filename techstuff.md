@@ -32,3 +32,4 @@ the command `hostname`). Then, when you log in again, you can check again
 which one you're on. If you're on the wrong one, use ssh to log into the 
 other one. 
 
+For more, [check out this link](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
