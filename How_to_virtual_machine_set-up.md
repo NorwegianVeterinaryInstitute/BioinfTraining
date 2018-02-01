@@ -37,7 +37,7 @@ The bio-linux version we are going to use is: `Bio-linux version 8.0.7.` and bel
 10. Click the tab: `Advanced`
 11.  Set `Shared Clipboard` to `Bidirectional`.
 
-   Now we can copy something from the windows machine and drag it the Linux machine, and vice versa
+        Now we can copy something from the windows machine and drag it the Linux machine, and vice versa
     
 12. Now click the box called `System`. We now see three tabs `Motherboard, Processor` and `Acceleration`.
 	
