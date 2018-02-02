@@ -1,5 +1,6 @@
 # Technical tricks and hits
 
+
 ## Using screen to avoid dropped connections
 
 We are using abel. Once we run a program on abel (or any remote computer), that
@@ -33,3 +34,14 @@ which one you're on. If you're on the wrong one, use ssh to log into the
 other one. 
 
 For more, [check out this link](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
+
+
+## Installing Jupyter notebook and Rstudio
+
+We are using the Jupyter notebook and Rstudio within the course. Installation
+instructions were sent out in email, but we are repeating them here, to have
+them gathered in one place. Note, these are installed inside the virtual machine,
+but are on the virtual machine, not abel.
+
+  * [How to install Rstudio](install_Rstudio.md)
+  * [How to install Jupyter notebook](install_anaconda.md)
