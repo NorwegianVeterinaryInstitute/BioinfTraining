@@ -59,7 +59,13 @@ To make these exercises work, we have to do some things to make things work.
 7. To run the velvet program, we have to use the `module` system to load it:  
 `module load velvet`
 
-We can now work through the exercises more or less as described. 
+We can now work through the exercises more or less as described. Note,
+we only have paired end data, and will only be working with that data.
+
+We will be using a google spreadsheet to record our assembly data:
+
+[Velvet k-mer test](https://docs.google.com/spreadsheets/d/1mvIV0jenKBWGxIVyHTMe2Stb2OkNuLRv0iqpliC3URY/edit?usp=sharing)
+
 
 When it comes to downloading and running notebooks:
 1. On github, click on the filename so that the notebook is displayed.
@@ -70,5 +76,17 @@ When it comes to downloading and running notebooks:
 
 
 #### Homework
+ 
+There are six genomes in the directory 
+
+`/work/projects/nn9305k/bioinf_course/compgenomics/rawdata/homework`
+
+You will work with a partner. Each team will pick three k-mer sizes and use 
+velvet to assemble the six genomes. Each person in the team is responsible
+for three genomes each.
+
+[Record your results here](https://docs.google.com/spreadsheets/d/124Eb6IQ44coSKMH0kRLU18AJ5FZ7-ijwsxqf1NsC9Ys/edit?usp=sharing)
+
+
 
 
