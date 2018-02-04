@@ -31,5 +31,5 @@ Now we are set for the lecture.
 
 This lecture was prepared following the lecture from software carpentry:
 
-* [R for reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/)
+* [Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
 

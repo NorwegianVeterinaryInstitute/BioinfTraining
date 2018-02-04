@@ -14,37 +14,17 @@ The instructors are:
   * Arvind Sundaram - transcriptomics
   * Thomas Haverkamp - metagenomics
 
-
-## Tentative schedule
-
-
-| Date| Subject| Taught by|
-|------|-------|----------|
-|2017-11-30 (full day)| Virtualbox, File system, UNIX part I |Thomas/Karin|
-|2017-12-07 (full day) | UNIX part II, Abel, SLURM, ssh, File transfer (scp, rsync), editor (nano)| Arvind/Karin|
-|2017-12-14 (full day)|QC - FastQC, Trimmomatic and cutadapt, duplicates (samtools)|Arvind|
-|2018-01-11| Jupyter as interface, Intro to Python|Karin|
-|2018-01-18 |Intro to R|Thomas|
-|2018-01-25|File formats|Arvind|
-|2018-02-01 to 2018-03-29|Case study* (8 Weeks) | All|
-|2018-04-05|Second common course, Git, Github| |
-|2018-04-12|Nextflow| Karin|
-|2018-04-19|Jupyter + Panda| Karin"
-|2018-04-26|???| | 
-|2018-05-03 onwards |Analyse own data | All|
-
+## Practical information
 
 ## Course pages
 
 We have created specific pages for each part of the course.
 
   * [Common introduction](introduction.md)
+  * [Technical tricks and hits](techstuff.md)
   * [Comparative genomics](compgenomics.md)
   * [Metagenomics](metagenomics.md)
   * [Transcriptomics](transcriptomics.md)
-
-
-## Practical information
 
 ### Messages
 
@@ -60,6 +40,20 @@ you should not write anything there that you wouldn't talk about on
 the bus on your way to work!
 
 [You can find the etherpad for this course here](https://etherpad.wikimedia.org/p/nvi-bioinf)
+
+
+## Tentative schedule
+
+| Date| Subject| Taught by|
+|------|-------|----------|
+|2017-11-30 (full day)| Virtualbox, File system, UNIX part I |Thomas/Karin|
+|2017-12-07 (full day) | UNIX part II, Abel, SLURM, ssh, File transfer (scp, rsync), editor (nano)| Arvind/Karin|
+|2017-12-14 (full day)|QC - FastQC, Trimmomatic and cutadapt, duplicates (samtools)|Arvind|
+|2018-01-11 |Intro to R|Thomas|
+|2018-01-18| Jupyter as interface, Intro to Python|Karin|
+|2018-01-25|File formats|Arvind|
+|2018-02-01 to 2018-03-29|Case study (8 Weeks) | All|
+|2018-03-29 and onwards |Working with own data | All|
 
 ### Computers
 
