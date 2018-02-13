@@ -33,7 +33,7 @@ Why is this the correct way?
 `summary.tax(taxonomy=current, count=current)`
 
 ### Summary.tax to create an overview of the taxonomic classifications present in the clean dataset
-summary.tax(taxonomy=current, count=current)
+`summary.tax(taxonomy=current, count=current)`
 
 **At this point we have a clean dataset which can be used for generating OTUs and doing diversity studies. No matter what toolor  pipeline you have used al of the above filtering/removal /screening steps have to be performed. Of course this is debatable.**
 
@@ -56,7 +56,7 @@ In this section we use a mock community consisting of 32 unaligned fasta sequenc
 `cluster(column=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.dist, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, cutoff=0.03)`
 
 ### Make shared command
-make.shared(list=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.list, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, label=0.03)
+`make.shared(list=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.list, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, label=0.03)`
 
 ### Rarefaction command
 `rarefaction.single(shared=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.shared)`
