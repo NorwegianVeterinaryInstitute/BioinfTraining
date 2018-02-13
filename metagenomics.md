@@ -72,17 +72,18 @@ And we continue with the clean-up of the MiSeq SOP amplicon data. You can find t
 ### homework
 Now that we have finished cleaning our dataset we can now put everything into a textfile, so we can analyse the data using the abel computing cluster.
 
-Use the slurm commands you learned during the introduction course to set-up a computing allocation on able that will run your mothur script with the commands. For more on that see the [abel user guide](http://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/).
+Create a text file with all the mothur commands to clean-up your datafile.
 
-Make sure you ask for the mothur module and call the script with your commands from your working directory on abel.
-
-the way to call the script is like this:
-
-`mothur yourfile_with_commands.txt`
+You can test if this file works in your biolinux machine. The way to call the script is like this: `mothur yourfile_with_commands.txt`
 
 For a little bit more info see the Mothur manual on [batch mode](https://www.mothur.org/wiki/Batch_mode)
 
-You can test if it works in your biolinux machine.
+Next I want you to create a slurm script that can will run mothur with thr script on abel.
+
+Use the slurm commands you learned during the introduction course to set-up a computing allocation on able that will run your mothur script with the commands. For more on that see the [abel user guide](http://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/).
+
+Make sure you ask for the right mothur module and call the script with your commands from your working directory on abel.
+
 
 # Future Lectures
 * Running mothur on abel with a slurm script
