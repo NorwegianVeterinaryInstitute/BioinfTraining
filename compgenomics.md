@@ -28,7 +28,7 @@ that are part of the INF-BIOx121 course at the University of Oslo.
 [Link to the relevant pages](https://github.com/karinlag/INF-BIOx121/tree/2017/Assembly/practicals) 
 
 
-### 2018-02-05 ###
+### 2018-02-05 and  2018-02-12 ###
 
 #### Preparatory work
 
@@ -88,5 +88,118 @@ for three genomes each.
 [Record your results here](https://docs.google.com/spreadsheets/d/124Eb6IQ44coSKMH0kRLU18AJ5FZ7-ijwsxqf1NsC9Ys/edit?usp=sharing)
 
 
+### 2018-02-17 ###
+
+#### Today's practical
+
+Today's practical consists of different sections:
+  * first, we will assemble the test genome with SPAdes, using two different
+  options
+  * second, we will run the program QUAST to evaluate our assemblies
+  * third, we will spend some time understanding the QUAST output
+
+We are again working on abel, in the `2018_compgenome` directory we created
+last time. We want to be working inside of a `qlogin`, since some of the
+things we will do might take a bit of time.
+
+Note: to use SPAdes and QUAST, we have to use `module load`. There
+are some extra files we need for QUAST, these are:
+   * A genome sequence: 
+   `/work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna `
+   * A genome annotation file, in `GFF` format:   
+    `/work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff`
+
+We will examine the QUAST results using a browser. To do that, we need to 
+transfer the QUAST result directory to our local computer. We can do that using 
+this command line on our local vm:
+
+`scp -r username@abel.uio.no:/full/path/to/directory .`
+
+1. In your webbrowser, go to the course pages listed above. Find the SPAdes module. 
+   * Create a new directory _next_ to the velvet directory, called spades, and 
+     go into it
+   * Figure out what the SPAdes command line looks like. 
+   * Create two assemblies from the inclass data, one using the `--careful` 
+     option, and one that does not use this option. Name their output
+     directories `spades_wo` and `spades_careful`
+   * Google for the SPAdes manual and try to figure out two things:
+     * Which k-mers are used
+     * What does --careful do?
+   * Go into the results directory, and and look at the results
+   * Run the assemblathon script on the two assemblies, and do a quick comparison between the
+     * velvet assembly
+     * the SPAdes assembly
+     * the SPAdes assembly with `--careful`
+     
+2. In your webbrowser, go to the course pages listed above. Find the module
+   where we are comparing to a reference. 
+   * Have a look at the gff file that contains the genome annotation using 
+   `less`. What does it contain? What's the format like?
+   * Using the webpage from the course, figure out what the command line for
+   QUAST should look like. In your comparison, include the velvet assembly,
+   the SPAdes assembly, and the SPAdes careful assembly. IMPORTANT! You
+   should include the `--scaffold` option.
+   * Run the QUAST comparison.
+   
+3. While QUAST is running, have a look at the 
+   [QUAST paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3624806/) and 
+   the [QUAST manual](http://quast.bioinf.spbau.ru/manual.html).
+   Figure out the following things:
+   * What basic statistics does QUAST produce? 
+   * What is a missassembly according to QUAST?
+   * What is the Duplication ratio, number of mismatches per 100k, and number of genes?
+   * What are the Nx, NAx, NGx and so on values?
+
+4. Transfer the resulting QUAST output directory to your local computer, and
+   open the `report.html` file using firefox.
+   * Have a look at the basic statistics
+     * Which assembly has the highest N50?
+     * Which assembly has the most found genes?
+     * Which genome has the fewest misassemblies?
+   * Open the Icarus browser
+     * Select the first 300 000 bases of the reference genome
+     by typing in the numbers `1` and `300000` in the boxes above
+     * Click on the first contig in the velvet assembly. Have a
+       look at the box on the right. It seems like this contig is
+       split up, but it kind of isn't. What's going on here?
+       Use the arrows that is shown in the section below to understand
+       what is going on.
+     * The velvet assembly is first, and it has a red contig in the 
+       unbroken assembly. Figure out what the difference between
+       the two assemblies here, by examining the boxes on the right.
+     * The two SPAdes assemblies look very similar. Can you find some
+       regions where there is a difference between the non-careful and
+       the careful assembly?  
+   
 
 
+<!----
+5.
+   ```
+   quast.py -o spadesasm \ 
+   -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
+   -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
+   --scaffolds ../spades_wo/scaffolds.fasta ../spades_careful/scaffolds.fasta -l "without, careful" > quast.log 2>&1
+   ```
+6. scp folder back, look at it
+   * get people to figure out what's what
+   
+7. 
+   ```quast.py -o spadesasm \ 
+   -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
+   -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
+   --scaffolds ../velvet/test81_PE/contigs.fa ../spades/spades_wo/scaffolds.fasta ../spades/spades_careful/scaffolds.fasta \ 
+   -l "velvetPE, spades_wo, spades_careful" > quast.log 2>&1
+   ```
+8. scp folder back, look at it
+--->
+
+
+### Homework
+
+1. Do SPAdes assemblies for all the genomes that we gave you. Use qlogin when
+   you do it, and remember to use --careful
+   
+2. Use QUAST and compare each of your SPAdes assemblies to the velvet assembly
+   of the same genome. Use the same reference genome and annotation as
+   in the exercise. Which assembly is `best` and why?
