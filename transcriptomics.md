@@ -3,7 +3,7 @@
 ## Protocol
 We will follow the protocol described in [Tophat2 bioinformatic protocol](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3334321/) published in [Nature protocol, 2012](https://www.nature.com/articles/nprot.2012.016) for this course. 
 
-## Day 1
+# Day 1
 * Introduction of transcriptomic analyses 
 * Discusssion regarding reference-based and de novo approaches
 * How to use tophat v2 - based on the Nature protocol (2012) paper
@@ -21,7 +21,7 @@ $ bowtie2-build Dm.BDGP6.dna.toplevel.fa Dm_BDGP6_genome
 $ bowtie2-build <Reference_fasta_file_name> <bowtie2-build_ref_index_name_that_you_will_use_later>
 ```
 
-# To do
+## To do
 * Align the given reads to the Drosophila genome using tophat v2
 * create a new folder called tophat in /work/projects/nn9305k/home/<username>/transcriptome/
 * create a slurm script with *time=12:00:00*, *ntasks=16* and *mem-per-cpu=12Gb*
@@ -29,22 +29,22 @@ $ bowtie2-build <Reference_fasta_file_name> <bowtie2-build_ref_index_name_that_y
 $ tophat -p 16 -G ../ref/Dm.BDGP6.91.gtf -o <tophat_output_folder_name> ../ref/Dm_BDGP6_genome <read1> <read2>
 ```
 
-## Day 2
+# Day 2
 * Discuss results from tophat v2 alignemnt
 * Read about cufflinks and differential expression analysis pipeline
 
-# To do
+## To do
 * Run cufflinks on the tophat output
 * Within *tophat* folder create a slurm script with *time=12:00:00*, *ntasks=16* and *mem-per-cpu=12Gb*
 ```
 $ cufflinks -p 16 -o <cufflinks_output_folder_name> <tophat_output_folder_name>/accepted_hits.bam
 ```
 
-## Day 3
+# Day 3
 * Discuss about using tophat -> cufflinks -> cuffmerge -> cuffdiff pipeline (To find novel transcripts and genes)
 * Discuss about using tophat -> cuffdiff pipeline (To calculate differential expression for only known genes and transcripts)
 
-# To do
+## To do
 * Run cuffmerge and cuffdiff on Day 2's cufflinks output
 * create a text file and call it *assemblies.txt* and it should contain the information below
 ```
@@ -73,5 +73,7 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 
 ** Check the above two scripts and identify the difference.
 
-## Day 4
+# Day 4
 * Load cuffdiff output from short and long pipeline in R using cummeRbund
+
+## To do
