@@ -1,6 +1,6 @@
 # Bioinformatics training: transcriptomics
 
-## Protocol
+# Protocol
 We will follow the protocol described in [Tophat2 bioinformatic protocol](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3334321/) published in [Nature protocol, 2012](https://www.nature.com/articles/nprot.2012.016) for this course. 
 
 # Day 1
@@ -71,7 +71,7 @@ cuffdiff -o cuffdiff_long_output -p 16 -L Con1_s,Con2_s <cuffmerge_output_folder
 cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf Con1_Rep1_tophat/accepted_hits.bam,Con1_Rep2_tophat/accepted_hits.bam,Con1_Rep3_tophat/accepted_hits.bam Con2_Rep1_tophat/accepted_hits.bam,Con2_Rep2_tophat/accepted_hits.bam,Con2_Rep3_tophat/accepted_hits.bam
 ```
 
-** Check the above two scripts and identify the difference.
+* *Check the above two scripts and identify the difference*
 
 # Day 4
 * Load cuffdiff output from short and long pipeline in R using cummeRbund
