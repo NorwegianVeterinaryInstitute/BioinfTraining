@@ -28,7 +28,7 @@ that are part of the INF-BIOx121 course at the University of Oslo.
 [Link to the relevant pages](https://github.com/karinlag/INF-BIOx121/tree/2017/Assembly/practicals) 
 
 
-### 2018-02-05 and  2018-02-12 ###
+### 2018-02-05 and  2018-02-12 
 
 #### Preparatory work
 
@@ -88,7 +88,7 @@ for three genomes each.
 [Record your results here](https://docs.google.com/spreadsheets/d/124Eb6IQ44coSKMH0kRLU18AJ5FZ7-ijwsxqf1NsC9Ys/edit?usp=sharing)
 
 
-### 2018-02-17 ###
+### 2018-02-17 
 
 #### Today's practical
 
@@ -172,27 +172,31 @@ this command line on our local vm:
        the careful assembly?  
    
 
+#### Command line cheat list
 
-<!----
-5.
-   ```
-   quast.py -o spadesasm \ 
-   -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
-   -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
-   --scaffolds ../spades_wo/scaffolds.fasta ../spades_careful/scaffolds.fasta -l "without, careful" > quast.log 2>&1
-   ```
-6. scp folder back, look at it
-   * get people to figure out what's what
+Note: anything in CAPITAL LETTERS should be replaced with something, usually
+a file name, an output directory name, a fasta file name or something similar.
+You can figure out what the various options do by googling for the manual,
+by using the INFBIO course pages linked to above, or (quite often) typing
+in the name of the program, without any options, and pressing enter.
+
+
+##### SPADES
+
+```
+spades.py --careful --pe1-1 PATH/TO/READ_1.FASTQ -pe1-2 PATH/TO/READ_2.FASTQ \  
+-o OUTPUTDIRECTORY > LOGFILENAME.LOG 2>&1 
+
+```
    
-7. 
-   ```quast.py -o spadesasm \ 
-   -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
-   -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
-   --scaffolds ../velvet/test81_PE/contigs.fa ../spades/spades_wo/scaffolds.fasta ../spades/spades_careful/scaffolds.fasta \ 
-   -l "velvetPE, spades_wo, spades_careful" > quast.log 2>&1
-   ```
-8. scp folder back, look at it
---->
+##### QUAST
+ 
+```quast.py -o OUTPUTDIRECTORY \ 
+-R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
+-G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
+--scaffolds PATH/TO/ASSEMBLY_1.FSA PATH/TO/ASSEMBLY_2.FSA PATH/TO/ASSEMBLY_3.FSA \ 
+-l "ASSEMBLY_1, ASSEMBLY_3, ASSEMBLY_3" > quast.log 2>&1
+```
 
 
 ### Homework
