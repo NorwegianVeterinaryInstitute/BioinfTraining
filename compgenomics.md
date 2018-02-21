@@ -208,7 +208,7 @@ should actually use those CPUs when running commands. I.e. for SPAdes
 for instance, you should specify the `-t` option.
 
 ```
-`qlogin --account=nn9305k --time=XX:00:00 --ntasks=CPUS --mem-per-cpu=4G`
+qlogin --account=nn9305k --time=XX:00:00 --ntasks=CPUS --mem-per-cpu=4G
 ```
 #### Velvet
 
