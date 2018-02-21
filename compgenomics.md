@@ -27,8 +27,10 @@ that are part of the INF-BIOx121 course at the University of Oslo.
 
 [Link to the relevant pages](https://github.com/karinlag/INF-BIOx121/tree/2017/Assembly/practicals) 
 
+You will also find a cheat list for commands at the bottom of this page.
 
-### 2018-02-05 and  2018-02-12 ###
+
+### 2018-02-05 and  2018-02-12 
 
 #### Preparatory work
 
@@ -88,7 +90,7 @@ for three genomes each.
 [Record your results here](https://docs.google.com/spreadsheets/d/124Eb6IQ44coSKMH0kRLU18AJ5FZ7-ijwsxqf1NsC9Ys/edit?usp=sharing)
 
 
-### 2018-02-17 ###
+### 2018-02-17 
 
 #### Today's practical
 
@@ -171,35 +173,77 @@ this command line on our local vm:
        regions where there is a difference between the non-careful and
        the careful assembly?  
    
-
-
-<!----
-5.
-   ```
-   quast.py -o spadesasm \ 
-   -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
-   -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
-   --scaffolds ../spades_wo/scaffolds.fasta ../spades_careful/scaffolds.fasta -l "without, careful" > quast.log 2>&1
-   ```
-6. scp folder back, look at it
-   * get people to figure out what's what
    
-7. 
-   ```quast.py -o spadesasm \ 
-   -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
-   -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
-   --scaffolds ../velvet/test81_PE/contigs.fa ../spades/spades_wo/scaffolds.fasta ../spades/spades_careful/scaffolds.fasta \ 
-   -l "velvetPE, spades_wo, spades_careful" > quast.log 2>&1
-   ```
-8. scp folder back, look at it
---->
-
-
 ### Homework
 
-1. Do SPAdes assemblies for all the genomes that we gave you. Use qlogin when
-   you do it, and remember to use --careful
+Remember to use `qlogin` when doing the exercises.
+
+1. Redo the velvet assemblies using the command in the cheat list. We did get 
+   to the place where I should have introduced the `shortPaired` option last
+   week, which is why you didn't use it for your assemblies. This option helps
+   a lot, which is why we should use it. 
+
+2. Do SPAdes assemblies for all the genomes that we gave you. Remember to use 
+   --careful
    
-2. Use QUAST and compare each of your SPAdes assemblies to the velvet assembly
+3. Use QUAST and compare each of your SPAdes assemblies to the velvet assembly
    of the same genome. Use the same reference genome and annotation as
    in the exercise. Which assembly is `best` and why?
+   
+
+   
+## Command line cheat list
+
+Note: anything in CAPITAL LETTERS should be replaced with something, usually
+a file name, an output directory name, a fasta file name or something similar.
+You can figure out what the various options do by googling for the manual,
+by using the INFBIO course pages linked to above, or (quite often) typing
+in the name of the program, without any options, and pressing enter.
+
+Note, in the command below, long commands will be broken up with a `\`. If you
+write in the commands in one long line, you do not include this slash.
+
+#### qlogin
+
+XX should be replaced with how many hours you want, CPUS with the number
+of cpus you want to use. Remember, if you ask for more than one cpu, you
+should actually use those CPUs when running commands. I.e. for SPAdes
+for instance, you should specify the `-t` option. You are also likely to want
+to use `screen` before requesting a `qlogin` session.
+
+```
+qlogin --account=nn9305k --time=XX:00:00 --ntasks=CPUS --mem-per-cpu=4G
+```
+#### Velvet
+
+```
+velveth ASM_NAME VALUE_OF_K \  
+-shortPaired -fastq -separate \  
+PATH/TO/READ_1.FASTQ \  
+PATH/TO/READ_2.FASTQ \  
+
+velvetg ASM_NAME -exp_cov auto -cov_cutoff auto  
+
+```
+
+#### SPADdes
+
+```
+spades.py -t CPUS --careful --pe1-1 PATH/TO/READ_1.FASTQ -pe1-2 PATH/TO/READ_2.FASTQ \  
+-o OUTPUTDIRECTORY > LOGFILENAME.LOG 2>&1 
+
+```
+   
+#### QUAST
+
+Note, you can compare as many assemblies as you want, from 1 to hundreds. 
+You need to add them sequentially to the command line, and remember to 
+name them prperly inside the `-l` option.
+ 
+```
+quast.py -t CPUS -o OUTPUTDIRECTORY \ 
+-R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
+-G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
+--scaffolds PATH/TO/ASSEMBLY_1.FSA PATH/TO/ASSEMBLY_2.FSA PATH/TO/ASSEMBLY_3.FSA \ 
+-l "ASSEMBLY_1, ASSEMBLY_3, ASSEMBLY_3" > QUAST.LOG 2>&1
+```
