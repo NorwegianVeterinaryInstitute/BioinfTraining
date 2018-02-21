@@ -200,12 +200,16 @@ You can figure out what the various options do by googling for the manual,
 by using the INFBIO course pages linked to above, or (quite often) typing
 in the name of the program, without any options, and pressing enter.
 
+Note, in the command below, long commands will be broken up with a `\`. If you
+write in the commands in one long line, you do not include this slash.
+
 #### qlogin
 
 XX should be replaced with how many hours you want, CPUS with the number
 of cpus you want to use. Remember, if you ask for more than one cpu, you
 should actually use those CPUs when running commands. I.e. for SPAdes
-for instance, you should specify the `-t` option.
+for instance, you should specify the `-t` option. You are also likely to want
+to use `screen` before requesting a `qlogin` session.
 
 ```
 qlogin --account=nn9305k --time=XX:00:00 --ntasks=CPUS --mem-per-cpu=4G
@@ -241,5 +245,5 @@ quast.py -t CPUS -o OUTPUTDIRECTORY \
 -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
 -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
 --scaffolds PATH/TO/ASSEMBLY_1.FSA PATH/TO/ASSEMBLY_2.FSA PATH/TO/ASSEMBLY_3.FSA \ 
--l "ASSEMBLY_1, ASSEMBLY_3, ASSEMBLY_3" > quast.log 2>&1
+-l "ASSEMBLY_1, ASSEMBLY_3, ASSEMBLY_3" > QUAST.LOG 2>&1
 ```
