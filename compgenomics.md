@@ -184,7 +184,7 @@ Remember to use `qlogin` when doing the exercises.
    a lot, which is why we should use it. 
 
 2. Do SPAdes assemblies for all the genomes that we gave you. Remember to use 
-   --careful
+   `--careful`.
    
 3. Use QUAST and compare each of your SPAdes assemblies to the velvet assembly
    of the same genome. Use the same reference genome and annotation as
