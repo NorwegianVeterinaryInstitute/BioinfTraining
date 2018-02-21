@@ -231,6 +231,10 @@ spades.py -t CPUS --careful --pe1-1 PATH/TO/READ_1.FASTQ -pe1-2 PATH/TO/READ_2.F
 ```
    
 #### QUAST
+
+Note, you can compare as many assemblies as you want, from 1 to hundreds. 
+You need to add them sequentially to the command line, and remember to 
+name them prperly inside the `-l` option.
  
 ```
 quast.py -t CPUS -o OUTPUTDIRECTORY \ 
