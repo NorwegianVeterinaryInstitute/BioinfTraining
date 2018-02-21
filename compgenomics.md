@@ -27,6 +27,8 @@ that are part of the INF-BIOx121 course at the University of Oslo.
 
 [Link to the relevant pages](https://github.com/karinlag/INF-BIOx121/tree/2017/Assembly/practicals) 
 
+You will also find a cheat list for commands at the bottom of this page.
+
 
 ### 2018-02-05 and  2018-02-12 
 
@@ -171,8 +173,26 @@ this command line on our local vm:
        regions where there is a difference between the non-careful and
        the careful assembly?  
    
+   
+### Homework
 
-#### Command line cheat list
+Remember to use `qlogin` when doing the exercises.
+
+1. Redo the velvet assemblies using the command in the cheat list. We did get 
+   to the place where I should have introduced the `shortPaired` option last
+   week, which is why you didn't use it for your assemblies. This option helps
+   a lot, which is why we should use it. 
+
+2. Do SPAdes assemblies for all the genomes that we gave you. Remember to use 
+   --careful
+   
+3. Use QUAST and compare each of your SPAdes assemblies to the velvet assembly
+   of the same genome. Use the same reference genome and annotation as
+   in the exercise. Which assembly is `best` and why?
+   
+
+   
+## Command line cheat list
 
 Note: anything in CAPITAL LETTERS should be replaced with something, usually
 a file name, an output directory name, a fasta file name or something similar.
@@ -180,30 +200,42 @@ You can figure out what the various options do by googling for the manual,
 by using the INFBIO course pages linked to above, or (quite often) typing
 in the name of the program, without any options, and pressing enter.
 
+#### qlogin
 
-##### SPADES
+XX should be replaced with how many hours you want, CPUS with the number
+of cpus you want to use. Remember, if you ask for more than one cpu, you
+should actually use those CPUs when running commands. I.e. for SPAdes
+for instance, you should specify the `-t` option.
 
 ```
-spades.py --careful --pe1-1 PATH/TO/READ_1.FASTQ -pe1-2 PATH/TO/READ_2.FASTQ \  
+`qlogin --account=nn9305k --time=XX:00:00 --ntasks=CPUS --mem-per-cpu=4G`
+```
+#### Velvet
+
+```
+velveth ASM_NAME VALUE_OF_K \  
+-shortPaired -fastq -separate \  
+PATH/TO/READ_1.FASTQ \  
+PATH/TO/READ_2.FASTQ \  
+
+velvetg ASM_NAME -exp_cov auto -cov_cutoff auto  
+
+```
+
+#### SPADdes
+
+```
+spades.py -t CPUS --careful --pe1-1 PATH/TO/READ_1.FASTQ -pe1-2 PATH/TO/READ_2.FASTQ \  
 -o OUTPUTDIRECTORY > LOGFILENAME.LOG 2>&1 
 
 ```
    
-##### QUAST
+#### QUAST
  
-```quast.py -o OUTPUTDIRECTORY \ 
+```
+quast.py -t CPUS -o OUTPUTDIRECTORY \ 
 -R /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.fna \ 
 -G /work/projects/nn9305k/genome_references/genomes/ecoli/GCF_000005845.2_ASM584v2_genomic.gff \ 
 --scaffolds PATH/TO/ASSEMBLY_1.FSA PATH/TO/ASSEMBLY_2.FSA PATH/TO/ASSEMBLY_3.FSA \ 
 -l "ASSEMBLY_1, ASSEMBLY_3, ASSEMBLY_3" > quast.log 2>&1
 ```
-
-
-### Homework
-
-1. Do SPAdes assemblies for all the genomes that we gave you. Use qlogin when
-   you do it, and remember to use --careful
-   
-2. Use QUAST and compare each of your SPAdes assemblies to the velvet assembly
-   of the same genome. Use the same reference genome and annotation as
-   in the exercise. Which assembly is `best` and why?
