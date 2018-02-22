@@ -22,6 +22,11 @@ the subject.
 
 ## Practicals
 
+* [Assembly](assembly.mb)
+* [Genome annotation](annotation)
+
+
+
 For the first part of this course, we will follow the assembly exercises
 that are part of the INF-BIOx121 course at the University of Oslo.
 
