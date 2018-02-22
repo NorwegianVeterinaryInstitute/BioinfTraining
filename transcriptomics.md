@@ -77,3 +77,4 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * Load cuffdiff output from short and long pipeline in R using cummeRbund
 
 ## To do
+* Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
