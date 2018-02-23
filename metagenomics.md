@@ -12,7 +12,7 @@ We will follow the [Mothur MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) for
 * R-studio / Phyloseq tutorial for diversity analysis.
 * Introduction to shotgun metagenomics
 
-## Lecture 5 - February - 2018
+## Lecture 2018 – 5 – February
 
 During this day we start with the Mothur SOP for [MiSeq data](https://www.mothur.org/wiki/MiSeq_SOP) and we will follow the tutorial using the Biolinux mothur version in our virtual box environment.
 
@@ -84,7 +84,28 @@ Use the slurm commands you learned during the introduction course to set-up a co
 
 Make sure you ask for the right mothur module and call the script with your commands from your working directory on abel.
 
+## Lecture 26 - February - 2018
 
-# Future Lectures
-* Running mothur on abel with a slurm script
+We will start with the homework of the last time:
+
+* Prepared questions
+* script with mothur commands
+* slurm script to run the mothur on abel
+
+After that we will start with diversity analysis using mothur. Today we focus on alpha diversity and how to vizualize community evenness using R-studio.
+
+**Recommended literature**
+
+* Lozupone & Knight, 2005 [UniFrac: a New Phylogenetic Method for Comparing Microbial Communities](http://aem.asm.org/content/71/12/8228.long)
+* Lozupone et al., 2007 [Quantitative and Qualitative β Diversity Measures Lead to Different Insights into Factors That Structure Microbial Communities.](http://aem.asm.org/content/73/5/1576.long)
+* Ramette 2007 [Multivariate analyses in microbial ecology](https://academic.oup.com/femsec/article/62/2/142/434668) DOI:10.1111/j.1574-6941.2007.00375.x
+* Buttigieg & Ramette 2014 [A guide to statistical analysis in microbial ecology: a community-focused, living review of multivariate data analyses.](http://onlinelibrary.wiley.com/doi/10.1111/1574-6941.12437/abstract;jsessionid=C7AF57B5E53898E4F0EEA4E177CCF2F7.f02t03) DOI:10.1111/1574-6941.12437
+* Website: [GUide to STatistical Analysis in Microbial Ecology (GUSTA ME)](https://mb3is.megx.net/gustame)
+* R-Tutorial (pdf) [Multivariate Analysis of Ecological
+Communities in R: vegan tutorial] (http://cc.oulu.fi/~jarioksa/opetus/metodi/vegantutor.pdf)
+
+
+
+ 
+## Future Lectures
 * [Phyloseq tutorial](http://deneflab.github.io/MicrobeMiseq/demos/mothur_2_phyloseq.html)
