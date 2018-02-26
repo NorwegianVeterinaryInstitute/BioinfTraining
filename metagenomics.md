@@ -89,10 +89,23 @@ Make sure you ask for the right mothur module and call the script with your comm
 We will start with the homework of the last time:
 
 * Prepared questions
-* script with mothur commands
-* slurm script to run the mothur on abel
+* script with mothur commands [How to extract commands from logfile](extract_from_logfile.md)
+* slurm script to run the mothur on abel [A slurm script to run mothur](run_mothur.md)
 
-After that we will start with diversity analysis using mothur. Today we focus on alpha diversity and how to vizualize community evenness using R-studio.
+After that we will start with diversity analysis using mothur. Today, we focus on alpha diversity and calculate the rarefaction curves as well as several alpha diversity estimators. 
+
+The commands we used: [20180226 MiSeq SOP commands](20180226_MiSeq_SOP commands.md)
+
+`Note!` that the summary.single command in this file uses the `final.shared` file and not the `final.0.03.subsample.shared`file. This gives a better calculation of the standard deviation for the invsimpson index, as well as the other estimators.
+
+### homework
+
+* Clean up the file `commands_edit.txt`and test it on your biolinux machine to see it works correctly.
+*  When the file is clean and works, then upload it to abel using rsync.
+*  Next make sure all files needed for the MiSeq_SOP (Silva, rdp, fastq files) are present on abel
+*  When complete, then run the slurm script we created to run mothur using the abel cluster.
+
+
 
 **Recommended literature**
 
