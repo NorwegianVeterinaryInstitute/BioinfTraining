@@ -94,7 +94,7 @@ We will start with the homework of the last time:
 
 After that we will start with diversity analysis using mothur. Today, we focus on alpha diversity and calculate the rarefaction curves as well as several alpha diversity estimators. 
 
-The commands we used: [20180226 MiSeq SOP commands](20180226_MiSeq_SOP_commands.md)
+The commands we used: [20180226 MiSeq SOP commands](20180226_MISeq_SOP_commands.md)
 
 `Note!` that the summary.single command in this file uses the `final.shared` file and not the `final.0.03.subsample.shared`file. This gives a better calculation of the standard deviation for the invsimpson index, as well as the other estimators.
 
