@@ -9,13 +9,13 @@ You will also find a cheat list for commands at the bottom of this page.
 
 ## Content list
 
-  * [2018-02-05 and 2018-02-12](2018-02-05-and-2018-02-12)
+  * [2018-02-05 and 2018-02-12](#2018-02-05-and-2018-02-12)
 
-  * [2018-02-17](2018-02-17)
+  * [2018-02-17](#2018-02-17)
   
-  * [2018-02-26](2018-02-26)
+  * [2018-02-26](#2018-02-26)
 
-  * [Command cheat list](command-cheat-list)
+  * [Command cheat list](#command-cheat-list)
 
 ## 2018-02-05 and 2018-02-12
 
