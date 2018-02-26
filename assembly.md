@@ -9,15 +9,15 @@ You will also find a cheat list for commands at the bottom of this page.
 
 ## Content list
 
-  * [2018-02-05 and 2018-02-12](2018-02-05-and-2018-02-12)
+  * [2018-02-05 and 2018-02-12](#2018-02-05-and-2018-02-12)
 
-  * [2018-02-17](2018-02-17)
+  * [2018-02-17](#2018-02-17)
   
-  * [2018-02-26](2018-02-26)
+  * [2018-02-26](#2018-02-26)
 
-  * [Command cheat list](command-cheat-list)
+  * [Command line cheat list](#command-line-cheat-list)
 
-## [2018-02-05 and 2018-02-12
+## 2018-02-05 and 2018-02-12
 
 ### Preparatory work
 
@@ -77,7 +77,7 @@ for three genomes each.
 [Record your results here](https://docs.google.com/spreadsheets/d/124Eb6IQ44coSKMH0kRLU18AJ5FZ7-ijwsxqf1NsC9Ys/edit?usp=sharing)
 
 
-## [2018-02-17](#second) 
+## 2018-02-17
 
 ### Today's practical
 
@@ -120,7 +120,7 @@ this command line on our local vm:
      * the SPAdes assembly
      * the SPAdes assembly with `--careful`
      
-2. In your webbrowser, go to the course pages listed above. Find the module
+2. In your web browser, go to the course pages listed above. Find the module
    where we are comparing to a reference. 
    * Have a look at the gff file that contains the genome annotation using 
    `less`. What does it contain? What's the format like?
@@ -178,7 +178,7 @@ Remember to use `qlogin` when doing the exercises.
    in the exercise. Which assembly is `best` and why?
    
 
-## [2018-02-26](#third)
+## 2018-02-26
 
 Today, we will summarize what we've done so far, and see what we have.
 We will also start in on the annotation part. Two people will, for
@@ -198,7 +198,7 @@ for the material we will be working through next.
 
 ### Basic statistics for SPAdes and velvet
 
-Please fill in this (Google docs)[https://docs.google.com/spreadsheets/d/1yWWPxKhfSc3JbwSSaJoxsqx5WGlS4bUVsmqqnMgevas/edit?usp=sharing] 
+Please fill in this [Google docs](https://docs.google.com/spreadsheets/d/1yWWPxKhfSc3JbwSSaJoxsqx5WGlS4bUVsmqqnMgevas/edit?usp=sharing)
 spreadsheet, to get the basic statistics for the assemblies for the six 
 genomes. For this, use the assemblathon script.
 
@@ -224,7 +224,7 @@ Some questions to ask/answer:
   * Which of the assemblies have the higher N50?
   * Which assembly has the highest number of contigs?
   * Which assembly is the longest?
-  * Which one of them have the 
+  * Which one of them have the most unaligned seqence/contigs?
   * Which of the assemblies have the most misassemblies?
   * Which of the assemblies have the most genes found?
  
@@ -234,14 +234,38 @@ Group 3:    F27 and S19
 
 ### Have a look at contig lengths using the jupyter notebook
 
-(Download this jupyter notebook)[https://github.com/karinlag/Lytir/blob/master/lengths.ipynb].
-Remember, to do this, you need to first click "Raw" in the upper right corner, then
-copy the URL. Next, you go to a terminal and type in `wget copied_url`.
+We will use a jupyter notebook to compare the lengths of the contigs of
+our assemblies. To do this, we need a notebook, and two assemblies, one
+assembled with velvet and one with spades.
 
-Replace the file names in the notebook with your own file names.
+[Download this jupyter notebook](https://github.com/karinlag/Lytir/blob/master/lengths.ipynb).
+Remember, to do this, you need to first click "Raw" in the upper right corner, then
+copy the URL. Next, you go to a terminal and type in `wget copied_url`. Using this 
+notebook, we can compare the lengths of 
+
+Next, we need to download the assemblies we want to compare. Use the `scp` command
+mentioned above, or mentioned in the [HPC module](working_with_hpc.md).
+
+Open the notebook by typing in `jupyter notebook lengths.ipynb`. Inside the notebook,
+you need to replace the file names in the notebook with your own file names.
+
+### Homework
+
+1. Run `fastqc` on your genomes. Figure out what the lengths of your reads are.
+   Based on that, google and find the SPAdes manual and figure out what options
+   to spades would be appropriate regarding k-mer sizes. 
+   NOTE: once you've figured out your command line, send a summary of what you
+   found to the biopinf-comp email list.
+2. Re-run SPAdes. Use the options that you have found before. Also, use the
+   coverage cutoff option and set it to auto.
+3. You will compare these SPAdes assemblies to velvet using QUAST. We have put some 
+   ready made velvet-assemblies for you in this directory:
+   `/work/projects/nn9305k/bioinf_course/compgenomics/assemblies/velvet`.
+   Use some of the questions stated above as a guide to figure out what to look at.
+4. Compare the contig lengths using the jupyter notebook as described above.
 
    
-## [Command line cheat list](#cmds)
+## Command line cheat list
 
 Note: anything in CAPITAL LETTERS should be replaced with something, usually
 a file name, an output directory name, a fasta file name or something similar.
