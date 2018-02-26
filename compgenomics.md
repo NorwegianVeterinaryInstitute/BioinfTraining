@@ -22,6 +22,6 @@ the subject.
 
 ## Practicals
 
-* [Assembly](assembly.mb)
+* [Assembly](assembly.md)
 * [Genome annotation](annotation.md)
 
