@@ -15,7 +15,7 @@ You will also find a cheat list for commands at the bottom of this page.
   
   * [2018-02-26](#2018-02-26)
 
-  * [Command cheat list](#command-cheat-list)
+  * [Command line cheat list](#command-line-cheat-list)
 
 ## 2018-02-05 and 2018-02-12
 
@@ -120,7 +120,7 @@ this command line on our local vm:
      * the SPAdes assembly
      * the SPAdes assembly with `--careful`
      
-2. In your webbrowser, go to the course pages listed above. Find the module
+2. In your web browser, go to the course pages listed above. Find the module
    where we are comparing to a reference. 
    * Have a look at the gff file that contains the genome annotation using 
    `less`. What does it contain? What's the format like?
