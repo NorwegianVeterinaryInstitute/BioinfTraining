@@ -9,15 +9,15 @@ You will also find a cheat list for commands at the bottom of this page.
 
 ## Content list
 
-  * [2018-02-05 and 2018-02-12](#first)
+  * [2018-02-05 and 2018-02-12](2018-02-05-and-2018-02-12)
 
-  * [2018-02-17](#second)
+  * [2018-02-17](2018-02-17)
   
-  * [2018-02-26](#third)
+  * [2018-02-26](2018-02-26)
 
-  * [Command cheat list](#cmds)
+  * [Command cheat list](command-cheat-list)
 
-## [2018-02-05 and 2018-02-12](#first)
+## [2018-02-05 and 2018-02-12
 
 ### Preparatory work
 
@@ -178,7 +178,7 @@ Remember to use `qlogin` when doing the exercises.
    in the exercise. Which assembly is `best` and why?
    
 
-## 2018-02-26
+## [2018-02-26](#third)
 
 Today, we will summarize what we've done so far, and see what we have.
 We will also start in on the annotation part. Two people will, for
@@ -241,7 +241,7 @@ copy the URL. Next, you go to a terminal and type in `wget copied_url`.
 Replace the file names in the notebook with your own file names.
 
    
-## Command line cheat list
+## [Command line cheat list](#cmds)
 
 Note: anything in CAPITAL LETTERS should be replaced with something, usually
 a file name, an output directory name, a fasta file name or something similar.
@@ -252,7 +252,7 @@ in the name of the program, without any options, and pressing enter.
 Note, in the command below, long commands will be broken up with a `\`. If you
 write in the commands in one long line, you do not include this slash.
 
-#### qlogin
+### qlogin
 
 XX should be replaced with how many hours you want, CPUS with the number
 of cpus you want to use. Remember, if you ask for more than one cpu, you
@@ -263,7 +263,7 @@ to use `screen` before requesting a `qlogin` session.
 ```
 qlogin --account=nn9305k --time=XX:00:00 --ntasks=CPUS --mem-per-cpu=4G
 ```
-#### Velvet
+### Velvet
 
 ```
 velveth ASM_NAME VALUE_OF_K \  
@@ -275,7 +275,7 @@ velvetg ASM_NAME -exp_cov auto -cov_cutoff auto
 
 ```
 
-#### SPADdes
+### SPADdes
 
 ```
 spades.py -t CPUS --careful --pe1-1 PATH/TO/READ_1.FASTQ -pe1-2 PATH/TO/READ_2.FASTQ \  
