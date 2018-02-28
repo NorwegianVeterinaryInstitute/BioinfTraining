@@ -45,3 +45,24 @@ but are on the virtual machine, not abel.
 
   * [How to install Rstudio](install_Rstudio.md)
   * [How to install Jupyter notebook](install_anaconda.md)
+  
+  
+## Changing your login shell 
+
+When we use a unix terminal, we have a window with a program inside it. This program
+interprets the commands we type in and runs the commands. This program is called a
+shell. There are several different shell programs. Ubuntu the way we have it set up
+right now, will give you a program called `zsh`. In some cases, it is more beneficial
+to have a program that is called `bash` inside our terminals instead. One of these
+cases is for running jupyter notebooks. This is because when we installed anaconda,
+which is how we installed the notebook program, it put some config options into the 
+config files for `bash`. Thus if we use `bash`, these options will then be activated.
+This means that we should change which shell we have. To do this, run the recipe below.
+Note: this is something that you do only once!
+
+1. Open a termininal inside your virtual machine. This should be on the vm, not on abel.
+2. Run the following command: `chsh -s /bin/bash`
+3. It will ask you for a password, this is your vm password, not your abel password nor
+   the manager password. 
+4. You will then get the prompt again, and it will look like nothing happened.
+
