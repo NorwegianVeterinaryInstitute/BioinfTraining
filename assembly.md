@@ -241,7 +241,7 @@ assembled with velvet and one with spades.
 [Download this jupyter notebook](https://github.com/karinlag/Lytir/blob/master/lengths.ipynb).
 Remember, to do this, you need to first click "Raw" in the upper right corner, then
 copy the URL. Next, you go to a terminal and type in `wget copied_url`. Using this 
-notebook, we can compare the lengths of 
+notebook, we can compare the lengths of tje scaffolds in the two assemblies.
 
 Next, we need to download the assemblies we want to compare. Use the `scp` command
 mentioned above, or mentioned in the [HPC module](working_with_hpc.md).
