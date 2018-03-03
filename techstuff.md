@@ -65,4 +65,8 @@ Note: this is something that you do only once!
 3. It will ask you for a password, this is your vm password, not your abel password nor
    the manager password. 
 4. You will then get the prompt again, and it will look like nothing happened.
-
+5. Log in and out again
+6. You should now be able to type in `jupyter notebook` in a terminal, and you should
+   get the notebook opening in a web browser window.
+   
+   
