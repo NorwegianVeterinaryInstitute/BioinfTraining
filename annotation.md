@@ -126,7 +126,7 @@ various databases.
 3. Our genome is an E. coli genome. We will now do a new PROKKA run in such
    a way that we get the right name and also use a genus specifc database
    for our search. Use the following options in addition to what we did above:
-   --outdir,--locustag, --genus, and --usegenus 
+   --outdir, --locustag, --genus, and --usegenus 
 4. Once the run is done, open the Genbank file for the two runs, each in a 
    separate terminal. Find your favorite gene (or `gyrA`) and see if you 
    can see any difference in how they are annotated. 
