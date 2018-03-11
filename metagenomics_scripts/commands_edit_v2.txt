@@ -1,0 +1,161 @@
+# a script with mothur commands to analyse the MiSeq_SOP data.
+
+# command the combine forward and reverse reads
+make.contigs(file=stability.files, processors=32)
+
+# creating a summary file from the output of previous commands
+summary.seqs(fasta=stability.trim.contigs.fasta)
+
+# screen sequences to remove reads with ambigous and too long reads.
+screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, maxambig=0, maxlength=275, summary=stability.trim.contigs.summary)
+
+# create a summary file
+summary.seqs(fasta=current)
+
+# reduce the dataset to process by combining exact duplicate reads using unique.seqs
+unique.seqs(fasta=stability.trim.contigs.good.fasta)
+
+# make a count file using the names file produced in previous file
+count.seqs(name=stability.trim.contigs.good.names, group=stability.contigs.good.groups)
+
+# create a summary file
+summary.seqs(count=stability.trim.contigs.good.count_table)
+
+# run the pcr command to select the region of the 16S rRNA
+pcr.seqs(fasta=silva.bacteria.fasta, start=11894, end=25319, keepdots=F, processors=32)
+
+# this function does not work on the local machine has to be done manually
+# rename.file(input=silva.bacteria.pcr.fasta, new=silva.v4.fasta)
+
+#create a summary file of the silva v4 region dataset
+summary.seqs(fasta=silva.v4.fasta)
+
+# aligning amplicon sequence to silva v4 region
+align.seqs(fasta=stability.trim.contigs.good.unique.fasta, reference=silva.v4.fasta)
+
+# creating a summary file
+summary.seqs(fasta=stability.trim.contigs.good.unique.align, count=stability.trim.contigs.good.count_table)
+
+# screen sequence to remove sequences with too long homopolymers and not aligning to the v4 region correctly
+screen.seqs(fasta=stability.trim.contigs.good.unique.align, count=stability.trim.contigs.good.count_table, summary=stability.trim.contigs.good.unique.summary, start=1968, end=11550, maxhomop=8)
+
+# create a summary file
+summary.seqs(fasta=stability.trim.contigs.good.unique.good.align, count=stability.trim.contigs.good.good.count_table, processors=32)
+
+# filtering empty columns from the alignment file
+filter.seqs(fasta=stability.trim.contigs.good.unique.good.align, vertical=T, trump=.)
+
+# rerunning unique.seqs to combine exact duplicate files
+unique.seqs(fasta=stability.trim.contigs.good.unique.good.filter.fasta, count=stability.trim.contigs.good.good.count_table)
+
+# running precluster to remove PCR and sequencing errors from the dataset
+pre.cluster(fasta=stability.trim.contigs.good.unique.good.filter.unique.fasta, count=stability.trim.contigs.good.unique.good.filter.count_table, diffs=2)
+
+# running vsearch to remove chimeric 16s rRNA sequences. 
+# Note will work on abel, but will cause name changes in the commands after this
+# chimera.vsearch(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.count_table)
+
+# running uchime on biolinux
+chimera.uchime(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.count_table)
+
+# remove chimeric sequeces
+remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta, accnos=stability.trim.contigs.good.unique.good.filter.unique.precluster.uchime.accnos, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.count_table)
+
+# getting overview of dataset
+summary.seqs(fasta=current, count=current)
+
+# classifying sequences to remove unwanted lineages
+classify.seqs(fasta=current, count=current, taxonomy=trainset9_032012.pds.tax, reference=trainset9_032012.pds.fasta, cutoff=80)
+
+# removing unwanted lineages
+remove.lineage(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.count_table, taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.taxonomy, taxon=Chloropast-Mitochondria-unknown-Archaea-Eukaryota)
+
+#generate a summary taxonomy file
+summary.tax(taxonomy=current, count=current)
+
+#generate a summary file of the final clean dataset
+summary.seqs(fasta=current, count=current)
+
+#ERROR ANALYSIS SECTION CAN be removed for dataset without a mock community
+
+# selecting the mock community sequences
+get.groups(count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.count_table, fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, groups=Mock)
+
+# calculating the sequencing error.
+seq.error(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, reference=HMP_MOCK.v35.fasta, aligned=F)
+
+# calculating the pairwise sequence distances
+dist.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta, cutoff=0.03)
+
+# use distances to cluster sequences
+cluster(column=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.dist, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table)
+
+# generate OTU table at the 0.03 similaritt level
+make.shared(list=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.list, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, label=0.03)
+
+# generate rarefaction datasets for plotting the diversity of the mock community
+rarefaction.single(shared=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.shared)
+
+
+#SECTION OTU GENERATION OF CLEANED DATASETS
+
+# removing the mock community
+remove.groups(count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.count_table, fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy, groups=Mock)
+
+# calculate distances with a maximum distances of 0.20
+dist.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta, cutoff=0.20)
+
+# cluster sequences based on distances, with average neighbor joing as the method
+cluster(column=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.dist, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, method=average, cutoff=0.20)
+
+# make the OTU table for only the 97% sequence similarity cut-off (0.03)
+make.shared(list=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.list, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, label=0.03)
+
+# classify the otu sequences at the 0.03 level
+classify.otu(list=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.list, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table, taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy, label=0.03)
+
+
+### SECTION RENAMING THE FINAL OTU DATASETS TO PREPARE FOR DATA-ANALYSIS
+
+# renaming files
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.dist final.dist)
+
+
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta final.fasta)
+
+
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.list final.list)
+
+
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.0.03.cons.taxonomy final.0.03.taxonomy)
+
+
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.0.03.cons.tax.summary  final.0.03.tax.summary)
+
+
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.shared final.shared)
+
+
+system(cp stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.count_table  final.count_table)
+
+
+### SECTION RUNING ALPHA DIVERSITY ANALYSIS
+
+
+# counting sequences per samples in the final files
+count.groups(shared=final.shared)
+
+#subsampling all samples to the smallest sample
+sub.sample(shared=final.shared, size=2401)
+
+# calculating alpha diversity using rarefaction curves
+rarefaction.single(shared=final.0.03.subsample.shared, calc=sobs, freq=100)
+
+# calculation alpha diversity using diversity estimators, using subsampling to the smallest dataset
+summary.single(shared=final.0.03.subsample.shared, calc=nseqs-coverage-sobs-invsimpson, subsample=2401)
+
+
+# quitting
+quit()
+
+
