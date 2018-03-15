@@ -2,6 +2,26 @@
 
 ## 2018-03-19
 
+### MLST databases
+
+Genes shared between MLST schemes:
+
+Escherichia coli#1	7413 profiles	2018-03-15
+adk; fumC; gyrB; icd; mdh; purA; recA
+
+Escherichia coli#2	851 profiles	2018-03-15
+dinB; icdA; pabB; polB; putP; trpA; trpB; uidA
+
+Maybe one, icd
+
+Basic thought: we are finding what we are looking for, i.e. 
+we have to check what we're looking for. 
+
+Camilla can explain why we use #1.
+
+
+
+
 
 
 

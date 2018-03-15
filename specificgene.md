@@ -93,7 +93,73 @@ in the session merge the results for the two.
 
 We are first going to do sequence typing for each of our genomes.
 
+### Learning about the PUBMLST schemes and sequences
+
+We will first explore the website and the MLST schemes a bit.
+
+1. Go to the PUBMLST website mentioned above. 
+2. Click on `Download MLST definitions`
+3. Scroll down, and find the two Escherichia coli schemes. 
+4. Question: Can you figure out how many genes are shared between the 
+   two schemes?
+5. Click on `profiles` under one of the schemes. This is what a MLST
+   scheme looks like.
+6. Now go back to the previous page, and click on one of the genes in
+   the #1 scheme. You will now get a long list of fasta sequences on
+   your screen. As you can see, each of them have a number behind them.
+   These numbers correspond to the numbering in the MLST scheme.
+   
+7. OPTIONAL: download this file by right-clicking on the window and
+   selecting `Save as...`.
+8. From within the VM, go to the menu, and click `Applications - Bioinformatics - Jalview`.
+9. Use the `File` menu and load in the file you just downloaded via `Input alignment - From file`. 
+   Remember, yousaved it as text, so you have to ask it to show `All files`.
+10. Go to the `Color` menu and select `Percentage identity`. You will now see
+   the differences between the sequences.
+11. Close `Jalview`.
+
+### Running MLST ARIBA
 
 
+1. Go read the ARIBA manual and have a look at the presentation made by your
+   fellow students. Try to figure out the order the following commands have
+   to be run in:
+   * ariba pubmlstget "YOU NEED TO WRITE SOMETHING HERE" mlstdb
+   * ariba pubmlstspecies
+   * ariba run mlstdb/ref\_db reads\_1.fq reads\_2.fq ariba\_out
+2. Figure out where the reads for your isolate is.
+3. Run the commands in the order they should be in.
+4. When you are done, you should have two files for your isolate.
+   Open each of them with `less` and have a look at them.
+5. Question: are your isolates from the same or different sequence
+   types? Note, you can find explanations of the files on the 
+   ARIBA wiki website.
 
-Acthman is #1, use this
+!!!! something here about merging results, and visualization with phyloviz
+
+
+## Antibiotic resistance finding
+
+### AMR databases
+
+!!!! something with showing them the website for CARD and Resfinder, and
+showing them that one has one thing, and the other has the ther things.
+
+### Running AMR ARIBA
+
+1. Go read the ARIBA manual and have a look at the presentation made by your
+   fellow students. Try to figure out the order the following commands have
+   to be run in:
+   * ariba getref card out.card
+   * ariba run out.card.prepareref reads1.fastq reads2.fastq out.run
+   * ariba prepareref -f out.card.fa -m out.card.tsv out.card.prepareref
+2. Figure out where the reads for your isolate is.
+3. Run the commands in the order they should be in.
+4. Go into the result directory. Have a look at the `report.tsv` file. Answer
+   the following questions. Note. the information found for the `run` and
+   `prepareref` commands can be useful for finding answers.
+   * Which AMR genes were found?
+   * Are these presence/absence AMR genes or mutation AMR genes?
+   * If there are any mutation AMR genes, which mutations do you have?
+5. !!!! copy neighbhorfile, do summary, do fandagno.
+   
