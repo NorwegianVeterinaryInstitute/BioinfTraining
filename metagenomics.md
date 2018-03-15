@@ -140,7 +140,7 @@ Homework for monday 12 March 2018:
 
 
 ## lecture 19 - March 2018
-During this session, we will work on analyzing the Mothur MiSeq SOP data using the R-package Phyloseq using multivariate statistics. [The workflow of this tutorial](phyloseq_tutorial.html). 
+During this session, we will work on analyzing the Mothur MiSeq SOP data using the R-package Phyloseq using multivariate statistics. [The workflow of this tutorial](phyloseq_tutorial.md). 
 
 
 ## Future Lectures
