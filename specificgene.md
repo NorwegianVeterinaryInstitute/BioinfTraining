@@ -168,7 +168,7 @@ that after downloading data, it will format the contents. Throughout this proces
 it might then eliminate some genes that come wrongly formatted from the database.
 Thus, this is a second step where we need to check what we're searching with. 
 
-### Running AMR ARIBA!!!
+### Running AMR ARIBA
 
 1. Go read the ARIBA manual and have a look at the presentation made by your
    fellow students. Try to figure out the order the following commands have
