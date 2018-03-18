@@ -24,4 +24,5 @@ the subject.
 
 * [Assembly](assembly.md)
 * [Genome annotation](annotation.md)
+* [Specific gene annotation](specificgene.md)
 

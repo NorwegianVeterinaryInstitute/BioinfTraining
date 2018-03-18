@@ -1,6 +1,63 @@
 # Teaching notes
 
-## 2018-03-05
+## 2018-03-19
+
+### MLST databases
+
+Genes shared between MLST schemes:
+
+Escherichia coli#1	7413 profiles	2018-03-15
+adk; fumC; gyrB; icd; mdh; purA; recA
+
+Escherichia coli#2	851 profiles	2018-03-15
+dinB; icdA; pabB; polB; putP; trpA; trpB; uidA
+
+Maybe one, icd
+
+Basic thought: we are finding what we are looking for, i.e. 
+we have to check what we're looking for. 
+
+Camilla can explain why we use #1.
+
+READS:
+
+Goal ist to show:
+
+- specific gene finding
+  - two methods
+    - assembly, then blast
+    - mapping, then local assembly then comparison
+  - using asm first may be risky, may transport asm errors into prediction
+  - why not just base ourselves on prokka - specific tools give info at greater specificity
+  - how ariba actually works
+  - importance of databases  
+- MLST sequences
+  - what is an MLST sequence
+  - MLST schemes
+  - MLSt prediction from wgs data
+  - ariba output
+  - phyloviz?
+- AMR prediction
+  - sort out AMR genes vs mutations
+  - ariba output of AMR genes
+
+
+Practical
+
+- mlst prediction of our test genome
+- amr prediction of our test genome
+
+//////////////////////////
+
+
+### MLST ariba finding
+
+
+
+
+
+
+## 2018-03-12
 
 ### Homework
 
