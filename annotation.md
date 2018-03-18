@@ -135,7 +135,10 @@ various databases.
 
 The assemblies for today's homework can be found here:
 
-`/work/projectsnn9305k/bioinf_course/compgenomics/assemblies/homework/spades_covcutoff`
+`/work/projects/nn9305k/bioinf_course/compgenomics/assemblies/homework/spades_covcutoff`
+
+Here, you will find six directories, and inside of those you will find the assemblies,
+that is, the scaffolds.fasta files.
 
 Today's homework consist of two parts:
 
