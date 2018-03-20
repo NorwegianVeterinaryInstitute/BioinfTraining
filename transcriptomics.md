@@ -78,3 +78,9 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 
 ## To do
 * Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
+
+# Day 5
+* Introduction to counting reads
+
+## To do
+* Link to featureCounts manual: http://bioinf.wehi.edu.au/featureCounts/
