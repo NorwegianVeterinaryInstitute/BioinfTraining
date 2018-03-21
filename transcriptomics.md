@@ -84,3 +84,15 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 
 ## To do
 * Link to featureCounts manual: http://bioinf.wehi.edu.au/featureCounts/
+
+# Day 6
+* DESeq2 and cummeRbund
+
+## To do
+* Link to DESeq2 webpage: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
+* Link to DESeq2 manual: https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+* Link to cummeRbund webpage: http://compbio.mit.edu/cummeRbund/
+* Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
+
+* Link to DESeq2 Rscript:
+* Link to cummeRbund Rscript: 
