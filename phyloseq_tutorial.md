@@ -5,10 +5,18 @@ By Dr. Thomas H.A. Haverkamp
 
 This is a tutorial on the usage of an r-packaged called [Phyloseq](https://joey711.github.io/phyloseq/index.html). It is a large R-package that can help you explore and analyze your microbiome data through vizualizations and statistical testing. In this tutorial we will use the data produced in the [Mothur MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP). It is a small and simple dataset and excellent for teaching purposes. The Phyloseq package can handle much more complex datasets, but even with this limited dataset, we can experience the usefulness of Phyloseq. Phyloseq has a wide range of options and can analyze data produced from various sources such as mothur, qiime and from biome-formatted datasets. It can merge different datasets (data-types) into a single phyloseq object (more on that below). It comes with a variety of [example datasets](https://joey711.github.io/phyloseq/Example-Data.html#load_packages) that can easily be accessed after loading the phyloseq package an all it's dependencies.
 
-This tutorial starts by first doing a little work in Mothur in order to make the tutorial a little more interesting, and show a functionality that is nice for exploring microbiome datasets.
+This tutorial is written for use in the biolinux environment. However, if you are working in a different environment (e.g. Windows, Mac OSX, Linux), you can still follow this tutorial. Make sure your R-version is up to date. (minimum R-version that worked for me: 3.4.1)
+
+The tutorial starts by first doing a little work in Mothur in order to make the tutorial a little more interesting, and show a functionality that is nice for exploring microbiome datasets.
+
+The next step if for the biolinux. Phyloseq will not install properly on the biolinux version 8.0.7, since that has an old version of R (version 3.2.0). Thus, we need to upgrade R to the newest available version.
+
+After the preperatory work, and after making sure that the right R version (version 3.4.1 or above) is working, we start setting up the R environment. That means installation of various R-packages including phyloseq.
+
+**Please send any comments / questions to my gmail.com address: Thhaverk**
 
 Acknowledgments.
-----------------
+================
 
 This tutorial was created using the invaluable help of google and many interesting other tutorials, or even complete overviews of the R-code from specific publications. Without those sources I could not have made the current page. Below you find a few of the websites (many of them written in R-markdown) which I would like to point out, since they were excellent and inspired me to work out this tutorial. This tutorial was created for the [bioinformatics course](https://norwegianveterinaryinstitute.github.io/BioinfTraining/) at the Norwegian veterinary institute.
 
@@ -17,10 +25,8 @@ This tutorial was created using the invaluable help of google and many interesti
 -   [Tutorial by Michelle Berry: Microbial Community Diversity Analysis Tutorial with Phyloseq](http://deneflab.github.io/MicrobeMiseq/demos/mothur_2_phyloseq.html)
 -   [Multivariate analysis in R](https://rstudio-pubs-static.s3.amazonaws.com/246172_1930ddfb5f064b2bab54b11016ab407e.html)
 
-Please send any comments / questions to my gmail.com address: Thhaverk
-
 A little mothur pre-work before the tutorial
---------------------------------------------
+============================================
 
 The prework consists of making a tree from the OTU sequences found in the entire dataset. The reason for this is that with phyloseq we can vizualize which OTUs are found in the microbiome study samples, or the treatment, and identify if there closely related OTUs present in other samples or other treatments. This can be helpful for exploring how your samples relate to each other, and how widespread the OTUs are.
 
@@ -63,26 +69,108 @@ The **clearcut** command used the distance matrix to produce the \*.tre file, wh
 
 ------------------------------------------------------------------------
 
-Setting up R-studio to work with the phyloseq package.
-------------------------------------------------------
+Setting up R to work with the phyloseq package.
+===============================================
 
-Phyloseq is a big R-package and it needs quite a few other R-packages in order to function appropriately. We therefor start with installing all these packages and get them up to date. Note, that we preferably want the latest versions.
+Phyloseq is a big R-package and it needs quite a few other R-packages in order to function appropriately. We therefor start with first checking which version of R we have, and then we will be installing all the required packages and get them up to date.
+
+#### Checking the r version. BIOLINUX
+
+Open R-studio and in the console type:
+
+``` r
+version
+```
+
+    ##                _                           
+    ## platform       x86_64-apple-darwin15.6.0   
+    ## arch           x86_64                      
+    ## os             darwin15.6.0                
+    ## system         x86_64, darwin15.6.0        
+    ## status                                     
+    ## major          3                           
+    ## minor          4.1                         
+    ## year           2017                        
+    ## month          06                          
+    ## day            30                          
+    ## svn rev        72865                       
+    ## language       R                           
+    ## version.string R version 3.4.1 (2017-06-30)
+    ## nickname       Single Candle
+
+    # or for only the version type
+    R.version.string
+
+This shows that I am running R-version 3.4.1 and an x86\_64-apple system. That is the version that worked for me. However, if you are running *biolinux* version 8.0.7 we first need to do a bit of updating of the R-system since that system is using an old version of R (version 3.2.0), which is not compatible with phyloseq. So close R-studio, and log-out of your user account on the biolinux system.
+
+Installing a newer version of R on Biolinux
+-------------------------------------------
+
+The task here is: first uninstall R to clean-up the environment, and then we need to install the latest version of R (currently 3.4.4) that is available for the Ubuntu version 14.04 lTS ("Trusty"). It is not easy but it is a necessary step, and without this, the whole tutorial can not be done within biolinux.
+
+### The manual
+
+Please follow this as closely as possible!!!
+
+1.  Log into the biolinux machine as the **system manager**, and make sure the other users (You) are not active as well.
+2.  We first need to uninstall R program, before we can install a new one. Go to the application manager program (on the left side of your screen, a icon that looks like a bag with an "A"). When it is started use the search box to type "R " (wit a space after the R). Then select uninstall. After this is finished restart the biolinux machine.
+3.  Restart the biolinux machine and make sure you log in as the **system manager**.
+4.  Open a terminal and type:
+
+        sudo nano /etc/apt/sources.list
+
+    This opens **nano** and because we use **sudo** it allows us to edit the sources.list file. The tool called **apt**, use this list to find the software it needs to update. We need to get a new R version and by adding the following line we enable apt to install an newer version of R on our biolinux system. So scroll to the last line of the file add an empty line and then add the following three lines:
+
+        ## Adding the CRAN mirror from the University of Bergen, to 
+        ## obtain the latest R version
+        deb https://cran.uib.no/bin/linux/ubuntu trusty/
+
+    After typing this, save the file and close nano. Now we have added a internet address where the the tool apt can find the latest version of R.
+
+5.  Next, do we use the tool apt to update the signature files needed for identifying where we can download R and all kinds of other software. In the terminal we now type:
+
+        sudo apt-get update
+
+    When this is finished we see a bunch or error messages. Those indicate that apt-get could not identify certain websites since signature keys were too old. Since we updated the **sources.list** file with a new website, we should not have this problem for the particular website we added to that file.
+
+6.  Next we are going to install R version 3.4.4, which is called: "Someone to Lean On". R versions come with funky names.
+
+    After running the next command you will get three questions, you should answer them like this: "Yes", "Yes", "N". The command to install R is:
+
+        sudo apt-get install r-base
+
+7.  When this is finished, type "R" on the commandline. That should start a new version of R in the terminal. Use "quit()" to stop R again.
+
+8.  Log out of the system manager account and log in to your own user account, and then start-up R-studio. Now we are ready to start with the phyloseq tutorial.
+
+Installing of phyloseq and it's dependencies.
+=============================================
+
+Note, that we preferably want the latest versions.
 
 ##### Installing phyloseq and all the dependecies
 
-We are not installing the phyloseq version from the bioconductor website, but we will install the newest version from the github page where an updated version is present at the time of creating this tutorial. So open up R-studio and in there open up a blank "R script". Start by writting these commands to install phyloseq in the R script.
+We are installing the phyloseq version from the bioconductor website and we want to do that in such a way that it is installed in the root directory.
+
+Start R-studio and opena blank "R script". Start by writting these commands to install phyloseq in the R script. When asked to install in a personal library, say "NO"
 
 ``` r
 #installing the phyloseq package
-install.packages("devtools")
-devtools::install_github("joey711/phyloseq")
+source('http://bioconductor.org/biocLite.R')
+biocLite('phyloseq')
 ```
+
+This takes quite some time, since phyloseq needs a lot of additional packages in order to function.
+
+Now close Rstudio and then open it again. Somehow there is a bug which does not show the installed packages for this step.
+
+\`\`\`
 
 After writting each command use \*\*ctrl return\* to run the commands.
 
 ##### Installing ggplot (an advanced graphic package) and its dependencies
 
-Next we want to install ggplot2, which is a R-package able to produce fancy graphs that can be tweaked in almost anyway we can think of. Here are [examples of ggplot2 graphs](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html) together with code on how they were created. Feel free to try out the code yourself, the data needed is available in the scripts.
+Next we could install ggplot2, which is a R-package able to produce fancy graphs that can be tweaked in almost anyway we can think of. Here are [examples of ggplot2 graphs](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html) together with code on how they were created. Feel free to try out the code yourself, the data needed is available in the scripts. Below are the commands for the installation of ggplot2, but phyloseq has installed that already. See in the **packages** list in Rstudio if ggplot2 is installed.
 
 ``` r
 # installing ggplot2
@@ -91,14 +179,11 @@ install.packages("ggplot2", type="source")
 
 ##### Installing additional packages
 
-Phyloseq relies heavily on extra packages for manipulation of datasets, manipulation of graphs, and most importantly for the diversity analysis of our microbiome data.
+Phyloseq relies heavily on extra packages for manipulation of datasets, manipulation of graphs. So we add to packages that are needed as well.
 
 ``` r
 # installing additional packages
-install.packages("vegan")  # ecological diversity analysis
 install.packages("dplyr") # data manipulation packages
-install.packages("scales")  # scale functions for vizualizations
-install.packages("reshape2")  # data manipulation package
 install.packages("cowplot") # to combine multiple ggplot images into one figure
 ```
 
@@ -107,20 +192,20 @@ Now have we installed all the R-packages needed for this tutorial and we are rea
 ------------------------------------------------------------------------
 
 Setting up the R environment for the analysis.
-----------------------------------------------
+==============================================
 
-After installing all the packages, we need to load them into the R environment using the command **library**.
+After installing all the packages needed for the phyloseq tutorial, we need to load them into the R environment using the command **library**.
 
 ``` r
 # loading libraries
 library(ggplot2)
-library(vegan)
+library(vegan) # ecological diversity analysis
 library(dplyr)
-library(scales)
+library(scales) # scale functions for vizualizations
 library(grid)
-library(reshape2)
-library(phyloseq)
+library(reshape2) # data manipulation package
 library(cowplot)
+library(phyloseq)
 ```
 
 The next step is to set-up our system. We direct R to use a specific working directory, where our data is stored. And we set-up a theme, which we can use to make our graphs pretty. Today we use a simple theme that makes that the graphs have a white background and black lines. For more on ggplot2 themes I recommend [this tutorial](http://www.sthda.com/english/wiki/ggplot2-themes-and-background-colors-the-3-elements).
@@ -192,11 +277,12 @@ map$time <- c("early", "early", rep("late", 10), rep("early", 7))
 # it is important to set the seed, to make the results reproducible
 set.seed(1)
 
+# adding FAKE body weights
 map$body_weight <- c(11, 12, 
                      round(rnorm(10, mean =40, sd = 1),digits=2),
                      seq (13, 30, by = 2.5)
                      )
-
+#checking the dataframe "map"
 str(map)
 ```
 
@@ -235,6 +321,8 @@ The next step is that we merge the metadata file with the phyloseq formated file
 ``` r
 # Merge mothurdata object with sample metadata
 mothur_merge <- merge_phyloseq(mothur_data, map)
+
+# showing the object mothur_merge
 mothur_merge
 ```
 
@@ -325,6 +413,7 @@ colnames(tax_table(mothur_merge))
 Now we will filter out Eukaryotes, Archaea, chloroplasts and mitochondria, because we only intended to amplify bacterial sequences. You may have done this filtering already in mothur, but it’s good to check you don’t have anything lurking in the taxonomy table. I like to keep these organisms in my dataset when running mothur because they are easy enough to remove with Phyloseq and sometimes I’m interested in exploring them. We will then create our final phyloseq object called: **"mouse\_data"**.
 
 ``` r
+# create object mouse_data
 mouse_data <- mothur_merge %>%
   subset_taxa(
     Kingdom == "Bacteria" &
@@ -332,6 +421,7 @@ mouse_data <- mothur_merge %>%
     Class   != "Chloroplast"
   )
 
+#show mouse data
 mouse_data
 ```
 
@@ -379,6 +469,7 @@ smin <- min(sample_sums(mouse_data))
 smean <- mean(sample_sums(mouse_data))
 smax <- max(sample_sums(mouse_data))
 
+# printing the results
 cat("The minimum sample read count is:",smin)
 cat("The average sample read count is:",smean)
 cat("The maximum sample read count is:",smax)
@@ -415,8 +506,10 @@ With scaled, or beter, rarefied data we can then calculate the alpha diversity f
 alpha_meas = c("Observed", "Chao1", "ACE", "Shannon", "Simpson", "InvSimpson")
 
 # plotting the alpha diversity estimators and color by time point
-# plotting the alpha diversity estimators and color by time point
+# adding plotting information to object "p"
 p <- plot_richness(mouse_scaled, "time", measures=alpha_meas, color="time")
+
+# plot data from "p" as a boxplot with ggplot2
 p + geom_boxplot(data=p$data, aes(x=time, color=NULL))
 ```
 
