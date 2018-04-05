@@ -5,6 +5,17 @@ We will follow the protocol described in [Tophat2 bioinformatic protocol](https:
 
 ![Trans_pipeline](transcriptomics_scripts/Trans_pipeline.jpeg)
 
+# For simulated dataset:
+* Tophat2 ---> cufflinks ---> cuffmerge ---> cuffdiff ---> cummeRbund
+* Tophat2 ---> cuffdiff ---> cummeRbund
+* Tophat2 ---> featureCounts ---> DESeq2/edgeR
+
+# For real life dataset
+(Just because HISAT2 is new and much faster than Tophat2): 
+* HISAT2 ---> StringTie ---> Ballgown (There is an option to follow something similiar to cuffmerge as well)
+* HISAT2 ---> cufflinks pipeline (with or without cuffmerge) ---> cummeRbund
+* HISAT2 ---> featureCounts ---> DESeq2/edgeR
+
 # Day 1
 * Introduction of transcriptomic analyses 
 * Discusssion regarding reference-based and de novo approaches
