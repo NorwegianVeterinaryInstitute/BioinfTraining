@@ -3,6 +3,8 @@
 # Protocol
 We will follow the protocol described in [Tophat2 bioinformatic protocol](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3334321/) published in [Nature protocol, 2012](https://www.nature.com/articles/nprot.2012.016) for this course. 
 
+![Trans_pipeline](transcriptomics_scripts/trans_pipeline.jpeg)
+
 # Day 1
 * Introduction of transcriptomic analyses 
 * Discusssion regarding reference-based and de novo approaches
