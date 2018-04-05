@@ -15,7 +15,7 @@ We will follow the protocol described in [Tophat2 bioinformatic protocol](https:
 * HISAT2 ---> StringTie ---> Ballgown (There is an option to follow something similiar to cuffmerge as well)
 * HISAT2 ---> cufflinks pipeline (with or without cuffmerge) ---> cummeRbund
 * HISAT2 ---> featureCounts ---> DESeq2/edgeR
-* HISAT2 worklow pipeline (publication)[https://www.nature.com/articles/nprot.2016.095]
+* HISAT2 worklow pipeline [publication](https://www.nature.com/articles/nprot.2016.095)
 
 # Day 1
 * Introduction of transcriptomic analyses 
