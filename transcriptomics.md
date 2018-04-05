@@ -94,5 +94,5 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * Link to cummeRbund webpage: http://compbio.mit.edu/cummeRbund/
 * Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
 
-* Link to DESeq2 Rscript: (transcriptomics_scripts/DESeq2.R)
-* Link to cummeRbund Rscript: (transcriptomics_scripts/cummeRbund.R)
+* Link to DESeq2 Rscript: [DESeq2.R](transcriptomics_scripts/DESeq2.R)
+* Link to cummeRbund Rscript: [cummeRbund.R](transcriptomics_scripts/cummeRbund.R)
