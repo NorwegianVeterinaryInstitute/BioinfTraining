@@ -140,7 +140,15 @@ alignment.
    more accurate. 
 3. Go into the new directory, and see which new files that
    have been produced.
-4. Use either 'Jalview', or if that one is slow'
+4. Use either 'Jalview', or if that one is slow, 'Seaview' to 
+   look at the alignment file. This file can then be used for
+   for instance phylogenies based on core genes.
+   
+   
+## Homework
+
+Compare the pangenome tree you got with the MLST results from 
+the ARIBA session. Do they cluster differently or the same?
 
 
 
