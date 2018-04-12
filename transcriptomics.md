@@ -92,22 +92,22 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * Load cuffdiff output from short and long pipeline in R using cummeRbund
 
 ## To do
-* Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
+* Link to cummeRbund manual: [Manual](http://compbio.mit.edu/cummeRbund/manual_2_0.html)
 
 # Day 5
 * Introduction to counting reads
 
 ## To do
-* Link to featureCounts manual: http://bioinf.wehi.edu.au/featureCounts/
+* Link to featureCounts manual: [Manual](http://bioinf.wehi.edu.au/featureCounts)
 
 # Day 6-7
 * DESeq2 and cummeRbund
 
 ## To do
-* Link to DESeq2 webpage: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
-* Link to DESeq2 manual: https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
-* Link to cummeRbund webpage: http://compbio.mit.edu/cummeRbund/
-* Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
+* Link to DESeq2 webpage: [Link](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+* Link to DESeq2 manual: [Link](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
+* Link to cummeRbund webpage: [Link](http://compbio.mit.edu/cummeRbund)
+* Link to cummeRbund manual: [Link](http://compbio.mit.edu/cummeRbund/manual_2_0.html)
 
 * Link to DESeq2 Rscript: [DESeq2.R](transcriptomics_scripts/DESeq2.R)
 * Link to cummeRbund Rscript: [cummeRbund.R](transcriptomics_scripts/cummeRbund.R)
