@@ -112,8 +112,8 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * Link to DESeq2 Rscript: [DESeq2.R](transcriptomics_scripts/DESeq2.R)
 * Link to cummeRbund Rscript: [cummeRbund.R](transcriptomics_scripts/cummeRbund.R)
 
-* Link to youtube video (FPKM, RPKM and TPM): https://www.youtube.com/watch?v=TTUrtCY2k-w
-* Link to youtube video (DESeq2 Normalisation): https://www.youtube.com/watch?v=UFB993xufUU
+* Link to video on FPKM, RPKM and TPM): [Youtube video](https://www.youtube.com/watch?v=TTUrtCY2k-w)
+* Link to video on DESeq2 Normalisation: [Youtube video](https://www.youtube.com/watch?v=UFB993xufUU)
 
 # Day 8
 * Gene set enrichment analysis
