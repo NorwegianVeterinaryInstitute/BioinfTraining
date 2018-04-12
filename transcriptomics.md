@@ -110,3 +110,6 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 
 * Link to DESeq2 Rscript: [DESeq2.R](transcriptomics_scripts/DESeq2.R)
 * Link to cummeRbund Rscript: [cummeRbund.R](transcriptomics_scripts/cummeRbund.R)
+
+https://www.youtube.com/watch?v=UFB993xufUU
+https://www.youtube.com/watch?v=TTUrtCY2k-w
