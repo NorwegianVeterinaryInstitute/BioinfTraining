@@ -99,7 +99,7 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 ## To do
 * Link to featureCounts manual: http://bioinf.wehi.edu.au/featureCounts/
 
-# Day 6
+# Day 6-7
 * DESeq2 and cummeRbund
 
 ## To do
@@ -111,5 +111,18 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * Link to DESeq2 Rscript: [DESeq2.R](transcriptomics_scripts/DESeq2.R)
 * Link to cummeRbund Rscript: [cummeRbund.R](transcriptomics_scripts/cummeRbund.R)
 
-https://www.youtube.com/watch?v=UFB993xufUU
-https://www.youtube.com/watch?v=TTUrtCY2k-w
+* Link to youtube video (FPKM, RPKM and TPM): https://www.youtube.com/watch?v=TTUrtCY2k-w
+* Link to youtube video (DESeq2 Normalisation): https://www.youtube.com/watch?v=UFB993xufUU
+
+# Day 8
+* Gene set enrichment analysis
+* Gene Ontology
+* Pathway analyses - [KEGG](http://www.kegg.jp/)
+
+* [Gorilla](http://cbl-gorilla.cs.technion.ac.il)
+* [g:Profiler](https://biit.cs.ut.ee/gprofiler/index.cgi)
+* [Amigo](amigo.geneontology.org)
+* [DAVID](https://david.ncifcrf.gov/home.jsp)
+* [PANTHER](http://pantherdb.org)
+
+Also, you get ortholog information from ENSEMBL
