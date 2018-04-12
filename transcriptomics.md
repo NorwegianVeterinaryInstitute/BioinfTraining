@@ -60,7 +60,7 @@ $ cufflinks -p 16 -o <cufflinks_output_folder_name> <tophat_output_folder_name>/
 
 ## To do
 * Run cuffmerge and cuffdiff on Day 2's cufflinks output
-* create a text file and call it *assemblies.txt* and it should contain the information below
+* create a text file and call it assemblies.txt and it should contain the information below
 ```
 $ cat assemblies.txt
 <cufflinks_output_folder_name_for_Con1_Rep1>/transcripts.gtf
