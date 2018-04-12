@@ -99,7 +99,7 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 ## To do
 * Link to featureCounts manual: http://bioinf.wehi.edu.au/featureCounts/
 
-# Day 6
+# Day 6-7
 * DESeq2 and cummeRbund
 
 ## To do
