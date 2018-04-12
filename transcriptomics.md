@@ -64,12 +64,12 @@ $ cufflinks -p 16 -o <cufflinks_output_folder_name> <tophat_output_folder_name>/
 
 ```
 $ cat assemblies.txt
-cufflinks_output_folder_name_for_Con1_Rep1/transcripts.gtf
-cufflinks_output_folder_name_for_Con1_Rep2/transcripts.gtf
-cufflinks_output_folder_name_for_Con1_Rep3/transcripts.gtf
-cufflinks_output_folder_name_for_Con2_Rep1/transcripts.gtf
-cufflinks_output_folder_name_for_Con2_Rep2/transcripts.gtf
-cufflinks_output_folder_name_for_Con2_Rep3/transcripts.gtf
+<cufflinks_output_folder_name_for_Con1_Rep1>/transcripts.gtf
+<cufflinks_output_folder_name_for_Con1_Rep2>/transcripts.gtf
+<cufflinks_output_folder_name_for_Con1_Rep3>/transcripts.gtf
+<cufflinks_output_folder_name_for_Con2_Rep1>/transcripts.gtf
+<cufflinks_output_folder_name_for_Con2_Rep2>/transcripts.gtf
+<cufflinks_output_folder_name_for_Con2_Rep3>/transcripts.gtf
 ```
 
 * Within *tophat* folder create a slurm script with *time=12:00:00*, *ntasks=8* and *mem-per-cpu=12Gb*
