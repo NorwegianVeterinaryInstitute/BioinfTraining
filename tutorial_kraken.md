@@ -378,7 +378,7 @@ Now a complete database is created.
 
 ___
 
-# Example slurm scripts.
+# Example slurm scripts (To be added).
 
 Below you find example slurm script to run kraken with one or more samples and to build a kraken database
 
