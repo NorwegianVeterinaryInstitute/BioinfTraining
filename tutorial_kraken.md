@@ -382,9 +382,9 @@ ___
 
 Below you find example slurm script to run kraken with one or more samples and to build a kraken database
 
-* [Single sample slurm script](metagenomic_scripts/kraken_classification_single_dataset.slurm)
-* [Array method 1 slurm script](metagenomic_scripts/kraken_array_script_20180410.slurm)
-* [Array method 2 MASTER slurm script](metagenomic_scripts/array_submission_kraken_20180411.slurm)
-* [Array method 2 WORKER slurm script](metagenomic_scripts/workscript_kraken_20180411.slurm)
-* [Build a large kraken database slurm script](kraken_build.slurm)
+* [Single sample slurm script](metagenomics_scripts/kraken_classification_single_dataset.slurm)
+* [Array method 1 slurm script](metagenomics_scripts/kraken_array_script_20180410.slurm)
+* [Array method 2 MASTER slurm script](metagenomics_scripts/array_submission_kraken_20180411.slurm)
+* [Array method 2 WORKER slurm script](metagenomics_scripts/workscript_kraken_20180411.slurm)
+* [Build a large kraken database slurm script](metagenomics_scripts/kraken_build.slurm)
 
