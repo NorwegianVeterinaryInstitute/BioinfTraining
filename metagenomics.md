@@ -139,9 +139,12 @@ Homework for monday 12 March 2018:
 * if it does not work, contact me via email.
 
 
-## lecture 19 - March 2018
+## Lecture 19 - March 2018
 During this session, we will work on analyzing the Mothur MiSeq SOP data using the R-package Phyloseq using multivariate statistics. [The workflow of this tutorial](phyloseq_tutorial.md). 
+
+## Lecture 17 - April 2018
+This is a lecture to introduce the classification tool [Kraken](http://ccb.jhu.edu/software/kraken/MANUAL.html#classification). This tool is going to be used for the proficiency test to identify which organisms were cultivated and sequenced. [The Kraken tutorial](tutorial_kraken.md).
 
 
 ## Future Lectures
-* [Phyloseq tutorial](http://deneflab.github.io/MicrobeMiseq/demos/mothur_2_phyloseq.html)
+* How to build classification databases.
