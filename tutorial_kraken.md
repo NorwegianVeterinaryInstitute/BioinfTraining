@@ -83,7 +83,7 @@ Now we are ready to run kraken from this test folder.
 
 ### Running kraken on the test data
 
-let's type :`kraken`
+Let's type :`kraken`
 
 Take a good look at the options you see now, and note which options you needs to use.
 
@@ -104,6 +104,8 @@ kraken -db /work/projects/nn9305k/db_flatfiles/kraken_databases/minikraken_20171
 ```
 
 Running this command with this database takes about 1 minute or so.
+
+**NOTE !!!** When you notice that any of the commands in this tutorial are hanging when you excecute them ( they should finish quickly with this small database), then copy the minikraken database to your `home` area and run the commands with your  *"local"* directory.
 
 Now we have several files present in our directory. Let's look at them:
 
