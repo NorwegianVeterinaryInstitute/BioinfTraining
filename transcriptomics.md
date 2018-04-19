@@ -126,4 +126,4 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * [DAVID](https://david.ncifcrf.gov/home.jsp)
 * [PANTHER](http://pantherdb.org)
 
-Also, you get ortholog information from ENSEMBL
+Also, one can get the ortholog information from ENSEMBL
