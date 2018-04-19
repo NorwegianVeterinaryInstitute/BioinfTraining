@@ -127,3 +127,10 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * [PANTHER](http://pantherdb.org)
 
 Also, one can get the ortholog information from ENSEMBL
+
+# Day 9
+* De novo assembly using Trinity
+* Link to slide: [presentation slides](https://github.com/lexnederbragt/INF-BIOx121/raw/2017/Lectures/RNAseq_002_Transcriptome.pdf)
+* Trinity website:  [Github wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
+* Trinity worklow pipeline:  [Nature protocol publication](https://www.nature.com/articles/nprot.2013.084)
+
