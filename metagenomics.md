@@ -140,11 +140,13 @@ Homework for monday 12 March 2018:
 
 
 ## Lecture 19 - March 2018
-During this session, we will work on analyzing the Mothur MiSeq SOP data using the R-package Phyloseq using multivariate statistics. [The workflow of this tutorial](phyloseq_tutorial.md). 
+During this session, we will work on analyzing the Mothur MiSeq SOP data using the R-package Phyloseq using multivariate statistics. [The workflow of this tutorial](phyloseq_tutorial.md).
 
 ## Lecture 17 - April 2018
 This is a lecture to introduce the classification tool [Kraken](http://ccb.jhu.edu/software/kraken/MANUAL.html#classification). This tool is going to be used for the proficiency test to identify which organisms were cultivated and sequenced. [The Kraken tutorial](tutorial_kraken.md).
 
+## Lecture 23 - April 2018
+In this lecture we will download SILVA database, use the arb program to export a fasta file from the SILVA database, and curate the database with mothur. At the end we will generate a proper taxonomy file. The tutorial is found here:[Building a 16S rRNA classification database](Building_classification_databases.md).
 
 ## Future Lectures
 * How to build classification databases.
