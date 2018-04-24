@@ -91,7 +91,6 @@ There you find a large number of files. The file `README`explains the difference
 
 However, we want to make the sequences from the ARB database compatible with our own sequences. So we need to ARB files. The `ARB files` are needed for the ARB software, which is the software in which the SILVA database is maintained. We will be using that software on our biolinux since it is installed there.. For more details on ARB see here: [arb-home.de](http://www.arb-home.de/).
 
-
 We are going to download an ARB file with the SILVA database. It will not be the complete database, but a non-redundant database, where 16s rRNA sequences are clustered with 99%  sequence similarity cut-off. That compressed file is still ≈ 300 Mb big. The commands we need to download it are:
 
 ```
@@ -115,15 +114,11 @@ This database contains almost 700.000 sequences and can not be used yet for moth
 6. Now click on File->export->export to external format
 7. In this box the Export option should be set to marked, Filter to none, and Compression should be set to no.
 8. In the field for Choose an output file name make sure the path has you in the correct working directory and enter: `silva.full_v132.fasta`.
-9. Select a format: `fasta_mothur.eft`. This is a custom formatting file that Pat Schloss has created that includes the sequences accession number and it’s taxonomy across the top line. To create one for you will need to create `fasta_mothur.eft` in the `/usr/lib/arb/lib/export` folder on your biolinux virtual machine with the following:
+9. Select a format: `fasta_mothur.eft`. This is a custom formatting file that Pat Schloss has created that includes the sequences accession number and it’s taxonomy across the top line. We create this file above, remember?
+10. Save this as silva.full_v132.fasta (This will take about 5-10 minutes and creates a huge (≈ 30 Gb) fastafile). This file should contain `629,211`.
 
-    ```
-    SUFFIX          fasta    
-    BEGIN    
-    >*(acc).*(name)\t*(align_ident_slv)\t*(tax_slv);    
-    *(|export_sequence)    
-    ```
-10. Save this as silva.full_v132.fasta (This will take about 5-10 minutes and creates a huge (≈ 30 Gb) fastafile)
+    `How can you determine how many sequences are present in that fasta file?`
+
 11. You can now quit ARB. (When your biolinux machine is reacting slowly, restart the virtual machine down after closing ARB). That will clear the memory.
 
 #### Screening the sequences
@@ -135,6 +130,27 @@ Now we need to screen the sequences for those that span the 27f and 1492r primer
     pcr.seqs(start=1044, end=43116, keepdots=T);
     degap.seqs();
     unique.seqs();"
+
+The mothur commands above do several things. First the `screen.seqs` command removes sequences that are not full length and have more than 5 ambiguous base calls. Note: this will remove a number of Archaea since the ARB RN reference database lets in shorter (>900 bp) archaeal 16S rRNA gene sequences. Second, pcr.seqs convert any base calls that occur before position 1044 and after 43116 to `.` to make them only span the region between the 27f and 1492r priming sites. Finally, it is possible that weird things happen in the alignments and so we unalign the sequences (degap.seqs) and identify the unique sequences (unique.seqs). How many sequences do we end up with? We can check that:
+
+    #checking number of sequences in the output files
+    mothur "#summary.seqs(fasta=silva.full_v132.good.pcr.ng.unique.fasta, processors=8);"
+
+The last command gives us the following table:
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+    Minimum:        1       919     919     0       4       1
+    2.5%-tile:      1       1387    1387    0       5       5328
+    25%-tile:       1       1435    1435    0       5       53280
+    Median:         1       1454    1454    0       6       106560
+    75%-tile:       1       1469    1469    0       6       159840
+    97.5%-tile:     1       1741    1741    2       7       207792
+    Maximum:        1       3660    3660    5       24      213119
+    Mean:   1       1474.4  1474.4  0.147401        5.62296
+    # of Seqs:      213119
+
+So the filtering reduced the number of sequences to 213119.
+Let's continue with the commands on the bash commandline. Next we convert the resulting fasta file into an accnos file so that we can go back into mothur and pull out the unique sequences from the aligned file (`get.seqs`).
 
     #identify the unique sequences without regard to their alignment
     grep ">" silva.full_v132.good.pcr.ng.unique.fasta | cut -f 1 | cut -c 2- > silva.full_v132.good.pcr.ng.unique.accnos
@@ -148,7 +164,7 @@ Now we need to screen the sequences for those that span the 27f and 1492r primer
     #generate taxonomy file
     grep '>' silva.nr_v132.align | cut -f1,3 | cut -f2 -d'>' > silva.nr_v132.full
 
-The mothur commands above do several things. First the `screen.seqs` command removes sequences that are not full length and have more than 5 ambiguous base calls. Note: this will remove a number of Archaea since the ARB RN reference database lets in shorter (>900 bp) archaeal 16S rRNA gene sequences. Second, pcr.seqs convert any base calls that occur before position 1044 and after 43116 to `.` to make them only span the region between the 27f and 1492r priming sites. Finally, it is possible that weird things happen in the alignments and so we unalign the sequences (degap.seqs) and identify the unique sequences (unique.seqs). We then convert the resulting fasta file into an accnos file so that we can go back into mothur and pull out the unique sequences from the aligned file (`get.seqs`).
+ At this point we have a full database file called: `silva.nr_v132.align`, and we have a file with the taxonomy extracted from the fasta headers of the align file: `silva.nr_v132.full`. This still contain 213119 sequences. But we are not yet ready to use this in mothur.
 
 #### Formatting the taxonomy files
 Now we want to make sure the taxonomy file is properly formatted for use with mothur. First we want to grab the SILVA taxa mapping file by running the following in bash:
@@ -156,7 +172,6 @@ Now we want to make sure the taxonomy file is properly formatted for use with mo
 ```
 wget https://www.arb-silva.de/fileadmin/silva_databases/current/Exports/taxonomy/tax_slv_ssu_132.txt
 ```
-
 Thanks to Eric Collins at the University of Alaska Fairbanks, we have some nice R code to map all of the taxa names to the six Linnean levels (kingdom, phylum, class, order, family, and genus). We’ll run the following code from within R:
 
 ```
@@ -242,16 +257,48 @@ Thanks to Eric Collins at the University of Alaska Fairbanks, we have some nice 
 #### Building the SEED references
 The first thing to note is that SILVA does not release their SEED; it is private. By screening through the ARB databases we can attempt to recreate it. Our previous publications show that classify.seqs with the recreated SEED does an excellent job of realigning sequences to look like they would if you used SINA and the true SEED. Now we want to try to figure out which sequences are part of the seed. Earlier, when we exported the sequences from ARB, we included the align_ident_slv field from the database in our output. Let’s generate an accnos file that contains the names of the sequences with 100% to the SEED database and then use mothur to generate SEED fasta and taxonomy files. While we’re at it we’ll also generate the nr_132 taxonomy file as well. The following code will be run from within a bash terminal:
 
-  ```
-  grep ">" silva.nr_v132.align | cut -f 1,2 | grep "\t100" | cut -f 1 | cut -c 2- > silva.seed_v132.accnos
-  mothur "#get.seqs(fasta=silva.nr_v132.align, taxonomy=silva.full_v132.tax, accnos=silva.seed_v132.accnos)"
-  mv silva.nr_v132.pick.align silva.seed_v132.align
-  mv silva.full_v132.pick.tax silva.seed_v132.tax
+    grep ">" silva.nr_v132.align | cut -f 1,2 |grep $'\t''100'|cut -f 1 |cut -c 2- > silva.seed_v132.accnos
 
-  mothur "#get.seqs(taxonomy=silva.full_v132.tax, accnos=silva.full_v132.good.pcr.ng.unique.accnos)"
-  mv silva.full_v132.pick.tax silva.nr_v132.tax
-  ```
+The accnos file should now contain a list of 11180 sequence IDs. Do you remember how you could count the items in such a list on the commandline?
+
+    mothur "#get.seqs(fasta=silva.nr_v132.align, taxonomy=silva.full_v132.tax, accnos=silva.seed_v132.accnos)"
+    mv silva.nr_v132.pick.align silva.seed_v132.align
+    mv silva.full_v132.pick.tax silva.seed_v132.tax
+
+    mothur "#get.seqs(taxonomy=silva.full_v132.tax, accnos=silva.full_v132.good.pcr.ng.unique.accnos)"
+    mv silva.full_v132.pick.tax silva.nr_v132.tax
+
+So now we are done with building the SILVA database
 
 #### Taxonomic representation
+When you are interested in knowing the difference between the full SILVA database and the seed SILVA database than I advice you to run the code that you can find on the tutorial page from Pat Schloss: [Building SILVA reference files](http://blog.mothur.org/2018/01/10/SILVA-v132-reference-files/)
 
-See tutorial Pat Schloss: [Building SILVA reference files](http://blog.mothur.org/2018/01/10/SILVA-v132-reference-files/)
+
+#### archiving the silva_databases
+The final step in this tutorial is to archive it so you can store it somewhere safely
+
+the commands:
+
+```
+tar cvzf silva.nr_v132.tgz silva.nr_v132.tax silva.nr_v132.align
+tar cvzf silva.seed_v132.tgz silva.seed_v132.tax silva.seed_v132.align
+```
+
+store it safely, for example.
+```
+rsync -rv silva.*.tgz ~/data/silva_db/
+```
+
+The database file created for this tutorial can also be found in the nn9305K directory. Specifically in the directory:
+
+```
+/work/projects/nn9305k/db_flatfiles/silva_databases
+```
+
+When you want to use those, copy them to your own directory and uncompress the files with:
+
+```
+tar -xvzf silva.nr_v132.tgz
+```
+
+Now you should be set to classify your own SSU rRNA sequences.
