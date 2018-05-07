@@ -150,7 +150,7 @@ The last command gives us the following table:
     # of Seqs:      213119
 
 So the filtering reduced the number of sequences to 213119.
-Let's continue with the commands on the bash commandline. Next we convert the resulting fasta file into an accnos file so that we can go back into mothur and pull out the unique sequences from the aligned file (`get.seqs`).
+Let's continue with the commands on the bash commandline. Next we convert the resulting fasta file into an accnos file and then we use mothur to pull out the unique sequences from the aligned file (`get.seqs`). The following commands are all run from the normal commandline.
 
     #identify the unique sequences without regard to their alignment
     grep ">" silva.full_v132.good.pcr.ng.unique.fasta | cut -f 1 | cut -c 2- > silva.full_v132.good.pcr.ng.unique.accnos
