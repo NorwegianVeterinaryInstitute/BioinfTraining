@@ -11,7 +11,7 @@ In order to run an interactive job on abel it is good to first start the little 
   ```
 * once the job is accepted `source`it to active it
   ```
-  source /cluster/bin/jobsetup/
+  source /cluster/bin/jobsetup
   ```
 * now you can load module, run programs etc...
 * if you need to detach (you might want to go home, but the program is still busy) then do:
