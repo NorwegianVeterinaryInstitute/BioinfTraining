@@ -78,17 +78,17 @@ We have been working for some time with the biolinux virtualmachine on our Windo
 
 ### The problem
 You have  several hundred datasets that you want to analyze using a method of choice. Examples of these are:
-* Shotgun dataset from several hundred bacterial isolates
+* Assembly of shotgun datasets from several hundred bacterial isolates
 * Hundreds of metagenomic samples that need to be quality controlled and classified.
 * Iteration of parameters for testing a model you are developing.
 * etc...
 
 There are many situations where you have many samples and you can make a script that processes them one after the other. When you have a stand-alone computer that is the only option you have. But doing for instance bacterial genome assemblies for several hundred isolates will take a lot of time, even with a fast computer.
 
-However, when you have access to a Computing cluster such as [Abel](https://www.uio.no/english/services/it/research/hpc/abel/), then you can harness the power of the cluster by spreading out your assembly jobs, by running the assemblies in parellel. That substantially reduces the waiting time for yourself.
+However, when you have access to a Computing cluster such as [Abel](https://www.uio.no/english/services/it/research/hpc/abel/), then you can harness the power of the cluster by spreading out your assembly jobs, by running the assemblies in parallel. That substantially reduces the waiting time for yourself.
 
 #### NOTE
-Each user on Abel can only use 400 cpu's simulataneously, that is 200 jobs using 2 CPUs per job. If you want to run more jobs, any job after 400 cpu's are started has to wait until one of the earlier jobs has finished.
+Each user on Abel can only use 400 cpu's simultaneously, that is 200 jobs using 2 CPUs per job. If you want to run more jobs, any job after 400 cpu's are started has to wait until one of the earlier jobs has finished.
 
 ### The solutions.
 
@@ -117,12 +117,12 @@ Example script: [for_loop_example_script.slurm](array_example_scripts/for_loop_e
 
 ### 2. Use #SBATCH --array
 
-This sbatch command is added to the slurm script, and it will start as many jobs as requested. For instance:
+This Sbatch command is added to the slurm script, and it will start as many jobs as requested. For instance:
 
 ```
  #SBATCH --array=0-89
 ```
-This will start ``90 jobs`` in the following mannner: request 10 jobs and then sleep several minutes. Then check if all 10 have started. If so request another 10. If not, request as many so that only 10 jobs are waiting. It will continue with this until all 90 jobs are started. This a more social behaviour to request resources on Abel.
+This will start ``90 jobs`` in the following manner: request 10 jobs and then sleep several minutes. Then check if all 10 have started. If so request another 10. If not, request as many so that only 10 jobs are waiting. It will continue with this until all 90 jobs are started. This a more social behaviour to request resources on Abel.
 
 ```
 Q: What happens if the number of requested jobs is not equal to the number of input datasets?
