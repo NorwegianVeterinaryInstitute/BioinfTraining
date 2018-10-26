@@ -1,6 +1,8 @@
 # How to download multiple genomes.
 
-This page is based on the work of Kai Bling: [https://github.com/kblin/ncbi-genome-download](https://github.com/kblin/ncbi-genome-download). We recommend that you visit his github repository for seeing an extended list of examples on how to download microbial genomes from the NCBI web page. Here we describe how you can use it on the abel cluster, when using the Veterinary Institute installation of the NCBI-genome-download scripts.
+This page is based on the work of Kai Bling: [https://github.com/kblin/ncbi-genome-download](https://github.com/kblin/ncbi-genome-download). We recommend that you visit his github repository for seeing an extended list of examples on how to download microbial genomes from the NCBI web page. 
+
+Here we describe how you can use it on the [abel cluster](https://www.uio.no/english/services/it/research/hpc/abel/), when using the Veterinary Institute installation of the NCBI-genome-download scripts.
 
 In order to be able to download bacterial genomes to your directory of choice, you first need to start the conda environment that contains the scripts.
 
