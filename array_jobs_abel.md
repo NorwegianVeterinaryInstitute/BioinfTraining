@@ -1,4 +1,4 @@
-#Processing multiple datasets in Parallel.
+# Processing multiple datasets in Parallel.
 
 There are many situations where you have many samples and you can make a script that processes them one after the other. When you have a stand-alone computer that is the only option you have. But doing for instance bacterial genome assemblies for several hundred isolates will take a lot of time, even with a fast computer.
 
