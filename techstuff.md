@@ -1,5 +1,16 @@
 # Technical tricks and hits
 
+### Abel cluster command line tricks
+* [Using screen to avoid dropped connections](#Using-screen-to-avoid-dropped-connections)
+* [Conda virtual environments](#Conda-virtual-environments)
+* [Obtaining multiple genomes from NCBI database](#Obtaining-multiple-genomes-from-NCBI-database)
+* [Processing multiple datasets in parallel](#Processing-multiple-datasets-in-Parallel)
+
+### Virtualbox biolinux tricks
+* [Installing Jupyter notebook and Rstudio](#Installing-Jupyter-notebook-and-Rstudio)
+* [Changing your login shell](#Changing-your-login-shell)
+* [Sharing data via a shared folder](#Sharing-data-via-a-shared-folder)
+
 
 ## Using screen to avoid dropped connections
 
@@ -68,13 +79,51 @@ Note: this is something that you do only once!
 5. Log in and out again
 6. You should now be able to type in `jupyter notebook` in a terminal, and you should
    get the notebook opening in a web browser window.
+   
+   
+## Conda virtual environments
+On a computer we can install a lot of different software packages. When you do that on the Abel cluster, or on your own Windows or Macintosh machines, it often happens that software requires additional software in order to function properly. These we call "dependencies". For example, some software requires the python version 2.7 while other software requires python version 3.5 or higher. 
 
-## sharing data via a shared folder
+On many computing clusters this is solved by a process called "Sandboxing", where a system is set-up that allows one to load a specific set of software by loading a "module".  The module file contains a list on which software to load to set-up the environment is such a way that you can run for instance the SPAdes assembler. 
+
+Note however, that when you load multiple different modules, it can happen that one version loads python 2.7, while another loads 3.5. At such moments, your software becomes "confused" and tries to run a python script with the wrong python version, and it will not work. In such situations, it can be convenient when you do not have to worry about dependencies having conflicts without having to think about the settings of the system you are running. A way of solving this is to use Virtual environments. The purpose of a virtual environment is to create a space where only software is allowed that does not create internal conflicts due to differences in the dependencies needed. For instance, only python version 2.7 is allowed and not python version 3.5, or vice versa. And if you for some reason need to switch python version, it is only a matter of changing the active environment.
+
+For more on python virtual environments check here: * [Python virtual environments](https://realpython.com/python-virtual-environments-a-primer/)
+
+In recent years using virtual environments has improved and now multiple system exists that helps users to manage virtual environments. On Abel we use the conda system, and see for more here: [Conda virtual environments](https://conda.io/docs/user-guide/overview.html). In order to use this it is needed to set-up the conda system so you can use it to run special software, such as the bifrost pipeline, or ncbi-genome-download.
+
+#### How to set up conda for project nn9305K
+In order to access the installed conda environments within the conda project you need to modify a file located in your "home" area on Abel, e.g. the directory where you are when you log into Abel.
+
+1. Check if you have one of the following files in your directory: `.bashrc`or `.bash_profile`.  
+	The command to use is: ``ls -a``
+2. When you have `.bash_profile` open the file with nano, else you open the file `.bashrc`  
+		``nano .bash_profile`` or ``nano .bashrc`` 
+3. 	Then add the following lines to the file:  
+
+		# use conda from the nn9305K projects folder
+		export PATH="/work/projects/nn9305k/src/anaconda3/bin:$PATH"
+		. /work/projects/nn9305k/src/anaconda3/etc/profile.d/conda.sh
+
+4. Close the editor while saving the changes.
+5. log out of abel and login again
+6.  To check if conda is present in memory type: `which conda`, that should point to the directory:  
+		
+			/work/projects/nn9305k/src/anaconda3/bin
+7. To see which conda environments are present type: `conda env list`
+8. Load the `ncbidown` environment to download genomes from the NCBI databases:
+		
+		conda activate ncbidown 
+9. Deactivate the environment: `conda deactivate` 
+
+Now you are all set to use the different conda environments.
+
+## Sharing data via a shared folder
 We have been working for some time with the biolinux virtualmachine on our Windows laptops. One thing that makes life a lot easier is when we can share files between the Windows host and the linux guest system.
 
   * [Setting up a shared folder](folder_sharing.md)
 
-## Processing multiple datasets in Parallel.
+## Processing multiple datasets in parallel
 
 ### The problem
 You have  several hundred datasets that you want to analyze using a method of choice. Examples of these are:
@@ -92,7 +141,7 @@ Downloading one genome from the NCBI database is relatively easy and can be done
 * [https://www.ncbi.nlm.nih.gov/genome/microbes/](https://www.ncbi.nlm.nih.gov/genome/microbes/)
 * [https://www.ncbi.nlm.nih.gov/genome/browse#!/prokaryotes/](https://www.ncbi.nlm.nih.gov/genome/browse#!/prokaryotes/)
 
-However, in order to download multiple genome from the NCBI webpages takes more effort.
+However, in order to download multiple genome from the NCBI webpages takes more effort. See also the section above on [Conda virtual environments](#Conda-virtual-environments). Conda needs to be set-up correctly for this to work.
 
 * [How to download multiple genomes](genome_downloads.md)
 
