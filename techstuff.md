@@ -1,7 +1,7 @@
 # Technical tricks and hits
 
-[Using screen to avoid dropped connections](## Using screen to avoid dropped connections)  
-[Obtaining multiple genomes from NCBI database](## Obtaining multiple genomes from NCBI database
+[Using screen to avoid dropped connections](#Using-screen-to-avoid-dropped-connections)  
+[Obtaining multiple genomes from NCBI database](#Obtaining-multiple-genomes-from-NCBI-database
 )
 
 
