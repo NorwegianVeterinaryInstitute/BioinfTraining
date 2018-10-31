@@ -1,5 +1,9 @@
 # Technical tricks and hits
 
+[Using screen to avoid dropped connections](## Using screen to avoid dropped connections)  
+[Obtaining multiple genomes from NCBI database](## Obtaining multiple genomes from NCBI database
+)
+
 
 ## Using screen to avoid dropped connections
 
@@ -68,6 +72,24 @@ Note: this is something that you do only once!
 5. Log in and out again
 6. You should now be able to type in `jupyter notebook` in a terminal, and you should
    get the notebook opening in a web browser window.
+   
+   
+## Conda virtual environments
+On a computer we can install a lot of different software packages. When you do that on the Abel cluster, or on your own Windows or Macintosh machines, it often happens that software requires additional software in order to function properly. These we call "dependencies". For example, some software requires the python version 2.7 while other software requires python version 3.5 or higher. 
+
+On many computing clusters this is solved by a process called "Sandboxing", where a system is set-up that allows one to load a specific set of software by loading a "module".  The module file contains a list on which software to load to set-up the environment is such a way that you can run for instance the SPAdes assembler. 
+
+Note however, that when you load multiple different modules, it can happen that one version loads python 2.7, while another loads 3.5. At such moments, your software becomes "confused" and tries to run a python script with the wrong python version, and it will not work. In such situations, it can be convenient when you do not have to worry about dependencies having conflicts without having to think about the settings of the system you are running. A way of solving this is to use Virtual environments. The purpose of a virtual environment is to create a space where only software is allowed that does not create internal conflicts due to differences in the dependencies needed. For instance, only python version 2.7 is allowed and not python version 3.5, or vice versa. And if you for some reason need to switch python version, it is only a matter of changing the active environment.
+
+For more on python virtual environments check here: * [Python virtual environments](https://realpython.com/python-virtual-environments-a-primer/)
+
+In recent years using virtual environments has improved and now multiple system exists that helps users to manage virtual environments. On Abel we use the conda system, and see for more here: [Conda virtual environments](https://conda.io/docs/user-guide/overview.html)
+This requires
+
+
+#### How to set up conda for project nn9305K
+We have 
+   
 
 ## sharing data via a shared folder
 We have been working for some time with the biolinux virtualmachine on our Windows laptops. One thing that makes life a lot easier is when we can share files between the Windows host and the linux guest system.
