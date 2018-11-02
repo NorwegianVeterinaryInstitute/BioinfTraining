@@ -101,15 +101,16 @@ In order to access the installed conda environments within the conda project you
 		``nano .bash_profile`` or ``nano .bashrc`` 
 3. 	Then add the following lines to the file:  
 
-		# use conda from the nn9305K projects folder
-		export PATH="/work/projects/nn9305k/src/anaconda3/bin:$PATH"
+		# activate conda from the nn9305K projects folder
 		. /work/projects/nn9305k/src/anaconda3/etc/profile.d/conda.sh
 
 4. Close the editor while saving the changes.
 5. log out of abel and login again
-6.  To check if conda is present in memory type: `which conda`, that should point to the directory:  
-		
-			/work/projects/nn9305k/src/anaconda3/bin
+6.  To check if conda is present in memory type: `conda info`, that should give output on screen that starts with the line:    
+
+			active environment : None
+	The rest of that overview is a summary of the current settings for the conda environment
+	
 7. To see which conda environments are present type: `conda env list`
 8. Load the `ncbidown` environment to download genomes from the NCBI databases:
 		
