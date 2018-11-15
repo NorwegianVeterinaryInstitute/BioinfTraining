@@ -95,25 +95,32 @@ In recent years using virtual environments has improved and now multiple system 
 #### How to set up conda for project nn9305K
 In order to access the installed conda environments within the conda project you need to modify a file located in your "home" area on Abel, e.g. the directory where you are when you log into Abel.
 
-1. Check if you have the following files in your directory: `.bash_login`or `.bash_profile`.  
-	The command to use is: ``ls -a``
-2. When you have one of these files, then open the file with nano, or create it using the following commands:
-		``nano .bash_profile`` or ``nano .bash_login`` 
-3. 	Then add the following lines to the file:  
+1. Check if you have the following files in your login directory on abel  (`/usit/abel/u1/YOUR_USERNAME`) :
+	
+	`.bash_login` or `.bash_profile`.  
 
-		# activate conda from the nn9305K projects folder
+	The command to use is: ``ls -a``
+
+2. When you have one of these files, then open the file with nano to add the lines indicated in point 4, else go to point 3.
+3. When you do not have one of these files in your login directory, then copy the example file to your login directory. Make sure you are in your login directory on abel before running the following command:
+
+		rsync /work/projects/nn9305k/samplefiles/bash_login .bash_login
+		
+4. 	Then add the following lines when they are not present in the file with the command: `nano .bash_login
+
 		export PATH="/work/projects/nn9305k/src/anaconda3/bin:$PATH"
+		
 		. /work/projects/nn9305k/src/anaconda3/etc/profile.d/conda.sh
 
-4. Close the editor while saving the changes.
-5. log out of abel and login again
-6.  To check if conda is present in memory type: `conda info`, that should give output on screen that starts with the line:    
+5. save and close the file.
+6. log out of abel and login again.
+7.  To check if conda is present in memory type: `conda info`, that should give output on screen that starts with the line:    
 
 			active environment : None
 	The rest of that overview is a summary of the current settings for the conda environment.
 	
 7. To see which conda environments are present type: `conda env list`.
-8. Load the `ncbidown` environment to download genomes from the NCBI databases:
+8. Loading the `ncbidown` environment to download genomes from the NCBI databases:
 		
 		conda activate ncbidown 
 This should give you a prompt that starts with the following:  ```(ncbidown) ```.
@@ -122,7 +129,7 @@ This should give you a prompt that starts with the following:  ```(ncbidown) ```
 
 10. Now one last check, in some cases it is needed to activate your conda environment in a slightly different manner, so type now on the command line: `source activate ncbidown`. 
 
-	If this again activates the `ncbidown`environment, than your conda set-up was correct. You can 	deactivate this environment with either: `source deactivate` or `conda deactivate`.
+	If this again activates the `ncbidown`environment, than your conda set-up was correct. You can deactivate this environment with either: `source deactivate` or `conda deactivate`.
 	
 Now you are all set to use the different conda environments available on the nn9305k project.
 
