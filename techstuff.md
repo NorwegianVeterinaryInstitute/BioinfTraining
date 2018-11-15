@@ -117,7 +117,9 @@ In order to access the installed conda environments within the conda project you
 		
 		conda activate ncbidown 
 This should give you a prompt that starts with the following:  ```(ncbidown) ```.
+
 9. Deactivate the environment: `conda deactivate`.
+
 10. Now one last check, in some cases it is needed to activate your conda environment in a slightly different manner, so type now on the command line: `source activate ncbidown`. If this again activate the `ncbidown`environment, than you conda set-up was correct. You can deactivate this environment with either: `source deactivate` or `conda deactivate`.
 Now you are all set to use the different conda environments available on the nn9305k project.
 
