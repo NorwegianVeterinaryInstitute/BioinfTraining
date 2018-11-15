@@ -95,13 +95,14 @@ In recent years using virtual environments has improved and now multiple system 
 #### How to set up conda for project nn9305K
 In order to access the installed conda environments within the conda project you need to modify a file located in your "home" area on Abel, e.g. the directory where you are when you log into Abel.
 
-1. Check if you have one of the following files in your directory: `.bashrc`or `.bash_profile`.  
+1. Check if you have the following files in your directory: `.bash_login`or `.bash_profile`.  
 	The command to use is: ``ls -a``
-2. When you have `.bash_profile` open the file with nano, else you open the file `.bashrc`  
-		``nano .bash_profile`` or ``nano .bashrc`` 
+2. When you have one of these files, then open the file with nano, or create it using the following commands:
+		``nano .bash_profile`` or ``nano .bash_login`` 
 3. 	Then add the following lines to the file:  
 
 		# activate conda from the nn9305K projects folder
+		export PATH="/work/projects/nn9305k/src/anaconda3/bin:$PATH"
 		. /work/projects/nn9305k/src/anaconda3/etc/profile.d/conda.sh
 
 4. Close the editor while saving the changes.
@@ -109,15 +110,16 @@ In order to access the installed conda environments within the conda project you
 6.  To check if conda is present in memory type: `conda info`, that should give output on screen that starts with the line:    
 
 			active environment : None
-	The rest of that overview is a summary of the current settings for the conda environment
+	The rest of that overview is a summary of the current settings for the conda environment.
 	
-7. To see which conda environments are present type: `conda env list`
+7. To see which conda environments are present type: `conda env list`.
 8. Load the `ncbidown` environment to download genomes from the NCBI databases:
 		
 		conda activate ncbidown 
-9. Deactivate the environment: `conda deactivate` 
-
-Now you are all set to use the different conda environments.
+This should give you a prompt that starts with the following:  ```(ncbidown) ```.
+9. Deactivate the environment: `conda deactivate`.
+10. Now one last check, in some cases it is needed to activate your conda environment in a slightly different manner, so type now on the command line: `source activate ncbidown`. If this again activate the `ncbidown`environment, than you conda set-up was correct. You can deactivate this environment with either: `source deactivate` or `conda deactivate`.
+Now you are all set to use the different conda environments available on the nn9305k project.
 
 ## Sharing data via a shared folder
 We have been working for some time with the biolinux virtualmachine on our Windows laptops. One thing that makes life a lot easier is when we can share files between the Windows host and the linux guest system.
