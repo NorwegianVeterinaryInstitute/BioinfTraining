@@ -16,6 +16,11 @@ The instructors are:
 
 ## Practical information
 
+# Small how-tos for various processes
+
+  * [Use of mash](mash.md)
+
+
 ## Course pages
 
 We have created specific pages for each part of the course.
