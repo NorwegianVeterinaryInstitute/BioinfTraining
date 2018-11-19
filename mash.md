@@ -2,6 +2,7 @@
 
 This is a short tutorial for the use of Mash screen to identify contaminant reads in read files. Mash screen utilizes a .msh library of refseq genome sketches to identify which organisms the reads in the file originates from.
 An explanation of the program can be found here: https://genomeinformatics.github.io/mash-screen/.
+A tutorial of the program can be found here: https://mash.readthedocs.io/en/latest/tutorials.html.
 
 ## Database
 First, you need a database that mash screen can use. You can use the refseq genomes found here: https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh, but note that this is all the genomes in the refseq database, both incomplete and complete genomes from prokaryotes, eukaryotes and viruses. Depending on what you want to use the program for, you might want to create for own database by downloading complete genomes and running sketches on all to create the .msh file for mash screen.
