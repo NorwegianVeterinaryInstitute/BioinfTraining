@@ -45,7 +45,7 @@ identity | shared-hashes | median-multiplicity | p-value | query-ID | query-comm
 0.99957 | 991/1000 | 24 | 0 | GCF_002054545.1_ASM205454v1_genomic.fna.gz | [57 seqs] NZ_MYON01000010.1 Salmonella enterica strain BCW_4905 NODE_10_length_152932_cov_1.77994, whole genome shotgun sequence [...]
 0.999522 | 990/1000 | 102 | 0 | GCF_900086185.1_12082_4_85_genomic.fna.gz | [51 seqs] NZ_FLIP01000001.1 Klebsiella pneumoniae strain k1037, whole genome shotgun sequence [...]
 
-- **Identity**: fraction of bases that are shared between the genome and your sequencing reads. Sequencing errors and gaps in coverage will reduced the identity estimate.
+- **Identity**: fraction of bases that are shared between the genome and your sequencing reads. Sequencing errors and gaps in coverage will reduce the identity estimate.
 
 - **Shared hashes**: 
 
