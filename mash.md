@@ -10,6 +10,7 @@ To download the necessary files from refseq, look here: https://github.com/Norwe
 (Note that this download will take long time and will take a lot of space!). The download will create folders for each genome file.
 When the wanted genomes are downloaded, use ```mash sketch``` to create the .msh file:
 
+
 ```
 source activate mash
 
