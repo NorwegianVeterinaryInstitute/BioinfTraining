@@ -60,4 +60,4 @@ identity | shared-hashes | median-multiplicity | p-value | query-ID | query-comm
 
 ## Further analysis
 Script for analyzing multiple mash screen reports and identifying files with significant contamination have already been created and can be found here: https://github.com/hkaspersen/misc-scripts.
-The script can be found under vi_src/misc_scripts in the project directory.
+The script can be found under vi_src/misc_scripts in the project directory on Abel.
