@@ -47,11 +47,11 @@ identity | shared-hashes | median-multiplicity | p-value | query-ID | query-comm
 
 - **Identity**: fraction of bases that are shared between the genome and your sequencing reads. Sequencing errors and gaps in coverage will reduce the identity estimate.
 
-- **Shared hashes**: 
+- **Shared hashes**: For each kmer in the dataset screened a "hash" is created and compared with the kmers or "hashes" in each genome present in the databases. When all kmers are shared with a particular genome than 1000/1000 is the value for shared hashes. 
 
-- **Median multiplicity**: 
+- **Median multiplicity**: This is a "rough estimate" for abundance, but it is effected by the size of the reference genome, small genomes tend to produce large values, while having low identity and few shared hashes. 
 
-- **P-value**:
+- **P-value**: the probability of observing the number of shared k-mers with the estinated identity
 
 - **Query-ID**: accession number of the reference
 
