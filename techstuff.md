@@ -95,13 +95,13 @@ In recent years using virtual environments has improved and now multiple system 
 #### How to set up conda for project nn9305K
 In order to access the installed conda environments within the conda project you need to modify a file located in your "home" area on Abel, e.g. the directory where you are when you log into Abel.
 
-1. Check if you have the following files in your login directory on abel  (`/usit/abel/u1/YOUR_USERNAME`) :
+1. Check if you have one of the following files in your login directory on abel  (`/usit/abel/u1/YOUR_USERNAME`) :
 	
 	`.bash_login` or `.bash_profile`.  
 
 	The command to use is: ``ls -a``
 
-2. When you have one of these files, then open the file with nano to add the lines indicated in point 4, else go to point 3.
+2. When you have one of these files (and only _**one**_ is needed !!!) , then open the file with nano to add the lines indicated in point 4, else go to point 3.
 3. When you do not have one of these files in your login directory, then copy the example file to your login directory. Make sure you are in your login directory on abel before running the following command:
 
 		rsync /work/projects/nn9305k/samplefiles/bash_login .bash_login
