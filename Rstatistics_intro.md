@@ -15,7 +15,7 @@ Copy this link to firefox: [https://download1.rstudio.org/rstudio-1.1.383-amd64.
 Next we need to download the dataset needed for this lecture:
 
 * Create on your Linux Virtual Machine a folder called: `r-novice-inflammation`
-* Next copy this link to the Firefox url box in your Linux VM: [r-novice-inflammation-data.zip](http://swcarpentry.github.io/r-novice-inflammation/files/r-novice-inflammation-data.zip)
+* Next copy this link to the Firefox url box in your Linux VM: [r-novice-inflammation-data.zip](https://github.com/swcarpentry/r-novice-inflammation/blob/master/data/r-novice-inflammation-data.zip)
 * the file needs to be saved in the folder you just created.
 * We then unzip the downloaded file. Open a terminal and move to the desktop:
 	`cd Desktop`
