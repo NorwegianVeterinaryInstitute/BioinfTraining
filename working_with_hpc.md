@@ -81,7 +81,7 @@ Next we will do a bit of setup to get you set up properly on abel.
 --------
 
 **Task**
-Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/Info/wiki/AbelUserGuide.md)
+Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/Info/wiki/AbelUserGuide)
 and follow the instructions that is under "On first time login".
 
 ---------
