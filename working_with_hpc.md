@@ -94,6 +94,9 @@ don't collaborate with people on. If it is a collaborative project,
 that is, other people on abel will also use it, you use directories
 at the top level.
 
+**Login out**
+
+Use either `exit` or `logout` commands to terminate the session.
 
 ## Transferring files
 
@@ -321,9 +324,9 @@ two numbers are the same.
 We will now do the same using a script file instead. To work with the
 queueing system in this way, we need to know a few commands:
 
-  * sbatch - submit a slurm script to the queue
-  * squeue - look at the current queue
-  * scancel - cancel a job which is in the queue
+  * `batch`- submit a slurm script to the queue
+  * `queue`- look at the current queue
+  * `cancel`- cancel a job which is in the queue
 
 --------
 
@@ -353,7 +356,7 @@ We will now look at jobs submitted to the cluster.
 
 1. try out the command `squeue`
 2. try looking at just jobs under our project, by adding `-A nn9305k`
-3. try looking at just your jobs, by adding `-u <your_user_name>
+3. try looking at just your jobs, by adding `-u <your_user_name>`
 
 --------
 
@@ -376,7 +379,7 @@ you need to cancel a job, you need this number.
 
 We will now look at the output file that slurm gives us.
 
-1. use `ls` to find a file in this directory that ends with *.out
+1. use `ls` to find a file in this directory that ends with `*.out`
 2. look at it.
 
 --------
