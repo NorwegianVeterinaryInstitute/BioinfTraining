@@ -51,7 +51,7 @@ are.
 ### File structure on abel
 
 There are three main storage locations that you need to know about on
-abel.  
+abel.
 
  * Your home area `usit/abel/u1/username`. When you log in, you will automatically land in what
  is called your _home area_. You will commonly not use this location much.
@@ -83,7 +83,7 @@ Next we will do a bit of setup to get you set up properly on abel.
 
 **Task**
 Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/Abel-User-Guide)
-and follow the instructions from and bellow: "On first time login". 
+and follow the instructions from and bellow: "On first time login".
 
 ---------
 
@@ -95,8 +95,7 @@ don't collaborate with people on. If it is a collaborative project,
 that is, other people on abel will also use it, you use directories
 at the top level.
 
-NB: login out of abel: `exit` or `logout?
-
+NB: login out of abel: `exit` or `logout`
 
 ## Transferring files
 
@@ -174,21 +173,20 @@ computers, while ensuring that the data is not corrupted on the way.
 This command has many options, as do other commands under unix. One set
 of options that is commonly used with `rsync` is `-rauPW`.
 
-### checking file transfer completed without incident:
+### checking that file transfer completed without incident:
 
 You can either:
->  - redo rsyn with same options: if the transfer was successfull, nothing will be synchronized (same content)
->  - use **hash** program that generates a code based on file content (for both original and transfered/copied file). If both codes are identical, then the transfer was successull.
+>  - redo rsyn with same options: if the transfer was successfull, nothing will be synchronized (same content).
+>  - use **hash** programs that generates a code based on file content (for both original and transfered/copied file). If both codes are identical, this means that the content of each files are identical i.e. that the file transfer was successull.
 > use for ex. `md5sum file_origin`and `md5sum file_transfered` and compare codes. 
 
-> Better to [automate] if you have many files
+> Better to [automate] the process of checkingif you have many files
 > - create file `XX_md5sum.txt`
 > - generate md5sum for each files (use expressions) and append result to `XX_md5sum.txt`
 > - `md5sum yourfiles | tee "XX"md5sum.txt`
 > - `md5sum -c "XX"md5sum.txt`
 > - remove your temporary file `XX_md5sum.txt` if test passed
-   
-   
+
 --------
 
 **Task**
