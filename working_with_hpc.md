@@ -73,9 +73,6 @@ There is also a forth area that will be discussed below.
 3. use the knowledge gained from the README file to figure out where
 adapter files are stored on abel.
 
-!!!
-> adapter files are: definition? 
-
 ---------
 
 ### Setting up your working directory
