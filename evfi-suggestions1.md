@@ -5,7 +5,7 @@ Q: Questions
 
 ## Small things... 
 
-**Suggestions: **
+**Suggestions:**
 
 > maybe add complete reference for bibliography (end file) only to paste - in order from course. checked all links (in pdfs. to see if still valid). 
 > All cited articles (but one - not free - asked for it) -> found and sorted in folder for course: if you want I can put all in your course folder (avoid others to have to search for articles if interested) - (I just love to have a look at articles cited in courses, as they are actually chosen because of quality/reprensentativity). 
@@ -33,8 +33,6 @@ Q: Questions
      - how fliped over for paired end reads - when first sequencing pass finished `atomatic flip when DNA fraqument amplification finished? - Did not really get at first the **bridge amplification** (pair ends) - thought: easier with wideo 
      - > Suggestion: show video illumina: explain the bridge add ? <https://www.youtube.com/watch?v=fCd6B5HRaZ8> but I find somehow older video cleared - its also shorter (also explain reads indexes 1 and 2)  <https://www.youtube.com/watch?v=HMyCqWhwB8E>    
     
-Q: nothing 454? do not use? -Z is there need to understand basics (ie for reading papers) 
-
 Q: MinION - can get high quality consesus continuous sequencing -> not sure how see how sequence many times same seq? (so each pore 1 DNA molecule, so many porea ...some same DNA molecule -> consensus -> from many pores-- ? do I understand right?
 
    - p57 (was just wondering what were the different ending parts - as not yet explained : ex. P5-index2-Rd1SP)
@@ -42,7 +40,6 @@ Q: MinION - can get high quality consesus continuous sequencing -> not sure how 
 - Lecture3.pdf: p3 link changed <https://support.illumina.com/content/dam/illumina-support/documents/documentation/system_documentation/miseq/indexed-sequencing-overview-guide-15057455-04.pdf>
    - so indexes - short tagging sequences -> representing the 2 complementary directions (old school: Forward and Reverse) of the sequenced DNA fragment.
    
-    
 - Lecture4.pdf (Karin): p 43: changed link to <http://www.cbcb.umd.edu/research/assembly_primer>
 Q: - BLAST: K-mer World -> optimal choice (why not chose 36/17) - comparing all genome or part genome ? do we have idea about query seq?
   - Outch! *burrow wheeler transform (at the end of day) - comming back to that later on*
@@ -59,16 +56,14 @@ Q: **5 days course** - 5th day lecture - no video? - ? going throught the ressou
    
 - Q: good enough overlapp between reads (Assembly) -> Q: chose length word ~17+ + some mismatches - way to determine optimal?
 
-
+- Q: 454: do not use (as not presented) - need to read a bit more. Maybe worth short presentation or link - to be able to uderstand if specificity when reading papers. 
 --------------------
-# FAQ? Issues- maybe make a FAQ for encountered issues -> how to solve them, and good linkgs
-
 # ? ideas if not already suggested
-- Introduction to Genomic Data Science - <https://courses.edx.org/courses/course-v1:UCSanDiegoX+CSE181.1x+1T2017/course/> - <https://stepik.org/>
- - can help train programming with python: learn about sliding window, some text algorithms and optimisations (ie sorting words, charging machines)...
-
-
+- Introduction to Genomic Data Science - <https://courses.edx.org/courses/course-v1:UCSanDiegoX+CSE181.1x+1T2017/course/> - <https://stepik.org/> can help train programming with python: learn about sliding window, some text algorithms, charging machines ...
+ 
 #  REFERENSE LIST: READY TO PASTE
+
+Only one in bold = not found -> asked (research gate)
 
 #### Lecture 1
 
