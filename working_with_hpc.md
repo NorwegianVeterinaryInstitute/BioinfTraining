@@ -56,19 +56,19 @@ abel.
  * Your home area `usit/abel/u1/username`. When you log in, you will automatically land in what
  is called your _home area_. You will commonly not use this location much.
  
- * The project area, `/work/projects/nn9305k`. This is where the
+ * The work-project area, `/work/projects/nn9305k`. This is where the
  Veterinary Institute does its work on abel. Think of it as one of
- the common areas on the Veterinary Institute area.
+ the common ressources areas on the Veterinary Institute area.
  
  * The last one is the project's backup area. This is
- `/projects/nn9305k`.
+ `/projects/nn9305k`. 
 
 There is also a forth area that will be discussed below.
 
 --------
 
 **Task**
-1. use `cd` to go to the project area.
+1. use `cd` to go to the work-project area.
 2. read the `README` file that is in the top directory of the home area
 3. use the knowledge gained from the README file to figure out where
 adapter files are stored on abel.
@@ -90,7 +90,7 @@ and follow the instructions from and bellow: "On first time login".
 Note: if you've done this already, you can skip this step.
 
 During the setup process, you are creating a separate "home directory"
-inside the project area. You use this location for things that you
+inside the work-project area. You use this location for things that you
 don't collaborate with people on. If it is a collaborative project,
 that is, other people on abel will also use it, you use directories
 at the top level.
