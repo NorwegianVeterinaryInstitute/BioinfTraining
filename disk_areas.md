@@ -1,4 +1,18 @@
+|directory|path                |what      |characteristics|
+|:--------|:-------------------|:---------|:--------------|
+|~        |usit/abel/u1/username|home area |"home-home" area -> when                |
+|work     |/work/projects/nn9305k|common resources (eg. softwares, databases)|10 TB - faster disc, closer to nodes connection|
+|project   |/projects/nn9305k   |Project data area (backup, raw data..)|30 TB - slower disc|
+|   |   |   |computing nodes: scratch ...|
+|   |   |   |bifrost and slurm?   |
+|   |   |   |   |
+|other good to know:|   |   |   |
+|/work/databases/bio/ncbi|   |version of NCBI databases on Abel|   |
 
+starting jobs...
+
+cd /work/jobs/1000. number that you have been assigned
+or cd /work/users/username <=> $USERWORK  -> faster but do not save data -> removed after 45days
 
 the work area: `/work/projects/nn9305k` will only be used to:
 - contain programs and librairies for programs to work
