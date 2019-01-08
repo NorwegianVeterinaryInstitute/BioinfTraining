@@ -53,13 +53,15 @@ are.
 There are three main storage locations that you need to know about on
 abel.
 
- * Your home area `usit/abel/u1/username`. When you log in, you will automatically land in what is called your **home area**. You will commonly not use this location much.
-
- * The work area, `/work/projects/nn9305k`. This is where the
+ * Your home area `usit/abel/u1/username`. When you log in, you will automatically land in what
+ is called your _home area_. You will commonly not use this location much.
+ 
+ * The work-project area, `/work/projects/nn9305k`. This is where the
  Veterinary Institute does its work on abel. Think of it as one of
- the common ressources areas on the Veterinary Institute area. Typically it will contain programs and public reference data.
-
- * The last one is the project's backup area. `/projects/nn9305k`. This is where the data associated to bioinformatics projects from the VetInst (raw sequencing-data, data-analyses, your reasoning for analyses...) are stored.
+ the common ressources areas on the Veterinary Institute area.
+ 
+ * The last one is the project's backup area. This is
+ `/projects/nn9305k`. 
 
 There is also a forth area that will be discussed below.
 
@@ -171,6 +173,20 @@ computers, while ensuring that the data is not corrupted on the way.
 This command has many options, as do other commands under unix. One set
 of options that is commonly used with `rsync` is `-rauPW`.
 
+### checking that file transfer completed without incident:
+
+You can either:
+>  - redo rsyn with same options: if the transfer was successfull, nothing will be synchronized (same content).
+>  - use **hash** programs that generates a code based on file content (for both original and transfered/copied file). If both codes are identical, this means that the content of each files are identical i.e. that the file transfer was successull.
+> use for ex. `md5sum file_origin`and `md5sum file_transfered` and compare codes. 
+
+> Better to [automate] the process of checkingif you have many files
+> - create file `XX_md5sum.txt`
+> - generate md5sum for each files (use expressions) and append result to `XX_md5sum.txt`
+> - `md5sum yourfiles | tee "XX"md5sum.txt`
+> - `md5sum -c "XX"md5sum.txt`
+> - remove your temporary file `XX_md5sum.txt` if test passed
+
 --------
 
 **Task**
@@ -179,18 +195,6 @@ syntax for rsync?
 
 --------
 
-### checking that file transfer completed without incident:
-You can either:
->  - redo rsyn with same options: if the transfer was successfull, nothing will be synchronized (same content).
->  - use **hash** programs that generates a code based on file content (for both original and transfered/copied file). If both codes are identical, this means that the content of each files are identical i.e. that the file transfer was successull.
-> use for ex. `md5sum file_origin`and `md5sum file_transfered` and compare codes.
-
-> Better to [automate] the process of checkingif you have many files
-> - create file `XX_md5sum.txt`
-> - generate md5sum for each files (use expressions) and append result to `XX_md5sum.txt`
-> - `md5sum yourfiles | tee "XX"md5sum.txt`
-> - `md5sum -c "XX"md5sum.txt`
-> - remove your temporary file `XX_md5sum.txt` if test passed
 
 ### wget
 
