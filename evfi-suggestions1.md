@@ -3,64 +3,64 @@
 
 Q: Questions
 
-## Small things... 
+## Small things...
 
 **Suggestions:**
 
-> maybe add complete reference for bibliography (end file) only to paste - in order from course. checked all links (in pdfs. to see if still valid). 
-> All cited articles (but one - not free - asked for it) -> found and sorted in folder for course: if you want I can put all in your course folder (avoid others to have to search for articles if interested) - (I just love to have a look at articles cited in courses, as they are actually chosen because of quality/reprensentativity). 
+> maybe add complete reference for bibliography (end file) only to paste - in order from course. checked all links (in pdfs. to see if still valid).
+> All cited articles (but one - not free - asked for it) -> found and sorted in folder for course: if you want I can put all in your course folder (avoid others to have to search for articles if interested) - (I just love to have a look at articles cited in courses, as they are actually chosen because of quality/reprensentativity).
 
 -About:  ..the building blocks dna ... at the end of first course. Not sure what to think about it: very simple and clear but THEN - > there is a sudden jump to more complicated concepts that have not been presented. Maybe too limited? (ex: ? Arvind Speaks also of libraries for **transposons ...**) ...
-- so maybe short background refresh: (problem increase to more of a genetic course): or evt provide ref for good review papers if needed... 
+- so maybe short background refresh: (problem increase to more of a genetic course): or evt provide ref for good review papers if needed...
       - mobile elements /"junk"
       - methylation : -> Thomas: presentation about methylation detection (packBio) - epigenetics
       - RNAs - kinds, and functions ...exome sequencing
-      
+
 - biais - method/platform specific: Maybe you say that later in the course (think would be to know what are potential problems, pitfalls, -> also important to understand proprely articles). Mention ok...Arvind speaks a bit about optical duplicates course 3 (new-machines with 2 color dyes) -> how will influence analyses?
-      
-**For each lecture:**            
+
+**For each lecture:**
 - Lecture1.pdf: Karch et. al. EMBO Mol. Med. 20**12** (typo)
 
 - Lecture2.pdf: in case you  want to actuallize your links
   - p 22 Link: <https://www.sequencing.uio.no/forms/guidelines-submission-form-(illumina).pdf> they moved it to https
   - p 23 Link: <http://www.micronautomata.com/bioinformatics> does not seem to respond - retry...
-  - p 31: Illumina - video link (see bellow) 
-  
+  - p 31: Illumina - video link (see bellow)
+
 - Lecture 2 Video (Thomas) :
    - library: define earlier - maybe set the terms to know p 33 .  earlier in the presentation
    - Illumina ca 50 min on video
-     Q: when watching video: was wondering: 
-     - how fliped over for paired end reads - when first sequencing pass finished `atomatic flip when DNA fraqument amplification finished? - Did not really get at first the **bridge amplification** (pair ends) - thought: easier with wideo 
-     - > Suggestion: show video illumina: explain the bridge add ? <https://www.youtube.com/watch?v=fCd6B5HRaZ8> but I find somehow older video cleared - its also shorter (also explain reads indexes 1 and 2)  <https://www.youtube.com/watch?v=HMyCqWhwB8E>    
-    
+     Q: when watching video: was wondering:
+     - how fliped over for paired end reads - when first sequencing pass finished `atomatic flip when DNA fraqument amplification finished? - Did not really get at first the **bridge amplification** (pair ends) - thought: easier with wideo
+     - > Suggestion: show video illumina: explain the bridge add ? <https://www.youtube.com/watch?v=fCd6B5HRaZ8> but I find somehow older video cleared - its also shorter (also explain reads indexes 1 and 2)  <https://www.youtube.com/watch?v=HMyCqWhwB8E>
+
 Q: MinION - can get high quality consesus continuous sequencing -> not sure how see how sequence many times same seq? (so each pore 1 DNA molecule, so many porea ...some same DNA molecule -> consensus -> from many pores-- ? do I understand right?
 
    - p57 (was just wondering what were the different ending parts - as not yet explained : ex. P5-index2-Rd1SP)
 
 - Lecture3.pdf: p3 link changed <https://support.illumina.com/content/dam/illumina-support/documents/documentation/system_documentation/miseq/indexed-sequencing-overview-guide-15057455-04.pdf>
    - so indexes - short tagging sequences -> representing the 2 complementary directions (old school: Forward and Reverse) of the sequenced DNA fragment.
-   
+
 - Lecture4.pdf (Karin): p 43: changed link to <http://www.cbcb.umd.edu/research/assembly_primer>
 Q: - BLAST: K-mer World -> optimal choice (why not chose 36/17) - comparing all genome or part genome ? do we have idea about query seq?
   - Outch! *burrow wheeler transform (at the end of day) - comming back to that later on*
-  
-  - Ok- some clarrification assembly with choice length word....Q: From experience; lets say WGS - how genome structure (several chromosomes pairs - feks also with familly genes , or plasmid DNA -> bacteries ...affect assembly, think Bacteria, if HGT most likely plasmid ...) 
+
+  - Ok- some clarrification assembly with choice length word....Q: From experience; lets say WGS - how genome structure (several chromosomes pairs - feks also with familly genes , or plasmid DNA -> bacteries ...affect assembly, think Bacteria, if HGT most likely plasmid ...)
 
 Q: **5 days course** - 5th day lecture - no video? - ? going throught the ressources?
 
 ### additional questions - to be sure I understand
-- Q? Curious - whole genome amplification ? works ??? tested before making libraries (we did try, some ok, some not) - applicable - sure biais some taxa --- experience? 
+- Q? Curious - whole genome amplification ? works ??? tested before making libraries (we did try, some ok, some not) - applicable - sure biais some taxa --- experience?
 - Q: depth and coverage:
-   - so if denovo genome -> have no idea of coverage -> estimate -> expectated closely related?  => yes need example reference talking about ... works ok for bacteria - (what about plants - polyploidie)  
-   - depth -> homomgeneity ...-> discriminate different OTU (use to help or unreliable?) 
-   
+   - so if denovo genome -> have no idea of coverage -> estimate -> expectated closely related?  => yes need example reference talking about ... works ok for bacteria - (what about plants - polyploidie)
+   - depth -> homomgeneity ...-> discriminate different OTU (use to help or unreliable?)
+
 - Q: good enough overlapp between reads (Assembly) -> Q: chose length word ~17+ + some mismatches - way to determine optimal?
 
-- Q: 454: do not use (as not presented) - need to read a bit more. Maybe worth short presentation or link - to be able to uderstand if specificity when reading papers. 
+- Q: 454: do not use (as not presented) - need to read a bit more. Maybe worth short presentation or link - to be able to uderstand if specificity when reading papers.
 --------------------
 # ? ideas if not already suggested
 - Introduction to Genomic Data Science - <https://courses.edx.org/courses/course-v1:UCSanDiegoX+CSE181.1x+1T2017/course/> - <https://stepik.org/> can help train programming with python: learn about sliding window, some text algorithms, charging machines ...
- 
+
 #  REFERENSE LIST: READY TO PASTE
 
 Only one in bold = not found -> asked (research gate)
@@ -125,7 +125,7 @@ Conesa, Ana, Pedro Madrigal, Sonia Tarazona, David Gomez-Cabrero, Alejandra Cerv
 
 La Trobe Institute for Molecular Science, Melbourne, Australia, Thomas Shafee, Rohan Lowe, and La Trobe Institute for Molecular Science, Melbourne, Australia. “Eukaryotic and Prokaryotic Gene Structure.” WikiJournal of Medicine 4, no. 1 (2017). https://doi.org/10.15347/wjm/2017.002.
 
-Langmead, Ben. “Introduction to the Burrows-Wheeler Transform and FM Index,” n.d., 12. http://www.cs.jhu.edu/~langmea/resources/bwt_fm.pdf 
+Langmead, Ben. “Introduction to the Burrows-Wheeler Transform and FM Index,” n.d., 12. http://www.cs.jhu.edu/~langmea/resources/bwt_fm.pdf
 
 Miller, Jason R., Sergey Koren, and Granger Sutton. “Assembly Algorithms for Next-Generation Sequencing Data.” Genomics 95, no. 6 (June 2010): 315–27. https://doi.org/10.1016/j.ygeno.2010.03.001.
 
