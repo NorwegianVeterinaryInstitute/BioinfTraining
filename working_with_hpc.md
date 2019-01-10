@@ -53,17 +53,15 @@ are.
 There are three main storage locations that you need to know about on
 abel.
 
- * Your home area `usit/abel/u1/username`. When you log in, you will automatically land in what
- is called your _home area_. You will commonly not use this location much.
- 
- * The work-project area, `/work/projects/nn9305k`. This is where the
- Veterinary Institute does its work on abel. Think of it as one of
- the common ressources areas on the Veterinary Institute area.
- 
- * The last one is the project's backup area. This is
- `/projects/nn9305k`. 
+ * Your home (**$HOME**) area `usit/abel/u1/username`. When you log in, you will automatically land in what is called your **home area**. You will commonly not use this location much.
 
-There is also a forth area that will be discussed below.
+ * The **work area**, `/work/projects/nn9305k`. This is where the
+ Veterinary Institute Think of it as one of the common ressources areas on the Veterinary Institute area.
+
+ * The last one is the **project**'s data and analysis backup area. This is
+ `/projects/nn9305k`.
+
+There is also a forth area that will be discussed below: look at the description of [disks_areas](./disk_areas.md) at the Norwegian VeterinaryInstitute, to see the data workflow when launching/running jobs.
 
 --------
 
@@ -85,17 +83,19 @@ Next we will do a bit of setup to get you set up properly on abel.
 Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/Abel-User-Guide)
 and follow the instructions from and bellow: "On first time login".
 
+NB: login out of abel: `exit` or `logout`
+
 ---------
 
 Note: if you've done this already, you can skip this step.
 
 During the setup process, you are creating a separate "home directory"
-inside the work-project area. You use this location for things that you
+inside the **project area**. You use this location for things that you
 don't collaborate with people on. If it is a collaborative project,
 that is, other people on abel will also use it, you use directories
 at the top level.
 
-NB: login out of abel: `exit` or `logout`
+
 
 ## Transferring files
 
@@ -173,20 +173,6 @@ computers, while ensuring that the data is not corrupted on the way.
 This command has many options, as do other commands under unix. One set
 of options that is commonly used with `rsync` is `-rauPW`.
 
-### checking that file transfer completed without incident:
-
-You can either:
->  - redo rsyn with same options: if the transfer was successfull, nothing will be synchronized (same content).
->  - use **hash** programs that generates a code based on file content (for both original and transfered/copied file). If both codes are identical, this means that the content of each files are identical i.e. that the file transfer was successull.
-> use for ex. `md5sum file_origin`and `md5sum file_transfered` and compare codes. 
-
-> Better to [automate] the process of checkingif you have many files
-> - create file `XX_md5sum.txt`
-> - generate md5sum for each files (use expressions) and append result to `XX_md5sum.txt`
-> - `md5sum yourfiles | tee "XX"md5sum.txt`
-> - `md5sum -c "XX"md5sum.txt`
-> - remove your temporary file `XX_md5sum.txt` if test passed
-
 --------
 
 **Task**
@@ -195,6 +181,28 @@ syntax for rsync?
 
 --------
 
+### checking that file transfer completed without incident:
+
+You can either:
+>  - redo rsyn with same options: if the transfer was successfull, nothing will
+be synchronized (same content).
+>  - use **hash** programs that generates a code based on file content
+(for both original and transfered/copied file). If both codes are identical,
+this means that the content of each files are identical i.e. that the file
+transfer was successull.
+
+> use for ex. `md5sum file_origin`and `md5sum file_transfered`. The hash-codes
+should be identical.
+
+> Better to [automate] the process of checkingif you have many files
+> - create a temporary file `tempfile_md5sum.txt`
+> - generate md5sum for each files (use expressions) and append result to
+`tempfile_md5sum.txt`
+> - `md5sum yourfiles | tee "tempfile_md5sum.txt"`
+> - `md5sum -c "tempfile_md5sum.txt"`
+> - check the content of your file: it will idicate if there are differences
+(if so, start again transfer for files where checksum does not match).
+> - delete your temporary file `tempfile_md5sum.txt`
 
 ### wget
 
@@ -209,7 +217,7 @@ our own local machine.
 **Task**
 1. right click on the url for the file (see above), and copy the link.
 2. go in your abel terminal window
-3. make sure that you are in your projects home area
+3. make sure that you are in your projects-home area
 3. type and paste in
 
 ```
@@ -247,8 +255,12 @@ $ module load <software_name_before_slash>
 
 that is the version of the program that will be loaded.
 
-If you want a different one, you need to include what's after the `/`.
+**If you want a different version than the _default version_, you need to
+include what's after the `/`.
 
+NB: You can also look at short description of [Software on Abel] here
+
+[Software on Abel]:https://www.uio.no/english/services/it/research/hpc/abel/help/software/
 
 ### Running commands, and using modules
 
@@ -260,7 +272,7 @@ either use too much time (30 minutes) or too much memory, the command
 will be terminated.
 
 When we are `blast`ing, we need sequences that we're searching with
-(query), and we need a database to search in. On abel, there are
+(`query`), and we need a database to search in. On abel, there are
 versions of the ncbi databases that live here:
 
 
@@ -302,10 +314,10 @@ use more resources than you can on the login nodes.
 
 The options we will specify to `qlogin` are:
 
-  - account: which bucket of cpu hours to use. Ours is nn9305k
-  - time: for how long do we want this command line window to run
-  - ntasks:  number of cpus to use.
-  - mem-per-cpu: how much memory we want
+  - **account**: which bucket of cpu hours to use. Ours is nn9305k
+  - **time**: for how long do we want this command line window to run
+  - **ntasks**:  number of cpus to use.
+  - **mem-per-cpu**: how much memory we want
 
 The more you ask for, the longer you have to wait for things to start.
 
@@ -324,31 +336,32 @@ also have to re-load the blast module.
 3. Try running the same blast command as above. However, do the
 following change:
 
-  - use multiple cpus, by adding `-num_threads 4`
+  - use multiple CPUs, by adding `-num_threads 4`
 
 --------
 
-Note: we are here using 4 cpus, which is the same number of CPUs
-that we asked for when we started `qlogin`. It is important that these
-two numbers are the same.
+Note: we are here using 4 CPUs, which is the same number of CPUs
+that we asked for when we started `qlogin`. **It is important that these
+two numbers are the same.**
 
 ### Commands
 
-We will now do the same using a script file instead. To work with the
+We will now do the same using a **script file** instead. To work with the
 queueing system in this way, we need to know a few commands:
 
-  * sbatch - submit a slurm script to the queue
-  * squeue - look at the current queue
-  * scancel - cancel a job which is in the queue
+  * **sbatch** - submit a slurm script to the queue
+  * **squeue** - look at the current queue
+  * **scancel** - cancel a job which is in the queue
 
 --------
 
 **Task**
 
-We will now create a slurm script, and put our blast command into it.
+We will now create a **slurm script**, and put our blast command into it.
 
-1. make sure you are in your project home area
-2. copy the file `sample_slurm.slurm` file in samplefiles to this location
+1. make sure you are in your _project-home_ area
+2. copy the file `sample_slurm.slurm` file in _samplefiles_ directory to this
+location
 3. open the file using `nano`
 4. edit the file so that you are using the same options that
 you used with the `qlogin` command above.
@@ -369,20 +382,20 @@ We will now look at jobs submitted to the cluster.
 
 1. try out the command `squeue`
 2. try looking at just jobs under our project, by adding `-A nn9305k`
-3. try looking at just your jobs, by adding `-u <your_user_name>
+3. try looking at just your jobs, by adding `-u <your_user_name>`
 
 --------
 
 The status of jobs shows up under `ST`.
 
- * PD: the job is waiting for resources
- * R: running
- * CF: the system has allocated resources, but the job is waiting for
+ * **PD**: the job is waiting for resources
+ * **R**: running
+ * **CF**: the system has allocated resources, but the job is waiting for
  them to become ready
 
 There are also other statuses.
 
-Another important feature that you can find here is the job id. If
+Another important feature that you can find here is the **job id**. If
 you need to cancel a job, you need this number.
 
 
@@ -392,7 +405,7 @@ you need to cancel a job, you need this number.
 
 We will now look at the output file that slurm gives us.
 
-1. use `ls` to find a file in this directory that ends with *.out
+1. use `ls` to find a file in this directory that ends with `*.out`
 2. look at it.
 
 --------
@@ -408,7 +421,7 @@ scancel <jobid>
 **Task**
 
 You will now edit the slurm script so that you instead of searching
-in the refseq_genome database, you will search the nt database. This
+in the refseq_genome database, you will search the **nt** database. This
 will take a long time!
 
 After editing the file, submit it to the queue system using `sbatch`.
