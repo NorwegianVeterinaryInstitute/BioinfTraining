@@ -1,4 +1,4 @@
-# Genome Finding and Annotaton
+# Genome Finding and Annotation
 
 In this session, we will look at genome finding and annotation and how that works.
 
