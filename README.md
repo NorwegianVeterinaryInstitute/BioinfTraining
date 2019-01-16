@@ -101,3 +101,6 @@ also available on twitter, as @karinlag .
 Veterinary Institute people should contact the instructors on the instructors
 email list, or contact Karin via her vetinst email.
 
+### Course Navigation:
+
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vRiC8CWsxUdELLSxacY1XBfsnWcbUzaJcbmpq2mOpkI2H-a_CdZdcrScbqfzQ26BUizwH7Cogn8CHwj/pub?w=2160&amp;h=2160">
