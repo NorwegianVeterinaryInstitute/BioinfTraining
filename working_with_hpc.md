@@ -62,7 +62,7 @@ abel (Fig. 1).
 
 ![Figure 1 Abel data storage](figures/Abel_overview_VET_WorkAndStore.svg)
 
-**Figure 1** Abel data storage overview for the Veterinary Institute. Variables that can be used in slurm scripts or commands are indicated between brackets.
+**Figure 1** Abel data storage overview for the Veterinary Institute. Variables that can be used in slurm scripts or commands are indicated between brackets. (Figure was copied from https://github.com/uio-cees/hpc/wiki/Data-Storage and then modified for this website)
 
 There is also a forth area that will be discussed below and that is mainly used for data storage when analyzing data. It should not be used for storage, and after analysis data should be transfered to the **project** or the **work area**. For a detailed overview and how to use these areas please look at the description of [disks_areas](./disk_areas.md) at the Norwegian VeterinaryInstitute, to see the data workflow when launching/running jobs.
 
