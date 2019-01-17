@@ -60,12 +60,7 @@ abel (Fig. 1).
  * The last one is the **project**'s data and analysis backup area. This is
  `/projects/nn9305k`(Fig. 1). This is the area where all RAW sequence data  that belongs to the Veterinary Institute should be stored.
 
-<div align=“center”>
-<div markdown=“1”>
 ![Figure 1 Abel data storage](figures/Abel_overview_VET_WorkAndStore.svg)
-</div>
-</div>
-
 
 **Figure 1** Abel data storage overview for the Veterinary Institute. Variables that can be used in slurm scripts or commands are indicated between brackets.
 
