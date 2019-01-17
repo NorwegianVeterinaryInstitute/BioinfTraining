@@ -7,84 +7,71 @@
 <path pointer-events="none" fill="none" stroke="#994C00" stroke-miterlimit="10" d="M325.5,657.5L325.5,657.5"/>
 <path pointer-events="none" fill="#994C00" stroke="#994C00" stroke-miterlimit="10" d="M325.5,657.5L325.5,657.5L325.5,657.5
 	L325.5,657.5z"/>
-<rect x="10" y="492.146" pointer-events="none" fill="#E6E6E6" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="150" height="65.028"/>
-<rect x="195.835" y="246.865" pointer-events="none" fill="#FFF9B4" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="281.332" height="150.346"/>
-<text transform="matrix(1 0 0 1 225.2087 272.543)"><tspan x="0" y="0" font-family="'MyriadPro-Bold'" font-size="24">Databases / software </tspan><tspan x="12.096" y="28.8" font-family="'MyriadPro-Bold'" font-size="24">short term storage</tspan></text>
+<rect x="10" y="492.146" pointer-events="none" fill="#E6E6E6" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="150" height="65.027"/>
+<rect x="195.835" y="246.865" pointer-events="none" fill="#FFF9B4" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="281.331" height="150.346"/>
+<text transform="matrix(1 0 0 1 225.2083 272.543)" font-family="'MyriadPro-Bold'" font-size="24">Databases / Software </text>
+<text transform="matrix(1 0 0 1 237.3044 301.3428)" font-family="'MyriadPro-Bold'" font-size="24">Short term storage</text>
 <g>
 	
-		<rect x="252.737" y="307.569" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.996" height="70.003"/>
+		<rect x="252.737" y="307.569" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.996" height="70.002"/>
 	<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M271.237,322.569h137.996c3.312,0,6,2.687,6,6v28
-		c0,3.313-2.688,6-6,6H271.237c-3.314,0-6-2.687-6-6v-28C265.237,325.255,267.923,322.569,271.237,322.569z"/>
+		c0,3.312-2.688,6-6,6H271.237c-3.313,0-6-2.688-6-6v-28C265.237,325.255,267.923,322.569,271.237,322.569z"/>
 	<g transform="translate(282.5,368.5)">
 		<text transform="matrix(1 0 0 1 -12.8347 -21.9102)" font-family="'MyriadPro-Regular'" font-size="14">/work/projects/nn9305k</text>
 	</g>
 </g>
 <g>
 	
-		<rect x="504.491" y="67.835" pointer-events="none" fill="#FFFFFF" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="145" height="167"/>
+		<rect x="504.49" y="67.835" pointer-events="none" fill="#FFFFFF" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="145" height="167"/>
 	<path pointer-events="none" fill="#9AC7BF" fill-opacity="0.4" stroke="#000000" stroke-miterlimit="10" stroke-opacity="0.4" d="
-		M528.491,144.835c0-21.33,98-21.33,98,0v48c0,21.33-98,21.33-98,0V144.835z"/>
-	<path pointer-events="none" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-opacity="0.4" d="M528.491,144.835
+		M528.49,144.835c0-21.33,98-21.33,98,0v48c0,21.33-98,21.33-98,0V144.835z"/>
+	<path pointer-events="none" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-opacity="0.4" d="M528.49,144.835
 		c0,16,98,16,98,0"/>
 	<text transform="matrix(1 0 0 1 519.9436 85.8271)" font-family="'MyriadPro-Bold'" font-size="14">Long Term storage</text>
 	<text transform="matrix(1 0 0 1 567.6116 183.335)" font-family="'MyriadPro-Regular'" font-size="14">NIRD</text>
 </g>
+<rect x="196.022" y="32.5" pointer-events="none" fill="#B1DAB3" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="281.329" height="214.365"/>
 <g>
 	
-		<rect x="196.022" y="32.5" pointer-events="none" fill="#B1DAB3" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="281.329" height="214.365"/>
-	<g>
-		
-			<rect x="252.881" y="72.5" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.927" height="70"/>
-		<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M271.373,87.5h137.943c3.312,0,5.998,2.687,5.998,6v28
-			c0,3.313-2.686,6-5.998,6H271.373c-3.312,0-5.998-2.687-5.998-6v-28C265.375,90.187,268.06,87.5,271.373,87.5z"/>
-		<g transform="translate(282.5,368.5)">
-			<text transform="matrix(0.9995 0 0 1 5.2292 -256.9985)" font-family="'MyriadPro-Regular'" font-size="14">/projects/nn9305k</text>
-		</g>
-	</g>
-	<text transform="matrix(0.9995 0 0 1 289.5876 54.5029)" font-family="'MyriadPro-Bold'" font-size="24">Storage</text>
-	<g>
-		
-			<rect x="253.52" y="164.835" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.926" height="70"/>
-		<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M272.011,179.835h137.943c3.312,0,5.998,2.687,5.998,6v28
-			c0,3.313-2.686,6-5.998,6H272.011c-3.312,0-5.997-2.687-5.997-6v-28C266.014,182.522,268.7,179.835,272.011,179.835z"/>
-		<g transform="translate(282.5,368.5)">
-			<text transform="matrix(0.9995 0 0 1 -10.7737 -164.6631)" font-family="'MyriadPro-Regular'" font-size="14">/usit/abel/u1/username</text>
-			
-				<line fill="none" stroke="#EE3624" stroke-width="2" stroke-miterlimit="10" x1="-49.087" y1="-209.665" x2="168.82" y2="-126.998"/>
-		</g>
+		<rect x="252.881" y="72.5" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.927" height="70"/>
+	<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M271.373,87.5h137.942c3.312,0,5.998,2.687,5.998,6v28
+		c0,3.313-2.686,6-5.998,6H271.373c-3.312,0-5.998-2.687-5.998-6v-28C265.375,90.187,268.06,87.5,271.373,87.5z"/>
+	<g transform="translate(282.5,368.5)">
+		<text transform="matrix(0.9995 0 0 1 5.2283 -256.998)" font-family="'MyriadPro-Regular'" font-size="14">/projects/nn9305k</text>
 	</g>
 </g>
-<path d="M58.998,455.563"/>
-<g>
-	
-		<rect x="196.331" y="397.211" pointer-events="none" fill="#D4E1F5" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="281.333" height="231.624"/>
-	<text transform="matrix(1 0 0 1 236.2434 426.0342)" font-family="'MyriadPro-Bold'" font-size="24">Temporary storage</text>
-	
-		<rect x="253.232" y="440.491" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.999" height="70.336"/>
-	<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M271.732,455.563h137.999c3.313,0,6,2.699,6,6.028v28.135
-		c0,3.329-2.687,6.028-6,6.028H271.732c-3.313,0-6-2.699-6-6.028v-28.135C265.732,458.263,268.418,455.563,271.732,455.563z"/>
-	<g transform="translate(282.5,368.5)">
-		<text transform="matrix(0.9952 0 0 1 -3.3328 111.1895)" font-family="'MyriadPro-Regular'" font-size="14.0672">/work/user/username</text>
-	</g>
-	
-		<rect x="253.617" y="534.491" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.999" height="70.336"/>
-	<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M272.117,549.563h137.999c3.313,0,6,2.699,6,6.028v28.135
-		c0,3.329-2.687,6.028-6,6.028H272.117c-3.313,0-6-2.699-6-6.028v-28.135C266.117,552.263,268.804,549.563,272.117,549.563z"/>
-	<g transform="translate(282.5,368.5)">
-		<text transform="matrix(0.9952 0 0 1 27.0715 205.1895)" font-family="'MyriadPro-Regular'" font-size="14.0672">$SCRATCH</text>
-	</g>
+<text transform="matrix(0.9995 0 0 1 289.5867 54.5029)" font-family="'MyriadPro-Bold'" font-size="24">Storage</text>
+<rect x="215" y="164.835" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="243" height="70"/>
+<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M239.559,179.835h196.879c4.729,0,8.562,2.687,8.562,6v28
+	c0,3.313-3.833,6-8.562,6H239.559c-4.728,0-8.559-2.687-8.559-6v-28C231,182.522,234.834,179.835,239.559,179.835z"/>
+<text transform="matrix(0.9995 0 0 1 270.488 195.8325)" enable-background="new    "><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="14">/usit/abel/u1/username </tspan><tspan x="40.187" y="16.8" font-family="'MyriadPro-Regular'" font-size="14"> ( $HOME )</tspan></text>
+<line fill="none" stroke="#EE3624" stroke-width="2" stroke-miterlimit="10" x1="200.617" y1="158.501" x2="471.524" y2="241.168"/>
+<path d="M58.998,455.562"/>
+<rect x="196.331" y="397.211" pointer-events="none" fill="#D4E1F5" fill-opacity="0.4" stroke="#000000" stroke-opacity="0.4" stroke-dasharray="3,3" width="281.332" height="231.624"/>
+<text transform="matrix(1 0 0 1 236.2429 426.0342)" font-family="'MyriadPro-Bold'" font-size="24">Temporary storage</text>
+<rect x="253.232" y="440.491" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="174.999" height="70.336"/>
+<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M271.732,455.562h137.999c3.313,0,6,2.699,6,6.028v28.135
+	c0,3.329-2.687,6.028-6,6.028H271.732c-3.312,0-6-2.699-6-6.028v-28.135C265.732,458.263,268.418,455.562,271.732,455.562z"/>
+<g transform="translate(282.5,368.5)">
+	<text transform="matrix(0.9952 0 0 1 -7.5178 103.1846)" enable-background="new    "><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="14.0672">/work/user/username</tspan><tspan x="17.795" y="16.881" font-family="'MyriadPro-Regular'" font-size="14.0672"> ( $USERWORK )</tspan></text>
+</g>
+<rect x="215" y="534.491" pointer-events="none" fill="#FFE599" fill-opacity="0.4" stroke="#994C00" stroke-opacity="0.4" width="243" height="70.336"/>
+<path pointer-events="none" fill="#FFFFFF" stroke="#000000" d="M239.56,549.562h196.88c4.727,0,8.56,2.699,8.56,6.028v28.135
+	c0,3.329-3.833,6.028-8.56,6.028H239.56c-4.727,0-8.56-2.699-8.56-6.028v-28.135C231,552.263,234.833,549.562,239.56,549.562z"/>
+<g transform="translate(282.5,368.5)">
+	<text transform="matrix(0.9952 0 0 1 -33.6687 197.1846)" enable-background="new    "><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="14.0672"> /work/jobs/$SLURM_JOB_ID.d</tspan><tspan x="53.3" y="16.881" font-family="'MyriadPro-Regular'" font-size="14.0672">($SCRATCH )</tspan></text>
 </g>
 <text transform="matrix(1 0 0 1 15.0037 528.4814)" font-family="'MyriadPro-Bold'" font-size="24">Computation</text>
 <line fill="none" stroke="#231F20" stroke-width="2" x1="178" y1="569.659" x2="178" y2="338.5"/>
-<line fill="none" stroke="#231F20" stroke-width="2" x1="178" y1="569.659" x2="266.117" y2="569.659"/>
+<line fill="none" stroke="#231F20" stroke-width="2" x1="178" y1="569.659" x2="231" y2="569.659"/>
 <line fill="none" stroke="#231F20" stroke-width="2" x1="178" y1="475.659" x2="266.117" y2="475.659"/>
 <line fill="none" stroke="#231F20" stroke-width="2" x1="160" y1="524.662" x2="178" y2="524.662"/>
 <line fill="none" stroke="#231F20" stroke-width="2" x1="178.25" y1="338.5" x2="265.867" y2="338.5"/>
-<line fill="none" stroke="#231F20" stroke-width="2" stroke-dasharray="3,3" x1="418.591" y1="475.659" x2="506.708" y2="475.659"/>
+<line fill="none" stroke="#231F20" stroke-width="2" stroke-dasharray="3,3" x1="418.591" y1="475.659" x2="506.707" y2="475.659"/>
 <g transform="translate(282.5,368.5)">
 	<text transform="matrix(0.9952 0 0 1 226.9954 111.1895)" font-family="'MyriadPro-Regular'" font-size="14.0672">Deleted after 45 days</text>
 </g>
-<line fill="none" stroke="#231F20" stroke-width="2" stroke-dasharray="3,3" x1="419.591" y1="569.658" x2="507.708" y2="569.658"/>
+<line fill="none" stroke="#231F20" stroke-width="2" stroke-dasharray="3,3" x1="445" y1="569.658" x2="507.707" y2="569.658"/>
 <g transform="translate(282.5,368.5)">
 	<text transform="matrix(0.9952 0 0 1 227.9944 205.1895)" font-family="'MyriadPro-Regular'" font-size="14.0672">Until end of Job</text>
 </g>
