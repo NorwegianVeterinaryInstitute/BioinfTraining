@@ -51,17 +51,19 @@ are.
 ### File structure on abel
 
 There are three main storage locations that you need to know about on
-abel.
+abel (Fig. 1).
 
- * Your home (**$HOME**) area `usit/abel/u1/username`. When you log in, you will automatically land in what is called your **home area**. You will commonly not use this location much.
+ * Your home (**$HOME**) area `usit/abel/u1/username`. When you log in, you will automatically land in what is called your **home area**. You will commonly not use this location much, and it should not be used to store sequence data that is from the Veterinary Institute (Fig. 1).
 
- * The **work area**, `/work/projects/nn9305k`. This is where the
- Veterinary Institute Think of it as one of the common ressources areas on the Veterinary Institute area.
+ * The **work area**, `/work/projects/nn9305k` (Fig. 1). This is where the Veterinary Institute stores the databases we use and the software we install ourselves. You can store intermediate files here when you are analyzing data, but this area should not be used for storing RAW sequence data. Think of it as one of the common ressource areas on the Veterinary Institute area.
 
  * The last one is the **project**'s data and analysis backup area. This is
- `/projects/nn9305k`.
+ `/projects/nn9305k`(Fig. 1). This is the area where all RAW sequence data  that belongs to the Veterinary Institute should be stored.
 
-There is also a forth area that will be discussed below: look at the description of [disks_areas](./disk_areas.md) at the Norwegian VeterinaryInstitute, to see the data workflow when launching/running jobs.
+![Figure 1 Abel data storage](figures/Abel_overview_VET_WorkAndStore.svg)
+**Figure 1** Abel data storage overview for the Veterinary Institute. Variables that can be used in slurm scripts or commands are indicated between brackets.
+
+There is also a forth area that will be discussed below and that is mainly used for data storage when analyzing data. It should not be used for storage, and after analysis data should be transfered to the **project** or the **work area**. For a detailed overview and how to use these areas please look at the description of [disks_areas](./disk_areas.md) at the Norwegian VeterinaryInstitute, to see the data workflow when launching/running jobs.
 
 --------
 
