@@ -7,10 +7,10 @@ We will follow the [Mothur MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) for
 
 ## The course program
 
-* Reducing sequencing and PCR errors
+* Reducing sequencing and PCR errors.
 * Generating OTUs and analysis of diversity with Mothur.
 * R-studio / Phyloseq tutorial for diversity analysis.
-* Introduction to shotgun metagenomics
+* Introduction to shotgun metagenomics.
 
 ## Lecture 2018 – 5 – February
 
@@ -26,16 +26,16 @@ You can work yourself through this tutorial, but note that the mothur version on
 	* [SILVA-based bacterial reference alignment](https://www.mothur.org/w/images/9/98/Silva.bacteria.zip)
 	* [mothur-formated version of the RDP training set (v.9)](https://www.mothur.org/w/images/5/59/Trainset9_032012.pds.zip)
 
-3. extract zipped files using the commandline: `unzipe FILENAME`. This creates two folders: 1) Miseq_SOP and 2) silva.bacteria. and two lose files.
-4. move the directory silva.bacteria to the `Miseq_SOP` folder: `mv silva.bacteria Miseq_SOP`
-5. move the files Trainset* to the `Miseq_SOP` folder: `mv Trainset* Miseq_SOP`
+3. extract zipped files using the commandline: `unzip FILENAME`. This creates two folders: 1) Miseq_SOP and 2) silva.bacteria. and two lose files.
+4. move the directory silva.bacteria to the `Miseq_SOP` folder: `mv silva.bacteria/ Miseq_SOP/`
+5. move the files Trainset* to the `Miseq_SOP` folder: `mv Trainset* Miseq_SOP/`
 
 ### The tutorial steps
 
 Open file finder window and move to folder amplicons, check the files that you have downloaded.
 Since we have a lot of fastq data and we are curious, we want to get an idea of the quality of the sequences. We can use the tool `fastqc` which is installed in the biolinux machine. To run this on all the MiSeq fastq datafiles of this tutorial do the following:
 
-1. Open terminal window, and change to the directory with the fastq files
+1. Open terminal window, and change to the directory with the fastq files.
 2. create a directory called:  `fastqc-results` with the `mkdir` command.
 3. next we run the command: `fastqc -t 2 -o fastqc_results *.fastq` , to understand thie flags in this command type: `fastqc --help`
 4. open firefox and open a fastqc results file: `fastqc_report.html`. You can find for each dataset a folder inside the folder: `fastqc-results`. For instance open the folder for the forward sequences: `F3D0_S188_L001_R1_001_fastqc` and check the results there.
@@ -51,7 +51,6 @@ The commands can be found here: [20180205 MiSeq_SOP commands](20180205_MiSeq_SOP
 **Recommended literature**
 
 * Preclustering: Huse et al., Ironing out the wrinkles in the rare biosphere through improved OTU clusteringEnv. Microbiol 2010, 1889 – 1898
-*
 
 ### homework
 Read the manuscript: `Madness of Microbiome` download [here](http://aem.asm.org/content/early/2018/01/29/AEM.02627-17.abstract).
