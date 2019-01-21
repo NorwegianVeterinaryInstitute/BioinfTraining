@@ -20,7 +20,7 @@ Information that will not be included:
   * For the unix part, we got to the "Redirecting Input" part of the lesson.
   * You will need to create an account on the Abel computing cluster. To
   do that, you need to go [to this link and fill out the form that is
-  mentioned there](https://github.com/NorwegianVeterinaryInstitute/Info/wiki/AbelUserGuide). Note: use
+  mentioned there](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/Abel-User-Guide). Note: use
   the same username as you chose for your account on your virtualbox.<br/>
   **DEADLINE: Tuesday 5th.**
   * Regarding Thursday 7th: please [fill out this doodle to choose which
