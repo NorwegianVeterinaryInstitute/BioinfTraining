@@ -1,7 +1,7 @@
 # Genome assembly
 
 For the assembly part of this course, we will follow the assembly exercises
-that are part of the INF-BIOx121 course at the University of Oslo.
+that are part of the [IN-BIOSX000](https://in-biosx000.readthedocs.io/en/2018/) at the University of Oslo.
 
 [Link to the relevant pages](https://github.com/karinlag/INF-BIOx121/tree/2017/Assembly/practicals) 
 
