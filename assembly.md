@@ -29,13 +29,13 @@ is installed on the virtual machine.
 Program for today:
   * Short lecture on how assembly works
   * Experiment with de Bruijn graphs, using the DeBruijnGraph.ipynb notebook
-  * Go through most of the Velvet exercise from the INF-BIO site
+  * Go through most of the Velvet exercise from the [IN-BIOSx000](https://in-biosx000.readthedocs.io/en/2018/Assembly/) (assembly) site
   
 The dataset that we will use for the in-class exercises can be found here:
 
 `/work/projects/nn9305k/bioinf_course/compgenomics/rawdata/inclass`
 
-Note, for the INF-BIO course, the students were working on a non-abel computer.
+Note, for the IN-BIOSx000 course, the students were working on a non-abel computer.
 To make these exercises work, we have to do some things to make things work.
 
 1. Log onto abel
