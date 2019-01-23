@@ -42,7 +42,7 @@ To make these exercises work, we have to do some things to make things work.
 
 1. Log onto abel
 2. Check which login node you are on (`hostname`)
-3. Start the `screen` program
+3. Start the `screen` program. (Instructions how to use screen [here](https://github.com/NorwegianVeterinaryInstitute/BioinfTraining/blob/evfi-assembly/techstuff.md#Using-screen-to-avoid-dropped-connections)
 4. Go to your project home directory
 5. Create a course directory, call it `2018_compgenome`, and go into it
 6. Ask for a qlogin session:  
