@@ -22,7 +22,9 @@ You will also find a cheat list for commands at the bottom of this page.
 ### Preparatory work
 
 Make sure that access to abel works, and that the jupyter notebook (anaconda)
-is installed on the virtual machine.
+is installed on the virtual machine. 
+Look [here](https://github.com/NorwegianVeterinaryInstitute/BioinfTraining/blob/master/install_anaconda.md) 
+for installation instructions.
 
 ### Today's practical
 
