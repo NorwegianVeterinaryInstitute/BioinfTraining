@@ -48,7 +48,7 @@ For more details you can look at: [Managing Data on Abel] and more generally at 
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vSEmwfZ_3Meo_GHKmRi0aaUK316j84oYEHy5qqDW-lXKR8wkgNjNUBchvDk9aLQllpN607Mq271g1uJ/pub?w=960&amp;h=720">
 
 **SLURM** is the queue system and scheduler daemon (program/process which always runs in the background on Abel). It allows optimizing computing resources and schedule when jobs are to be run on $SCRATCH.- **All long jobs should be sumbited to to the queue system SLURM (and are run on $SCRATCH)**. 
-> There are 2 ways to use slurm SLURM queue system: 1. **interactively** with the command: `qlogin` and 2. by **submitting a script**: using `sbatch`. 
+ - There are 2 ways to use slurm SLURM queue system: 1. **interactively** with the command: `qlogin` and 2. by **submitting a script**: using `sbatch`. 
  - > when you use `qlogin` you actually are logged on a computing node that now executes commands from the shell. Usage: small tests (testing a working process OR using interactive programs).
  - > when you submit a script to SLURM, it will be scheduled to run on a computing node when resources are availables. Usage: heavy jobs. 
  - > **NB**: Small tests outside SLURM are tolerated (processes taking more than 30 min are automatically killed)
