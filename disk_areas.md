@@ -20,13 +20,13 @@ Abel Disk areas that are relevant for your work at the Veterinary Institute
   - **All Veterinary Institute data you work on has to be accessible to the Veterinary Institute user-group. So you can’t store them in your "home-home"**.
  
 2. **work area**: `/work/projects/nn9305k` will be used to contain:
-- Softwares and libraries
-- Public reference data, template files, adapters files ...
+  - Softwares and libraries
+  - Public reference data, template files, adapters files ...
 
 3. **project area**: `/projects/nn9305k` will be used to contain:
- - Project data, including raw sequencing files (zipped/tared:compressed and decompressed)
- - Data analyses that have been performed
- - ... this is where the work will NOW be done.
+  - Project data, including raw sequencing files (zipped/tared:compressed and decompressed)
+  - Data analyses that have been performed
+  - ... this is where the work will NOW be done.
  
 4. **project-home area**: `projects/nn9305k/home/username`: sub-directory of the Veterinary Institute **project area**. Here should all data from projects that do not require collaboration with other users go. NB: Data from collaborative projects must be placed in a directory directly under `project area`. 
 
@@ -41,8 +41,7 @@ Abel Disk areas that are relevant for your work at the Veterinary Institute
 5. **$SCRATCH**: when a job is started, a **temporary area** on $SCRATCH is automatically created. It is also automatically deleted when the job finishes. This allows the jobs to run faster without interfering with the work of others. You can access $SCRATCH for status monitoring of running jobs: with `/work/jobs/JOBID.d` where JOBID.d is the ID that has been provided when you submitted the job in the queue system SLURM (thus accessible only during job's lifetime).
 
 6. **$USERWORK** If files are needed for more than one job, they are **staged** in here. Bifrost is configured to set files in $USERWORK by itself, BUT using some other softwares/pipelines might requires that you copy needed files here. You should run analysis from this area (via SLRUM script or other mechanisms). Path: `/work/users/username` OR type `$USERWORK` instead of path.
-
-NB: Abel managing system automatically delete files older than 45 days (those files are not backed-up). 
+  - > NB: Abel managing system automatically delete files older than 45 days (those files are not backed-up). 
  
 For more details you can look at: [Managing Data on Abel] and more generally at [Abel User Guide]. You can also look at [Computer Resources at CEES].
 
@@ -50,10 +49,9 @@ For more details you can look at: [Managing Data on Abel] and more generally at 
 
 **SLURM** is the queue system and scheduler daemon (program/process which always runs in the background on Abel). It allows optimizing computing resources and schedule when jobs are to be run on $SCRATCH.- **All long jobs should be sumbited to to the queue system SLURM (and are run on $SCRATCH)**. 
 > There are 2 ways to use slurm SLURM queue system: 1. **interactively** with the command: `qlogin` and 2. by **submitting a script**: using `sbatch`. 
-> - when you use `qlogin` you actually are logged on a computing node that now executes commands from the shell. Usage: small tests (testing a working process OR using interactive programs).
-> - when you submit a script to SLURM, it will be scheduled to run on a computing node when resources are availables. Usage: heavy jobs. 
-
-**NB**: Small tests outside SLURM are tolerated (processes taking more than 30 min are automatically killed)
+ - > when you use `qlogin` you actually are logged on a computing node that now executes commands from the shell. Usage: small tests (testing a working process OR using interactive programs).
+ - > when you submit a script to SLURM, it will be scheduled to run on a computing node when resources are availables. Usage: heavy jobs. 
+ - > **NB**: Small tests outside SLURM are tolerated (processes taking more than 30 min are automatically killed)
 
 [Abel User Guide]:https://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/
 [Managing Data on Abel]:https://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/data.html
