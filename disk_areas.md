@@ -12,7 +12,7 @@ Abel Disk areas that are relevant for your work at the Veterinary Institute
 |`$SCRATCH`|`/work/jobs/JOBID.d`|temporary area on computing nodes: **FOR PROCESSING DATA = RUNNING JOBS**|fastest|
 |`$USERWORK`|`/work/users/username`|sharing data among different jobs = **staging**|do not backed-up - removed after 45 days|
 
-#### Storage Areas
+## Storage Areas
 
 1. **$HOME**: "home-home" directory (on login nodes): 500GB - backed up regularly: slow and timewise costly.
   - If you need to store files that do not require backup: put them in a `nobackup` directory
@@ -36,7 +36,7 @@ Abel Disk areas that are relevant for your work at the Veterinary Institute
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-#### Computing Areas (computing nodes)
+## Computing Areas (computing nodes)
 
 5. **$SCRATCH**: when a job is started, a **temporary area** on $SCRATCH is automatically created. It is also automatically deleted when the job finishes. This allows the jobs to run faster without interfering with the work of others. You can access $SCRATCH for status monitoring of running jobs: with `/work/jobs/JOBID.d` where JOBID.d is the ID that has been provided when you submitted the job in the queue system SLURM (thus accessible only during job's lifetime).
 
