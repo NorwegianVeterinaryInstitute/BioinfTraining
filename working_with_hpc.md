@@ -207,6 +207,30 @@ should be identical.
 (if so, start again transfer for files where checksum does not match).
 > - delete your temporary file `tempfile_md5sum.txt`
 
+### For transfering all files within directories to a new location:
+> use rsync to copy all your files from directory to another (ie. moving your directories on Abel)
+ - ex from `/work/projects/nn9305k/Mydirectory`to Mydirectory in parent_directory `/projects/nn9305k/`
+ 
+ 1) use `rsync -rauPW /origin_path/Mydirectory /parent_directory_destination`
+ 
+ - NB: parent directory (just the level above of where your want Mydirectory to be)
+ - NB: do not write /parent_directory_destination/Mydirectory otherwise it will make subfolder /../Mydirectory/Mydirectory
+ - Do it twice - if you get errors, probably permissions problem -> contact Karin
+
+2) To compare if the copy/synchronisation of files from the origin and destination folders worked: we build 2 temporary files (containing the hash-codes for all files that are contained in your origin and in your destination folders). 
+- best to do it from your project-home folder (or do not forget to remove those temporary files afterwards).
+- the command find all the files in your directories, executes md5sum on each file, sort hashes -> and write into a file all those hash-codes.
+- the idea is that if the copy/synchronisation succeded: then all the hashes codes for all files should be identical in the origin and destination folders respectively
+
+`find /path_origin_Mydirectory/ -type f -exec md5sum {} + | sort -k 2 > origin_mydirectory_temp.txt`
+`find /path_destination_Mydirectory/ -type f -exec md5sum {} + | sort -k 2 > destination_mydirectory_temp.txt`
+
+3) Then we check if the hash-codes generated for each directory and registred in the 2 temporary files are identical: (hash-codes are registred in the first column of each file). `-s` option: report that the 2 files should be identical. **if not, the file content of your directories are different**  
+
+`diff -s <(awk '{print $1}' origin_mydirectory_temp.txt) <(awk '{print $1}' destination_mydirectory_temp.txt)`
+
+4) When you are sure that the content of both directories are identical, you can remove the origin-directory 
+
 ### wget
 
 wget is very useful for getting data from a website to either your local
