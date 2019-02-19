@@ -173,7 +173,7 @@ Here is my recipe for when people send me large sequence data and I want to use 
 4. Go to the file you want to download and "right" click the download box and copy the link address.
 5. In your Terminal, go to abel and the location where you want to store the data. Somewhere on `/projects/nn9305k/`:
 6. Then type in the terminal: `wget -O myfile.data` and paste the link address from 4 at the end but within quotations marks. like this: ``` wget -O large_genome.gz "YOURLINK" ``` 
-7. Than the data is downloaded to a file with the filename given in 5. (edited)
+7. Than the data is downloaded to a file with the filename given in 6.
 
 Note, that you can download multiple file in one go as a zip file by scrolling to the bottom of the file list and copy the link produced by the box: `Download as single (.zip) file`
 
