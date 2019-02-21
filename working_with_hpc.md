@@ -223,6 +223,7 @@ should be identical.
 - the idea is that if the copy/synchronisation succeded: then all the hashes codes for all files should be identical in the origin and destination folders respectively
 
 `find /path_origin_Mydirectory/ -type f -exec md5sum {} + | sort -k 2 > origin_mydirectory_temp.txt`
+
 `find /path_destination_Mydirectory/ -type f -exec md5sum {} + | sort -k 2 > destination_mydirectory_temp.txt`
 
 3) Then we check if the hash-codes generated for each directory and registred in the 2 temporary files are identical: (hash-codes are registred in the first column of each file). `-s` option: report that the 2 files should be identical. **if not, the file content of your directories are different**  
