@@ -4,14 +4,14 @@
 
 Dataset used during this session can be found in the following location within abel:
 ```
-/work/projects/nn9305k/tmp/Files_for_Dec14/
+/projects/nn9305k/tmp/Files_for_Dec14/
 ```
 
 ## NB: Replace <your_user_name> with your abel username
 
 Create a new folder called _Data_pre_processing_Dec14_ in your home area and move there.
 ```
-cd /work/projects/nn9305k/home/<your_user_name>/
+cd /projects/nn9305k/home/<your_user_name>/
 mkdir Data_pre_processing_Dec14
 cd Data_pre_processing_Dec14
 ```
@@ -27,7 +27,7 @@ cd data
 
 Type the following command to link the files (not copy):
 ```
-ln -s /work/projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .
+ln -s /projects/nn9305k/tmp/Files_for_Dec14/*fq.gz .
 ```
 
 
@@ -91,7 +91,7 @@ cd
 cd Desktop
 mkdir Data_pre_processing_Dec14
 cd Data_pre_processing_Dec14
-scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .
+scp -r <your_user_name>@abel.uio.no:/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .
 ```
 
 7. Go through the html files and discuss.
