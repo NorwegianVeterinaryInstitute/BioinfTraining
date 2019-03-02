@@ -36,7 +36,7 @@ is to filter away contigs that are below 500 bp.
 
 The basic spades assembly lives here:
 
-`/work/projects/nn9305k/bioinf_course/compgenomics/assemblies/inclass/spades_careful/scaffolds.fasta`
+`/projects/nn9305k/bioinf_course/compgenomics/assemblies/inclass/spades_careful/scaffolds.fasta`
 
 1. Log in to abel, go to the course directory in your project home area.
 2. Create a directory named `annotation` next to the `assembly` directory.
@@ -135,7 +135,7 @@ various databases.
 
 The assemblies for today's homework can be found here:
 
-`/work/projects/nn9305k/bioinf_course/compgenomics/assemblies/homework/spades_covcutoff`
+`/projects/nn9305k/bioinf_course/compgenomics/assemblies/homework/spades_covcutoff`
 
 Here, you will find six directories, and inside of those you will find the assemblies,
 that is, the scaffolds.fasta files.
