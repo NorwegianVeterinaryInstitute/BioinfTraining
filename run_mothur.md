@@ -22,7 +22,7 @@ The script below can be used on the computing cluster abel, or any other cluster
 
 ## adding logfile creation
 ## replace username with your own username
-#SBATCH --output=/work/projects/nn9305k/home/thhaverk/amplicons/slurm_out/mothur_run_%j.txt
+#SBATCH --output=/projects/nn9305k/home/thhaverk/amplicons/slurm_out/mothur_run_%j.txt
 
 
 ## check location
