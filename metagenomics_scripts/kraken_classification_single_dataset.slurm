@@ -32,10 +32,10 @@ pwd -L
 
 ## Creating variables to use
 
-MYFOLDER=(/work/projects/nn9305k/home/thhaverk/kraken_test)  ## identify which dataset is analyzed
+MYFOLDER=(/projects/nn9305k/home/thhaverk/kraken_test)  ## identify which dataset is analyzed
 SAMPLE=sample_K1  ## sample identification
 KRAKEN_DB=(/work/projects/nn9305k/tmp/minikraken_20171013_4GB/)  ## the (mini-) kraken database location
-OUT_RESULT=(/work/projects/nn9305k/home/thhaverk/kraken_test_results)  ## output folder
+OUT_RESULT=(/projects/nn9305k/home/thhaverk/kraken_test_results)  ## output folder
 
 ## starting analysis
 echo current dataset is: $MYFOLDER
