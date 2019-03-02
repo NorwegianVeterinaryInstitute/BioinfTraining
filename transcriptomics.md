@@ -23,10 +23,10 @@ We will follow the protocol described in [Tophat2 bioinformatic protocol](https:
 * How to use tophat v2 - based on the Nature protocol (2012) paper
 * Download genome reference and create an index using bowtie2
 
-* in /work/projects/nn9305k/home/<username>/transcriptome/ref
+* in /projects/nn9305k/home/<username>/transcriptome/ref
 ```
-$ ln ../../../../bioinf_course/transcriptomics/ref/Dm.BDGP6.dna.toplevel.fa .
-$ ls ../../../../bioinf_course/transcriptomics/ref/Dm.BDGP6.91.gtf .
+$ ln ../../../bioinf_course/transcriptomics/ref/Dm.BDGP6.dna.toplevel.fa .
+$ ls ../../../bioinf_course/transcriptomics/ref/Dm.BDGP6.91.gtf .
 $ bowtie2-build Dm.BDGP6.dna.toplevel.fa Dm_BDGP6_genome
 ```
   
@@ -37,7 +37,7 @@ $ bowtie2-build <Reference_fasta_file_name> <bowtie2-build_ref_index_name_that_y
 
 ## To do
 * Align the given reads to the Drosophila genome using tophat v2
-* create a new folder called tophat in /work/projects/nn9305k/home/<username>/transcriptome/
+* create a new folder called tophat in /projects/nn9305k/home/<username>/transcriptome/
 * create a slurm script with *time=12:00:00*, *ntasks=16* and *mem-per-cpu=12Gb*
 ```
 $ tophat -p 16 -G ../ref/Dm.BDGP6.91.gtf -o <tophat_output_folder_name> ../ref/Dm_BDGP6_genome <read1> <read2>
