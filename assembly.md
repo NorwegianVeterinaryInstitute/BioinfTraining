@@ -33,7 +33,7 @@ Program for today:
   
 The dataset that we will use for the in-class exercises can be found here:
 
-`/work/projects/nn9305k/bioinf_course/compgenomics/rawdata/inclass`
+`/projects/nn9305k/bioinf_course/compgenomics/rawdata/inclass`
 
 Note, for the INF-BIO course, the students were working on a non-abel computer.
 To make these exercises work, we have to do some things to make things work.
@@ -68,7 +68,7 @@ When it comes to downloading and running notebooks:
  
 There are six genomes in the directory 
 
-`/work/projects/nn9305k/bioinf_course/compgenomics/rawdata/homework`
+`/projects/nn9305k/bioinf_course/compgenomics/rawdata/homework`
 
 You will work with a partner. Each team will pick three k-mer sizes and use 
 velvet to assemble the six genomes. Each person in the team is responsible
@@ -260,7 +260,7 @@ you need to replace the file names in the notebook with your own file names.
    coverage cutoff option and set it to auto.
 3. You will compare these SPAdes assemblies to velvet using QUAST. We have put some 
    ready made velvet-assemblies for you in this directory:
-   `/work/projects/nn9305k/bioinf_course/compgenomics/assemblies/velvet`.
+   `/projects/nn9305k/bioinf_course/compgenomics/assemblies/velvet`.
    Use some of the questions stated above as a guide to figure out what to look at.
 4. Compare the contig lengths using the jupyter notebook as described above.
 
