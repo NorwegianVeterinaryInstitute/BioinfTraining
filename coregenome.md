@@ -57,10 +57,38 @@ The available subcommands can be listed by doing
 chewBBACA.py --help
 ```
 
+
+### Goal for the exercise
+
+The main goal when using this program is to start out with a set
+of loci (aka the schema) and a set of genomes, and identify 
+a. if the genomes contain a gene that fits a locus in the schema, and 
+b. if so, which allele that that genome has for that locus.
+
+We can do this through one of two ways: we can 
+
+1. define a schema ourselves
+2. use a predefined schema
+
+We will run through the first option first, and through that
+show how we can do the second too. 
+
+For chewBBACA, a schema in this context is one of two things:
+
+a. a directory with fasta files in it, one for each locus
+b. a text file containing the full path to the fasta files 
+
+The locus fasta file contains fasta sequences for all alleles
+found for that locus. In the beginning, after creating or downloading
+a schema, the file only contains one sequence. However, when you use 
+a set of schema files with chewbbaca, any new alleles found for a 
+locus will be added to the locus file. That means that the schema 
+will be updated when people run the program. 
+
 ### Create wgMLST and cgMLST schema
 
 The chewBBACA developers have come up with a very good tutorial, which
-is listed above.
+is listed above. We will do an adapted run-through of that. 
 
 A subset of the data used for that tutorial can be found here:
 
@@ -73,6 +101,7 @@ Make a directory in your project home area, and create a directory called
 your 'genomes' directory.
 
 Use this directory when running through this tutorial.
+
 
 #### CreateSchema step
 
