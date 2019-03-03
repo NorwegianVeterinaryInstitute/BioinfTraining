@@ -44,8 +44,8 @@ show how we can do the second too.
 
 For chewBBACA, a schema in this context is one of two things:
 
-a. a directory with fasta files in it, one for each locus
-b. a text file containing the full path to the fasta files 
+a. a directory with fasta files in it, one for each locus  
+b. a text file containing the full path to the fasta files   
 
 The locus fasta file contains fasta sequences for all alleles
 found for that locus. In the beginning, after creating or downloading
@@ -124,8 +124,9 @@ chewBBACA.py AlleleCall -i genomes/ -g schema_seed/ -o results_cg --cpu 6 --ptf 
 1. What do the options shown above mean?
 2. Which bsr value was used?
 3. How many exact matches were found?
-4. Which genome had the most exact matches_
+4. Which genome had the most exact matches?
 5. How many paralogs were found?
+6. Have a look at the 'GCA-000636115-protein1.fasta' file again. Has it changed?
 
 Go into the results_cg directory and into the results directory. Figure out
 what the contents of each of the files there are.
@@ -137,16 +138,15 @@ what the contents of each of the files there are.
 ```
 
 1. What does the options shown above do?
-1. How many loci were deleted, and how many remained?
-2. What are the files in the new directory that was created?
-3. Use the awk command shown above on the cgMLST.tsv file. Can you find some
-   columns that are different from the various genomes?
+2. How many loci were deleted, and how many remained?
+3. What are the files in the new directory that was created?
 4. Have a look at the cgMLSTschema.txt file. This is the final schema file.
 
 NOTE: to get a really good schema, we should have run through the evaluation step
-as described in the wiki and the tutorial. This would have let us identify genomes
-that we should not include in the schema. We are skipping this in this tutorial for
-the sake of time. 
+as described in the wiki and the tutorial in addition to what we have done now. 
+This would have let us identify genomes that we should not include in the schema. 
+We should also have rerun the AlleleCall/ExtractCgMLST steps until we have 
+no paralogs. We are skipping this in this tutorial for the sake of time. 
 
 #### AlleleCall again
 
@@ -179,7 +179,8 @@ cat cgMLSTschema.txt |sed -e "s|^|fullpathhere/|g" > fullpath_cgMLSTschema.txt
 ##### Do allele call with the new schema
 
 We can now use the same allele call command as above, except with the 
-'fullpath_cgMLSTschema.txt' file for the '-g' option. 
+'fullpath_cgMLSTschema.txt' file for the '-g' option. Remember to use a
+new output directory file name!
 
 
 ### Use a pre-prepared schema
