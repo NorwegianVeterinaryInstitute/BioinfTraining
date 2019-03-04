@@ -30,17 +30,17 @@
 ### Goal for the exercise
 
 The main goal when using this program is to start out with a set
-of loci (aka the schema) and a set of genomes, and identify 
-a. if the genomes contain a gene that fits a locus in the schema, and 
+of loci (aka the schema) and a set of genomes, and identify
+a. if the genomes contain a gene that fits a locus in the schema, and
 b. if so, which allele that that genome has for that locus.
 
-We can do this through one of two ways: we can 
+We can do this through one of two ways: we can
 
 1. define a schema ourselves
 2. use a predefined schema
 
 We will run through the first option first, and through that
-show how we can do the second too. 
+show how we can do the second too.
 
 For chewBBACA, a schema in this context is one of two things:
 
@@ -49,10 +49,10 @@ b. a text file containing the full path to the fasta files
 
 The locus fasta file contains fasta sequences for all alleles
 found for that locus. In the beginning, after creating or downloading
-a schema, the file only contains one sequence. However, when you use 
-a set of schema files with chewbbaca, any new alleles found for a 
-locus will be added to the locus file. That means that the schema 
-will be updated when people run the program. 
+a schema, the file only contains one sequence. However, when you use
+a set of schema files with chewbbaca, any new alleles found for a
+locus will be added to the locus file. That means that the schema
+will be updated when people run the program.
 
 ### How to use chewBBACA
 
@@ -89,7 +89,7 @@ chewBBACA.py --help
 ### Create wgMLST and cgMLST schema
 
 The chewBBACA developers have come up with a very good tutorial, which
-is listed above. We will do an adapted run-through of that. 
+is listed above. We will do an adapted run-through of that.
 
 A subset of the data used for that tutorial can be found here:
 
@@ -143,44 +143,57 @@ what the contents of each of the files there are.
 4. Have a look at the cgMLSTschema.txt file. This is the final schema file.
 
 NOTE: to get a really good schema, we should have run through the evaluation step
-as described in the wiki and the tutorial in addition to what we have done now. 
-This would have let us identify genomes that we should not include in the schema. 
-We should also have rerun the AlleleCall/ExtractCgMLST steps until we have 
-no paralogs. We are skipping this in this tutorial for the sake of time. 
+as described in the wiki and the tutorial in addition to what we have done now.
+This would have let us identify genomes that we should not include in the schema.
+We should also have rerun the AlleleCall/ExtractCgMLST steps until we have
+no paralogs. We are skipping this in this tutorial for the sake of time.
 
 #### AlleleCall again
 
 We now have a schema that is without paralogs, and which contains loci that are
 present in 95% of the genomes we based the schema on. We will now use it for
-allele calling. 
+allele calling.
 
 ##### Add path to allele file
 
 We have a file that contains the fasta file names to the schema. To use it, we will
 have to add the path name to the location where they are to the file.
 
-1. Copy your schema file to the directory which also includes schema_seed. 
+1. Copy your schema file to the directory which also includes schema_seed.
 1. Find out where your locus fasta files are. Figure out the full path.
 2. Test that you can add the right path to the file by using the following
 command:
 
 ```
-head cgMLSTschema.txt |sed -e "s|^|fullpathhere/|g" 
+head cgMLSTschema.txt |sed -e "s|^|fullpathhere/|g"
 ```
 Test that you have the right path by cat-ing one of the files that show
-up. 
+up.
 
 3. Save the results to a new file by doing the following:
 
 ```
-cat cgMLSTschema.txt |sed -e "s|^|fullpathhere/|g" > fullpath_cgMLSTschema.txt 
+cat cgMLSTschema.txt |sed -e "s|^|fullpathhere/|g" > fullpath_cgMLSTschema.txt
 ```
 
 ##### Do allele call with the new schema
 
-We can now use the same allele call command as above, except with the 
+We can now use the same allele call command as above, except with the
 'fullpath_cgMLSTschema.txt' file for the '-g' option. Remember to use a
 new output directory file name!
 
 
 ### Use a pre-prepared schema
+
+As is clear from what is stated above, a schema can be a text file
+containing a list of fasta filenames. When we download a schema from
+the website shown above, we get a set of fasta files. These are for the
+whole genome MLST schema from Enterobase. However, they also include a
+text file for the cgMLST schema. Thus, to use a Enterobase schema,
+what we need to do is to take that file, append the full directory
+name to the beginning of each line in the file (as demonstrated above)
+and use that for the allele calling as shown above.
+
+Please note, using a schema from Enterobase requires quite a bit of
+run time, and it might seem like nothing is happening at first.
+However, be patient and it will work.
