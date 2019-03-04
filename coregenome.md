@@ -102,7 +102,7 @@ Make a directory in your project home area, and create a directory called
 your 'genomes' directory.
 
 Use this directory when running through this tutorial. For each step,
-read throug the information found on the wiki page for that step to
+read through the information found on the wiki page for that step to
 figure out what it does.
 
 #### CreateSchema step
