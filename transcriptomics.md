@@ -61,6 +61,7 @@ $ cufflinks -p 16 -o <cufflinks_output_folder_name> <tophat_output_folder_name>/
 ## To do
 * Run cuffmerge and cuffdiff on Day 2's cufflinks output
 * create a text file and call it *assemblies.txt* and it should contain the information below
+
 ```
 $ cat assemblies.txt
 <cufflinks_output_folder_name_for_Con1_Rep1>/transcripts.gtf
@@ -91,22 +92,38 @@ cuffdiff -o cuffdiff_short_output -p 16 -L Con1_s,Con2_s ../ref/Dm.BDGP6.91.gtf 
 * Load cuffdiff output from short and long pipeline in R using cummeRbund
 
 ## To do
-* Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
+* Link to cummeRbund manual: [Manual](http://compbio.mit.edu/cummeRbund/manual_2_0.html)
 
 # Day 5
 * Introduction to counting reads
 
 ## To do
-* Link to featureCounts manual: http://bioinf.wehi.edu.au/featureCounts/
+* Link to featureCounts manual: [Manual](http://bioinf.wehi.edu.au/featureCounts)
 
-# Day 6
+# Day 6-7
 * DESeq2 and cummeRbund
 
 ## To do
-* Link to DESeq2 webpage: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
-* Link to DESeq2 manual: https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
-* Link to cummeRbund webpage: http://compbio.mit.edu/cummeRbund/
-* Link to cummeRbund manual: http://compbio.mit.edu/cummeRbund/manual_2_0.html
+* Link to DESeq2 webpage: [Link](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+* Link to DESeq2 manual: [Link](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
+* Link to cummeRbund webpage: [Link](http://compbio.mit.edu/cummeRbund)
+* Link to cummeRbund manual: [Link](http://compbio.mit.edu/cummeRbund/manual_2_0.html)
 
 * Link to DESeq2 Rscript: [DESeq2.R](transcriptomics_scripts/DESeq2.R)
 * Link to cummeRbund Rscript: [cummeRbund.R](transcriptomics_scripts/cummeRbund.R)
+
+* Link to video on FPKM, RPKM and TPM): [Youtube video](https://www.youtube.com/watch?v=TTUrtCY2k-w)
+* Link to video on DESeq2 Normalisation: [Youtube video](https://www.youtube.com/watch?v=UFB993xufUU)
+
+# Day 8
+* Gene set enrichment analysis
+* Gene Ontology
+* Pathway analyses - [KEGG](http://www.kegg.jp/)
+
+* [Gorilla](http://cbl-gorilla.cs.technion.ac.il)
+* [g:Profiler](https://biit.cs.ut.ee/gprofiler/index.cgi)
+* [Amigo](amigo.geneontology.org)
+* [DAVID](https://david.ncifcrf.gov/home.jsp)
+* [PANTHER](http://pantherdb.org)
+
+Also, you get ortholog information from ENSEMBL
