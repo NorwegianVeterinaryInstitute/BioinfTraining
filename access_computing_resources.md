@@ -38,7 +38,7 @@ When resources are attributed:
  - you actually are logged on a **computing node**(*) that now executes at once commands you type directly from the shell (Unless you misspelled the syntax!)
  - This is perfect for running small tests
  - It can also be used to run longer jobs.
-   > in this case use `screen` before asking resources with qlogin. If you do not know what screen is, read the section in [techstuff] 
+   > in this case use `screen` before asking resources with qlogin. If you do not know what screen is, read this [section](techstuff.md#using-screen)
 
 What you should do when you use `qlogin`
 - use `hostname` to check which node you are on (be sure you are on a computing node and not a login node)
@@ -61,7 +61,7 @@ See commands below.
 |squeue       |-u <your_user_name>            |checks your current queue status  - provide jobID | |
 |scancel      |<jobid >                       |cancel job with the provided id  | |
 |hostname     |                               |checks where your are on abel: `login node` `or computing node` | |
-|screen       |                               |avoid dropped connections - see [techstuff] | |
+|screen       |                               |avoid dropped connections | |
 |...^a+d      |                               |detaches screen -> softwares keep running if you close shell| |
 |screen       | -ls                           |gives list of your running screens  & screen_id| |
 |screen       |-DR <screen_id>                |reconnect to screen with id..| |
@@ -73,16 +73,13 @@ See commands below.
 
 1. How can you see if you are in a login node or a computing node? (2 ways)
 
-> Answers to [Access to computing resources] questions (but you need to try answering yourself first)
-
+> Answers to questions can be found [here](Quiz_answers.md#access-to-computing-resources) (but you need to try answering yourself first)
 
 ## Going further:
 
 [Abel Queue system]
 in [Abel User guide](https://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/)
 
-[Slurm documentation](https://slurm.schedmd.com/)
+[Slurm documentation]:(https://slurm.schedmd.com/)
 
 [Abel Queue system]:https://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/queue-system.html
-
-[techstuff]:https://github.com/NorwegianVeterinaryInstitute/BioinfTraining/blob/master/techstuff.md
