@@ -13,7 +13,7 @@
 * [Sharing data via a shared folder](#Sharing-data-via-a-shared-folder)
 
 
-## Using screen to avoid dropped connections
+## [Using screen](#using-screen) to avoid dropped connections
 
 We are using abel. Once we run a program on abel (or any remote computer), that
 program will only keep running a long as the terminal is connected to it, that is,
