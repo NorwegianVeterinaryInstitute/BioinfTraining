@@ -1,4 +1,4 @@
-# Access to computing resources: VIA squeue and slurm script
+# Access to computing resources: VIA qlogin and slurm script
 
 ## Overview: requesting computing resources
 
