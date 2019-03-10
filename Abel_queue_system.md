@@ -30,7 +30,16 @@ $output_file4=""
 /work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 1 -trimlog vibrio_trimlog.log $input_file1 $input_file2 $output_file1 $output_file2 $output_file4 $output_file4 ILLUMINACLIP:adapter.fa:2:30:10 LEADING:20 TRAILING:20 SLIDINGWINDOW:20:15 MINLEN:60
 ```
 
+# Submit SLURM Job
+```
+sbatch Trim.sh
 
+squeue -u your_user_name
 
+squeue 
 
+scancel <jobid>
+
+scancel -u jeevka 
+```
 
