@@ -6,7 +6,8 @@ ssh your_user_name@abel.uio.no
 
 # Qlogin 
 ```
-qlogn --account=nn9305k --ntasks-per-node=16
+qlogin --account=nn9305k --ntasks-per-node=16
 ```
+
 
 
