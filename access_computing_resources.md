@@ -85,7 +85,6 @@ Answers to questions can be found [here](Quiz_answers.md#access-to-computing-res
 ```
 mkdir QSystem_Test
 cp /work/projects/nn9305k/samplefiles/SLURM_Script_BioinfoCourse.slurm QSystem_Test/Trim.sh
-cp /work/projects/nn9305k/samplefiles/adapter.fa QSystem_Test/
 ```
 Add Trimmomatic commands to SLURM script Trim.sh
 
@@ -101,9 +100,9 @@ output_file2="/usit/abel/u1/YOUR_USER_NAME/QSystem_Test/Trimmed_Unpaired_Test1.f
 output_file3="/usit/abel/u1/YOUR_USER_NAME/QSystem_Test/Trimmed_Test2.fastq"
 output_file4="/usit/abel/u1/YOUR_USER_NAME/QSystem_Test/Trimmed_Unpaired_Test2.fastq"
 
-#adapter_file="/work/projects/nn9305k/samplefiles/adapter.fa"
+adapter_file="/work/projects/nn9305k/samplefiles/adapter.fa"
 
-/work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 1 -trimlog vibrio_trimlog.log $input_file1 $input_file2 $output_file1 $output_file2 $output_file3 $output_file4 ILLUMINACLIP:adapter.fa:2:30:10 LEADING:20 TRAILING:20 SLIDINGWINDOW:20:15 MINLEN:60
+/work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 1 -trimlog vibrio_trimlog.log $input_file1 $input_file2 $output_file1 $output_file2 $output_file3 $output_file4 ILLUMINACLIP:$adapter_file:2:30:10 LEADING:20 TRAILING:20 SLIDINGWINDOW:20:15 MINLEN:60
 ```
 
 ### Submit SLURM Job
