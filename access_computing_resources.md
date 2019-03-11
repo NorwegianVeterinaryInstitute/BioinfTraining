@@ -73,7 +73,7 @@ ssh your_user_name@abel.uio.no
 
 ### 2. qlogin 
 ```
-qlogin --account=nn9305k --ntasks-per-node=8
+qlogin --account=nn9305k --nodes=1 --ntasks-per-node=8
 squeue -u your_user_name
 scancel job_id
 ```
