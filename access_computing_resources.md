@@ -47,7 +47,7 @@ What you should do when you use `qlogin`
 - you need to move files you want to use (not databases) TO `$USERWORK` = `work/users/<username>` and FROM after your analyses are completed.
 
 # Oops!
-Whether you use a SLURM script of qlogin you will need to load required modules.
+Whether you use a SLURM script or use resources via qlogin you will need to load required modules:
 `module load module_name`
 
 ## Viewing status, canceling jobs
