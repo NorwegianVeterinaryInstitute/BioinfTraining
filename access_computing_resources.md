@@ -63,7 +63,6 @@ See commands below.
 |scancel      |<jobid >                       |cancel job with the provided id  | |
 |hostname     |                               |checks where your are on abel: `login node` `or computing node` | |
 
-... means when you are in screen press `ctrl = ^` + keys `a+d` or `a+k`
 
 ## Examples: exercises
 # 1. Login to Abel 
