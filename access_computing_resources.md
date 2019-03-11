@@ -62,11 +62,6 @@ See commands below.
 |squeue       |-u <your_user_name>            |checks your current queue status  - provide jobID | |
 |scancel      |<jobid >                       |cancel job with the provided id  | |
 |hostname     |                               |checks where your are on abel: `login node` `or computing node` | |
-|screen       |                               |avoid dropped connections | |
-|...^a+d      |                               |detaches screen -> softwares keep running if you close shell| |
-|screen       | -ls                           |gives list of your running screens  & screen_id| |
-|screen       |-DR <screen_id>                |reconnect to screen with id..| |
-|...^a+k      |                               |kills (close the attached screen) | |
 
 ... means when you are in screen press `ctrl = ^` + keys `a+d` or `a+k`
 
