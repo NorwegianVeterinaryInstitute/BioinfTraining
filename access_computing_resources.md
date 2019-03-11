@@ -25,7 +25,7 @@ A script contains:
 - using slurm script is particularly appropriate when you have **heavy jobs** that need to run for a long time AND/OR
 - want to run a serie of analyses one after the other (automatizing) without having to wait that one finishes before launching the next one.
 
-## qlogin
+### qlogin
 
 2. By requesting resources to the queue system with the `qlogin` command. 
 
@@ -46,17 +46,16 @@ What you should do when you use `qlogin`
 
 - you need to move files you want to use (not databases) TO `$USERWORK` = `work/users/<username>` and FROM after your analyses are completed.
 
-# Oops!
+### Oops!
 Whether you use a SLURM script or use resources via qlogin you will need to load required modules:
 `module load module_name`
 
-## Viewing status, canceling jobs
+## Relevant commands: + viewing status, canceling jobs 
 
 NB: you can view status: `PD	Pending`, `R	Running`, `CD	Completed` ... See [Abel Queue system] for other statuses.
 
 See commands below.
 
-### Relevant commands
 | command     | relevant arguments            | does                    | example                       |
 |:------------|:------------------------------|:------------------------|:------------------------------|
 |qlogin       | <account, time, ntasks, mem > |ask for interactive computing resources | `qlogin --account=nn9305k --time=00:30:00 --ntasks=4 --mem-per-cpu=4G` |
@@ -67,12 +66,12 @@ See commands below.
 
 
 ## Examples: exercises
-# 1. Login to Abel 
+### 1. Login to Abel 
 ```
 ssh your_user_name@abel.uio.no
 ```
 
-# 2. qlogin 
+### 2. qlogin 
 ```
 qlogin --account=nn9305k --ntasks-per-node=16
 ```
@@ -80,7 +79,7 @@ qlogin --account=nn9305k --ntasks-per-node=16
 
 Answers to questions can be found [here](Quiz_answers.md#access-to-computing-resources) (but you need to try answering yourself first)
 
-# 3. Prepare SLURM Script
+### 3. Prepare SLURM Script
 ```
 mkdir QSystem_Test
 cp /work/projects/nn9305k/samplefiles/Sample_Slurm_Script.slurm QSystem_Test/Trim.sh
@@ -103,7 +102,7 @@ $output_file4="Trimmed_Unpaired_Test2.fastq"
 /work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 1 -trimlog vibrio_trimlog.log $input_file1 $input_file2 $output_file1 $output_file2 $output_file4 $output_file4 ILLUMINACLIP:adapter.fa:2:30:10 LEADING:20 TRAILING:20 SLIDINGWINDOW:20:15 MINLEN:60
 ```
 
-# Submit SLURM Job
+### Submit SLURM Job
 ```
 sbatch Trim.sh
 
