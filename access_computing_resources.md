@@ -84,7 +84,7 @@ Answers to questions can be found [here](Quiz_answers.md#access-to-computing-res
 mkdir QSystem_Test
 cp /work/projects/nn9305k/samplefiles/Sample_Slurm_Script.slurm QSystem_Test/Trim.sh
 ```
-Add Trmmomatic commands to SLURM script 
+Add Trimmomatic commands to SLURM script Trim.sh
 
 ``` 
 # For Trimmomataic
