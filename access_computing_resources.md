@@ -19,7 +19,6 @@ The scripts will be scheduled to run on a computing node when resources are avai
 
 A script contains:
   - a description of the computing resources you ask for (time, memory..) and which project (nn9305k) should be charged for those computing resources
-  - where on the disk are the files you want to analyses and programs you want to use are located
   - define transferred files (in/out) of the temporary folder created in the computing node when resources are allocated
   - what programs are run, which parameters are used, in which succession ...
 
@@ -47,6 +46,9 @@ What you should do when you use `qlogin`
 
 - you need to move files you want to use (not databases) TO `$USERWORK` = `work/users/<username>` and FROM after your analyses are completed.
 
+# Oops!
+Whether you use a SLURM script of qlogin you will need to load required modules.
+`module load module_name`
 
 ## Viewing status, canceling jobs
 
