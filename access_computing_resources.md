@@ -82,7 +82,7 @@ Answers to questions can be found [here](Quiz_answers.md#access-to-computing-res
 ### 3. Prepare SLURM Script
 ```
 mkdir QSystem_Test
-cp /work/projects/nn9305k/samplefiles/Sample_Slurm_Script.slurm QSystem_Test/Trim.sh
+cp /work/projects/nn9305k/samplefiles/SLURM_Script_BioinfoCourse.slurm QSystem_Test/Trim.sh
 ```
 Add Trimmomatic commands to SLURM script Trim.sh
 
