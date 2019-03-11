@@ -1,4 +1,4 @@
-# Access to computing resources: VIA qlogin and slurm script
+# Access to computing resources: VIA qlogin and SLURM script
 
 ## Overview: requesting computing resources
 
@@ -10,7 +10,7 @@ A little summary:
 
 There are 2 ways to request for computing resources:
 
-### Slurm script
+### SLURM script
 
 1. By submitting a jobscript using `sbatch script_file.slurm` command.
 
@@ -26,7 +26,7 @@ A script contains:
 - using slurm script is particularly appropriate when you have **heavy jobs** that need to run for a long time AND/OR
 - want to run a serie of analyses one after the other (automatizing) without having to wait that one finishes before launching the next one.
 
-## qLogin
+## qlogin
 
 2. By requesting resources to the queue system with the `qlogin` command. 
 
@@ -46,6 +46,7 @@ What you should do when you use `qlogin`
 - look at the `job_id` when you ask for resources (and find out how to do it when you forgot to look - see commands under)
 
 - you need to move files you want to use (not databases) TO `$USERWORK` = `work/users/<username>` and FROM after your analyses are completed.
+
 
 ## Viewing status, canceling jobs
 
@@ -70,10 +71,54 @@ See commands below.
 ... means when you are in screen press `ctrl = ^` + keys `a+d` or `a+k`
 
 ## Examples: exercises
+# 1. Login to Abel 
+```
+ssh your_user_name@abel.uio.no
+```
 
-1. How can you see if you are in a login node or a computing node? (2 ways)
+# 2. qlogin 
+```
+qlogin --account=nn9305k --ntasks-per-node=16
+```
+* How can you see if you are in a login node or a computing node? (2 ways)
 
-> Answers to questions can be found [here](Quiz_answers.md#access-to-computing-resources) (but you need to try answering yourself first)
+Answers to questions can be found [here](Quiz_answers.md#access-to-computing-resources) (but you need to try answering yourself first)
+
+# 3. Prepare SLURM Script
+```
+mkdir QSystem_Test
+cp /work/projects/nn9305k/samplefiles/Sample_Slurm_Script.slurm QSystem_Test/Trim.sh
+```
+Add Trmmomatic commands to SLURM script 
+
+``` 
+# For Trimmomataic
+module load java
+
+$input_file1="/work/projects/nn9305k/samplefiles/Test1.fastq"
+$input_file=2"/work/projects/nn9305k/samplefiles/Test2.fastq"
+
+$output_file1="Trimmed_Test1.fastq"
+$output_file2="Trimmed_Unpaired_Test1.fastq"
+$output_file3="Trimmed_Test2.fastq"
+$output_file4="Trimmed_Unpaired_Test2.fastq"
+
+
+/work/projects/nn9305k/bin/trimmomatic-0.36.jar PE -threads 1 -trimlog vibrio_trimlog.log $input_file1 $input_file2 $output_file1 $output_file2 $output_file4 $output_file4 ILLUMINACLIP:adapter.fa:2:30:10 LEADING:20 TRAILING:20 SLIDINGWINDOW:20:15 MINLEN:60
+```
+
+# Submit SLURM Job
+```
+sbatch Trim.sh
+
+squeue -u your_user_name
+
+squeue 
+
+scancel <jobid>
+
+scancel -u jeevka 
+```
 
 ## Going further:
 
