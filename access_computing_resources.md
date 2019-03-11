@@ -1,4 +1,4 @@
-# Access to computing resources: VIA qlogin and SLURM script
+# Access to computing resources: via qlogin and SLURM script
 
 ## Overview: requesting computing resources
 
