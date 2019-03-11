@@ -74,6 +74,8 @@ ssh your_user_name@abel.uio.no
 ### 2. qlogin 
 ```
 qlogin --account=nn9305k --ntasks-per-node=16
+squeue -u your_user_name
+scancel job_id
 ```
 * How can you see if you are in a login node or a computing node? (2 ways)
 
