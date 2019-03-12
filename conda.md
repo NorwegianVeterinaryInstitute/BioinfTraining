@@ -11,7 +11,7 @@ be disturbed by anything outside your bubble.
 Conda allows the creation of several environments, that do not interact with each
 other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments)
 
-![alt text](/figures/conda.sgv)
+![alt text](/figures/conda.svg)
 
 **In other words**:
 Creating an environment name=X1 to run a particular software is extremely useful when
@@ -24,7 +24,7 @@ with each other.
 
 There are several several packages installed within several conda enviroments for you to work with on Abel. See below.
 
-> PS: be sure that you did follow at first time login the instructions: [On first time login](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/Abel-User-Guide) as it automatically configure of where conda is to be found. If you did it - you do not need to do it again. 
+> PS: be sure that you did follow at first time login the instructions: "[On first time login](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/Abel-User-Guide)" as it automatically configure of where conda is to be found. If you did it - you do not need to do it again.
 
 ## Working with softwares installed in conda environments
 
