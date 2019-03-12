@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 148"
+   height="148mm"
+   width="210mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-149)"
+     id="layer1">
+    <rect
+       y="154.12502"
+       x="5.2916665"
+       height="137.58333"
+       width="201.08333"
+       id="rect14"
+       style="fill:#eaff79;fill-opacity:0.27272728;stroke:#fbed8e;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:0.26499998, 0.52999996999999999;stroke-dashoffset:0;stroke-opacity:0.08658011" />
+    <text
+       id="text18"
+       y="160.47498"
+       x="10.583333"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         y="160.47498"
+         x="10.583333"
+         id="tspan16">Conda environments</tspan></text>
+    <ellipse
+       ry="33.618774"
+       rx="30.783951"
+       cy="193.05655"
+       cx="164.9866"
+       id="path25"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text834"
+       y="170"
+       x="151.56845"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         y="170"
+         x="151.56845"
+         id="tspan832">Bifrost</tspan><tspan
+         id="tspan836"
+         style="stroke-width:0.26458332"
+         y="176.06474"
+         x="151.56845">- bbduk</tspan><tspan
+         id="tspan840"
+         style="stroke-width:0.26458332"
+         y="181.35641"
+         x="151.56845">- trimmomatic</tspan><tspan
+         id="tspan1017"
+         style="stroke-width:0.26458332"
+         y="186.64807"
+         x="151.56845">- fasqc</tspan><tspan
+         id="tspan850"
+         style="stroke-width:0.26458332"
+         y="191.93974"
+         x="151.56845">- multiqc</tspan><tspan
+         id="tspan866"
+         style="stroke-width:0.26458332"
+         y="197.23141"
+         x="151.56845">- spades </tspan><tspan
+         id="tspan872"
+         style="stroke-width:0.26458332"
+         y="202.52307"
+         x="151.56845">- bwa</tspan><tspan
+         id="tspan862"
+         style="stroke-width:0.26458332"
+         y="207.81474"
+         x="151.56845">- pilon </tspan><tspan
+         id="tspan858"
+         style="stroke-width:0.26458332"
+         y="213.10641"
+         x="151.56845">- quast</tspan><tspan
+         id="tspan923"
+         style="stroke-width:0.26458332"
+         y="218.39807"
+         x="151.56845">- prokka   .....'</tspan><tspan
+         id="tspan925"
+         style="stroke-width:0.26458332"
+         y="223.68974"
+         x="151.56845" /></text>
+    <ellipse
+       ry="12.363666"
+       rx="11.985689"
+       cy="172.07886"
+       cx="120.00745"
+       id="path895"
+       style="fill:none;fill-opacity:1;stroke:#cca100;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <ellipse
+       ry="13.247935"
+       rx="13.625914"
+       cy="183.22916"
+       cx="45.357143"
+       id="path897"
+       style="fill:none;fill-opacity:1;stroke:#205600;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text905"
+       y="184.13629"
+       x="40.897026"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="184.13629"
+         x="40.897026"
+         id="tspan903">alv</tspan></text>
+    <text
+       id="text909"
+       y="236.5238"
+       x="30.464878"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="236.5238"
+         x="30.464878"
+         id="tspan907">ariba212</tspan></text>
+    <ellipse
+       ry="20.907507"
+       rx="19.584591"
+       cy="203.45094"
+       cx="99.785721"
+       id="path913"
+       style="fill:none;fill-opacity:1;stroke:#20e300;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text917"
+       y="200.23808"
+       x="84.43988"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         y="200.23808"
+         x="84.43988"
+         id="tspan915">knsp v3.1</tspan><tspan
+         id="tspan921"
+         style="stroke-width:0.26458332"
+         y="206.30283"
+         x="84.43988">- perl 5.22.0.1.</tspan><tspan
+         id="tspan919"
+         style="stroke-width:0.26458332"
+         y="211.5945"
+         x="84.43988" /></text>
+    <ellipse
+       ry="16.311157"
+       rx="17.823061"
+       cy="252.02084"
+       cx="166.6875"
+       id="path895-6"
+       style="fill:none;fill-opacity:1;stroke:#68d1f5;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text944"
+       y="251.18925"
+       x="160.18629"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="251.18925"
+         x="160.18629"
+         id="tspan942">mash</tspan></text>
+    <ellipse
+       ry="12.987675"
+       rx="12.609698"
+       cy="251.83185"
+       cx="76.540184"
+       id="path946"
+       style="fill:#000000;fill-opacity:0;stroke:#2056e4;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text950"
+       y="249.375"
+       x="68.791664"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="249.375"
+         x="68.791664"
+         id="tspan948">roary</tspan></text>
+    <ellipse
+       ry="17.066628"
+       rx="17.255615"
+       cy="235.54109"
+       cx="40.632439"
+       id="path895-63"
+       style="fill:none;fill-opacity:1;stroke:#cc0000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text969"
+       y="172.64583"
+       x="113.77084"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="172.64583"
+         x="113.77084"
+         id="tspan967">parsn</tspan></text>
+    <ellipse
+       ry="16.624338"
+       rx="16.246365"
+       cy="252.77678"
+       cx="117.92857"
+       id="path897-8"
+       style="fill:none;fill-opacity:1;stroke:#8c56b7;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text994"
+       y="252.77678"
+       x="106.96726"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="252.77678"
+         x="106.96726"
+         id="tspan992">chewbbaca</tspan></text>
+    <ellipse
+       ry="9.5576925"
+       rx="8.9907284"
+       cy="276.96725"
+       cx="43.65625"
+       id="path996"
+       style="fill:#cccccc;fill-opacity:0;stroke:#ef93e6;stroke-width:0.7834233;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1000"
+       y="276.36249"
+       x="40.745831"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         y="276.36249"
+         x="40.745831"
+         id="tspan998">...</tspan></text>
+  </g>
+</svg>
