@@ -60,6 +60,6 @@ will help you get things installed.
 
 [Conda user guide](https://docs.conda.io/projects/conda/en/latest/index.html)
 
-[More about managing enviroments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment#)
+[More about managing environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment#)
 
 Links provided in [techstuff](techstuff.md#conda-virtual-environments)
