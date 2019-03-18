@@ -52,11 +52,14 @@ conda or other software concerns when running Bifrost.
 
 ## Installing packages on conda: **contact Karin**
 
-> if packages you want to work with are neither available on Abel nor conda:
-> you need to contact Karin
+If you need something installed on abel, contact the administrators. They
+will help you get things installed.
+
 
 ## Going further
 
 [Conda user guide](https://docs.conda.io/projects/conda/en/latest/index.html)
+
+[More about managing enviroments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment#)
 
 Links provided in [techstuff](techstuff.md#conda-virtual-environments)

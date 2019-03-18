@@ -19,7 +19,7 @@ The instructors are:
 # Small how-tos for various processes
 
   * [Use of mash](mash.md)
-  * [Use of conda](conda.md:w)
+  * [Use of conda](conda.md)
 
 
 ## Course pages
