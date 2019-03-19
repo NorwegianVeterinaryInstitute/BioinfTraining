@@ -1,4 +1,4 @@
-# Visualize your assembly with IGV: Integrative Genomics Viewer 
+# Visualize your assembly with [IGV: Integrative Genomics Viewer](http://software.broadinstitute.org/software/igv/home)
 
 For [IGV installation](./assembly_visualization.md#igv-install): look down the page
 
