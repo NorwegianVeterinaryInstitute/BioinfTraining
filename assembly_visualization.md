@@ -3,7 +3,7 @@
 For [IGV installation](./assembly_visualization.md#igv-install): look down the page
 
 NB: you can look here at this [Uio course] for more details or if you want to do things slighly differently. 
-We actually reused several of their scripts so do not be surprized. 
+We will reuse several of their [scripts](https://inf-biox121.readthedocs.io/en/2017/Assembly/practicals/Sources.html) so do not be surprized. 
 
 > We assume that you generated you assemblies using Bifrost
 ... and you want to have a look at your assembly and how the reads are mapped to your assembly, look at your coverage.... and more generaly evaluate your assembly visually. 
@@ -13,13 +13,12 @@ We actually reused several of their scripts so do not be surprized.
 1) re-map the reads to the assembly optained after pilon. 
  > We will use PE mapping and `bwa` option `mem` to map your reads to the scaffolds producted by pilon 
 
-2) we will use a little python script to insert gap locations into a file. This will allows use to add gap locations
-asa track in IGV and therefore will allows you to easily locate the different scaffolds and potentially problematic regions.
+2) we will use a little python script found in [sequencetools repository](https://github.com/lexnederbragt/sequencetools)to insert gap locations into a file and load it as a track in IGV. This will allow to easily locate the different scaffolds and potentially problematic regions.
 
-If you use python 3 : you need to run this version here: (here just need to modify the print)
+If you use python 3 : you need to run this version here: 
 (just copy the script and save it in a text file that you name scaffoldgap2bed.py"
 scaffoldgap2bed.py -i ASSEMBLY.FASTA >gaps.bed
-> python version? 
+> python version? > made a python 3 version scaffoldgap2bed_py3.py (just brackets for last print)
 
 3) In Bifrost you generated annotations of your assembly with `Prokka`
 (by using annotations derived from a reference genome you chosed) 
@@ -34,7 +33,7 @@ otherwise will not work
 
 5) Additional (outside IGV): we will view the distribution of insert size (estimated from how your reads map to your assembly)
 for a subset of the alignments. We modified the script from the Jupyter notebook mentioned in the [Uio course].
-/share/inf-biox121/data/assembly/Plot_insertsizes.ipynb
+/share/inf-biox121/data/assembly/Plot_insertsizes.ipynb : Link to the [original jupyter notebook](https://github.com/lexnederbragt/INF-BIOx121_fall2014_de_novo_assembly/blob/master/practicals/Plot_insertsizes.ipynb)
  
 [Options and interpretation in IGV](ttp://software.broadinstitute.org/software/igv/PopupMenus#AlignmentTrack)
 
