@@ -6,7 +6,7 @@ NB: you can look here at this [Uio course] for more details or if you want to do
 We actually reused several of their scripts so do not be surprized. 
 
 > We assume that you generated you assemblies using Bifrost
-... and you want to have a look at your assembly and how the reads are mapped to your assembly. And more generaly evaluate your assembly visually. 
+... and you want to have a look at your assembly and how the reads are mapped to your assembly, look at your coverage.... and more generaly evaluate your assembly visually. 
 
 ** To do so, we need to do several things:**
 
@@ -30,9 +30,9 @@ otherwise will not work
 
 
 4) Load everything into IGV 
-for interpretation help: [PE orientations](http://software.broadinstitute.org/software/igv/interpreting_pair_orientations)
 
-4) Additional (outside IGV): we will view the distribution of insert size (estimated from how your reads map to your assembly)
+
+5) Additional (outside IGV): we will view the distribution of insert size (estimated from how your reads map to your assembly)
 for a subset of the alignments. We modified the script from the Jupyter notebook mentioned in the [Uio course].
 /share/inf-biox121/data/assembly/Plot_insertsizes.ipynb
  
@@ -77,15 +77,48 @@ conda deactivate
 - do [ ]
 
 ```
+# Results interpreation
+## Loading your files into IGV
+
+Lauching IGV 
+```bash
+conda activate IGV
+igv
+```
+
+1. Load your assembly as a reference genome: `Genomes > create.genome file` - select your assembly file 
+and fill the different files
+
+2. Load your mapped reads, gap file using: `file > load from file`
+
+3. To be able to easily reoppen (without re-importing everything you can do: `file > save session` 
+and choose a session name
+
+Now you are ready to navigate and explore your assembly.
+
+You can look at your assembly general or look at specific scaffolds (little meny with all -> here you can choose specifi scaffolds) 
+
+![navigation]() 
+- [ ] do: insert image
+
+You can look how the assmbly looks at the gaps positions
+
+You can look at the coverage - ie. a strange scaffold: repeated gene: 
+
+![tRNA]() 
+- [ ] my scaffold nr 10?/12
+
+You can have a look at the PE orientations: in detail how the reads map to your assembly (you will need to zoom a lot) 
+
+??? other things to look at? 
+
+
+For interpretation help: [PE orientations](http://software.broadinstitute.org/software/igv/interpreting_pair_orientations)
 
 # [Installation of IGV](#igv-install)
 
 > we do that in conda: `conda create -n myenv scipy`
 
 `conda create -n IGV igv` 
-
-> lauching IGV 
-`conda activate IGV`
-
 
 [Uio course]:https://inf-biox121.readthedocs.io/en/2017/Assembly/practicals/03_Mapping_reads_to_an_assembly.html
