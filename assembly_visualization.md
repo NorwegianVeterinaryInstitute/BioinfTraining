@@ -44,6 +44,10 @@ for a subset of the alignments. We modified the script from the Jupyter notebook
 PS: look at the comments to understand what we do at eatch step
 
 ```bash
+# we need to concatenate the unpaired reads - because they are mapped as SE and zipping the reads
+gzip -cdk <U1.fasq.gz> <U2.fastq.gz> | cat | > <U_reads.fasq>
+gzip <U_reads.fasq>
+
 #we map our reads to the optained assembly
 ## first creating the index for mapping
 bwa index <my_scaffolds.fasta>
@@ -54,7 +58,7 @@ bwa index <my_scaffolds.fasta>
 bwa mem -t 4 <my_scaffolds.fasta> <R1_reads.fasq.gz> <R1_reads.fasq.gz> \
 | samtools sort -o <PE_mapped_sorted.bam> -
 
-bwa mem -t 4 <my_scaffolds.fasta> <U1_reads.fasq.gz> <U2_reads.fasq.gz> \
+bwa mem -t 4 <my_scaffolds.fasta> <U_reads.fastq.gz> \
 | samtools sort -o <U_mapped_sorted.bam> -
 
 ## We only want one final file (both with PE and U mapped reads) - so we merged the .bam files
@@ -77,6 +81,10 @@ conda deactivate
 - do [ ]
 
 ```
+NB: getting further: try to make your own script that does all of that!
+you can look at an example [here](): 
+- [ ] maybe do? 
+
 # Results interpreation
 ## Loading your files into IGV
 
