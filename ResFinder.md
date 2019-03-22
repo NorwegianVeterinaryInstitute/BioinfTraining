@@ -1,4 +1,4 @@
-**Running ResFinder** 
+**Executing ResFinder** 
 ----------------------
 Use the below code to execute ResFinder Abel. Dont need to mention BLAST location.
 Contact Jeevan if you have any issues. 
