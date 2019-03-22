@@ -1,6 +1,6 @@
 **Running ResFinder** 
 ----------------------
-use the below code to execute ResFinder Abel.
+Use the below code to execute ResFinder Abel. Contact me if you have any issues. 
 
 ```
 conda activate ResFinder 
