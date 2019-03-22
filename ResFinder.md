@@ -1,4 +1,6 @@
 **Running ResFinder** 
+----------------------
+use the below code to execute ResFinder Abel.
 
 ```
 conda activate ResFinder 
