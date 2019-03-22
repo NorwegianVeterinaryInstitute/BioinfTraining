@@ -1,5 +1,5 @@
 
-**Running PlasmidFinder**
+**Executing PlasmidFinder**
 -------------------------
 Use the below code to execute PlasmidFinder Abel. Dont need to mention the BLAST location. 
 Contact Jeevan if you have any issues.
