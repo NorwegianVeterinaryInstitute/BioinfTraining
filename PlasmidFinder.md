@@ -1,7 +1,7 @@
 
 **Running PlasmidFinder**
 -------------------------
-Use the below code to execute PlasmidFinder Abel. Contact me if you have any issues.
+Use the below code to execute PlasmidFinder Abel. Contact Jeevan if you have any issues.
 
 ```
 conda activate PlasmidFinder
