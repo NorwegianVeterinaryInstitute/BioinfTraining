@@ -8,5 +8,5 @@ conda activate ResFinder
 
 python /work/projects/nn9305k/src/ResFinder/src/resfinder.py -i <Input File> -p /work/projects/nn9305k/src/ResFinder/ResFinderDB/src/ -k /work/projects/nn9305k/src/kma/ -o Output
 
-conda deactivate ResFinder 
+conda deactivate
 ```
