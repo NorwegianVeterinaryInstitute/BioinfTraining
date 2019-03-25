@@ -9,6 +9,6 @@ conda activate VirulanceFinder
 
 python /work/projects/nn9305k/src/VirulanceFinder/src/virulencefinder.py -d $DB 
 
-conda deactivate VirulanceFinder 
+conda deactivate
 
 ```
