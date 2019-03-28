@@ -5,14 +5,14 @@ Original paper
 
 
 Location of Shigatyper
-´´´
+```
 /work/projects/nn9305k/src/ShigaTyper/shigatyper
-´´´
+```
 
 Executing ShigaTyper
 ====================
-´´´
+```
 conda activate ShigaTyper
 python /work/projects/nn9305k/src/ShigaTyper/shigatyper/shigatyper.py
 conda deactivate 
-´´´
+```
