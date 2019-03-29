@@ -27,11 +27,11 @@ Read mapping techniques are used for several purposes. Some examples:
 
 1) To evaluate the quality of an assembly (or to compare different methods used to assemble your reads). Read mapping can help identifying problematic areas. Indeed, statistics are necessary but might not be sufficient to evaluate the quality of your assembly.
 
-We want to look at:
-- the coverage regularity (ex: some repeated regions might have increased coverage)
-- the coverage at the beginning and end of scaffolds - is it good enough?
-- are they positions where pileup of reads show polymorphism?
-- ...
+   We want to look at:
+   - the coverage regularity (ex: some repeated regions might have increased coverage)
+   - the coverage at the beginning and end of scaffolds - is it good enough?
+   - are they positions where pileup of reads show polymorphism?
+   - ...
 
 2) To identify SNPs: some methods use reads mapping against a reference genome to identify and type SNPs
 
@@ -207,7 +207,12 @@ _________________________________________________________________
 You can look here at the [Uio course] for more details or if you want to do things slightly differently. We reuse some of their [scripts](https://inf-biox121.readthedocs.io/en/2017/Assembly/practicals/Sources.html).
 
 [Uio course]:https://inf-biox121.readthedocs.io/en/2017/Assembly/practicals/03_Mapping_reads_to_an_assembly.html
+
 [bwa mem]:http://bio-bwa.sourceforge.net/bwa.shtml
+
 [bwa tools]:http://bio-bwa.sourceforge.net/
+
 [Samtools article]:https://academic.oup.com/bioinformatics/article/25/16/2078/204688
+
 [Samtools manual]:http://www.htslib.org/doc/samtools.html
+
