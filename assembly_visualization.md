@@ -37,7 +37,7 @@ Read mapping techniques are used for several purposes. Some examples:
 
 3) Assembly polishing software such as `pilon` and `reapr` use mapped reads to identify potential improvement in assemblies. It is good to visualize what information they are using.
 
-Softwares can use variation in coverage, wrong read pairs orientation, discrepancy between expected insert size and actual insert size obtained from read mapping (ie. longer than expected) to improve assembly.
+   Softwares can use variation in coverage, wrong read pairs orientation, discrepancy between expected insert size and   actual insert size obtained from read mapping (ie. longer than expected) to improve assembly.
 
 
 ### 1.3 Re-map the reads to the assembly
@@ -75,7 +75,7 @@ gunzip -cd MiSeq_Ecoli_MG1655_50x_S_concat_stripped_trimmed.fq.gz | head
 
 ```
 
-We will use the software included in the Bifrost pipeline.
+We will use the software included in the **Bifrost pipeline**.
 This is available as a **conda environment**, called **bifrost**.
 
 ```bash
@@ -92,14 +92,14 @@ bwa mem -t 4 <reference.fna> <in1:read1.fq.gz> <in2:read2.fq.gz> \
 # NB: We `sort` directly the mapping by index position
 #`-` means that the output of the pipe is used as input in samtools
 
-#For unpaired reads (called S here)
+# For unpaired reads (called S here)
 bwa mem -t 4 <reference.fna> <in:S_reads.fq.gz> \
 | samtools sort -o <out:S_mapped_sorted.bam> -
 
-# We need to merge those two files as one
+# 3) We need to merge those two files as one
 samtools merge <out:all_merged.bam> <in1:S_mapped_sorted.bam> <in2:PE_mapped_sorted.bam>
 
-# To be sure reads are still sorted: we resort
+# 4) To be sure reads are still sorted: we resort
 samtools sort -o <out:final_all_merged.bam> <in:all_merged.bam>
 ```
 <br>
@@ -157,7 +157,7 @@ scp <user_name>:<your_mapping_folder_assembly_AND_annotation_files> .
 We use a little python script from [sequencetools repository](https://github.com/lexnederbragt/sequencetools) to insert gap locations into a file and load it as a track in IGV. This will allow to easily locate the different scaffolds and potentially problematic regions. This is how we generate the file:
 
 ```bash
-# on Abel: use biopython installed in conda bifrost to generate the .bed file
+# On Abel: use biopython installed in conda bifrost to generate the .bed file
 source activate bifrost
 python /work/projects/nn9305k/vi_src/diverse/scaffoldgap2bed_py3.py -i <assembly.fna> > <gap_file>.bed
 
