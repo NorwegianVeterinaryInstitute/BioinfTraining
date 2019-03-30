@@ -48,9 +48,9 @@ We have assembled reads and annotated using Bifrost pipeline. The data for today
 
 You will use the trimmed-filtered reads in: `/projects/nn9305k/bioinf_course/Mapping_training/bifrost_run/bbduk_trimmed` and the assembly: `/projects/nn9305k/bioinf_course/Mapping_training/bifrost_run/prokka/MiSeq_Ecoli_MG1655_50x.fna`
 
-We have to use the assembly output from `Prokka`to be able to visualize the assembly with IGV. (Labels between assembly and annotations have to be consistent for the visualisation).
+We have to use the assembly output from `Prokka`to be able to visualize the assembly with IGV. (Scaffold names between assembly and annotations have to be consistent for the visualization).
 
-Note that: `Prokka` transforms labels from the assembly used as input. Annotation and assembly with annotation-matching labels are provided as output files.
+Note that: `Prokka` transforms scaffold names from the assembly used as input. Annotation and assembly with annotation-matching scaffold names are provided as output files.
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -114,7 +114,7 @@ Some software like `Pilon` need and updated index of mapped reads to run
 
 You can also have a look at [Samtools article] and at [Samtools manual]
 
-`.bam` files (position indexed mapped-reads) are in a compressed binary format. We need to transform the `.bam` (to a `.sam` file) to be able to see how indexed mapped-reads are represented in the file.
+`.bam` files are in a compressed binary format. We need to transform the `.bam` (to a `.sam` file) to be able to see how mapped-reads are represented in the file.
 
 To decompress: chose f.eks. `PE_mapped_sorted.bam` that we did in the first step:
 
@@ -142,18 +142,13 @@ At your pc:
 ```bash
 conda create -n <envname> -c bioconda igv
 conda activate <IGV:envname>
-
-# we will need biopython for next part - insall it also
-conda install -c anaconda biopython
 ```
 
-From the folder you want to work in transfer the following files from Abel:
+From the folder you want to work in transfer the following files from Abel to your pc:
 - the assembly and annotation files
 - the .bam file
-- the script that we will use to create gap.files (see below) - visual help on For IGV
 
 ```bash
-scp <user_name>:/work/projects/nn9305k/vi_src/diverse/scaffoldgap2bed_py3.py .
 scp <user_name>:<your_mapping_folder_assembly_AND_annotation_files> .
 ```
 
@@ -162,11 +157,13 @@ scp <user_name>:<your_mapping_folder_assembly_AND_annotation_files> .
 We use a little python script from [sequencetools repository](https://github.com/lexnederbragt/sequencetools) to insert gap locations into a file and load it as a track in IGV. This will allow to easily locate the different scaffolds and potentially problematic regions. This is how we generate the file:
 
 ```bash
-# use conda to generate the .bed file
-conda activate <IGV:envname>
-python ./scaffoldgap2bed_py3.py -i <assembly.fasta> > <name_gaps>.bed
-```
+# on Abel: use biopython installed in conda bifrost to generate the .bed file
+source activate bifrost
+python /work/projects/nn9305k/vi_src/diverse/scaffoldgap2bed_py3.py -i <assembly.fna> > <gap_file>.bed
 
+# From the folder you want to work in, transfer the .bed file from Abel to your pc
+scp <user_name>:<your_mapping_folder_bed_file> .
+```
 ## 2.3 Fetch annotation files `.gff`
 
 In `Bifrost` we annotated the assembly with `Prokka` (using annotations derived from a reference genome) `.gff` file. It contains the annotated gene locus `tags` that we use for visualization with IGV
@@ -215,4 +212,3 @@ You can look here at the [Uio course] for more details or if you want to do thin
 [Samtools article]:https://academic.oup.com/bioinformatics/article/25/16/2078/204688
 
 [Samtools manual]:http://www.htslib.org/doc/samtools.html
-
