@@ -15,11 +15,12 @@ It is simply finding a/the matching locus/area of a read on a sequence. You coul
 Usually few mismatches are allowed (think about the consequences).
 
 Reads can be mapped as paired or single. If paired is used, then the matching regions are defined by the insert size and the length of each read
-
+```
 <p align="center">
 <a href="https://commons.wikimedia.org/wiki/File:Mapping_Reads.png"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Mapping_Reads.png" width="400">
 <br>
 </p>
+```
 
 ### 1.2 Why mapping reads
 
