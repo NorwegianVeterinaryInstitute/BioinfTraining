@@ -20,6 +20,7 @@ The instructors are:
 
   * [Use of mash](mash.md)
   * [Use of conda](conda.md)
+  * [Mapping and visualization](assembly_visualization.md)
 
 
 ## Course pages
