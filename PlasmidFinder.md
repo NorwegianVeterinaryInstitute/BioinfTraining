@@ -4,8 +4,8 @@
 Use the below code to execute PlasmidFinder Abel. Dont need to mention the BLAST location. 
 Contact Jeevan if you have any issues.
 
-**The following code should be used inside a SLURM script** 
-We are preparing a full help page on how to run using SLURN script. 
+**The following code should be used inside a SLURM script.**
+**We are preparing a full help page on how to run using SLURM script**
 
 ```
 conda activate PlasmidFinder
