@@ -1,22 +1,36 @@
-*Executing PointFinder*
-=========================
-Location of PointFinder. Contact Jeevan if there is any issues. 
+**Executing PointFinder**
+-------------------------
+The tool detects chromosomal mutations predictive of drug resistance based on WGS data.
 
+Contact Jeevan in slack if you have any issues or further assistance (F. ex. run the tool for multiple isolates).
 
+#### User Manual 
+https://bitbucket.org/genomicepidemiology/pointfinder
 
-
-**The following code should be used inside a SLURM script.**
-**We are preparing a full help page on how to run using SLURM script**
+#### Here is the EXAMPLE SLURM script for Abel to excute the tool.
+Important rules to follow
+* Keep your data in /project/nn9305k/
+* Store your resutls also in /project/nn9305k/
+* Execute the script from your home directory
 
 ```
-/work/projects/nn9305k/src/PointFinder
-```
+#!/bin/bash
+#SBATCH --job-name=DontKillMe
+#SBATCH --account=nn9305k
+#SBATCH --time=01:00:00
+#SBATCH --mem-per-cpu=32G
 
-```
+## Set up job environment:
+source /cluster/bin/jobsetup
+
+module load Miniconda3/4.4.10
+
+# Database location
+
 conda activate PointFinder
 
 PointFinder_DB="/work/projects/nn9305k/src/PointFinder_DB/src/"
-python PointFinder.py -p $PointFinder_DB
+python PointFinder.py -p $PointFinder_DB -i input_file -o output_file
 
 conda deactivate 
 ```
