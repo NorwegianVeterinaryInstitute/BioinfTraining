@@ -26,8 +26,6 @@ Important rules to follow
 ## Set up job environment:
 source /cluster/bin/jobsetup
 
-module load Miniconda3/4.4.10
-
 # Activate Conda environment 
 conda activate PlasmidFinder
 
