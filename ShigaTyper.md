@@ -12,6 +12,7 @@ https://aem.asm.org/content/85/7/e00165-19
 
 #### Here is the EXAMPLE SLURM script for Abel to excute the tool.
 Important rules to follow
+* Refer the user manual for all the parameters in the tool
 * Keep your data in /project/nn9305k/
 * Store your resutls also in /project/nn9305k/
 * Execute the script from your home directory
@@ -25,8 +26,6 @@ Important rules to follow
 
 ## Set up job environment:
 source /cluster/bin/jobsetup
-
-module load Miniconda3/4.4.10
 
 conda activate ShigaTyper
 python /work/projects/nn9305k/src/ShigaTyper/shigatyper/shigatyper.py Read1 Read2 -n sample_name 
