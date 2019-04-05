@@ -1,4 +1,9 @@
 # 1. What is [PopPUNK](https://genome.cshlp.org/content/29/2/304) : Population Partitioning Using Nucleotide K-mers
+
+[ubioinfo virtual lab talk 2019-04-01 John Lees](https://youtu.be/uEoah6_XSSE)
+
+- less good for low diversity species, and when blur (lots of recombination)
+-
 ## 1.1 Summary - Overview
 
 [Manual](https://poppunk.readthedocs.io/)
