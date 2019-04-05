@@ -19,7 +19,6 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4068535/
 #SBATCH --account=nn9305k
 #SBATCH --time=01:00:00
 #SBATCH --mem-per-cpu=32G
-#SBATCH --mail-type=ALL
 
 ## Set up job environment:
 source /cluster/bin/jobsetup
