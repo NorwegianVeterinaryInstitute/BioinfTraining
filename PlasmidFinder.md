@@ -2,8 +2,6 @@
 -------------------------
 PlasmidFinder identifies plasmids in total or partial sequenced isolates of bacteria.
 
-Dont need to mention the BLAST location. 
-
 Contact Jeevan in slack if you have any issues or further assistance (F. ex. run the tool for multiple isolates).
 
 #### User Manual 
@@ -30,6 +28,8 @@ conda activate PlasmidFinder
 
 # Database location
 DB="/work/projects/nn9305k/src/PlasmidFinder/PlasmidFinder_DB/plasmidfinder_db/"
+
+# Note: Dont need to mention the BLAST location
 python /work/projects/nn9305k/src/PlasmidFinder/plasmidfinder/plasmidfinder.py -p $DB -i input_file -o output_file
 
 # deactivate Conda environment 
