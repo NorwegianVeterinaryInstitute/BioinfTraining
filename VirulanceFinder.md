@@ -29,9 +29,8 @@ source /cluster/bin/jobsetup
 module load Miniconda3/4.4.10
 
 # Activate Conda environment 
-DB="/work/projects/nn9305k/src/VirulanceFinder/Virulance_DB/virulencefinder_db"
-
 conda activate VirulanceFinder
+DB="/work/projects/nn9305k/src/VirulanceFinder/Virulance_DB/virulencefinder_db"
 python /work/projects/nn9305k/src/VirulanceFinder/src/virulencefinder.py -p $DB 
 conda deactivate
 ```
