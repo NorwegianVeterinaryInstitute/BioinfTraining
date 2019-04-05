@@ -24,10 +24,8 @@ Important rules to follow
 ## Set up job environment:
 source /cluster/bin/jobsetup
 
-module load Miniconda3/4.4.10
-
 conda activate SeroTyperFinder
 DB=/work/projects/nn9305k/src/SeroTypeFinder/serotypefinder_db/
-python /work/projects/nn9305k/src/SeroTypeFinder/serotypefinder.py -i input_file -o output -d $DB 
+python /work/projects/nn9305k/src/SeroTypeFinder/serotypefinder.py -i input_file -o output -p $DB -mp /work/projects/nn9305k/src/kma/kma
 conda deactivate 
 ```
