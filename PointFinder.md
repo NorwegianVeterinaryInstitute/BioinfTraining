@@ -25,10 +25,9 @@ source /cluster/bin/jobsetup
 
 module load Miniconda3/4.4.10
 
-# Database location
-
 conda activate PointFinder
 
+# Database location
 PointFinder_DB="/work/projects/nn9305k/src/PointFinder_DB/src/"
 python PointFinder.py -p $PointFinder_DB -i input_file -o output_file
 
