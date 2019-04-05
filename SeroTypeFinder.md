@@ -10,6 +10,7 @@ https://bitbucket.org/genomicepidemiology/serotypefinder/src/master/
 
 #### Here is the EXAMPLE SLURM script for Abel to excute the tool.
 Important rules to follow
+* Refer the user manual for all the parameters in the tool
 * Keep your data in /project/nn9305k/
 * Store your resutls also in /project/nn9305k/
 * Execute the script from your home directory
