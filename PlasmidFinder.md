@@ -12,17 +12,14 @@ https://bitbucket.org/genomicepidemiology/plasmidfinder/src
 #### For further reading
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4068535/ 
 
-#### Here is the SLURM script for Abel to excute the tool.
+#### Here is the EXAMPLE SLURM script for Abel to excute the tool.
 ```
 #!/bin/bash
 #SBATCH --job-name=DontKillMe
 #SBATCH --account=nn9305k
-#SBATCH --time=10:00:00
+#SBATCH --time=01:00:00
 #SBATCH --mem-per-cpu=32G
 #SBATCH --mail-type=ALL
-
-## Set up job environment:
-source /cluster/bin/jobsetup
 
 ## Set up job environment:
 source /cluster/bin/jobsetup
@@ -34,7 +31,7 @@ conda activate PlasmidFinder
 
 # Database location
 DB="/work/projects/nn9305k/src/PlasmidFinder/PlasmidFinder_DB/plasmidfinder_db/"
-python /work/projects/nn9305k/src/PlasmidFinder/plasmidfinder/plasmidfinder.py -p $DB 
+python /work/projects/nn9305k/src/PlasmidFinder/plasmidfinder/plasmidfinder.py -p $DB -i input_file -o output_file
 
 # deactivate Conda environment 
 conda deactivate
