@@ -1,13 +1,18 @@
 **PlasmidFinder**
 -------------------------
-PlasmidFinder identifies plasmids in total or partial sequenced isolates of bacteria 
-Use the below code to execute PlasmidFinder Abel. Dont need to mention the BLAST location. 
-Contact Jeevan if you have any issues.
+PlasmidFinder identifies plasmids in total or partial sequenced isolates of bacteria.
 
-### For further reading** 
+Dont need to mention the BLAST location. 
+
+Contact Jeevan in slack if you have any issues or further assistance (F. ex. run the tool for multiple isolates).
+
+#### User Manual 
+https://bitbucket.org/genomicepidemiology/plasmidfinder/src
+
+#### For further reading
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4068535/ 
 
-### Here is the SLURM script for Abel to excute the tool.
+#### Here is the SLURM script for Abel to excute the tool.
 ```
 #!/bin/bash
 #SBATCH --job-name=DontKillMe
