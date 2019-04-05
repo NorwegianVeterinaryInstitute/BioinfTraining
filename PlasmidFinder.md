@@ -11,6 +11,11 @@ https://bitbucket.org/genomicepidemiology/plasmidfinder/src
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4068535/ 
 
 #### Here is the EXAMPLE SLURM script for Abel to excute the tool.
+Important rules to follow
+* Keep your data in /project/nn9305k/
+* Store your resutls also in /project/nn9305k/
+* Execute the script from your home directory
+
 ```
 #!/bin/bash
 #SBATCH --job-name=DontKillMe
