@@ -20,6 +20,8 @@
 -
 # 2. How to use PopPUNK
 
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vReFEeZooO_VOcyKW4BIK3kzUxlUFAM1gNxCgUHUZw4UFVGEUE1yniWXfUxzlNJU4_VJNmH_GrSTmG9/pub?w=1193&amp;h=722">
+
 ## 2.1 Create datadase
 
 - create a list of your assemblies and other sequences you want to include: you need to have the path of the file included, so you need to create the list from the folder you will run PopPUNK: `ls <path>/*fasta > reference_list.txt`
