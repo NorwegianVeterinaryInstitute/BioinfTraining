@@ -2,25 +2,30 @@
 
 Presentation video: [ubioinfo virtual lab talk 2019-04-01 John Lees](https://youtu.be/uEoah6_XSSE)
 
-[Methods and interpretation presentation](https://docs.google.com/presentation/d/1StmmM02lSpFPdevQT3iDB3BAKRoMC8Q4NtJ4nzu7MdY/edit?usp=sharing)
+[Introduction to Methods and interpretation: presentation](https://docs.google.com/presentation/d/1StmmM02lSpFPdevQT3iDB3BAKRoMC8Q4NtJ4nzu7MdY/edit?usp=sharing)
 
-- less good for low diversity species, and when blur (lots of recombination)
--
 ## 1.1 Summary - Overview
 
-[Manual](https://poppunk.readthedocs.io/)
-[PopPUNK Documentation](https://poppunk.readthedocs.io/en/latest/index.html)
-[Presentation](https://docs.google.com/presentation/d/1StmmM02lSpFPdevQT3iDB3BAKRoMC8Q4NtJ4nzu7MdY/edit?usp=sharing)
+- whole genome (core + accessory) population analysis/clustering. Coding and non-coding.
+- distinction between isolates : uses `mash` with a range of k-mers at different lengths to estimate **pairwise core and accessory distances** between isolates
+- the distribution of pairwise distances is used to discriminate between clusters of isolates: within or between strains (and discrimination of different hierarchical level of distances).
+- When the model used for clustering has been defined: new isolates can easily be added, without the need to re-analyze all samples. Clusters naming remain consistent, and metadata import allows using previously defined naming (ie. MLST)
+- Database maintenance free, the size of the database can be kept small by using representative isolates for each cluster (automatically chosen) once the model has been fitted for your species of interest.
+- predefined database with model fit can be found at:<https://figshare.com/articles/PopPUNK_databases/6683624>
+- This software has been developed for rapid outbreak detection. It is possible to analyze up to 10^4 samples in a single steps.  
 
-- whole genome (core + accessory) population analysis/clustering
-- distinction between isolates : uses k-mer of different length: `mash` to find core and accessory distances between isolates (**pairwise**)
-- the distribution of those distances is used to discriminate clusters (defined as strains) of closely related isolates (similarity:both core and accessory)
-- clustering of newly added isolates: EXTENDABLE4 - without the need of reanalizing all samples
-- maintenance free and auto-reduce database
-> aimed for consistent naming clusters between studies, outbreak detection in minutes
-- analyse up to 10^4 samples in single step - possible to add new samples
--
 # 2. How to use PopPUNK: first steps
+
+[Manual](https://poppunk.readthedocs.io/). Note that the manual has been written for slightly different versions of PopPUNK. Therefore some command names in the documentation might be slightly different than the PopPUNK version installed on Abel.
+
+Activate PopPUNK: `source activate poppunk`
+
+To check command synthax: `poppunk --help`
+
+PopPUNK workflow is really simple, but can appear complicated because several options can be combined and several steps can be done at once. Keep it simple: do one step at the time to understand what it does.
+
+Commands that can be combined: [Overview](https://poppunk.readthedocs.io/en/latest/options.html)
+
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vReFEeZooO_VOcyKW4BIK3kzUxlUFAM1gNxCgUHUZw4UFVGEUE1yniWXfUxzlNJU4_VJNmH_GrSTmG9/pub?w=1193&amp;h=722">
 
 ## 2.1 Create datadase
@@ -31,33 +36,44 @@ Presentation video: [ubioinfo virtual lab talk 2019-04-01 John Lees](https://you
 `ls <path/*.fasta>  > reference_files.txt`
 
 - There are 2 solutions to create the database:
+1) the quick start option: `--easy-run` does 2 steps at once (not recommended for learning) which does both create the database and does the first model fitting
+2) Use the `--create-db` option which only creates: the _mash sketches database_ and the _distances database_ (also create a file containing isolate names)
 
 ```bash
 # only database
 poppunk --create-db --r-files <reference_files.txt> --output <db_folder>  \
     --threads <2> --plot-fit <5>
-
-# OR
-# database and first model fitting in one step (see bellow)
-poppunk --easy-run --r-files <reference_files.txt> --output <db_folder> --threads <4> --plot-fit <5> --min-k <13> --full-db
 ```
 --------------------------------------------------------------------------------
-What happens:
-1) reference files are hashed at different k-mer lenghts (using [mash](https://mash.readthedocs.io/en/latest/index.html).
+What is happening:
+1) reference files are hashed at different k-mer lenghts using [mash](https://mash.readthedocs.io/en/latest/index.html).
 2) pairwise distances between sequences are calculated
-> Accessory and core distances are estimated jointly: through probabilities estimates of the number of k-mers matching over a range of k-mer sizes. Decomposing accessory and core distance is allowed because:
-- Small k-mer size allow accessory distance to be independent of k-mer size (but k-mers size must be large enough such as k-mers do not match randomly between sequences)
--  EXPLain better
 
-core distances are estimated through the range of k-mer size (estimate density SNPs over )
+Accessory and core distances are estimated jointly: through probabilities estimates of the number of k-mers matching over a range of 5 k-mer sizes. (5 k-mer sizes has been evaluated to provide a good estimate)
+Decomposing accessory and core distance is possible because: small k-mer size allow accessory distance to be independent of k-mer size (but k-mers size must be large enough such as k-mers do not match randomly between sequences)
 
 #picture
 --------------------------------------------------------------------------------
-`inspect the plots created and the console output`, to determine if the range of k-mer size used is adequate:
-- #kmer must be inferior  <- stats here
-- #the plots represent: regressions of log(pr(pa,b): the proportion of k-mers matching at length k between sequences a and b (for random sample pairs a and b):
+**Evaluate:** inspect the plots created and the console output, to determine if the range of k-mer size used is adequate:
+```
+Creating mash database for k = 13
+Random 13-mer probability: 0.04
+Found existing mash database distances_db/distances_db.13.msh for k = 13
+Creating mash database for k = 17
+Random 17-mer probability: 0.00
+...
+```
+- Random k-mer probability match must be inferior to 5% - if you want to be more stringent, you can increase the minimum k-mer length: `--min-k <17>`. Default step between k-mer sizes is set to 4. You can also change that using: `--k-step <4>` Read [here](https://poppunk.readthedocs.io/en/latest/troubleshooting.html#kmer-length) if necessary. NB: if k-mer size is to big you will get a warning: `outliers`
 
-Read [here](https://poppunk.readthedocs.io/en/latest/troubleshooting.html#kmer-length) if there is adjusting need of the k-mer size-range. Ex: add options `--min-k <15> --kmer-step <2>`
+- the plots represent: regressions of log(pr(pa,b): the proportion of k-mers matching at length k between sequences a and b (for random sample pairs a and b). You want a straight line, and no outliers
+
+<p align="center">
+<img src="./figures/poppunk_random_k.png" width=400>
+</p>
+
+If the assembly length of your isolates is highly variable (due to structural variation) you can add the option `--ignore-length` which will ignore outliers due to sequence length.
+
+If your species has really low diversity you can increase sketch size. Here is default: `--sketch-size <10000>`
 
 ## 2.2 Fitting a model
 
