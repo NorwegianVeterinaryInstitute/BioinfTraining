@@ -256,12 +256,23 @@ poppunk --use-model --model-dir <fitted-model_directory> \
 
 NB: if you do not want to update the database: do not use --update-db
 
-`poppunk --assign-query --ref-db <database> --q-files <query_list.txt> --output <strain_query> --threads <3> --update-db`
+Create the list of sequences to add to your query:
+
+```bash
+ls <folder_file_pattern> > query_list.txt
+
+poppunk --assign-query --ref-db <database> --distances  <distances_folder/folder.dists> \
+--q-files <query_list.txt> --output <strain_query> --threads <3> --update-db
+```
+
+`--update-db` will update your database if previous clusters are merged or new cluster are created
 
 Optional
 `--model-dir <directory>`  if fitted model is in a separated directory
-`--previous-clustering <directory>` directory of previsous clustering/network
+`--previous-clustering <directory>` directory of previsous clustering/network (if in different directory)
 `--core-only` or `--acccessory-only` if you only used one distance type for fitting model
+
+- [ ] per idag bug? 
 
 > **OOPS!** for further adding queries: need to use the new database: stored in strain-query `--ref-db <strain_query>`
 ________________________________________________________________________________
