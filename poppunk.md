@@ -6,8 +6,6 @@ Presentation video: [ubioinfo virtual lab talk 2019-04-01 John Lees](https://you
 
 Here is an overview of what it does, and a basic starting guide.
 
-# IMPORTANT - I NEED TO CHECK THIS SCALE PB!!!! - NOT SURE REPRESENTATION IS CORRECT - are those idstance in a log?
-
 ## 1.1 Summary - Overview
 
 - whole genome (core + accessory) population analysis/clustering. Coding and non-coding.
@@ -69,7 +67,6 @@ Decomposing accessory and core distance is possible because: small k-mer size al
 | fit plots (distances - kmer size range)  |  *.pdf  |
 
 
-#picture
 --------------------------------------------------------------------------------
 1) **Evaluate console output:**
 
@@ -100,12 +97,6 @@ If your species has really low diversity you can increase sketch size. Here is d
 
 ## 2.2 Model fitting to the distribution of core and accessory distance data
 
-A overview of what you will have to check:
-
-| Unappropriate fitting | Better fit |
-|:----------------:|:---------------:|
-| <img src="./figures/poppunk/refine_poppunk.png" width=500> | <img src="./figures/poppunk/DBSCAN_refine_refined_fit.png" width =500>|
-
 **Blobs**: will represent distances between hierarchies of distances (ex: within strains, between strains, between populations, clones...)
 
 ### 2.2.1 Fitting the model: `--fit-model`, using 2D Gaussian mixed model (2DGMM)
@@ -123,16 +114,34 @@ poppunk --fit-model \
 | scatter plot of the distance distribution fitted by the model + **kernel-density estimate** | _distanceDistrubution.png |
 |scatter plot of all distances, and mixture model fit and assignment | _DPGMM_fit.png |
 | contours of likelihood function fitted to data - Red: decision boundary (between/within strains) | _DPGMM_fit_contours.pdf |
-| ------------------------------------------------------------------------------------------------ | ----------------------- |
 | saved parameters for the fitted model (weights, means, covariances, within, between, scale)      | _fit.npz                |
 | prior parameters used to fit the model (command)                                                 | _fit.pkl                |
 | network used to predict clusters (nodes and edges)                                               | _graph.gpickle          |
 | clusters determined for current model                                                            | _clusters.csv           |
-|
 | Kernel desity estimates| 2DGMM blobs identified |
-|:-----:|:-----:|
-| <img src="./figures/poppunk/2DGMM_fit_distanceDistribution.png" width=500> | <img src="./figures/poppunk/2DGMM_fit_DPGMM_fit.png" width=500> |
+|<img src="./figures/poppunk/2DGMM_fit_distanceDistribution.png" width=500> | <img src="./figures/poppunk/2DGMM_fit.png" width=650> |
 | NB: can be used to identify outliers and contamination | Each blob: a hierarchy in parwise distances levels |
+
+**For the strange blob:** A good explanation from [johnlees](https://github.com/johnlees/PopPUNK/issues/45):
+> *"this component will have a very low weight compared to the others, and so won't have anything assigned to it unless it's right on top of that point. We just plot the means and covariances of the components it looks like the components with large covariances will have lots of thins assigned to them (in this case the covariance is large because the single point doesn't contain enough information to shrink it down from the prior). We don't currently represent the weights of the components in the plot, e.g. by changing their opacity, but if we did that strange blob would pretty much disappear"*
+
+### 2.2.2 Fitting the model: `--fit-model`, using DBSCAN `--dbscan`
+
+`--dbscan` will estimate the number of blobs (representing distances between different hierarchies) for you
+
+```bash
+poppunk --fit-model \
+--distances distances_db/distances_db.dists \
+--ref-db distances_db \
+--output <DBSCAN_fit> --full-db --dbscan
+```
+
+You should optain something like that:
+
+| DBSCAN | Wrong PopPUNK version  (see: NB end of document) |
+|:----------------:|:---------------:|
+| <img src="./figures/poppunk/DBSCAN_fit_dbscan.png" width=500> | <img src="./figures/poppunk/DBSCAN_fit_dbscan_wrong_version.png" width =500>|
+
 
 ### Evaluate the model:
 
@@ -154,9 +163,21 @@ If your model is not satisfactory, **your options are**:
 - adjust your k-mer size range
 - **adjust boundaries** (how core and accessory distances are used to discriminate between clusters) : see next step: model refinement
 
-### 2.3 Model refinement (improvement model) `--refine-model`
+### 2.3 Model refinement `--refine-model` (use previously fitted model 2DGMM or DBSCAN)
+**Might not be necessary** depending on your data set
 
- Tweak the existing fit and pick a better boundary to distinguish within and between strains.
+Explanation from [johnlees](https://github.com/johnlees/PopPUNK/issues/45):
+> *When using refine model there are no longer mixture components/blobs defined [...].
+> The refine model plot is now the output, representing the new model. There are only two categories of assignment (within or between strain).*
+
+A overview of what you will have to check:
+
+| Unappropriate fitting | Better fit |
+|:----------------:|:---------------:|
+| <img src="./figures/poppunk/refine_poppunk.png" width=500> | <img src="./figures/poppunk/DBSCAN_refine_refined_fit.png" width =500>|
+
+Tweak the existing fit and pick a better boundary to distinguish within and between strains.
+Important: This creates a slighly different model: only
 
 NB: **Better not to chose the same output folder as the initial model-fit when refining the model.**
  Choosing a different folder will allow you to gradually adjust your model: starting from the same initial model, and insuring you see which files are created at each step.
@@ -197,7 +218,6 @@ The models assume that core and accessory distances are correlated. This might n
 
 It is possible to optimize models using core distance only (vertical boundary) or accessory only (horizontal boundary). See [supplement article](https://www.biorxiv.org/content/10.1101/360917v2.supplementary-material?versioned=true)
 
-
  `--manual-start <filename>`
  > need to create a triangular boundary - move forward and backward FROM starting point (40 position are tested within the range)
  ```
@@ -205,7 +225,14 @@ It is possible to optimize models using core distance only (vertical boundary) o
  mean1 x,y #for between strains blob
  start x,y #starting point to move boundary to
  ```
-NB: no empty line at the end, otherwise that will not work
+ > You can use the scaled components of means (the means for each pairwsie distance blobs - to adjust your indiv-refine parameters) to begin your adjustments.
+
+ ```bash
+ #example of start.txt content
+ mean0 0.02710312,0.08597808 # important no space betwen core and accessory coordinates
+ mean1 0.09182244,0.2144062
+ start_point 0.4 #important: check that there is no empty line afterwards
+ ```
 
 ## 2.4. Simplification database (optional)
 When the model fit is good -> then we can stop using the `--full-db` option (but not compulsory).
@@ -214,8 +241,9 @@ Only isolates representative of each cluster will be used (only sligh decrease i
 
 A good practice if you routinely want to run poppunk, is to re-run all the steps in the same folder (easier to keep track) - but this is not compulsory.
 
-## 2.5 Visualization of the clustering (tree and netwok)
-For using the same parameters that lead to a good model with `-- use-model`
+## 2.5. Using the model to generate trees, and cluster outputs, or using the model on a different set of isolates
+
+NB: you can create a distance database with other isolates and use a predefined model (created on an other dataset)
 
 ```
 poppunk --use-model --model-dir <fitted-model_directory> \
@@ -225,28 +253,14 @@ poppunk --use-model --model-dir <fitted-model_directory> \
 -<visualisation-options>\
 ```
 
--`--microreact`	Generate output files for [Microreact] visualisation
--`--info-csv` c INFO_CSV (additional metadata: ex: date collection, geographical coordinates, Epidemiological information CSV formatted for microreact (can be used with other outputs)
--`--cytoscape	`Generate network output files for [Cytoscape]
--`--phandango`	Generate phylogeny and TSV for [Phandango] visualisation
--`--grapetree`	Generate phylogeny and CSV for [Grapetree] visualisation
--`--perplexity `PERPLEXITY (Perplexity used to calculate t-SNE projection (with –microreact) [default=20.0])
--`--rapidnj` If you want to build [rapidNJ] tree for [Microreact]), use `--rapidnj rapidnj` as RAPIDNJ is installed in the same conda environment as PopPUNK
-
-[Microreact]:https://microreact.org/showcase
-[Cytoscape]:https://cytoscape.org/
-[Cytoscape Youtube]:https://www.youtube.com/watch?v=KIJ6M1nvKoY
-[Cytoscape github](https://github.com/cytoscape)
-[Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/wiki)
-
--[ ]? R / python cytoscape
-
-[Phandango]:https://academic.oup.com/bioinformatics/article/34/2/292/4212949
-[Phandango Git](https://github.com/jameshadfield/phandango)
-[Grapetree]:https://genome.cshlp.org/content/28/9/1395.full
-[Grapetree documentation](https://enterobase.readthedocs.io/en/latest/grapetree/grapetree-about.html)
-[rapidNJ]:http://users-birc.au.dk/cstorm/software/rapidnj/papers/SimonsenOthers2008_WABI.pdf
-[RAPIDNJ documentation](http://birc.au.dk/Software/RapidNJ/)
+Here is an example:
+```bash
+poppunk --use-model --model-dir <2DGMM_fit> \
+--distances <new_dist_db/new_dist_db.dists> \
+--ref-db <distances_db> \
+--output <use_2DGMM_model> \
+--microreact -perplexity <30> --cytoscape
+```
 
 ## 2.6 Adding new sequences = assigning queries
 > addition of new pairwise distances to the reference network
@@ -272,7 +286,7 @@ Optional
 `--previous-clustering <directory>` directory of previsous clustering/network (if in different directory)
 `--core-only` or `--acccessory-only` if you only used one distance type for fitting model
 
-- [ ] per idag bug? 
+- [ ] per idag bug?
 
 > **OOPS!** for further adding queries: need to use the new database: stored in strain-query `--ref-db <strain_query>`
 ________________________________________________________________________________
@@ -282,6 +296,36 @@ Queries using core or accessory only;
 --ref-db <refine-model-db> `--core-only`
 --ref-db <refine-model-db> `--accessory-only `
 
+
+## 2.7. Visualization of the clustering (tree and netwok)
+For using the same parameters that lead to a good model with `-- use-model`
+
+
+
+-`--microreact`	Generate output files for [Microreact] visualisation
+-`--info-csv` c INFO_CSV (additional metadata: ex: date collection, geographical coordinates, Epidemiological information CSV formatted for microreact (can be used with other outputs)
+-`--cytoscape	`Generate network output files for [Cytoscape]
+-`--phandango`	Generate phylogeny and TSV for [Phandango] visualisation
+-`--grapetree`	Generate phylogeny and CSV for [Grapetree] visualisation
+-`--perplexity `PERPLEXITY (Perplexity used to calculate t-SNE projection (with –microreact) [default=20.0])
+-`--rapidnj` If you want to build [rapidNJ] tree for [Microreact]), use `--rapidnj rapidnj` as RAPIDNJ is installed in the same conda environment as PopPUNK
+
+[Microreact]:https://microreact.org/showcase
+[Cytoscape]:https://cytoscape.org/
+[Cytoscape Youtube]:https://www.youtube.com/watch?v=KIJ6M1nvKoY
+[Cytoscape github](https://github.com/cytoscape)
+[Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/wiki)
+
+-[ ]? R / python cytoscape
+
+[Phandango]:https://academic.oup.com/bioinformatics/article/34/2/292/4212949
+[Phandango Git](https://github.com/jameshadfield/phandango)
+[Grapetree]:https://genome.cshlp.org/content/28/9/1395.full
+[Grapetree documentation](https://enterobase.readthedocs.io/en/latest/grapetree/grapetree-about.html)
+[rapidNJ]:http://users-birc.au.dk/cstorm/software/rapidnj/papers/SimonsenOthers2008_WABI.pdf
+[RAPIDNJ documentation](http://birc.au.dk/Software/RapidNJ/)
+
+
 # Going further, faster and better
 
 ## Creating the database
@@ -289,16 +333,7 @@ There are 2 solutions to create the database:
 1) the quick start option: `--easy-run` allows creating the database and fitting model in one step using `dbscan`
 2) the `--create-db` option (as above)
 
-## Model fitting chose between 2 models:
 
-### 2DGMM --K <nb_blobs>`
-
-### DBSCAN `--dbscan`
-
-`--dbscan` will estimate the number of blobs (representing distances between different hierarchies) for you
-
-DBSCAN is mode difficult to fit than 2DGMM, you might have to use that `--manual-start` option
-Replotting will require use of the native PopPUNK scripts. If you really are interested in this model, please contact us.
 
 # Refining the model:
 If you want to have the ability to run queries to cluster on core or accessory distances only, you need to use `--indiv-refine` to refine your model. Then you can query with
@@ -306,6 +341,29 @@ If you want to have the ability to run queries to cluster on core or accessory d
 
 ### Other additional options
 - Vizulaisation: output files can also be made either from `--model-fit` or `--refine-model` (ie: if you decide to do all the steps into a single folder when you know what will lead to the best model fit)
+
+## NB: Conda version :
+Per 2019-04-25 the conda version of poppunk has some bugs, the fix of those bugs have been incorporated on github. If for some reason you want to install poppunk on your pc with conda system, you can do as such:
+
+```
+#install the non updated version of poppunk conda (then you get all the dependencies)
+conda create --name <poppunk_or_env_name> -c bioconda poppunk
+
+#then you need to activate conda
+conda activate <poppunk_or_env_name>
+
+#remove the original poppunk installed in conda
+conda remove poppunk
+
+#install pip git
+conda install git pip
+
+#need to install the git version with pip in conda
+pip install git+https://github.com/johnlees/PopPUNK.git
+
+#start poppunk as usual, this should work
+```
+
 
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
