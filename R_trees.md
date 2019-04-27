@@ -31,7 +31,7 @@ install_github("hkaspersen/distanceR")
 ```
 
 # Training data
-The data files used in this session can be downloaded below.
+The data files used in this session can be downloaded below (left click "download as..." on the link).
 
 [cgMLST data](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/hk_ef_R_trees/training_files/cgMLST.tsv)
 
