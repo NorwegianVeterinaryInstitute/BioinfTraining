@@ -33,11 +33,11 @@ install_github("hkaspersen/distanceR")
 # Training data
 The data files used in this session can be downloaded below.
 
-[cgMLST data](/training_files/cgMLST.tsv)
+[cgMLST data](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/hk_ef_R_trees/training_files/cgMLST.tsv)
 
-[Tree metadata](/training_files/tree_metadata.txt)
+[Tree metadata](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/hk_ef_R_trees/training_files/tree_metadata.txt)
 
-[Tree heatmap data](/training_files/tree_heatmap_data.txt)
+[Tree heatmap data](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/hk_ef_R_trees/training_files/tree_heatmap_data.txt)
 
 # Calculating distances from cgMLST data
 Based on the allele data in the cgMLST file, one can calculate the percentage of similar "labels" in a pairwise fashion. In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all samples have been compared to all. The result of this calculation is a dissimilarity matrix, which is N x N big. This data can then be clustered, and a tree object can be created from this data.
