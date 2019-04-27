@@ -1,43 +1,72 @@
 start with data prep
 send a link
 
-# What is R short introduction
-R and R studio
-console
+# R and RStudio
+R is a free software environment for statistical computing and graphics, and can be downloaded [here](https://cran.uib.no/). RStudio is an integrated development environment for R, which in short makes R easier to use. Rstudio can be downloaded [here](https://www.rstudio.com/products/rstudio/download/).
 
-# Training data :
-E.coli cgMLST data obtained with
-The data can be downloaded from Abel: `<path>`
+For this session, you will need both R and RStudio.
 
-Data information:
-- pairwise distance matrix : Distance Metrics = "gowermetric"
+# Packages
+In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. 
+
+To install packages from CRAN, use the following command:
+```{R}
+install.packages("package_name", dependencies = TRUE)
+```
+
+For this session, you will need the following packages:
+- `ape` : [webpage](http://ape-package.ird.fr/), [Manual](https://cran.r-project.org/web/packages/ape/ape.pdf)
+- `ggtree` : [vignettes](http://www.bioconductor.org/packages/3.1/bioc/vignettes/ggtree/inst/doc/ggtree.html)
+- `cluster` : [documentation](https://cran.r-project.org/web/packages/cluster/cluster.pdf)
+- `tibble` : [vignette](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html)
+- `dplyr` : [website](https://dplyr.tidyverse.org/)
+
+To install packages from GitHub, you will need the following package:
+- `devtools`: [github](https://github.com/r-lib/devtools)
+
+To install from github, you need to use the following functions:
+```{R}
+library(devtools)
+install_github("hkaspersen/distanceR")
+```
+
+# Training data
+The data files used in this session can be downloaded below.
+
+[cgMLST data](/training_files/cgMLST.tsv)
+
+[Tree metadata](/training_files/tree_metadata.txt)
+
+[Tree heatmap data](/training_files/tree_heatmap_data.txt)
+
+# Calculating distances from cgMLST data
+Based on the allele data in the cgMLST file, one can calculate the percentage of similar "labels" in a pairwise fashion. In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all samples have been compared to all. The result of this calculation is a dissimilarity matrix, which is N x N big. This data can then be clustered, and a tree object can be created from this data.
+
+To do this in R, one has to import the cgMLST data first:
+```{R}
+library(tibble)
+library(dplyr)
+
+cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colclasses = "factor") %>%
+  na_if("0") %>%
+  column_to_rownames("FILE")
+```
+
+To calculate distances from the data:
+```{R}
+library(cluster)
+library(ape)
+
+distances <- as.phylo(hclust(daisy(cgMLST_data, metric = "gower"), method = "average"))
+```
 
 **Important: Labeling**:
 - Labels of isolates in pairwise distance matrix and labels for your isolates-labels in your metadata file
 have to be **perfectly identical** . This identity allow us to create a link (as linking database by an identical key)
 between the data representing the tree and the metadata. If not identical, you won't be able to annotate the tree graphic.
 
-# Required R packages:
-- `distanceR` -> wrapper from the "cluster package"
-- `ape` : [webpage](http://ape-package.ird.fr/), [Manual](https://cran.r-project.org/web/packages/ape/ape.pdf)
-- `ggtree` : [vignettes](http://www.bioconductor.org/packages/3.1/bioc/vignettes/ggtree/inst/doc/ggtree.html)
-- `devtools`: [github](https://github.com/r-lib/devtools) we will use it to install `distanceR` from github
-- Haukon's `distanceR` [Haukon's github]
 
-`
-to install packages in R type:
-```{R}
-install.packages("package_name", dependencies = TRUE)
-```
 
-If you want to use the functions availables from packages hosted on GitHub like Haukon's package: [Haukon's github]
-you need to install as such:
-
-```{R}
-library(devtools) # we need to load devtools package into the enviromnment before we can use it
-install_github("hkaspersen/distanceR")
-```
-- [ ] This one I will have to test,
 
 A good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]
 (We used it a lot to make this page.)
