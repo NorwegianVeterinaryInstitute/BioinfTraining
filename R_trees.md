@@ -91,7 +91,7 @@ metadata <- read.table("tree_metadata.txt", sep = "\t", header = TRUE)
 # Plot tree
 ggtree(tree,
        layout = "rectangular") %<+% metadata +
-     geom_tiplab(aes(label = "ST"))
+     geom_tiplab(aes(label = ST))
 ```
 
 Now, the ST column in the metadata is plotted in the tree instead of the isolate names. **Important**: For this to work, one has to make sure that the first column in the metadata file has exact matches to the tip labels in the tree object. In other words, if one sample is named "2014-01-2355" in the tree, and the same isolate is named "68-2014-01-2355", the information will not be plotted for that isolate. Therefore, to check the tip labels on the tree, one can type `tree$tip.labels` to see what they look like. Note that the order of the samples doesn't matter in the metadata file, just the names of the samples.
@@ -100,16 +100,27 @@ Notice that the `aes()` function was added to the `geom_tiplab()` function. This
 Now, with the metadata file in hand, one can add more information to the tree, for example colored tip nodes:
 
 ```{R}
-library(ggtree)
+# Plot tree
+ggtree(tree,
+       layout = "rectangular") %<+% metadata +
+     geom_tiplab(aes(label = ST)) +
+     geom_tippoint(aes(color = species)
+```
+Ggtree will here plot the animal species in the metadata as colored nodes on the tree. Since no specific palette is specified, it will use default ggplot2 coloring. If you want to specify colors, a specific palette need to be created:
 
-# Import metadata
-metadata <- read.table("tree_metadata.txt", sep = "\t", header = TRUE)
+```{R}
+# create palette
+palette <- c("Broiler" = "#4575b4",
+             "Pig" = "#74add1",
+             "Red fox" = "#f46d43",
+             "Wild bird" = "#fdae61")
 
 # Plot tree
 ggtree(tree,
        layout = "rectangular") %<+% metadata +
-     geom_tiplab(aes(label = "ST")) +
-     geom_tippoint(aes(color = "species")
+     geom_tiplab(aes(label = ST)) +
+     geom_tippoint(aes(color = species) +
+     scale_color_manual(values = palette)
 ```
 
 A good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]
