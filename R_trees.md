@@ -42,42 +42,79 @@ The data files used in this session can be downloaded below (left click "downloa
 # Calculating distances from cgMLST data
 Based on the allele data in the cgMLST file, one can calculate the percentage of similar "labels" in a pairwise fashion. In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all samples have been compared to all. The result of this calculation is a dissimilarity matrix, which is N x N big. This data can then be clustered, and a tree object can be created from this data.
 
-To do this in R, one has to import the cgMLST data first:
+To do this in R, one has to import and clean the cgMLST data first:
 ```{R}
 library(tibble)
 library(dplyr)
 
+# This imports the data
 cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colclasses = "factor") %>%
+  # change all "0" to NA
   na_if("0") %>%
+  # create rownames from the values in the column "FILE"
   column_to_rownames("FILE")
 ```
 
-To calculate distances from the data:
+To calculate distances from the data and create a tree:
 ```{R}
 library(cluster)
 library(ape)
 
-distances <- as.phylo(hclust(daisy(cgMLST_data, metric = "gower"), method = "average"))
+tree <- as.phylo(hclust(daisy(cgMLST_data, metric = "gower"), method = "average"))
+```
+Check out the function information with `?daisy` and `?hclust` to see details on the metric and method arguments.
+
+To then visualize this tree, we can either use the `plot()` function from base R, or use ggtree.
+```{R}
+library(ggtree)
+
+plot(tree)
+ggtree(tree)
+```
+In base R, the tree will have sample name labels on the tips. In ggtree, nothing was specified, so only the tree was plotted. Ggtree have multiple layouts to choose from, i.e. "circular", "rectangular", "fan", "equal_angle" etc. See the vignette on ggtree above for more information. To add more information to the tree with ggtree, we can use additional layers of information, like this:
+
+```{R}
+library(ggtree)
+
+ggtree(tree,
+       layout = "rectangular") +
+     geom_tiplab()
+```
+Now, the isolate names have been added to the tree tip points. However, if you want to combine metadata such as sequence types, animal species etc. to the tree and visualize it, one first has to connect the tree and the metdata:
+
+```{R}
+library(ggtree)
+
+# Import metadata
+metadata <- read.table("tree_metadata.txt", sep = "\t", header = TRUE)
+
+# Plot tree
+ggtree(tree,
+       layout = "rectangular") %<+% metadata +
+     geom_tiplab(aes(label = "ST"))
 ```
 
-**Important: Labeling**:
-- Labels of isolates in pairwise distance matrix and labels for your isolates-labels in your metadata file
-have to be **perfectly identical** . This identity allow us to create a link (as linking database by an identical key)
-between the data representing the tree and the metadata. If not identical, you won't be able to annotate the tree graphic.
+Now, the ST column in the metadata is plotted in the tree instead of the isolate names. **Important**: For this to work, one has to make sure that the first column in the metadata file has exact matches to the tip labels in the tree object. In other words, if one sample is named "2014-01-2355" in the tree, and the same isolate is named "68-2014-01-2355", the information will not be plotted for that isolate. Therefore, to check the tip labels on the tree, one can type `tree$tip.labels` to see what they look like. Note that the order of the samples doesn't matter in the metadata file, just the names of the samples.
+Notice that the `aes()` function was added to the `geom_tiplab()` function. This links the column "ST" in the metadata to the corresponding samples in the tree, plotting the ST where the specific sample is placed in the tree. Anything written outside the `aes()` function isn't linked to the metadata in any way. Thus, to adjust the size of the labels, one can type in `geom_tiplab(aes(label = "ST"), size = 3)`.
 
+Now, with the metadata file in hand, one can add more information to the tree, for example colored tip nodes:
 
+```{R}
+library(ggtree)
 
+# Import metadata
+metadata <- read.table("tree_metadata.txt", sep = "\t", header = TRUE)
+
+# Plot tree
+ggtree(tree,
+       layout = "rectangular") %<+% metadata +
+     geom_tiplab(aes(label = "ST")) +
+     geom_tippoint(aes(color = "species")
+```
 
 A good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]
 (We used it a lot to make this page.)
 
-# Create a tree - and simple plot (just labels)
-
-```{R}
-#load the remaining necessary packages
-library("packagename") #you need to load: ape, ggtree, distanceR
-#
-```
 
 
 # Importing an existing tree -> Eve
