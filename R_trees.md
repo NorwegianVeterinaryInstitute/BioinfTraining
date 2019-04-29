@@ -5,14 +5,14 @@ R is a free software environment for statistical computing and graphics, and can
 
 For this session, you will need both R and RStudio.
 
-R is an object orientated programming language. What you need to understand for this lesson is that you can assign  with the symbol `<-` objects (dataset in form of tables, results of calculations, trees ...) into an object that you name. Example: `my_color <- "red"` and you can recall objects from memory by using their names: example type: `my_color`
+R is an object orientated programming language. You can assign values to object with the name of your choosing, for example 'my_color <- "red"'. When doing so, the object is stored in the computers memory. The object "my_color" will then hold the value "red", and can be called by typing "my_color".
 
 # Packages
 In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. Some packages, specialized for biological analyses, are hosted by [Bioconductor](https://www.bioconductor.org/), and have their own installation method.
 
 To install packages from CRAN, use the following command:
 ```{R}
-install.packages("package_name", dependencies = TRUE)
+install.packages("package_name")
 ```
 
 For this session, you will need the following packages
@@ -54,21 +54,21 @@ Based on the allele data in the cgMLST file, one can calculate the percentage of
 
 In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all samples have been compared to all.
 
-The result of this calculation is represented in a dissimilarity matrix, which is N x N big. Diagonals of the matrix represent each isolate compared to iself (0 % because totally identical). This matrix is symetrical (think why...). The most dissimilar the pair will be the closest to 1 % will be the value of comparison for the pair will be.
+The result of this calculation is represented in a symmetrical dissimilarity matrix, which is N x N big. Diagonals of the matrix represent each isolate compared to iself, and is therefore set as 0, as there are no dissimilarities in the comparison. The rest of the comparisons result in values between 1 and 0, where values closer to zero represent a more similar comparison.
 
-This data can then be clustered hierachically (groupped based on dissimilarity), and a tree object can be created from this hierarchical clustering.
+This data can then be clustered hierachically (here by the UPGMA method), and a tree object can be created from the resulting clusters.
 
 To do this in R, one has to import and clean the cgMLST data first:
 ```{R}
-# loading the packages we will need in R environment
+# loading the packages we will need in the R environment
 
 library(tibble)
 library(dplyr)
 
-# Bellow we import the data (tablular data, separator = tabulation, each column is a factor: categorical data) - %>% is a pipe simbol in R ...
+# Below we import the data (tabular data, separator = tab, each column is a factor: categorical data)
+# The '%>%' operator is a pipe, which sends the product of one function to the next (same as "|" in bash).
 
 cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colClasses = "factor", header = TRUE) %>%
-
   # change all "0" to NA
   na_if("0") %>%
   # create rownames from the values in the column "FILE"
@@ -81,6 +81,16 @@ To calculate distances from the data and create a tree:
 library(cluster)
 library(ape)
 
+# calculate distances
+distances <- daisy(cgMLST_data, metric = "gower")
+
+# cluster the samples from the dissimilarity matrix
+clust_dist <- hclust(distances, method = "average")
+
+# create tree object
+tree <- as.phylo(clust_dist)
+
+# to do all three calculations at once:
 tree <- as.phylo(hclust(daisy(cgMLST_data, metric = "gower"), method = "average"))
 ```
 Check out the function information with `?daisy` and `?hclust` to see details on the metric and method arguments
@@ -93,7 +103,7 @@ To then visualize this tree, we can either use the `plot()` function from base R
 > - ggtree has advanced anotations functions that allow us to add layers and follows a specifig synthax that allows to do advanced graphics "automatically and easily". This special synthax is called ["grammar of graphics"](https://en.wikipedia.org/wiki/Leland_Wilkinson) which give the gg from the ggtree package.
 
 > What are layers?:
-  > -  Imagine that me made a basic graphic on a white A4 paper. We can add labels, annotations, colors, title whith layers: think of a layer as a transparent sheet where you only draw one type of information (ex: leaves labels) and you put this transparent sheet on top of your basic tree. You can now see your tree annotated with the leaves labels.
+  > -  Imagine that I made a basic graphic on a white A4 paper. We can add labels, annotations, colors, title with layers: think of a layer as a transparent sheet where you only draw one type of information (ex: leaves labels) and you put this transparent sheet on top of your basic tree. You can now see your tree annotated with the leaves labels.
 
 ```{R}
 library(ggtree)
@@ -112,7 +122,7 @@ ggtree(tree,
 ```
 Now, the isolate names have been added to the tree tip points (leaves labels). However, if you want to combine metadata such as sequence types, animal species etc. to the tree and visualize it, one first has to connect the tree and the metadata:
 
-# Linking metadata to your tree data allows you to add annotations (decorations)
+# Linking metadata to your tree data allows you to add annotations
 
 ```{R}
 library(ggtree)
@@ -121,6 +131,7 @@ library(ggtree)
 metadata <- read.table("tree_metadata.txt", sep = "\t", header = TRUE)
 
 # Plot tree
+# The '%<+%' operator links the data to the tree
 ggtree(tree,
        layout = "rectangular") %<+% metadata +
      geom_tiplab(aes(label = ST))
@@ -138,9 +149,12 @@ ggtree(tree,
      geom_tiplab(aes(label = ST)) +
      geom_tippoint(aes(color = species))
 ```
+
 Ggtree will here plot the animal species in the metadata as colored nodes on the tree. Since no specific palette is specified, it will use default ggplot2 coloring. If you want to specify colors, a specific palette need to be created:
 
 ```{R}
+library(ggplot2)
+
 # create palette
 palette <- c("Broiler" = "#4575b4",
              "Pig" = "#74add1",
@@ -154,7 +168,19 @@ ggtree(tree,
      geom_tippoint(aes(color = species)) +
      scale_color_manual(values = palette)
 ```
-- [ ] scale_color_manual is a ggplot2 function -> so we need to import ggplot2
+
+This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), and others, on each layer. Make sure to put these arguments outside the aes() function (unless you want it to represent something in your metadata).
+
+# Adding heatmaps (I think we should take this one in a separate session, or it will be too much...)
+We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree.
+
+```{R}
+library(ggtree)
+
+# Import heatmap data
+heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE) %>%
+  column_to_rownames("id")
+```
 
 # Importing an existing tree
 It is possible to import trees that were created which clustering/phylogenetic softwares.
