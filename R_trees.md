@@ -11,9 +11,7 @@ For this session, you will need both R and RStudio.
 R is an object orientated programming language. What you need to understand for this lesson is that you can assign  with the symbol `<-` objects (dataset in form of tables, results of calculations, trees ...) into an object that you name. example: `my_color <- "red"` and you can recall objects from memory by using their names. To call what is your object type: `my_color` 
 
 # Packages
-In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. 
-
-- [ ] bioconductor - specialised to bioinformatics ?
+In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. Some packages, specialized for biological analyses, are hosted by [Bioconductor](https://www.bioconductor.org/), and have their own installation method.
 
 To install packages from CRAN, use the following command:
 ```{R}
@@ -46,9 +44,7 @@ The data files used in this session can be downloaded below (left click "downloa
 [Tree heatmap data](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/hk_ef_R_trees/training_files/tree_heatmap_data.txt)
 
 # Calculating distances from cgMLST data
-Based on the allele data in the cgMLST file, one can calculate the percentage of similar "labels" in a pairwise fashion. 
-
-- [ ] Labels represent presence/abscence of loci ? 
+Based on the allele data in the cgMLST file, one can calculate the percentage of similar "labels" in a pairwise fashion. The labels in the cgMLST data represent the loci variant, based on the nucleotide sequence (same as regular 7 gene MLST).
 
 In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all samples have been compared to all. The result of this calculation is a dissimilarity matrix, which is N x N big. This data can then be clustered, and a tree object can be created from this data.
 
