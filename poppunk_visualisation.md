@@ -1,12 +1,11 @@
 
 # Visualization networks with Cytoscape
 
-
 ## Install [Cytoscape](https://cytoscape.org/)
 
-> for ubuntu
-- you will need java 8 installed (might work with higher):
-- you will need to download cytoscape and run the install file
+#### Ubuntu
+- you will need java 8 installed (or higher installed)
+- you will need to download cytoscape and run the install file (follow instructions from Cytoscape webpage)
 
 ```
 # install java 8
@@ -25,29 +24,33 @@ Cyctoscape &
 
 ```
 
-> for windows: follow instructions of cytoscape web page
+#### windows: follow instructions of cytoscape webpage
 
 NB: for R enthusiasts there is also a way to control cytoscape from R with `rcy3` packages.
 Or you can also with with specific R "network" packages
 
-### Import network
-> if you do not want all the path in sample names you can do a little cleaning
+## Import network
+> if you do not want all the path in sample names you can do a little cleaning (R or in python)
 
-> little script to embelish: remove path and extension from sample id
-usage: python 3 environment
-`python path/cytoscape_labels.py <input.csv> <path_pattern_to_remove> <extension_to_remove>`
-ex: `python /home/evezeyl/Documents/gits/Listeria_listadapt/Evfi_test/scripts/cytoscape_labels.py all_in_one3_cytoscape.csv sequences/ .fas`
+Optional: an exemple little [python script](https://github.com/evezeyl/R_poppunk/blob/master/accessory_scripts_py_R/cytoscape_labels.py) to remove path and extension from sample id (ask if you need improvements):
+```
+# usage: python 3 environment
+python path/cytoscape_labels.py <input.csv> <path_pattern_to_remove> <extension_to_remove>
 
-- import network from file > select *.graphml
-- import table from file > select * cytoscape_(modified).csv
-  - select id (with the path as key : as it is this key that is used in the netwok) -> this will bind the graph to the isolates clusters numbers and names
+# example:
+python ~/scripts/cytoscape_labels.py all_cytoscape.csv sequences/ .fas
+```
+After cleaning you can import your file:
+- import network from file > select `*.graphml`
+- import table from file > select `*.cytoscape_(modified).csv`
+  - select `id` (key : column id that is identical in the network and data you want to associate with the network): -> this binds the graph to the isolates clusters numbers and names
 
 - go to styles:
-  - can change the shape
-  - fill color : column: combined_cluster, mapping type: discret -> then on right size can choose color for each cluster
+  - you can change the `shape`
+  - `fill color` : column: combined_cluster, mapping type: discret -> then on right size can choose the color for each cluster
 
-- export network to image file - to export the vizualization
+- export network to image file
 
-# Tree vizualisation: ressources
+# Tree vizualisation
 
-Please refer to our [R_trees course](./R_trees.md) for importing, visualizing and annotating trees with R
+Please look at our [R_trees course](./R_trees.md) for importing, visualizing and annotating trees with R
