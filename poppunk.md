@@ -5,7 +5,8 @@ Presentation video: [ubioinfo virtual lab talk 2019-04-01 John Lees](https://you
 [Introduction to Methods and interpretation: presentation](https://docs.google.com/presentation/d/1StmmM02lSpFPdevQT3iDB3BAKRoMC8Q4NtJ4nzu7MdY/edit?usp=sharing)
 
 Here is an overview of what it does, and a basic starting guide. 
-Some parts have been merly are a reorganisation and some nearly identical insertions [ex files produced] from the authors original guide, so do not be surprised, it just felt more logical to have everything at the same place). 
+Some parts have been merly are a reorganisation and some nearly identical insertions [ex files produced] from the authors original tutorial, it just felt more logical to have everything at the same place). 
+Please consult the [original tutuorial](https://poppunk.readthedocs.io/en/latest/tutorial.html)
 
 ## 1.1 Summary - Overview
 
