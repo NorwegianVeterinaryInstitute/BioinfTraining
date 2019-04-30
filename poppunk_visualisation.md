@@ -1,10 +1,8 @@
-# visualization networks with Cytoscape
-> from PopPUNK output
 
-- from ubuntu (native install)
-- from R - with bioconductor
+# Visualization networks with Cytoscape
 
-## For Ubuntu: Install [Cytoscape](https://cytoscape.org/)
+
+## Install [Cytoscape](https://cytoscape.org/)
 
 > for ubuntu
 - you will need java 8 installed (might work with higher):
@@ -27,6 +25,11 @@ Cyctoscape &
 
 ```
 
+> for windows: follow instructions of cytoscape web page
+
+NB: for R enthusiasts there is also a way to control cytoscape from R with `rcy3` packages.
+Or you can also with with specific R "network" packages
+
 ### Import network
 > if you do not want all the path in sample names you can do a little cleaning
 
@@ -45,20 +48,6 @@ ex: `python /home/evezeyl/Documents/gits/Listeria_listadapt/Evfi_test/scripts/cy
 
 - export network to image file - to export the vizualization
 
-## R cytoscape - in bioconductor
-### install bioconductor on your laptop
-[R studio in different conda environmnets](https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop)
-How to in [techstuff](./techstuff.md#One-Rstudio-for-all-condas)
+# Tree vizualisation: ressources
 
-```
-conda create --name rcy3 bioconductor-rcy3
-conda activate rcy3
-conda install -c conda-forge r-biocmanager
--c bioconda bioconductor-biocinstaller
-rstudio &
-
-#in R studio: to view documentation package:
-browseVignettes("RCy3")
-```
-NB: rcytoscape for cytoscape 2.8.1
-NB: RCy3 for cytoscape 3.x
+Please refer to our [R_trees course](./R_trees.md) for importing, visualizing and annotating trees with R
