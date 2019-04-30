@@ -1,11 +1,11 @@
-oA good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]. (We used it a lot to make this page.)
+A good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]. (We used it a lot to make this page.)
 
 # R and RStudio
 R is a free software environment for statistical computing and graphics, and can be downloaded [here](https://cran.uib.no/). RStudio is an integrated development environment for R, which in short makes R easier to use. Rstudio can be downloaded [here](https://www.rstudio.com/products/rstudio/download/).
 
 For this session, you will need both R and RStudio.
 
-R is an object orientated programming language. You can assign values to object with the name of your choosing, for example 'my_color <- "red"'. When doing so, the object is stored in the computers memory. The object "my_color" will then hold the value "red", and can be called by typing "my_color".
+R is an object orientated programming language. You can assign values to object with the name of your choosing, for example `my_color <- "red"`. When doing so, the object is stored in the computers memory. The object `my_color` will then hold the value `"red"`, and can be called by typing: `my_color`.
 
 # Packages
 In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. Some packages, specialized for biological analyses, are hosted by [Bioconductor](https://www.bioconductor.org/), and have their own installation method.
@@ -23,10 +23,10 @@ For this session, you will need the following packages
 - `ggtree` : [vignettes](http://www.bioconductor.org/packages/3.1/bioc/vignettes/ggtree/inst/doc/ggtree.html). We have to install this package from GitHub (see below)
 - `distanceR` Also need to be installed from GitHub: [Haukons' GitHub](https://github.com/hkaspersen/distanceR)
 
-To install packages from GitHub, you will need the following package:
-- `devtools`: [github manual](https://github.com/r-lib/devtools)
+To be able to install packages from GitHub, you will need the following package:
+- `devtools`: [manual hosted on GitHub](https://github.com/r-lib/devtools)
 
-To install from github, you need to use the following functions:
+To install packages from github, you need to use the following functions:
 
 ```{R}
 # loading the packages we will need in R environment
@@ -52,7 +52,7 @@ NB: if you are working on a Linux machine, you can download those files from the
 # Calculating distances from cgMLST data
 Based on the allele data in the cgMLST file, one can calculate the percentage of similar "labels" in a pairwise fashion. The labels in the cgMLST data represent the loci variant, based on the nucleotide sequence (same as regular 7 gene MLST).
 
-In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all samples have been compared to all.
+In other words, the first sample in the data is compared to the second, and the percentage of similar labels is calculated (excluding the loci if one label is missing). The first sample is then compared to the next sample, until all sample pairs are compared.
 
 The result of this calculation is represented in a symmetrical dissimilarity matrix, which is N x N big. Diagonals of the matrix represent each isolate compared to iself, and is therefore set as 0, as there are no dissimilarities in the comparison. The rest of the comparisons result in values between 1 and 0, where values closer to zero represent a more similar comparison.
 
@@ -65,14 +65,12 @@ To do this in R, one has to import and clean the cgMLST data first:
 library(tibble)
 library(dplyr)
 
-# Below we import the data (tabular data, separator = tab, each column is a factor: categorical data)
+# Below we import the data (tabular data, separator = tab, each column is a factor: categorical data, headers: are column names)
 # The '%>%' operator is a pipe, which sends the product of one function to the next (same as "|" in bash).
 
 cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colClasses = "factor", header = TRUE) %>%
-  # change all "0" to NA
-  na_if("0") %>%
-  # create rownames from the values in the column "FILE"
-  column_to_rownames("FILE")
+  na_if("0") %>% # change all "0" to NA
+  column_to_rownames("FILE") # create rownames from the values in the column "FILE"
 ```
 
 To calculate distances from the data and create a tree:
@@ -90,12 +88,12 @@ clust_dist <- hclust(distances, method = "average")
 # create tree object
 tree <- as.phylo(clust_dist)
 
-# to do all three calculations at once:
+# to do all three calculations at once you can nest your commands within each other:
 tree <- as.phylo(hclust(daisy(cgMLST_data, metric = "gower"), method = "average"))
 ```
 Check out the function information with `?daisy` and `?hclust` to see details on the metric and method arguments
 
-To then visualize this tree, we can either use the `plot()` function from base R, or use ggtree function from ggtree package.
+To then visualize this tree, we can either use the `plot()` function from base R, or use `ggtree()` function from ggtree package.
 
 *NB: base R is a minimal set of packages that are loaded automatically when you install R (functions associated with the language functionning of R, basic statistical and graphical functions)*
 > What are the advantages of using ggtree?
@@ -145,12 +143,12 @@ Now, with the metadata file in hand, one can add more information to the tree, f
 ```{R}
 # Plot tree
 ggtree(tree,
-       layout = "rectangular") %<+% metadata +
-     geom_tiplab(aes(label = ST)) +
-     geom_tippoint(aes(color = species))
+       layout = "rectangular") %<+% metadata +    # links your metadata to the graph
+     geom_tiplab(aes(label = ST)) +               # add a labels layer (for the leaves), labels are taken from ST column
+     geom_tippoint(aes(color = species))          # add a points layer, each species represented by its own color
 ```
 
-Ggtree will here plot the animal species in the metadata as colored nodes on the tree. Since no specific palette is specified, it will use default ggplot2 coloring. If you want to specify colors, a specific palette need to be created:
+`ggtree()` will here plot the animal species in the metadata as colored nodes on the tree. Since no specific palette is specified, it will use default ggplot2 coloring. If you want to specify colors, a specific palette need to be created:
 
 ```{R}
 library(ggplot2)
@@ -166,13 +164,15 @@ ggtree(tree,
        layout = "rectangular") %<+% metadata +
      geom_tiplab(aes(label = ST)) +
      geom_tippoint(aes(color = species)) +
-     scale_color_manual(values = palette)
+     scale_color_manual(values = palette)   # this indicates that we the color scheme we defined in palette
 ```
 
-This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), and others, on each layer. Make sure to put these arguments outside the aes() function (unless you want it to represent something in your metadata).
+This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), and others, on each layer. Make sure to put these arguments outside the `aes()` function (unless you want it to represent something in your metadata).
 
-# Adding heatmaps (I think we should take this one in a separate session, or it will be too much...)
+# Adding heatmaps
 We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree.
+
+> NB: a heatmap is a plot where colors are associated to values in your data (ex: white will be high value, red will be low value). If you plot a heatmap of a matrix, you will see low and high values as a gradient of colors.  
 
 ```{R}
 library(ggtree)
@@ -182,7 +182,8 @@ heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, s
   column_to_rownames("id")
 ```
 
-# Importing an existing tree
+# Going further
+## Importing an existing tree
 It is possible to import trees that were created which clustering/phylogenetic softwares.
 The [`treeio` package](https://bioconductor.org/packages/release/bioc/html/treeio.html), that has been developped from parsing different trees format into R.
 And have been designed to import both tree and metadata associated with the tree.
@@ -207,31 +208,24 @@ Example export:
 write.beast(tree_object_in_R, file ="export_file.nex")
 ```
 
-**collors annotations heatmap?**
 
-# Going further
-### other tree related packages but not used in here
+## There are several other packages and other functions in the packages we presented 
 
-`tidytree` , `treeio` -> some functions described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
+For `tidytree` , `treeio` and `ggtree` -> many more functions are described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
 
-`ggplot2` has some additional functions that can be used to annotate trees (ggtree package is based on ggplo2)
+`ggplot2` has some additional functions that can be used to annotate trees (note that: ggtree package is based on ggplo2)
 
+`ape` has also many more functions to manipulate trees. See: [Analysis of Phylogenetics and Evolution with R](http://ape-package.ird.fr/APER.html).
 
-gheatmap -> eve check
-> if use gheat (heatmap) -> note row.names have to be exacly the same as isolate names in tree/metadata (in col1) - in heatmap the order of rows does not need to be ordered
+... and we might have missed some
 
-### links
-
-[Analysis of Phylogenetics and Evolution with R](http://ape-package.ird.fr/APER.html)
-
-Many R packages can be found here ...
+## How to find R packages: 
 
 [Bioconductor package portal](https://bioconductor.org/packages/release/BiocViews.html#___Software)
 
 [CRAN Task view](https://cran.r-project.org/) R packages sorted by themes
 
 There is no overview of all the R-packages hosted on GitHub, so we need some `googling` to find them.
-
 
 [data Integration, Manipulation and Visualisation of phylogenetic trees]:https://yulab-smu.github.io/treedata-book/index.html
 [Haukon's github]:https://github.com/hkaspersen/distanceR.git
