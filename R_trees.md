@@ -190,7 +190,8 @@ And have been designed to import both tree and metadata associated with the tree
 
 - [ ] can we check if treeio is automatically imported with ggtree?
 
-As written in [data Integration, Manipulation and Visualisation of phylogenetic trees]
+As written in [data Integration, Manipulation and Visualisation of phylogenetic trees] in chapter: [linking ananotation data to tree with tidytree](https://yulab-smu.github.io/treedata-book/chapter7.html)
+
 Treeio supports importation of:
 > - `Newick`, `Nexus`, `New Hampshire eXtended format (NHX)`, `jplace` and `Phylip`
   - outputs from programs: `BEAST`, `EPA`, `HyPhy`, `MrBayes`, `PAML`, `PHYLDOG`, `pplacer`, `r8s`, `RAxML` and `RevBayes`.
@@ -211,13 +212,18 @@ write.beast(tree_object_in_R, file ="export_file.nex")
 
 ## There are several other packages and other functions in the packages we presented 
 
-For `tidytree` , `treeio` and `ggtree` -> many more functions are described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
+For `[tidytree]` , `[treeio]` and `[ggtree]` -> many more functions are described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
 
-`ggplot2` has some additional functions that can be used to annotate trees (note that: ggtree package is based on ggplo2)
+`[ggplot2]` has some additional functions that can be used to annotate trees (note that: ggtree package is based on ggplo2)
 
 `ape` has also many more functions to manipulate trees. See: [Analysis of Phylogenetics and Evolution with R](http://ape-package.ird.fr/APER.html).
 
-... and we might have missed some
+... and there are many more ...
+
+[tidytree]:https://cran.r-project.org/web/packages/tidytree/vignettes/tidytree.html
+[ggplot2]:https://www.rdocumentation.org/packages/ggplot2/versions/3.1.1 
+[ggtree]:https://bioconductor.org/packages/devel/bioc/vignettes/ggtree/inst/doc/ggtree.html
+[treeio]:https://github.com/GuangchuangYu/treeio
 
 ## How to find R packages: 
 
