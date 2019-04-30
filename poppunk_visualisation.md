@@ -32,7 +32,7 @@ Or you can also with with specific R "network" packages
 ## Import network
 > if you do not want all the path in sample names you can do a little cleaning (R or in python)
 
-Optional: an exemple little [python script](https://github.com/evezeyl/R_poppunk/blob/master/accessory_scripts_py_R/cytoscape_labels.py) to remove path and extension from sample id (ask if you need improvements):
+Optional: an exemple little [python script](https://github.com/evezeyl/R_poppunk/blob/master/accessory_scripts_py_R/cytoscape_labels.py) add a column without path and extension accolated to sample id (ask if you need improvements) so you can use this as labels:
 ```
 # usage: python 3 environment
 python path/cytoscape_labels.py <input.csv> <path_pattern_to_remove> <extension_to_remove>
