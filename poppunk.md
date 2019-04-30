@@ -369,7 +369,7 @@ Extra links:
 [Grapetree]:https://genome.cshlp.org/content/28/9/1395.full
 [rapidNJ]:http://users-birc.au.dk/cstorm/software/rapidnj/papers/SimonsenOthers2008_WABI.pdf
 
-**Please look at [Trees in R course](./R_trees.md) for looking at trees with R**
+**Please look at [at our R_trees course](./R_trees.md) for looking at trees with R**
 and at [Poppunk visualisation](./poppunk_visualisation.md) for visualising networks with Cytoscape.
 
 # Going further, faster ...
