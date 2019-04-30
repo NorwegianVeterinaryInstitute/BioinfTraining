@@ -189,6 +189,9 @@ heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, s
   
 # plot your tree with the heatmap associated to it
 gheatmap(my_tree, data = heatmap_data, offset = .05, font.size = 2) # the last parameters are position and labels size adjustments
+
+# You can also plot as such if you want to add more layers afterwards
+my_tree %>% gheatmap(. , data = heatmap_data, offset = .05, font.size = 2)
 ```
 
 # Going further
