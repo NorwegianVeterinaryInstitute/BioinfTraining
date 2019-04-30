@@ -32,10 +32,11 @@ To install packages from github, you need to use the following functions:
 # loading the packages we will need in R environment
 # NB: loading packages allows to import functions defined in to the packages into R memory.
 # This makes the functions defined in those pacakges are available for use in R.
+# This only has to be done once per session
 
 library(devtools)
-install_github("hkaspersen/distanceR")
 install_github("GuangchuangYu/ggtree")
+install_github("hkaspersen/distanceR")
 ```
 
 # Training data
@@ -60,6 +61,11 @@ This data can then be clustered hierachically (here by the UPGMA method), and a 
 
 To do this in R, one has to import and clean the cgMLST data first:
 ```{R}
+#setting your working directory (has to be where you downloaded the files we will use)
+
+setwd("path") # change the \ in windows to / (or select via Rstudio meny)
+getwd()       # checking that your working directory is correct
+
 # loading the packages we will need in the R environment
 
 library(tibble)
@@ -112,8 +118,6 @@ ggtree(tree)
 In base R, the tree will have sample name labels on the tips. In ggtree, nothing was specified, so only the tree was plotted. Ggtree have multiple layouts to choose from, i.e. "circular", "rectangular", "fan", "equal_angle" etc. See the vignette on ggtree above for more information. To add more information to the tree with ggtree, we can use additional layers of information, like this:
 
 ```{R}
-library(ggtree)
-
 ggtree(tree,
        layout = "rectangular") +
      geom_tiplab()
@@ -123,8 +127,6 @@ Now, the isolate names have been added to the tree tip points (leaves labels). H
 # Linking metadata to your tree data allows you to add annotations
 
 ```{R}
-library(ggtree)
-
 # Import metadata
 metadata <- read.table("tree_metadata.txt", sep = "\t", header = TRUE)
 
@@ -165,6 +167,12 @@ ggtree(tree,
      geom_tiplab(aes(label = ST)) +
      geom_tippoint(aes(color = species)) +
      scale_color_manual(values = palette)   # this indicates that we the color scheme we defined in palette
+     
+#redo this last command but with assigning it to my_tree
+my_tree <- <previous command> # your tree is now contained in the memory, in an object called my_tree
+
+# Close the plot and replot it:
+my_tree
 ```
 
 This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), and others, on each layer. Make sure to put these arguments outside the `aes()` function (unless you want it to represent something in your metadata).
@@ -175,11 +183,12 @@ We have now created an annotated tree connected to our metadata. However, one ca
 > NB: a heatmap is a plot where colors are associated to values in your data (ex: white will be high value, red will be low value). If you plot a heatmap of a matrix, you will see low and high values as a gradient of colors.  
 
 ```{R}
-library(ggtree)
-
 # Import heatmap data
 heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE) %>%
   column_to_rownames("id")
+  
+# plot your tree with the heatmap associated to it
+gheatmap(my_tree, data = heatmap_data, offset = .05, font.size = 2) # the last parameters are position and labels size adjustments
 ```
 
 # Going further
@@ -187,8 +196,6 @@ heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, s
 It is possible to import trees that were created which clustering/phylogenetic softwares.
 The [`treeio` package](https://bioconductor.org/packages/release/bioc/html/treeio.html), that has been developped from parsing different trees format into R.
 And have been designed to import both tree and metadata associated with the tree.
-
-- [ ] can we check if treeio is automatically imported with ggtree?
 
 As written in [data Integration, Manipulation and Visualisation of phylogenetic trees] in chapter: [linking ananotation data to tree with tidytree](https://yulab-smu.github.io/treedata-book/chapter7.html)
 
@@ -208,7 +215,6 @@ Example export:
 ```{R}
 write.beast(tree_object_in_R, file ="export_file.nex")
 ```
-
 
 ## There are several other packages and other functions in the packages we presented 
 
