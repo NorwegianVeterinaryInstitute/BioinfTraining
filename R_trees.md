@@ -240,6 +240,41 @@ The image file can be found in your project folder.
 
 Finally, there is a lot of functionality in ggtree and other functions that isn't discussed here. use `?ggtree` and `?gheatmap` in R to see additional arguments and possibilities for different visualization of trees.
 
+# The distanceR package
+The distanceR package make it easier to calculate trees, annotate and add heatmaps without the use of all the functions above. The package is available on Håkon's github page listed above.
+In short, the functions can be used as follows:
+
+```{R}
+library(distanceR)
+
+# calculate tree
+tree <- calc_tree("cgMLST.tsv",
+                  metric = "gower",
+                  method = "average")
+                  
+# note that in the function above, the file in the folder is specified, not an object in R. That is because the function imports the data in the correct format and then runs distance calculation.
+
+# Annotate tree with metadata
+annotated_tree <- annotate_tree(tree,
+                                "tree_metadata.txt",
+                                layout = "rectangular",
+                                label_variable = "ST",            # The labels on the tips ("ST" is the column name in the metadata)
+                                color_variable = "species")       # The colored nodes
+
+# Similar to above, the file in the folder is specified as the metadata. Additional settings can be added, such as point size, font size etc. See `?annotate_tree` for details.
+
+# Add heatmap to the tree
+add_heatmap(annot_tree,
+            "testdata/heatmap_data.txt",
+            layout = "rectangular",
+            colnames_position = "top",
+            colnames_angle = 90,
+            colnames_offset = 0.5,
+            font_size = 2,
+            heatmap_offset = 0.1)
+
+```
+
 # Going further
 ## Importing an existing tree
 It is possible to import trees that were created which clustering/phylogenetic softwares.
