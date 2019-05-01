@@ -39,18 +39,26 @@ It looks complicated because there are many ways to combine the different option
 
 ## 2.1 Create database
 
+A training dataset: Listeria monocytogenes, downloaded from public isolates of the [Pasteur institute MLST database](https://bigsdb.pasteur.fr/cgi-bin/bigsdb/bigsdb.pl?db=pubmlst_listeria_isolates_public)
+is available for training purposes on Abel: `/projects/nn9305k/bioinf_course/poppunk_diversity_pasteur`
+
+For interactive training: ask resources and activate poppunk: example:
+```
+cd $USERWORK
+mkdir poppunk_training && cd poppunk_training
+ln -s /projects/nn9305k/bioinf_course/poppunk_diversity_pasteur/* . #softlink the training data 
+
+qlogin --account=nn9305k --time=00:30:00 --ntasks=2 --mem-per-cpu=4G
+source activate poppunk
+```
+
 1)  create a list of your assemblies and other sequences you want to include in the analysis:
 `NB`: You need to have the path of the file included, so you need to create the list **from the folder you will run PopPUNK**:
 
 Ex:
 ```
-cd $USERWORK
-mkdir data && cd data
-ln -s <path to your data> . # softlinking your sequences in the data folder
-cd ..
-
 # here you create your reference file
-ls <path/*.fasta>  > reference_files.txt  # in this example path = data
+ls <path/*.fasta>  > reference_files.txt  # in this example path = sequences
 ```
 
 2) Use the `--create-db` option which creates: the _mash sketches database (*.msh)_ and the _distances database_ (and a file containing isolate names)
