@@ -24,8 +24,6 @@ Please consult the [original tutuorial](https://poppunk.readthedocs.io/en/latest
 
 [Manual](https://poppunk.readthedocs.io/). Note that the manual has been written for slightly different versions of PopPUNK. Therefore some command names in the documentation might be slightly different than the PopPUNK version installed on Abel (in conda). To check that the command corresponds to the version installed on Abel, use: `poppunk --help`
 
-Activate PopPUNK: `source activate poppunk`
-
 PopPUNK workflow is really simple, but can appear complicated because several options can be combined and several steps can be done at once.
 Keep it simple: do one step at the time to understand what it does.
 
@@ -49,13 +47,12 @@ mkdir poppunk_training && cd poppunk_training
 ln -s /projects/nn9305k/bioinf_course/poppunk_diversity_pasteur/* . #softlink the training data 
 
 qlogin --account=nn9305k --time=00:30:00 --ntasks=2 --mem-per-cpu=4G
-source activate poppunk
+source activate poppunk #poppunk is installed in a conda environment on Abel
 ```
 
 1)  create a list of your assemblies and other sequences you want to include in the analysis:
 `NB`: You need to have the path of the file included, so you need to create the list **from the folder you will run PopPUNK**:
 
-Ex:
 ```
 # here you create your reference file
 ls <path/*.fasta>  > reference_files.txt  # in this example path = sequences
