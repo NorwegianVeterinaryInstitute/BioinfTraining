@@ -16,10 +16,7 @@ Usually few mismatches are allowed (think about the consequences).
 
 Reads can be mapped as paired or single. If paired is used, then the matching regions are defined by the insert size and the length of each read
 
-<p align="center">
-<a href="https://commons.wikimedia.org/wiki/File:Mapping_Reads.png"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Mapping_Reads.png" width="400">
-<br>
-</p>
+![https://commons.wikimedia.org/wiki/File:Mapping_Reads.png](https://upload.wikimedia.org/wikipedia/commons/2/2e/Mapping_Reads.png)
 
 ### 1.2 Why mapping reads
 
@@ -170,10 +167,7 @@ In `Bifrost` we annotated the assembly with `Prokka` (using annotations derived 
 
 ## 2.4 Loading files in [IGV](https://software.broadinstitute.org/software/igv/)
 
-<p align="center">
-<img src="./figures/IGV.png">
-<br>
-</p>
+![IGV](./figures/IGV.png)
 
 1. Create a `genome file` this allows associating tracks to the assembly : `Genomes > create.genome file`. Use the menu to select your assembly file `.fasta`and the annotation-gene file: `.gff`
 

@@ -187,25 +187,54 @@ syntax for rsync?
 ### checking that file transfer completed without incident:
 
 You can either:
->  - redo rsyn with same options: if the transfer was successfull, nothing will
+  - redo `rsync` with same options: if the transfer was successfull, nothing will
 be synchronized (same content).
->  - use **hash** programs that generates a code based on file content
+  - use **hash** programs that generates a code based on file content
 (for both original and transfered/copied file). If both codes are identical,
 this means that the content of each files are identical i.e. that the file
 transfer was successull.
 
-> use for ex. `md5sum file_origin`and `md5sum file_transfered`. The hash-codes
+Example: `md5sum file_origin`and `md5sum file_transfered`. The hash-codes
 should be identical.
 
-> Better to [automate] the process of checkingif you have many files
-> - create a temporary file `tempfile_md5sum.txt`
-> - generate md5sum for each files (use expressions) and append result to
-`tempfile_md5sum.txt`
-> - `md5sum yourfiles | tee "tempfile_md5sum.txt"`
-> - `md5sum -c "tempfile_md5sum.txt"`
-> - check the content of your file: it will idicate if there are differences
-(if so, start again transfer for files where checksum does not match).
-> - delete your temporary file `tempfile_md5sum.txt`
+### For several files in the same folder: 
+
+Better to automate the process if you have many files in the same folder
+ - create a temporary file `tempfile_md5sum.txt`
+ - generate md5sum for each files (use regular expressions) and append result to
+`tempfile_md5sum.txt` Example: `md5sum yourfiles | tee "tempfile_md5sum.txt"` 
+ - check the content of your file: it will idicate if there are differences: `md5sum -c "tempfile_md5sum.txt"`
+(if there are differences, start again transfer for files where checksum did not match).
+ - delete your temporary file 
+
+### For transfering all files within directories to a new location:
+
+Use rsync to copy all your files from directory to another (ie. moving your directories on Abel)
+
+Example: from `/work/projects/nn9305k/Mydirectory`to Mydirectory in parent_directory `/projects/nn9305k/`
+
+NB: **parent directory** (just the level above of where your want Mydirectory to be)
+
+ 1) use `rsync -rauPW /origin_path/Mydirectory /parent_directory_destination`
+ 
+ - NB: do not write /parent_directory_destination/Mydirectory otherwise it will make a subdirectory /../Mydirectory/Mydirectory
+ - Do it twice: if you get errors, it is probably a permissions problem -> contact Karin
+
+2) To compare if the copy/synchronisation of files from the origin and destination folders worked: we build 2 temporary files (containing the hash-codes for all files in origin and destination folders respectively). 
+
+- You need to do it is from the respective parent directories of the origin and destination folders
+
+- the command finds all the files in your directories, executes md5sum on each file, sort hashes and then write into a file all those hash-codes. The idea is that if the copy/synchronisation succeded: then all the hashes codes for all files should be identical in the origin and destination directories.
+
+In the parent directory of origin : `find origin_Mydirectory -type f -exec md5sum {} + | sort -k 2 > origin_temp.txt`
+
+In the parent directory of destination: `find destination_Mydirectory -type f -exec md5sum {} + | sort -k 2 > destination_temp.txt`
+
+3) Then we check if the hash-codes generated for all the files in origin and destination directories are identical. It should return that files are identical. **If not, the file content of your directories are different** OR you did not do the previous command from the parent folder.
+ 
+`diff -s origin_mydirectory_temp.txt destination_mydirectory_temp.txt`
+
+4) When you are sure that the content of both directories are identical, you can remove the directory of origin, and the temporary files you created.
 
 ### wget
 
