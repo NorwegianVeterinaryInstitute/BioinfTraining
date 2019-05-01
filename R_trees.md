@@ -5,10 +5,17 @@ R is a free software environment for statistical computing and graphics, and can
 
 For this session, you will need both R and RStudio.
 
-R is an object orientated programming language. You can assign values to object with the name of your choosing, for example `my_color <- "red"`. When doing so, the object is stored in the computers memory. The object `my_color` will then hold the value `"red"`, and can be called by typing: `my_color`.
+R is an object orientated programming language. You can assign values to an object with the name of your choosing, for example `my_color <- "red"`. When doing so, the object is stored in the computers memory. The object `my_color` will then hold the value `"red"`, and can be called by typing: `my_color`.
+
+# Projects
+In RStudio, one can create a project to store all scripts and notes from one project in one folder. After starting RStudio, go to `file` and `New project`. In the window, click `New directory`, `New project`, and type in the name of the project folder, for example `Ggtree tutorial`. Choose which directory to create the project in, and click `create project`.
+
+Now, RStudio will restart, and the working directory of R will be in the folder you specified above. The advantage of dividing your work into projects is that all your scripts and files can be easily accessed in the project, or subfolders of the project, making it easier to have control of your code. The project folders may also be under version control with git.
+
+Now we are ready to install some packages!
 
 # Packages
-In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. Some packages, specialized for biological analyses, are hosted by [Bioconductor](https://www.bioconductor.org/), and have their own installation method.
+In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. Some packages, specialized for biological analyses, are hosted by [Bioconductor](https://www.bioconductor.org/), and have their own installation method. Note that all installed libraries are available for activation regardless of which project folder you are in.
 
 To install packages from CRAN, use the following command:
 ```{R}
@@ -29,9 +36,8 @@ To be able to install packages from GitHub, you will need the following package:
 To install packages from github, you need to use the following functions:
 
 ```{R}
-# loading the packages we will need in R environment
-# NB: loading packages allows to import functions defined in to the packages into R memory.
-# This makes the functions defined in those pacakges are available for use in R.
+# Loading the packages we will need in the R environment with the "library" function
+# NB: loading a package makes the functions defined in the package available in R
 # This only has to be done once per session
 
 library(devtools)
@@ -40,7 +46,7 @@ install_github("hkaspersen/distanceR")
 ```
 
 # Training data
-The data files used in this session can be downloaded below (left click "download as..." on the link).
+The data files used in this session can be downloaded below (left click "download as..." on the link). Copy or download directly into the project folder you created earlier.
 
 [cgMLST data](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/hk_ef_R_trees/training_files/cgMLST.tsv)
 
@@ -61,18 +67,16 @@ This data can then be clustered hierachically (here by the UPGMA method), and a 
 
 To do this in R, one has to import and clean the cgMLST data first:
 ```{R}
-#setting your working directory (has to be where you downloaded the files we will use)
-
-setwd("path") # change the \ in windows to / (or select via Rstudio meny)
-getwd()       # checking that your working directory is correct
-
 # loading the packages we will need in the R environment
 
 library(tibble)
 library(dplyr)
 
-# Below we import the data (tabular data, separator = tab, each column is a factor: categorical data, headers: are column names)
-# The '%>%' operator is a pipe, which sends the product of one function to the next (same as "|" in bash).
+# Below we import the data:
+  sep = separator (here, tabular)
+  colClasses = specifies the column types in the data, here they are specified to be factor variables
+  header = does the data have column names?
+# The '%>%' operator is a pipe, which sends the product of one function to the next (similar to "|" in bash).
 
 cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colClasses = "factor", header = TRUE) %>%
   na_if("0") %>% # change all "0" to NA
@@ -101,10 +105,10 @@ Check out the function information with `?daisy` and `?hclust` to see details on
 
 To then visualize this tree, we can either use the `plot()` function from base R, or use `ggtree()` function from ggtree package.
 
-*NB: base R is a minimal set of packages that are loaded automatically when you install R (functions associated with the language functionning of R, basic statistical and graphical functions)*
+*NB: base R is a set of packages that are loaded automatically when you start R*
 > What are the advantages of using ggtree?
-> - using base plot() function allows us to have a fast view at our tree object (check that it worked)
-> - ggtree has advanced anotations functions that allow us to add layers and follows a specifig synthax that allows to do advanced graphics "automatically and easily". This special synthax is called ["grammar of graphics"](https://en.wikipedia.org/wiki/Leland_Wilkinson) which give the gg from the ggtree package.
+> - using base plot() function allows us to have a fast view at our tree object
+> - ggtree has advanced anotation functions that allow us to add layers, and follows a specific syntax that allows to do advanced graphics "automatically and easy". This special syntax is called ["grammar of graphics"](https://en.wikipedia.org/wiki/Leland_Wilkinson) which is the gg from the ggtree or ggplot2 package.
 
 > What are layers?:
   > -  Imagine that I made a basic graphic on a white A4 paper. We can add labels, annotations, colors, title with layers: think of a layer as a transparent sheet where you only draw one type of information (ex: leaves labels) and you put this transparent sheet on top of your basic tree. You can now see your tree annotated with the leaves labels.
@@ -124,7 +128,7 @@ ggtree(tree,
 ```
 Now, the isolate names have been added to the tree tip points (leaves labels). However, if you want to combine metadata such as sequence types, animal species etc. to the tree and visualize it, one first has to connect the tree and the metadata:
 
-# Linking metadata to your tree data allows you to add annotations
+# Linking metadata to your tree data allows you to add specific annotations
 
 ```{R}
 # Import metadata
@@ -161,38 +165,81 @@ palette <- c("Broiler" = "#4575b4",
              "Red fox" = "#f46d43",
              "Wild bird" = "#fdae61")
 
-# Plot tree
-ggtree(tree,
+# Plot tree and assign to object
+my_tree <- ggtree(tree,
        layout = "rectangular") %<+% metadata +
      geom_tiplab(aes(label = ST)) +
      geom_tippoint(aes(color = species)) +
      scale_color_manual(values = palette)   # this indicates that we the color scheme we defined in palette
      
-#redo this last command but with assigning it to my_tree
-my_tree <- <previous command> # your tree is now contained in the memory, in an object called my_tree
-
-# Close the plot and replot it:
+# To look at the tree, type the name of the object:
 my_tree
 ```
-
 This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), and others, on each layer. Make sure to put these arguments outside the `aes()` function (unless you want it to represent something in your metadata).
 
 # Adding heatmaps
-We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree.
+We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree. NOTE: The heatmap data need to have the rownames as the sample names, unlike the metadata file, which had the first column as the sample names. We fix this when importing the table into R below.
 
 > NB: a heatmap is a plot where colors are associated to values in your data (ex: white will be high value, red will be low value). If you plot a heatmap of a matrix, you will see low and high values as a gradient of colors.  
 
 ```{R}
 # Import heatmap data
 heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE) %>%
-  column_to_rownames("id")
-  
-# plot your tree with the heatmap associated to it
-gheatmap(my_tree, data = heatmap_data, offset = .05, font.size = 2) # the last parameters are position and labels size adjustments
+  column_to_rownames("id") # set row names as the values in the column "id"
 
-# You can also plot as such if you want to add more layers afterwards
-my_tree %>% gheatmap(. , data = heatmap_data, offset = .05, font.size = 2)
+gheatmap(my_tree,               # your tree
+         heatmap_data,          # the heatmap data
+         offset = 0.05,         # distance of heatmap from tree tips
+         width = 0.5,           # the width of the heatmap
+         font.size = 2)         # the font size of the column headers
+         
 ```
+Take a look at the tree, and see that the column headers looks like they are all jumbled up. We can fix this by changing the direction of the column headers, and rotate the tree so that the headers align at the top of the tree.
+
+```{R}
+# To rotate the tree:
+tree_rotated <- rotate_tree(open_tree(my_tree, 8), 93) # This first opens the tree by 8 degrees, then rotates the tree 93 degrees.
+
+gheatmap(tree_rotated,               
+         heatmap_data,         
+         offset = 0.05,
+         width = 0.5,
+         font.size = 2,
+         colnames_offset_y = 2.5,       # adjust distance of headers from the columns
+         colnames_position = "top")     # change which side the headers align to
+         
+```
+Similar to the tree annotation above, one can use a specific color palette of your choosing to represent the data.
+
+```{R}
+palette2 <- c("0" = "grey95",
+              "1" = "steelblue")
+
+complete_tree <- gheatmap(tree_rotated,               
+         heatmap_data,         
+         offset = 0.05,
+         width = 0.5,
+         font.size = 2,
+         colnames_offset_y = 2.5,
+         colnames_position = "top") +
+  scale_fill_manual(values = palette2)
+
+complete_tree
+```
+
+Now you can save the tree with high resolution with the `ggsave` function.
+
+```{R}
+ggsave("complete_tree.tiff",  # filename of your choosing
+       complete_tree,         # your tree
+       device = "tiff",       # what kind of file should it be saved as?
+       dpi = 300,             # resolution of the tree
+       units = "cm",          # units to use in the height and width arguments
+       height = 20,           # height of the image
+       width = 20)            # width of the image
+```
+The image file can be found in your project folder.
+
 
 # Going further
 ## Importing an existing tree
@@ -243,4 +290,4 @@ For `[tidytree]` , `[treeio]` and `[ggtree]` -> many more functions are describe
 There is no overview of all the R-packages hosted on GitHub, so we need some `googling` to find them.
 
 [data Integration, Manipulation and Visualisation of phylogenetic trees]:https://yulab-smu.github.io/treedata-book/index.html
-[Haukon's github]:https://github.com/hkaspersen/distanceR.git
+[Håkon's github]:https://github.com/hkaspersen/distanceR.git
