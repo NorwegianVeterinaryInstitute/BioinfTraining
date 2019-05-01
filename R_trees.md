@@ -1,4 +1,4 @@
-A good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]. (We used it a lot to make this page.)
+# Introduction to tree generation and visualization in R
 
 # R and RStudio
 R is a free software environment for statistical computing and graphics, and can be downloaded [here](https://cran.uib.no/). RStudio is an integrated development environment for R, which in short makes R easier to use. Rstudio can be downloaded [here](https://www.rstudio.com/products/rstudio/download/).
@@ -290,3 +290,7 @@ There is no overview of all the R-packages hosted on GitHub, so we need some `go
 
 [data Integration, Manipulation and Visualisation of phylogenetic trees]:https://yulab-smu.github.io/treedata-book/index.html
 [Håkon's github]:https://github.com/hkaspersen/distanceR.git
+
+## Other resources
+A good introduction for learning how to use trees data in R: [data Integration, Manipulation and Visualisation of phylogenetic trees]. (We used it a lot to make this page.)
+
