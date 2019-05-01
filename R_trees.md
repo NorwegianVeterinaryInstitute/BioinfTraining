@@ -162,8 +162,7 @@ library(ggplot2)
 # create palette
 palette <- c("Broiler" = "#4575b4",
              "Pig" = "#74add1",
-             "Red fox" = "#f46d43",
-             "Wild bird" = "#fdae61")
+             "Red fox" = "#f46d43")
 
 # Plot tree and assign to object
 my_tree <- ggtree(tree,
@@ -175,7 +174,7 @@ my_tree <- ggtree(tree,
 # To look at the tree, type the name of the object:
 my_tree
 ```
-This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), and others, on each layer. Make sure to put these arguments outside the `aes()` function (unless you want it to represent something in your metadata).
+This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), 'offset' (distance of labels from the tree) and others, on each layer. Make sure to put these arguments outside the `aes()` function (unless you want it to represent something in your metadata).
 
 # Adding heatmaps
 We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree. NOTE: The heatmap data need to have the rownames as the sample names, unlike the metadata file, which had the first column as the sample names. We fix this when importing the table into R below.
@@ -185,28 +184,27 @@ We have now created an annotated tree connected to our metadata. However, one ca
 ```{R}
 # Import heatmap data
 heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE) %>%
+  mutate_at(vars(-id),
+            funs(as.character)) %>% # change columns to character
   column_to_rownames("id") # set row names as the values in the column "id"
 
 gheatmap(my_tree,               # your tree
          heatmap_data,          # the heatmap data
-         offset = 0.05,         # distance of heatmap from tree tips
+         offset = 0.07,         # distance of heatmap from tree tips
          width = 0.5,           # the width of the heatmap
-         font.size = 2)         # the font size of the column headers
+         font.size = 3)         # the font size of the column headers
          
 ```
-Take a look at the tree, and see that the column headers looks like they are all jumbled up. We can fix this by changing the direction of the column headers, and rotate the tree so that the headers align at the top of the tree.
+Take a look at the tree, and see that the column headers looks like they are all jumbled up. We can fix this by changing the direction of the column headers and placing them on top of the plot:
 
 ```{R}
-# To rotate the tree:
-tree_rotated <- rotate_tree(open_tree(my_tree, 8), 93) # This first opens the tree by 8 degrees, then rotates the tree 93 degrees.
-
-gheatmap(tree_rotated,               
+gheatmap(my_tree,               
          heatmap_data,         
-         offset = 0.05,
+         offset = 0.07,
          width = 0.5,
-         font.size = 2,
-         colnames_offset_y = 2.5,       # adjust distance of headers from the columns
-         colnames_position = "top")     # change which side the headers align to
+         font.size = 3,
+         colnames_position = "top",
+         colnames_angle = 90)
          
 ```
 Similar to the tree annotation above, one can use a specific color palette of your choosing to represent the data.
@@ -215,13 +213,13 @@ Similar to the tree annotation above, one can use a specific color palette of yo
 palette2 <- c("0" = "grey95",
               "1" = "steelblue")
 
-complete_tree <- gheatmap(tree_rotated,               
+complete_tree <- gheatmap(my_tree,               
          heatmap_data,         
-         offset = 0.05,
+         offset = 0.07,
          width = 0.5,
-         font.size = 2,
-         colnames_offset_y = 2.5,
-         colnames_position = "top") +
+         font.size = 3,
+         colnames_position = "top",
+         colnames_angle = 90)
   scale_fill_manual(values = palette2)
 
 complete_tree
@@ -240,6 +238,7 @@ ggsave("complete_tree.tiff",  # filename of your choosing
 ```
 The image file can be found in your project folder.
 
+Finally, there is a lot of functionality in ggtree and other functions that isn't discussed here. use `?ggtree` and `?gheatmap` in R to see additional arguments and possibilities for different visualization of trees.
 
 # Going further
 ## Importing an existing tree
