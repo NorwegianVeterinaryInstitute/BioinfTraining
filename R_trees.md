@@ -76,7 +76,8 @@ library(dplyr)
   sep = separator (here, tabular)
   colClasses = specifies the column types in the data, here they are specified to be factor variables
   header = does the data have column names?
-# The '%>%' operator is a pipe, which sends the product of one function to the next (similar to "|" in bash).
+# The '%>%' operator is a pipe, which sends the product of one function to the next
+# (similar to "|" in bash).
 
 cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colClasses = "factor", header = TRUE) %>%
   na_if("0") %>% # change all "0" to NA
@@ -209,6 +210,8 @@ gheatmap(my_tree,
 ```
 Similar to the tree annotation above, one can use a specific color palette of your choosing to represent the data.
 
+NB: type `colors()` to see an example of colors you can use 
+
 ```{R}
 palette2 <- c("0" = "grey95",
               "1" = "steelblue")
@@ -252,16 +255,19 @@ tree <- calc_tree("cgMLST.tsv",
                   metric = "gower",
                   method = "average")
                   
-# note that in the function above, the file in the folder is specified, not an object in R. That is because the function imports the data in the correct format and then runs distance calculation.
+# note that in the function above, the file in the folder is specified, not an object in R. 
+# That is because the function imports the data in the correct format and then runs distance calculation.
 
 # Annotate tree with metadata
 annotated_tree <- annotate_tree(tree,
                                 "tree_metadata.txt",
                                 layout = "rectangular",
-                                label_variable = "ST",            # The labels on the tips ("ST" is the column name in the metadata)
-                                color_variable = "species")       # The colored nodes
+                                label_variable = "ST",      # The labels on the tips ("ST": column name in the metadata)
+                                color_variable = "species")  # The colored nodes
 
-# Similar to above, the file in the folder is specified as the metadata. Additional settings can be added, such as point size, font size etc. See `?annotate_tree` for details.
+# Similar to above, the file in the folder is specified as the metadata. 
+# Additional settings can be added, such as point size, font size etc. 
+# See `?annotate_tree` for details.
 
 # Add heatmap to the tree
 add_heatmap(annot_tree,
