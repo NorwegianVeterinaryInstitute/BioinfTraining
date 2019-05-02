@@ -14,6 +14,8 @@ Now, RStudio will restart, and the working directory of R will be in the folder 
 
 Now we are ready to install some packages!
 
+> NOTE: In the code boxes below you will see comments starting with a `#`. This is not code, but helpful comments that explain the arguments and functions found in the box.
+
 # Packages
 In R, the fundamental unit of shareable code is a package. There is a myriad of packages available for download, and the ones published on the Comprehensive R Archive Network [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html) are trustworthy and of high quality. Packages can be created by anyone, and can also be hosted on GitHub. Some packages, specialized for biological analyses, are hosted by [Bioconductor](https://www.bioconductor.org/), and have their own installation method. Note that all installed libraries are available for activation regardless of which project folder you are in.
 
@@ -72,17 +74,16 @@ To do this in R, one has to import and clean the cgMLST data first:
 library(tibble)
 library(dplyr)
 
-# Below we import the data:
-  sep = separator (here, tabular)
-  colClasses = specifies the column types in the data, here they are specified to be factor variables
-  header = does the data have column names?
-# The '%>%' operator is a pipe, which sends the product of one function to the next
-# (similar to "|" in bash).
+cgMLST_data <- read.table("cgMLST.tsv",             # The cgMLST data file name
+                          sep = "\t",               # The separator in the file, here tab
+                          colClasses = "factor",    # Set all columns in the data to factor
+                          header = TRUE) %>%        # Does the file contain column names?
+  na_if("0") %>%                                    # change all "0" to NA
+  column_to_rownames("FILE")                        # Change rownames to the values in the "FILE" column
 
-cgMLST_data <- read.table("cgMLST.tsv", sep = "\t", colClasses = "factor", header = TRUE) %>%
-  na_if("0") %>% # change all "0" to NA
-  column_to_rownames("FILE") # create rownames from the values in the column "FILE"
 ```
+Here you see the `%>%` operator. This operator is a pipe, and sends the output from one function to the next, similar to `|` in bash.
+Note that a specific data structure is needed to calculate distances correctly. If an allele is missing, it should be represented by `NA`, which is why we change all `0` to `NA`. Also note that the row names need to have the sample ID's, which can be found in the "FILE" column.
 
 To calculate distances from the data and create a tree:
 
