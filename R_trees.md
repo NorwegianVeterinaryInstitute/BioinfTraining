@@ -83,7 +83,7 @@ cgMLST_data <- read.table("cgMLST.tsv",             # The cgMLST data file name
 
 ```
 Here you see the `%>%` operator. This operator is a pipe, and sends the output from one function to the next, similar to `|` in bash.
-Note that a specific data structure is needed to calculate distances correctly. If an allele is missing, it should be represented by `NA`, which is why we change all `0` to `NA`. Also note that the row names need to have the sample ID's, which can be found in the "FILE" column.
+Note that a specific data structure is needed to calculate distances correctly. If an allele is missing, it should be represented by `NA`, which is why we change all `0` to `NA`. Also note that the row names need to have the sample ID's, which can be found in the "FILE" column. A factor is a categorical variable.
 
 To calculate distances from the data and create a tree:
 
