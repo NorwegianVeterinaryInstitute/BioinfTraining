@@ -171,7 +171,7 @@ my_tree <- ggtree(tree,
        layout = "rectangular") %<+% metadata +
      geom_tiplab(aes(label = ST)) +
      geom_tippoint(aes(color = species)) +
-     scale_color_manual(values = palette)   # this indicates that we the color scheme we defined in palette
+     scale_color_manual(values = palette)   # here we specify the palette
      
 # To look at the tree, type the name of the object:
 my_tree
@@ -185,7 +185,10 @@ We have now created an annotated tree connected to our metadata. However, one ca
 
 ```{R}
 # Import heatmap data
-heatmap_data <- read.table("tree_heatmap_data.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE) %>%
+heatmap_data <- read.table("tree_heatmap_data.txt",
+                           sep = "\t",
+                           header = TRUE,
+                           stringsAsFactors = FALSE) %>%
   mutate_at(vars(-id),
             funs(as.character)) %>% # change columns to character
   column_to_rownames("id") # set row names as the values in the column "id"
@@ -256,8 +259,10 @@ tree <- calc_tree("cgMLST.tsv",
                   metric = "gower",
                   method = "average")
                   
-# note that in the function above, the file in the folder is specified, not an object in R. 
-# That is because the function imports the data in the correct format and then runs distance calculation.
+# note that in the function above, the file in the 
+# folder is specified, not an object in R. That is 
+# because the function imports the data in the correct
+# format and then runs distance calculation.
 
 # Annotate tree with metadata
 annotated_tree <- annotate_tree(tree,
