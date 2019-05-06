@@ -21,6 +21,7 @@ The instructors are:
   * [Use of mash](mash.md)
   * [Use of conda](conda.md)
   * [Mapping and visualization](assembly_visualization.md)
+  * [Tree generation and visualization in R](R_trees.md)
 
 
 ## Course pages
