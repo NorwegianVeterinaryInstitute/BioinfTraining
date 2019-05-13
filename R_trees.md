@@ -181,6 +181,8 @@ This will then plot the tree with the specified colors. Further adjustments to t
 Adding a legend to the tree if it does not show-up automatically: look at `?theme` for all options.
 Ex: add the following line to commands specifying `my_tree`: `+ theme(legend.position = "bottom")`
 
+> *NB: If you did not save your script, you can run [R_tree_course_script](https://raw.githubusercontent.com/NorwegianVeterinaryInstitute/BioinfTraining/master/training_files/R_tree_course.R)
+to catch up fast up to this point*
 
 # Adding heatmaps
 We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree. NOTE: The heatmap data need to have the rownames as the sample names, unlike the metadata file, which had the first column as the sample names. We fix this when importing the table into R below.
