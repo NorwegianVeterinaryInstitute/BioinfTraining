@@ -256,7 +256,7 @@ Available file formats you can be accessed with `?devices`, ex: bmp, jpg, pdf ..
 Finally, there is a lot of functionality in ggtree and other functions that isn't discussed here. use `?ggtree` and `?gheatmap` in R to see additional arguments and possibilities for different visualization of trees.
 
 # The distanceR package
-The distanceR package make it easier to calculate trees, annotate and add heatmaps without the use of all the functions above. The package is available on Håkon's github page listed above.
+The distanceR package make it easier to calculate trees, annotate and add heatmaps without the use of all the functions above. The package is available on [Håkon's github page](https://github.com/hkaspersen/distanceR.git).
 In short, the functions can be used as follows:
 
 ```{R}
@@ -322,9 +322,9 @@ write.beast(tree_object_in_R, file ="export_file.nex")
 
 ## There are several other packages and other functions in the packages we presented 
 
-For `[tidytree]` , `[treeio]` and `[ggtree]` -> many more functions are described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
+For [tidytree] , [treeio] and [ggtree] -> many more functions are described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
 
-`[ggplot2]` has some additional functions that can be used to annotate trees (note that: ggtree package is based on ggplo2)
+[ggplot2] has some additional functions that can be used to annotate trees (note that: ggtree package is based on ggplo2)
 
 `ape` has also many more functions to manipulate trees. See: [Analysis of Phylogenetics and Evolution with R](http://ape-package.ird.fr/APER.html).
 
