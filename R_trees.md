@@ -178,6 +178,10 @@ my_tree
 ```
 This will then plot the tree with the specified colors. Further adjustments to the look of the tree can be made by adding arguments like 'size', 'alpha' (transparency), 'offset' (distance of labels from the tree) and others, on each layer. Make sure to put these arguments outside the `aes()` function (unless you want it to represent something in your metadata).
 
+Adding a legend to the tree if it does not show-up automatically: look at `?theme` for all options.
+Ex: add the following line to commands specifying `my_tree`: `+ theme(legend.position = "bottom")`
+
+
 # Adding heatmaps
 We have now created an annotated tree connected to our metadata. However, one can also add a heatmap to the outside of the tree, representing for example presence/absence of genes. To do this, we will use the function `gheatmap` from ggtree. NOTE: The heatmap data need to have the rownames as the sample names, unlike the metadata file, which had the first column as the sample names. We fix this when importing the table into R below.
 
@@ -190,8 +194,8 @@ heatmap_data <- read.table("tree_heatmap_data.txt",
                            header = TRUE,
                            stringsAsFactors = FALSE) %>%
   mutate_at(vars(-id),
-            funs(as.character)) %>% # change columns to character
-  column_to_rownames("id") # set row names as the values in the column "id"
+            funs(as.character)) %>% # change columns to character (-id from dataframe representation, generates a named list)
+  column_to_rownames("id") # set row names as the values in the column "id" (passes the named list to rownames)
 
 gheatmap(my_tree,               # your tree
          heatmap_data,          # the heatmap data
@@ -226,7 +230,7 @@ complete_tree <- gheatmap(my_tree,
          width = 0.5,
          font.size = 3,
          colnames_position = "top",
-         colnames_angle = 90)
+         colnames_angle = 90) +
   scale_fill_manual(values = palette2)
 
 complete_tree
@@ -244,6 +248,8 @@ ggsave("complete_tree.tiff",  # filename of your choosing
        width = 20)            # width of the image
 ```
 The image file can be found in your project folder.
+
+Available file formats you can be accessed with `?devices`, ex: bmp, jpg, pdf ...
 
 Finally, there is a lot of functionality in ggtree and other functions that isn't discussed here. use `?ggtree` and `?gheatmap` in R to see additional arguments and possibilities for different visualization of trees.
 
