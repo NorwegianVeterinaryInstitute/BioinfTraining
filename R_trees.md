@@ -296,6 +296,21 @@ add_heatmap(annot_tree,
 ```
 
 # Going further
+
+## Some usefull functions to get further with annotations:
+**We assume that you want to add more layers to your graphical representation (my_tree object) of the tree that we build above** 
+
+- adding internal nodes labels (ie can be used for branch support) with `geom_text`and `geom_text2`functions. Ex:
+```
+# add label for each internal node (number) - ease for selection afterwards
+# with adjustements of label position (horizontal, vertical and size)
+
+my_tree + geom_text2(aes(subset=!isTip, label=node), hjust=1.2, vjust =-1, size = 1)
+
+# an idea for the bootstrap values (if name of variable containing bootstraps is bottstrap)
+my_tree + geom_text(aes(label=bootstrap))
+```
+
 ## Importing an existing tree
 It is possible to import trees that were created which clustering/phylogenetic softwares.
 The [`treeio` package](https://bioconductor.org/packages/release/bioc/html/treeio.html), that has been developped from parsing different trees format into R.
