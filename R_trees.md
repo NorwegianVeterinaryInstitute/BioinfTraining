@@ -251,9 +251,12 @@ ggsave("complete_tree.tiff",  # filename of your choosing
 ```
 The image file can be found in your project folder.
 
-Available file formats you can be accessed with `?devices`, ex: bmp, jpg, pdf ...
+Available file formats you can be accessed with `?Devices`, ex: bmp, jpg, pdf ...
 
 Finally, there is a lot of functionality in ggtree and other functions that isn't discussed here. use `?ggtree` and `?gheatmap` in R to see additional arguments and possibilities for different visualization of trees.
+
+NB: missing graphical device? you can add some libraries that will extend the possibilities of the `ggsave`function. Search for format and R, ex: for 
+vectorized format: package `svglite`, package `devEMF`for enhanced metafile (emf+/emf) graphics (libreoffice and microsoft office) ....
 
 # The distanceR package
 The distanceR package make it easier to calculate trees, annotate and add heatmaps without the use of all the functions above. The package is available on [Håkon's github page](https://github.com/hkaspersen/distanceR.git).
