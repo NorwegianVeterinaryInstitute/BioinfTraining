@@ -324,6 +324,8 @@ write.beast(tree_object_in_R, file ="export_file.nex")
 
 For [tidytree] , [treeio] and [ggtree] -> many more functions are described in [data Integration, Manipulation and Visualisation of phylogenetic trees]
 
+Some usefull examples of [trees manipulation](https://bioconductor.statistik.tu-dortmund.de/packages/3.4/bioc/vignettes/ggtree/inst/doc/treeManipulation.html) with ggtree
+
 [ggplot2] has some additional functions that can be used to annotate trees (note that: ggtree package is based on ggplo2)
 
 `ape` has also many more functions to manipulate trees. See: [Analysis of Phylogenetics and Evolution with R](http://ape-package.ird.fr/APER.html).
