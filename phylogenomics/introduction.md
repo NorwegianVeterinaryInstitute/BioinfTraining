@@ -17,10 +17,16 @@ But if you are curious and look at different methods: then some parts will be to
 
 I will heavily rely on worflows, so we can recover the logical and chronological steps of what we have to pay attention to.
 
+# Warnings
+- production of an optimal tree: no deterministic -> NP = polynomical time problem
+(not exact solution in a reasonable amount of time)
 
 # Tree building based on characters
 
 ![Character_tree_workflow]
+
+common methods
+Robustness
 
 ## Parsimony
 
