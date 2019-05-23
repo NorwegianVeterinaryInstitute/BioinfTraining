@@ -1,4 +1,5 @@
 # Non - metric multidimensional scaling : NMDS
+Not a cluster analysis? or? . But partitioning variation.
 
 ## What is that?
 **A dimension reduction method:**
@@ -13,3 +14,13 @@ This means finding variables/parameters that explain most of your object
 
 - indirect gradient analysis
 - ordination (order -> hierarchical) based on distance/dissimilarity matrix
+- rank-based approach (substitution distance by ranks) -> loose magnitude distances
+
+- usable with quantitative/qualitative or mixed variables
+- all type distances matrices (all units)
+
+**stress values** should always be mentionned
+  - [ ] what are they?
+
+# Links
+[GUSTA ME: GUide to STatistical Analysis in Microbial Ecology](https://mb3is.megx.net/gustame/dissimilarity-based-methods/nmds)
