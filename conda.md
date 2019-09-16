@@ -7,8 +7,7 @@ is a container of package(s).
 
 **If you  are a first time user of conda in Abel - please look here to set up appropriate configuration for project nn9305k [techstuff](techstuff.md#How to set up conda for project nn9305K)**.
 
-Think of an environment as a bubble. When you are in your bubble you do not to
-be disturbed by anything outside your bubble. Conda allows the creation of several environments, that do not interact with each other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments). 
+Think of an environment as a bubble. When you are in your bubble you do not want be disturbed by anything outside your bubble. Conda allows the creation of several environments, which do not interact with each other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments)
 
 ![alt text](./figures/conda.svg)
 
@@ -17,9 +16,7 @@ Creating an environment name=X1 to run a particular software is extremely useful
 the software you want to work with depends (=a dependency) on one or several other
 softwares=Y of a specific version to function.
 
-If you want to use a software that depends on other versions of software=Y you can install those
-in different environments (eg. name=X2). Then softwares installed in each  won't interfere
-with each other.
+If you want to use a software that depends on other versions of software=Y you can install those in different environments (eg. name=X2). Then softwares installed in each  won't interfere with each other.
 
 There are several several packages installed within several conda enviroments for you to work with on Abel. See below.
 
@@ -33,16 +30,26 @@ There are several several packages installed within several conda enviroments fo
   > allows you to see which version of software are installed in each environment)
 - activating an environment: `source activate <environment_name>` : enables working with softwares within the activated environment
   > if you want to look at the packages _while the environment is activated_ you need to use: `conda list` the list can be long: if you want look only at a part of the list: `conda list <you_want_to_look_at>` ex. `conda list trim*` give me the packages installed that begins with 'trim'
-- deactivating an environment (or deactivating conda) `conda deactivate`
-  > if an environment is activated: you need to **deactivate twice**: first to deactivate the environment and then to deactivate conda
+- deactivating an environment `conda deactivate`
 - getting help: `conda --help`
 
-1. request for resources (if slurm.script > steps below in the script)
-2. activate conda and environment
-3. your commands (program you want to use with parameters)
-4. deactivate conda and environment
 
-> Oops: bifrost pipeline: ask for resources when you submit the running.scripts.
+### How to use conda with qlogin and sbatch
+
+For qlogin, this is the order of things:
+
+1. request resources
+2. activate conda environment
+3. your commands (program you want to use with parameters)
+4. deactivate environment
+
+You have the same order for things in a slurm script.
+
+### A note on bifrost
+
+We have created a special conda environment for Bifrost. This is activated
+by the pipeline itself when it is started. Thus you do not need to worry about
+conda or other software concerns when running Bifrost.
 
 ## Installing softwares/packages on conda:
 
@@ -91,10 +98,11 @@ It can be quiet convenient when you want to have an analysis pipeline.
 If you only want to install one package/software in the environment you can do `conda create -n myenv package_name`.
 You can aslo combite that with a specific version: add `package_name=0.15.0`
 
-
 ## Going further
 
 All commands and more in : 
 [Conda user guide](https://docs.conda.io/projects/conda/en/latest/index.html)
+
+[More about managing environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment#)
 
 Links provided in [techstuff](techstuff.md#conda-virtual-environments)

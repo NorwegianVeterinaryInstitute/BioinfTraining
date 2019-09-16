@@ -2,7 +2,7 @@
 
 
 ## Purpose
-At the Norwegian Veterinary Institute, we are now starting an internal course in bioinformatics. This 
+At the Norwegian Veterinary Institute, we are now starting an internal course in bioinformatics. This
 repo will contain information, documentation, tutorials etc for this course.
 
 
@@ -19,6 +19,9 @@ The instructors are:
 # Small how-tos for various processes
 
   * [Use of mash](mash.md)
+  * [Use of conda](conda.md)
+  * [Mapping and visualization](assembly_visualization.md)
+  * [Tree generation and visualization in R](R_trees.md)
 
 
 ## Course pages
@@ -33,9 +36,9 @@ We have created specific pages for each part of the course.
 
 ### Messages
 
-We will keep an archive of outgoing practical messages, like homework etc, 
+We will keep an archive of outgoing practical messages, like homework etc,
 [on this webpage](messages.md). Note, some information might be redacted for
-information security reasons. 
+information security reasons.
 
 ### Etherpad
 
@@ -62,19 +65,19 @@ the bus on your way to work!
 
 ### Computers
 
-All participants will be handed a laptop with Virtualbox installed. All 
+All participants will be handed a laptop with Virtualbox installed. All
 participants are expected to handle this laptop with care, and to ensure that
-nobody gets access to it. This laptop is yours for the duration. You have admin 
+nobody gets access to it. This laptop is yours for the duration. You have admin
 on this computer, but don't take this to mean that you can install whatever you
 want. Last but not least, this computer should only be used on the wireless
 network at the Institute, and should not be plugged in the wall.
 
-Please note: do not keep data on this laptop that you cannot afford to lose. 
+Please note: do not keep data on this laptop that you cannot afford to lose.
 This laptop is not a storage device - this is a tool used for processing data,
 not for storing it.
 
 ### Virtualbox
-The main reason you are given a separate computer to work on is because we 
+The main reason you are given a separate computer to work on is because we
 will be using the software called Virtualbox. This is software that we are not
 allowed to use on computers connected to the network at the Institute.
 
@@ -84,7 +87,7 @@ virtualbox. This is what we will use to interface with the cluster that we will
 use for processing the data.
 
 ### Abel
-We will use the University of Oslo's High Performance Computing cluster for 
+We will use the University of Oslo's High Performance Computing cluster for
 most of our work. For more about how Abel works. see here.
 
 Please note: transfer and storage of data on abel is only allowed with prior
@@ -95,7 +98,7 @@ You can find out more about [how to use abel here.](https://github.com/Norwegian
 
 ## Contact
 
-To contact the instructors, please leave an issue in the github repo. Karin is 
+To contact the instructors, please leave an issue in the github repo. Karin is
 also available on twitter, as @karinlag .
 
 Veterinary Institute people should contact the instructors on the instructors
