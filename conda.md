@@ -5,8 +5,9 @@
 Conda is a package (=software) and environment management system. An environment
 is a container of package(s).
 
-Think of an environment as a bubble. When you are in your bubble you do not to
-be disturbed by anything outside your bubble. Conda allows the creation of several environments, which do not interact with each other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments)
+**If you  are a first time user of conda in Abel - please look here to set up appropriate configuration for project nn9305k [techstuff](techstuff.md#How to set up conda for project nn9305K)**.
+
+Think of an environment as a bubble. When you are in your bubble you do not want be disturbed by anything outside your bubble. Conda allows the creation of several environments, which do not interact with each other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments)
 
 ![alt text](./figures/conda.svg)
 
@@ -50,14 +51,56 @@ We have created a special conda environment for Bifrost. This is activated
 by the pipeline itself when it is started. Thus you do not need to worry about
 conda or other software concerns when running Bifrost.
 
-## Installing packages on conda: **contact Karin**
+## Installing softwares/packages on conda:
 
-If you need something installed on abel, contact the administrators. They
-will help you get things installed.
+> if packages you want to work with are neither available on Abel nor conda, and you feel unsure how to install:
+> **you need to contact Karin**
 
+**For Everybody** 
+
+### Checking if conda channels are in the right order - and setting Conda channels in the right order
+
+When you want to create a new environment on Abel (The first time you do that): you need to check that the channels are configured in the right order: `conda config --show-sources`
+You should see: in the same order:
+```
+- conda-forge
+- bioconda
+- defaults
+```
+
+If they are not in this order you need to change that: you will add all those channels starting by the ones at the bottom `defaults`then `bioconda` and finally `conda-forge` using: 
+
+`conda config --add channels new_channel`
+
+Recheck that the channels are now displayed in the right order with conda `config --show-sources`
+
+### Creating and installing within a new environment
+
+There are several ways to do that: one that is quiet practical is: 
+
+**First way** : full control 
+
+1) create a new environment: `conda create --name myenv`. If the packages that you want to install require a specific python version you can specify this when creating the environment: `conda create -n myenv python=3.4`
+
+2) Activate the newly created environment: `source activate myenv`
+
+3) Paste the installation command you found when googling "conda install what you were interested in" ex: 
+`conda install -c bioconda seqtk`. Note that you actually do not to define -c bioconda here, because conda will look up in the above define channels by order of priority. 
+
+4) NB: you can eventually install several packages in the same conda environment - provided they do not require the same module/package but with different versions to work. 
+
+It can be quiet convenient when you want to have an analysis pipeline.
+
+5) when you are finished installing/using conda: `conda deactivate`
+
+**Fast way** 
+
+If you only want to install one package/software in the environment you can do `conda create -n myenv package_name`.
+You can aslo combite that with a specific version: add `package_name=0.15.0`
 
 ## Going further
 
+All commands and more in : 
 [Conda user guide](https://docs.conda.io/projects/conda/en/latest/index.html)
 
 [More about managing environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment#)
