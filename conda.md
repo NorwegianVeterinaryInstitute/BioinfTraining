@@ -44,11 +44,46 @@ There are several several packages installed within several conda enviroments fo
 
 ## Installing packages on conda: **contact Karin**
 
-> if packages you want to work with are neither available on Abel nor conda:
+> if packages you want to work with are neither available on Abel nor conda, and you feel unsure how to install:
 > you need to contact Karin
+
+**For Everybody** 
+
+### Checking if conda channels are in the right order - and setting Conda channels in the right order
+
+When you want to create a new environment on Abel (The first time you do that): you need to check that the channels are configured in the right order: `conda config --show-sources`
+You should see: in the same order:
+```
+- conda-forge
+- bioconda
+- defaults
+```
+
+If they are not in this order you need to change that: you will add all those channels starting by the ones at the bottom `defaults`then `bioconda` and finally `conda-forge` using: 
+
+`conda config --add channels new_channel`
+
+Recheck that the channels are now displayed in the right order with conda `config --show-sources`
+
+### Creating and installing within a new environment
+
+There are several ways to do that: one that is quiet practical is: 
+
+1) create a new environment: `conda create --name myenv`
+
+2) Activate the newly created environment: `source activate myenv`
+
+3) Paste the installation command you found when googling "conda install what you were interested in" ex: 
+`conda install -c bioconda seqtk`. Note that you actually do not to define -c bioconda here, because conda will look up in the above define channels by order of priority. 
+
+4) NB: you can eventually install several packages in the same conda environment - provided they do not require the same module/package but with different versions to work. 
+
+It can be quiet convenient when you want to have an analysis pipeline.
+
 
 ## Going further
 
+All commands and more in : 
 [Conda user guide](https://docs.conda.io/projects/conda/en/latest/index.html)
 
 Links provided in [techstuff](techstuff.md#conda-virtual-environments)
