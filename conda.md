@@ -5,10 +5,10 @@
 Conda is a package (=software) and environment management system. An environment
 is a container of package(s).
 
+**If you  are a first time user of conda in Abel - please look here to set up appropriate configuration for project nn9305k [techstuff](techstuff.md#How to set up conda for project nn9305K)**.
+
 Think of an environment as a bubble. When you are in your bubble you do not to
 be disturbed by anything outside your bubble. Conda allows the creation of several environments, that do not interact with each other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments). 
-
-**If you  are a first time user of conda in Abel - please look here to set up appropriate configuration for project nn9305k [techstuff](techstuff.md#How to set up conda for project nn9305K)**.
 
 ![alt text](./figures/conda.svg)
 
