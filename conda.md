@@ -80,6 +80,7 @@ There are several ways to do that: one that is quiet practical is:
 
 It can be quiet convenient when you want to have an analysis pipeline.
 
+5) when you are finished installing/using conda: `conda deactivate`
 
 ## Going further
 
