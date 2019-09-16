@@ -69,7 +69,9 @@ Recheck that the channels are now displayed in the right order with conda `confi
 
 There are several ways to do that: one that is quiet practical is: 
 
-1) create a new environment: `conda create --name myenv`
+**First way** : full control 
+
+1) create a new environment: `conda create --name myenv`. If the packages that you want to install require a specific python version you can specify this when creating the environment: `conda create -n myenv python=3.4`
 
 2) Activate the newly created environment: `source activate myenv`
 
@@ -81,6 +83,12 @@ There are several ways to do that: one that is quiet practical is:
 It can be quiet convenient when you want to have an analysis pipeline.
 
 5) when you are finished installing/using conda: `conda deactivate`
+
+**Fast way** 
+
+If you only want to install one package/software in the environment you can do `conda create -n myenv package_name`.
+You can aslo combite that with a specific version: add `package_name=0.15.0`
+
 
 ## Going further
 
