@@ -7,7 +7,8 @@ is a container of package(s).
 
 Think of an environment as a bubble. When you are in your bubble you do not to
 be disturbed by anything outside your bubble. Conda allows the creation of several environments, that do not interact with each other. Please read the explanations in [techstuff](techstuff.md#conda-virtual-environments). 
-If you  are a first time user of conda in Abel - please look here to set up appropriate configuration for project nn9305k [techstuff](techstuff.md#How to set up conda for project nn9305K) 
+
+**If you  are a first time user of conda in Abel - please look here to set up appropriate configuration for project nn9305k [techstuff](techstuff.md#How to set up conda for project nn9305K)**.
 
 ![alt text](./figures/conda.svg)
 
@@ -43,10 +44,10 @@ There are several several packages installed within several conda enviroments fo
 
 > Oops: bifrost pipeline: ask for resources when you submit the running.scripts.
 
-## Installing packages on conda: **contact Karin**
+## Installing softwares/packages on conda:
 
 > if packages you want to work with are neither available on Abel nor conda, and you feel unsure how to install:
-> you need to contact Karin
+> **you need to contact Karin**
 
 **For Everybody** 
 
