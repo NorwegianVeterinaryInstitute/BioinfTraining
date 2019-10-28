@@ -16,6 +16,10 @@ The instructors are:
 
 ## Practical information
 
+# Variant calling and phylogeny
+  * [Use of SNIPPY](variant_calling_snippy.md)
+
+
 # Small how-tos for various processes
 
   * [Use of mash](mash.md)
