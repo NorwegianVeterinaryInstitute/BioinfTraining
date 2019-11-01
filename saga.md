@@ -30,6 +30,12 @@ $USER is your username variable
   - There is actually no really difference between using $USERWORK and PROJECT for using computing resources. BUT files in $USERWORK will be deleted automatically after 20-42 days depending on usage. There is a information message when you log on SAGA (no email warning); and using $USERWORK will force you to clean your data regularly. 
   
 - **Disk areas on NIRD:**
+
+- NIRD HOME: `nird/home/<username>`. Quota 20GB and **100000 files**. 
+- NIRD PROJECTS: `/nird/projects/<project_ID>` VI quotat = 
+! add
+
+  - [ ] does archives tar file of files counts for one or several? I guess one? 
   
 - [ ] jeevan, did I get this right? 
 - There is a part on Saga that can be reserved for bioinformatic, part reserved for machine learning on SAGA (ie. if you need better floating point for your analyses)
@@ -73,7 +79,26 @@ ssh YOUR_USERNAME@saga.sigma2.no
 - ?jeevan 
 To NIRD - from within ABEL ? SAGA? 
 ```bash
-login.nird.sigma2.no
+ssh <username>@login.nird.sigma2.no
 ```
 
-## 
+## Checkings disk usage for your quotates
+
+SAGA 
+
+- NIRD HOME: `dusage`
+- NIRD PROJECTS: `dusage -p <project_ID>`
+
+## Transfer data - 
+
+
+## One or fiew files: `scp <source> <destination>`
+> Not for your initial transfer data from Abel to NIRD, but you can use that afterwards to tranfer between SAGA and NIRD
+
+Examples: 
+```bash
+# For file
+scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
+# For directory 
+scp -r my_dir/ <username>@login.nird.sigma2.no:/projects/<projectname>/path
+```
