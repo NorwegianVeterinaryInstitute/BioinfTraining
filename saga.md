@@ -25,6 +25,13 @@
 - [ ] jeevan, did I get this right? 
 - There is a part on Saga that can be reserved for bioinformatic, part reserved for machine learning on SAGA (ie. if you need better floating point for your analyses)
 
+- Queue system in SAGA is **SLURM** - There are minor differences with Abel. Most important is for requesting **interactive ressources**. Please see bellow. 
+
+# Extra features:
+- It will be _easy_ to customize your own modules (ie. add libraries to python, R)
+- You can have access to a graphical interface (ie. working with Rstudio, coding with python, see graphs you created ...)
+
+
 # Administrators need to fix:
 - find a way to have a common Conda environment 
 
@@ -35,9 +42,13 @@
 
 [NIRD documentation](https://documentation.sigma2.no/storage/nird.html)
 
+[Slurm documentation](https://slurm.schedmd.com/documentation.html)
+
 [Password changing](https://www.metacenter.no/user/login/)
 
 [Abel to Saga course link](https://www.uio.no/english/services/it/research/events/Migrate-to-HPC.html) - includes HPC course.
+
+[HPC course](https://sabryr.github.io/hpc-intro/)
 
 Support: `support@metacenter.no` indicate which resource. See informations in documentation
 
