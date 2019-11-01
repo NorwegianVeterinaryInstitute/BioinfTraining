@@ -82,7 +82,7 @@ ssh YOUR_USERNAME@saga.sigma2.no
 ```
 To NIRD 
 ```bash
-ssh <username>@login.nird.sigma2.no
+ssh YOUR_USERNAME@login.nird.sigma2.no
 ```
 
 Check where you are: `hostname`
@@ -96,11 +96,14 @@ SAGA
 - NIRD HOME: `dusage`
 - NIRD PROJECTS: `dusage -p <project_ID>`
 
-## Transfer data - 
+## Transfer data 
 
-As space both on SAGA and NIRD will be limited, and not everything will be totally functional at the beginning, a good organisation is vital. Therefore: please clean and sort your files before transfer of your data from ABEL to NIRD
+### Practical
+Use `screen` to transfer data (to avoid that your data stops transfering when you shut down the window). See [techstuff](https://github.com/NorwegianVeterinaryInstitute/BioinfTraining/blob/master/techstuff.md)
 
-## One or fiew files: `scp <source> <destination>`
+As space both on SAGA and NIRD will be limited, and not everything will be totally functional at the beginning, a good organisation is vital. Therefore: please clean and sort your files before transfer of your data from ABEL to NIRD.
+
+### One or fiew files: `scp <source> <destination>`
 > Not for your initial transfer data from Abel to NIRD, but you can use that afterwards to tranfer between SAGA and NIRD
 
 Examples: 
@@ -110,6 +113,22 @@ scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
 # For directory 
 scp -r my_dir/ <username>@login.nird.sigma2.no:/projects/<projectname>/path
 ```
+
+### rsync
+rsync typical -> 4TB/day ~50MB/s 
+
+- [ ] choose the options we want to use 
+rsync -avxh source destAccount/
+rsync -rauPWD source dest 
+rsunc -z compresses files on the flight
+
+## parsyncfp 
+Available on Abel. If not too many files but a lot of data. Divides in several tasks.
+
+
+
+
+
 
 # Using SAGA 
 
