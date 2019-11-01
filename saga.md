@@ -46,9 +46,11 @@ $USER is your username variable
   
 - **Disk areas on NIRD:**
 
+4 Login Nodes
+
 - NIRD HOME: `nird/home/<username>`. Quota 20GB and **100000 files**. 
 - NIRD PROJECTS: `/nird/projects/NS9305K` VI quotat = 20TB. (also number of file limits)
-- There is a small $SCRATCH `/scratch/username` area on NIRD -> 15TB shared among all users
+- There is a small $SCRATCH `/scratch/<username>` area on NIRD -> 15TB shared among all users
 
 Per today there is NO mounting between SAGA and NIRD (meaning you cant see your files that are on NIRD from SAGA). This will be fixed in the future. But anyway you wont be able to use NIRD files as input for your analyses. 
 
@@ -177,6 +179,12 @@ data username@login.nird.sigma2.no:/path
 
 NP is the number of threads. They did recommend NOT to use too many as this will likely not go faster and might bug otherwise.
 
+## Transfer files with Filezilla 
+Ie. You download data from the sequencing center on your VI computer. You can use `Fillezilla`to transfer data to SAGA & NIRD
+
+Open filezilla and in the top windows `host`use: `sftp://saga.sigma2.no` or `sftp://login.nird.sigma2.no`. You type <username> <password> in the respective cases. No need to specify the port. You can even have 2 tabs open!
+
+Then you can use drag and drop to transfer files. 
 
 # Using SAGA 
 
@@ -311,6 +319,23 @@ Singularity (and docker) containers will be usable on SAGA.
 
 > So ... how to comming later!
 
+## No more passwords with ssh
+Be carrefull if your computer is stolen or if someone get access to your computer then they will be able to login to SAGA and NIRD. So you need a good security on your computer.
+
+But this can be very usefull if one day you need to log a lot, and you can remove it afterwards if you are worried about security. 
+
+Example: Make a key - copy it on SAGA - the key is in your $HOME (on your pc) - delete the key
+```
+ssh-keygen
+ssh-copy-id <username>@saga.sigma2.no
+ssh <username>@saga.sigma2.no
+ls $HOME /.ssh
+rm $HOME /.ssh
+```
+
+## Keep your ssh sessions active (even if you are not doing anything)
+
+A how to guide [here]
 
 
 
