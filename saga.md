@@ -74,6 +74,8 @@ Support: `support@metacenter.no` indicate which resource. See informations in do
 
 # Summary: how to: main commands
 
+## VI project ID: `NN9305K"
+
 ## Login 
 
 To saga 
@@ -94,7 +96,7 @@ Check where you are: `hostname`
 SAGA 
 
 - NIRD HOME: `dusage`
-- NIRD PROJECTS: `dusage -p <project_ID>`
+- NIRD PROJECTS: `dusage -p NN9305K`
 
 ## Transfer data 
 
@@ -108,31 +110,51 @@ As space both on SAGA and NIRD will be limited, and not everything will be total
 
 Examples: 
 ```bash
+#path for projects: 
+/projects/NN9305K/
+
 # For file
 scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
 # For directory 
-scp -r my_dir/ <username>@login.nird.sigma2.no:/projects/<projectname>/path
+scp -r my_dir/ <username>@login.nird.sigma2.no:/path
 ```
 
 ### rsync: many files - not too many data
-rsync typical -> 4TB/day ~50MB/s 
+Typical transfer rate 4TB/day ~50MB/s 
 
-Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered. 
+Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered, and check the log.
 
-- [ ] choose the options we want to use - should we compress files / folders before? 
-rsync -avxh source destAccount/
-rsync -rauPWD source dest 
-rsuyc -z compresses files on the flight
+- [ ] choose the options we want to use - should we compress files / folders before? 
 
-- jeevan [ ]
-dir=.partial dir -> creates a dir on target where put files if sth wrong appends - if I understood -> can help to resume faster ...
+```bash
+# IF you have many small files (ie text files) compress:
+tar -czvf archive_name.tar.gz /directory/data
+
+#general usage 
+rsync -avxh <source> <destination_account/>
+rsync -rauPWD <source> <destination> 
+
+# options -> we need to choose 
+## OR: compress files on the flight 
+..... -z 
+## reates a directory on target where it puts files if something wrong appends -> can help to resume faster. 
+......–partialdir=.partial-dir -> c
+
+## Decompress archive
+tar -xzvf archive_name.tar.gz
+```
 
 ## parsyncfp : Not too many files but a lot of data. Divides in several tasks.
 Available on Abel. 
 
+- [ ] not tested
 
+```
+parsyncfp --rsyncopts="-ax –ignore-existing --relative” --NP=4 --startdir="/path” \
+data username@login.nird.sigma2.no:/path
+```
 
-
+NP is the number of threads. They did recommend NOT to use too many as this will likely not go faster and might bug otherwise.
 
 
 # Using SAGA 
@@ -142,8 +164,6 @@ Available on Abel.
 
 When you submit a job you will have to ask for a specific compute node. By default please use `normal` or `devel` -> for small tests. 
 - jeevan correct? 
-
-
 
 
 
