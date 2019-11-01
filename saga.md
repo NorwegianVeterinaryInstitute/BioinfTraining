@@ -91,8 +91,8 @@ Check where you are: `hostname`
 ## Checkings disk usage for your quotas
 
 SAGA - [ ] dusage does not work
-- SAGA HOME: `du -h $HOME
-- SAGA PRROJECTS: `du -h 
+- SAGA HOME: `du -h $HOME`
+- SAGA PRROJECTS: `du -h` 
 
 - NIRD HOME: `dusage`
 - NIRD PROJECTS: `dusage -p NS9305K`
@@ -135,6 +135,8 @@ Do it twice, to be sure all data has been transfered. Defined blocks that you ar
 - [ ] Write here difference rsync / and not / in dest
 
 Please do a little test with `--dry-run` to `rsync` : this will simulate the run without copying files: then you can check if they arrive in the folder you chose. There is a difference using `folder/` and `folder`.
+
+- [ ] Pase My Eve notes on that -> in yersinia ?
 
 When you are sure that files will arrive in the correct directory, you can remove `--dry-run` and launch the real moving of files. 
 
@@ -335,7 +337,8 @@ rm $HOME /.ssh
 
 ## Keep your ssh sessions active (even if you are not doing anything)
 
-A how to guide [here]
+A simple how to guide [here](https://patrickmn.com/aside/how-to-keep-alive-ssh-sessions/)
 
+-[] better? test
 
 
