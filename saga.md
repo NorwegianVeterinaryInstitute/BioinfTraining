@@ -114,16 +114,21 @@ scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
 scp -r my_dir/ <username>@login.nird.sigma2.no:/projects/<projectname>/path
 ```
 
-### rsync
+### rsync: many files - not too many data
 rsync typical -> 4TB/day ~50MB/s 
 
-- [ ] choose the options we want to use 
+Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered. 
+
+- [ ] choose the options we want to use - should we compress files / folders before? 
 rsync -avxh source destAccount/
 rsync -rauPWD source dest 
-rsunc -z compresses files on the flight
+rsuyc -z compresses files on the flight
 
-## parsyncfp 
-Available on Abel. If not too many files but a lot of data. Divides in several tasks.
+- jeevan [ ]
+dir=.partial dir -> creates a dir on target where put files if sth wrong appends - if I understood -> can help to resume faster ...
+
+## parsyncfp : Not too many files but a lot of data. Divides in several tasks.
+Available on Abel. 
 
 
 
