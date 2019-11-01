@@ -33,6 +33,11 @@ $USER is your username variable
 
 - NIRD HOME: `nird/home/<username>`. Quota 20GB and **100000 files**. 
 - NIRD PROJECTS: `/nird/projects/<project_ID>` VI quotat = 
+- There is a small $SCRATCH `/scratch/username` area on NIRD -> 15TB 
+
+Per today there is NO mounting between SAGA and NIRD (meaning you cant see your files that are on NIRD from SAGA). This will be fixed in the future. But anyway you wont be able to use NIRD files as input for your analyses. 
+
+
 ! add
 
   - [ ] does archives tar file of files counts for one or several? I guess one? 
@@ -75,12 +80,14 @@ To saga
 ```bash
 ssh YOUR_USERNAME@saga.sigma2.no
 ```
-
-- ?jeevan 
-To NIRD - from within ABEL ? SAGA? 
+To NIRD 
 ```bash
 ssh <username>@login.nird.sigma2.no
 ```
+
+Check where you are: `hostname`
+
+
 
 ## Checkings disk usage for your quotates
 
@@ -91,6 +98,7 @@ SAGA
 
 ## Transfer data - 
 
+As space both on SAGA and NIRD will be limited, and not everything will be totally functional at the beginning, a good organisation is vital. Therefore: please clean and sort your files before transfer of your data from ABEL to NIRD
 
 ## One or fiew files: `scp <source> <destination>`
 > Not for your initial transfer data from Abel to NIRD, but you can use that afterwards to tranfer between SAGA and NIRD
@@ -102,3 +110,72 @@ scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
 # For directory 
 scp -r my_dir/ <username>@login.nird.sigma2.no:/projects/<projectname>/path
 ```
+
+# Using SAGA 
+
+## Computes nodes
+4 different types [] - find back the nice table he had 
+
+When you submit a job you will have to ask for a specific compute node. By default please use `normal` or `devel` -> for small tests. 
+- jeevan correct? 
+
+
+
+
+
+## Modules load
+Identical abel
+
+## Install modules / compile
+
+## Install additional libraries to packages
+
+## Use graphical interface
+You can use a graphical interface on SAGA. It wont be the same as using your laptope, but you can use it for example with Rstudio, Phython scripts or to view graphics you created on SAGA.
+
+To do so you need to login as such `ssh -Y username@saga.sigma2.no` and type the command `xeyes` on your shell. You will see a window with 2 pairs of eyes: this is the graphical display. 
+
+## Shared databases
+### blast: 
+`/cluster/shared/databases/blast/latest` 
+
+- [ ] there should be some guide here for shared things
+
+## QUEUE SYSTEM : SLURM 
+
+Very similar to ABEL -> some minor difference in commands for slurm scripts, **different for interactive login**
+
+- Submitting a job to SLUM queue system `sbatch scriptname.slurm`. Examples of script [link]() -[ ] finish
+- Interactive loggin: `squeue`does not exist anymore. 
+
+Example: `srun --ntasks=1 --mem=8G --time=00:30:00 --qos=devel --cpus-per-task=2 --account=NN9305K --pty bash -i`
+
+- [ ] check what it did correspond to
+`--qos=` is the name of the computing node, chose between `devel` for small tests, `normal` ? was devel -> difference
+
+--`partition=bigmem` for big jobs (see documentation)
+
+Main commands to manage your jobs:
+
+| command | does | additional information |
+|:--------|:-----|:-----------------------|
+| squeue -u $USER | show your jobs in queue | |
+| scontrol show job <jobid> | show status of your job | [link]() |
+| sacct -j <jobid> | show running status/info of OLD jobs (archive) |  
+ 
+
+
+# Advanced SAGA commands
+
+```bash
+# check all the mounting points
+df -h
+# SAGA specific: indication load on SAGA - computing power nodes (pe for processor equivalence) 
+freepe
+```
+
+
+
+
+
+
