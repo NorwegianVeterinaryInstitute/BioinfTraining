@@ -16,9 +16,18 @@
   > This implies that you will have to transfer data back and forth from **NIRD** storage area to Saga to be able to do your analyses.
   
 - **Disk areas on SAGA:**
-  - `$HOME`
-  - `$USERWORK`
+
+$USER is your username variable 
+
+  - `$HOME` or `/cluster/home/$USER` - 20GB - 
+  - `$USERWORK` or `/cluster/work/users/$USER`
+  - `$SCRATCH`-> created when job is running (same as Abel)
+  - PROJECTS `/cluster/projects/nn9305k` -> for shared things
+  - Per today there is NO /WORK area -> but this is planned at a later stage
   
+  > $USERWORK and PROJECTS share the same file system - fast disks - no permanent storage. 
+  - It is recommended to use $USERWORK for using computing resources (unless you have things that needs a lot of read/write there you should arrange that you use $SCRATCH, copying files to and back from $SCRATCH in your scripts).
+  - There is actually no really difference between using $USERWORK and PROJECT for using computing resources. BUT files in $USERWORK will be deleted automatically after 20-42 days depending on usage. There is a information message when you log on SAGA (no email warning); and using $USERWORK will force you to clean your data regularly. 
   
 - **Disk areas on NIRD:**
   
