@@ -1,3 +1,18 @@
+# Where to find detailed information
+
+[SAGA documentation](https://documentation.sigma2.no/quick/saga.html)
+
+[NIRD documentation](https://documentation.sigma2.no/storage/nird.html)
+
+[Slurm documentation](https://slurm.schedmd.com/documentation.html)
+
+[Password changing](https://www.metacenter.no/user/login/)
+
+[Abel to Saga course link](https://www.uio.no/english/services/it/research/events/Migrate-to-HPC.html) - includes HPC course.
+
+[HPC course](https://sabryr.github.io/hpc-intro/)
+
+Support: `support@metacenter.no` indicate which resource. See informations in documentation
 
 # Practical differences Abel - Saga
 
@@ -33,7 +48,7 @@ $USER is your username variable
 
 - NIRD HOME: `nird/home/<username>`. Quota 20GB and **100000 files**. 
 - NIRD PROJECTS: `/nird/projects/NS9305K` VI quotat = 20TB. (also number of file limits)
-- There is a small $SCRATCH `/scratch/username` area on NIRD -> 15TB 
+- There is a small $SCRATCH `/scratch/username` area on NIRD -> 15TB shared among all users
 
 Per today there is NO mounting between SAGA and NIRD (meaning you cant see your files that are on NIRD from SAGA). This will be fixed in the future. But anyway you wont be able to use NIRD files as input for your analyses. 
 
@@ -50,27 +65,6 @@ Per today there is NO mounting between SAGA and NIRD (meaning you cant see your 
 # Extra features:
 - It will be _easy_ to customize your own modules (ie. add libraries to python, R)
 - You can have access to a graphical interface (ie. working with Rstudio, coding with python, see graphs you created ...)
-
-
-# Administrators need to fix:
-- find a way to have a common Conda environment 
-
-
-# Where to find more detailed information
-
-[SAGA documentation](https://documentation.sigma2.no/quick/saga.html)
-
-[NIRD documentation](https://documentation.sigma2.no/storage/nird.html)
-
-[Slurm documentation](https://slurm.schedmd.com/documentation.html)
-
-[Password changing](https://www.metacenter.no/user/login/)
-
-[Abel to Saga course link](https://www.uio.no/english/services/it/research/events/Migrate-to-HPC.html) - includes HPC course.
-
-[HPC course](https://sabryr.github.io/hpc-intro/)
-
-Support: `support@metacenter.no` indicate which resource. See informations in documentation
 
 # Summary: how to: main commands
 
@@ -106,10 +100,20 @@ SAGA - [ ] dusage does not work
 ### Practical
 Use `screen` to transfer data (to avoid that your data stops transfering when you shut down the window). See [techstuff](https://github.com/NorwegianVeterinaryInstitute/BioinfTraining/blob/master/techstuff.md)
 
+Little screen summary: 
+- `screen` stat a screen session. Then you can launch your commands
+- `Ctrl+A D` detaches your screen. Then you can go away and the process will continue
+- `screen -ls` list your active screen sessions
+- `screen -r <ID>` reattaches your session. 
+- `Ctrl+A K` closes your session
+
+- [ ] was that all essential screen commands?
+
 As space both on SAGA and NIRD will be limited, and not everything will be totally functional at the beginning, a good organisation is vital. Therefore: please clean and sort your files before transfer of your data from ABEL to NIRD.
 
 ### One or fiew files: `scp <source> <destination>`
-> Not for your initial transfer data from Abel to NIRD, but you can use that afterwards to tranfer between SAGA and NIRD
+> Not for your initial transfer data from Abel to NIRD, but you can use that afterwards to tranfer between SAGA and NIRD. 
+Provided that you do not have to transfer a lot of data. If lots of data to transfer, use one method bellow. 
 
 Examples: 
 ```bash
@@ -177,21 +181,44 @@ NP is the number of threads. They did recommend NOT to use too many as this will
 # Using SAGA 
 
 ## Computes nodes
-4 different types [] - find back the nice table he had 
+There are [5 different jobs types](https://documentation.sigma2.no/jobs/job_types.html) 
 
-When you submit a job you will have to ask for a specific compute node. By default please use `normal` or `devel` -> for small tests. 
-- jeevan correct? 
+When you submit a job you will have to ask for a specific compute node. By default please use `normal` or `optimist` (for small tests runs: can go faster in the queue but risk to be killed and resubmitted because of low priority) or `devel` (ie. you are trying your command - see if your script runs). 
 
+- [ ] jeevan correct? I not even sure I would use optimist 
+- [ ] can you look bellow in SLUM if this is correct how to submit specific type of job --option? or if I did correct
 
+What you should [do/not do on computes nodes](https://documentation.sigma2.no/jobs/dos_and_donts.html)
 
 ## Modules load
-Identical abel
+Identical Abel. 
 
-## Install modules / compile
+```bash
+module avail <modulname>  #check if module installed
+module load <modulename> #load defined module/version
+module purge #clear loaded modules
+module list
+```
+Note that only the last version of softwares and not all software that we had access to on Abel will be installed in the beginning. 
 
-## Install additional libraries to packages
+There might be different versions for the same module, that have been compiled with different compilers.
 
-## Use graphical interface
+Example: 
+ie. `blast+/versionXX-gompi` OR `blast+/versionXX-iimpi`
+
+It is recomended to choose `iimpi` version as it should be more optimized for the system
+> `gompi` is done with glue compiler, and more used by avanced user for debugging 
+
+## Conda on SAGA
+
+Per today CONDA is available on SAGA, but not as a shared ressource as we had on ABEL. The team will work on the problem.
+
+This means that: 
+- you have to install your own conda modules
+
+Note that conda modules are not optimized for use in SAGA specifically. So using `module load <modulename>` can be an advantage for efficiency if the module is available. 
+
+## Using graphical interface
 You can use a graphical interface on SAGA. It wont be the same as using your laptope, but you can use it for example with Rstudio, Phython scripts or to view graphics you created on SAGA.
 
 To do so you need to login as such `ssh -Y username@saga.sigma2.no` and type the command `xeyes` on your shell. You will see a window with 2 pairs of eyes: this is the graphical display. 
@@ -202,19 +229,29 @@ To do so you need to login as such `ssh -Y username@saga.sigma2.no` and type the
 
 - [ ] there should be some guide here for shared things
 
-## QUEUE SYSTEM : SLURM 
+## QUEUE SYSTEM : [SLURM](https://slurm.schedmd.com/documentation.html) 
 
 Very similar to ABEL -> some minor difference in commands for slurm scripts, **different for interactive login**
+> if you do not ask specific resources: you will get per default: one node, one CPU, one task
+
 
 - Submitting a job to SLUM queue system `sbatch scriptname.slurm`. Examples of script [link]() -[ ] finish
+
+NB: [Array scripts](https://github.com/NorwegianVeterinaryInstitute/BioinfTraining/blob/master/array_jobs_abel.md) also working on SAGA
+- [ ] check if same explanation hold
+
+Example: with plenty of options with explanations - [ ] do: the vital ones, optional ones
+
 - Interactive loggin: `squeue`does not exist anymore. 
 
 Example: `srun --ntasks=1 --mem=8G --time=00:30:00 --qos=devel --cpus-per-task=2 --account=NN9305K --pty bash -i`
 
 - [ ] check what it did correspond to
-`--qos=` is the name of the computing node, chose between `devel` for small tests, `normal` ? was devel -> difference
+`--qos=` is the name of the computing node (job type), chose between `devel` for small tests, `normal` ? was devel -> difference
 
 --`partition=bigmem` for big jobs (see documentation)
+
+-[ ] jeevan: difference --parition VS --qos ? for requesting certain job type
 
 Main commands to manage your jobs:
 
@@ -222,8 +259,10 @@ Main commands to manage your jobs:
 |:--------|:-----|:-----------------------|
 | squeue -u $USER | show your jobs in queue | |
 | scontrol show job <jobid> | show status of your job | [link]() |
-| sacct -j <jobid> | show running status/info of OLD jobs (archive) |  
+| scancel <jobid> | you made an error and want to cancel your job | |
+| sacct -j <jobid> | show running status/info of OLD jobs (archive) - exit codes: 1=error, 0=runned|  
  
+[A small tutorial on exit codes](https://shapeshed.com/unix-exit-codes/)
 
 
 # Advanced SAGA commands
@@ -235,7 +274,42 @@ df -h
 freepe
 ```
 
+## Install modules / compile
+- [ ] tobedone
 
+## Install additional libraries to packages
+We need to load the desired module. Then install libraries. Libraries will be installed in your $HOME. So you can use module installed on SAGA and personalize with your own librairies. 
+
+**Note that you will have to remember yourself with librairy you hadded in which module**
+
+Example:
+```bash
+# check version of python
+python --version 
+python3 --version
+
+# gives the path of the python version
+which python 
+which python3 
+
+# to install a library in python3: will be installed in your home
+# install numpy in python3
+module load python3 --version
+pip install --user numpy 
+
+# If you want your library to be compiled within SAGA (better optimisation)
+module load python3 --version
+pip install --user --no-binary :numpy: numpy
+```
+You can had `--prefix` - [ ] option to check -> I think that was to specify the path 
+
+## Using containers:
+
+Singularity (and docker) containers will be usable on SAGA.
+
+> We have to fetch information for how and special parameters for building those containers. There is a group of people working on that. 
+
+> So ... how to comming later!
 
 
 
