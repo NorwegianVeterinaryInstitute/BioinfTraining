@@ -32,7 +32,7 @@ $USER is your username variable
 - **Disk areas on NIRD:**
 
 - NIRD HOME: `nird/home/<username>`. Quota 20GB and **100000 files**. 
-- NIRD PROJECTS: `/nird/projects/<project_ID>` VI quotat = 
+- NIRD PROJECTS: `/nird/projects/NS9305K` VI quotat = 20TB. (also number of file limits)
 - There is a small $SCRATCH `/scratch/username` area on NIRD -> 15TB 
 
 Per today there is NO mounting between SAGA and NIRD (meaning you cant see your files that are on NIRD from SAGA). This will be fixed in the future. But anyway you wont be able to use NIRD files as input for your analyses. 
@@ -40,7 +40,7 @@ Per today there is NO mounting between SAGA and NIRD (meaning you cant see your 
 
 ! add
 
-  - [ ] does archives tar file of files counts for one or several? I guess one? 
+ - [ ] does archives tar file of files counts for one or several? I guess one? 
   
 - [ ] jeevan, did I get this right? 
 - There is a part on Saga that can be reserved for bioinformatic, part reserved for machine learning on SAGA (ie. if you need better floating point for your analyses)
@@ -74,7 +74,9 @@ Support: `support@metacenter.no` indicate which resource. See informations in do
 
 # Summary: how to: main commands
 
-## VI project ID: `NN9305K"
+## VI project ID: 
+
+`nn9305k` on SAGA, `NS9305K`on NIRD
 
 ## Login 
 
@@ -90,13 +92,14 @@ ssh YOUR_USERNAME@login.nird.sigma2.no
 Check where you are: `hostname`
 
 
+## Checkings disk usage for your quotas
 
-## Checkings disk usage for your quotates
-
-SAGA 
+SAGA - [ ] dusage does not work
+- SAGA HOME: `du -h $HOME
+- SAGA PRROJECTS: `du -h 
 
 - NIRD HOME: `dusage`
-- NIRD PROJECTS: `dusage -p NN9305K`
+- NIRD PROJECTS: `dusage -p NS9305K`
 
 ## Transfer data 
 
@@ -110,8 +113,7 @@ As space both on SAGA and NIRD will be limited, and not everything will be total
 
 Examples: 
 ```bash
-#path for projects: 
-/projects/NN9305K/
+#path for projects: on NIRD /projects/NS9305K/
 
 # For file
 scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
@@ -124,15 +126,28 @@ Typical transfer rate 4TB/day ~50MB/s
 
 Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered, and check the log.
 
-- [ ] choose the options we want to use - should we compress files / folders before? 
+- [ ] Write here difference rsync / and not / in dest
+
+Please do a little test with `--dry-run` to `rsync` : this will simulate the run without copying files: then you can check if they arrive in the folder you chose. There is a difference using `folder/` and `folder`.
+
+When you are sure that files will arrive in the correct directory, you can remove `--dry-run` and launch the real moving of files. 
 
 ```bash
-# IF you have many small files (ie text files) compress:
+# IF you have many small files (ie. text files) compress:
 tar -czvf archive_name.tar.gz /directory/data
 
-#general usage 
+#general usage: transfer
 rsync -avxh <source> <destination_account/>
 rsync -rauPWD <source> <destination> 
+
+# Example: Logged on abel 
+rsync -rauPWD /work/projects/nn9305k/yruck  <username>@login.nird.sigma2.no:/nird/projects/NS9305K
+
+# Example: Logged on NIRD -> transfer SAGA 
+rsync -rauPWD <username>@login.nird.sigma2.no:/nird/projects/NS9305K/path_myfiles \       <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath
+
+# Example: Logged on SAGA -> transfer NIRD 
+rsync -rauPWD <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath \ <username>@login.nird.sigma2.no:/nird/projects/NS9305K/path_myfiles        
 
 # options -> we need to choose 
 ## OR: compress files on the flight 
@@ -143,6 +158,8 @@ rsync -rauPWD <source> <destination>
 ## Decompress archive
 tar -xzvf archive_name.tar.gz
 ```
+
+- [ ] Delete the file/folder in Abel. Be carrefull !
 
 ## parsyncfp : Not too many files but a lot of data. Divides in several tasks.
 Available on Abel. 
