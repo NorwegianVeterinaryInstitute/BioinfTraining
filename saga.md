@@ -49,7 +49,7 @@ $USER is your username variable
 4 Login Nodes
 
 - NIRD HOME: `nird/home/<username>`. Quota 20GB and **100000 files**. 
-- NIRD PROJECTS: `/nird/projects/NS9305K` VI quotat = 20TB. (also number of file limits)
+- NIRD PROJECTS: `/nird/projects/NS9305K` VI quotat = 40TB. (also number of file limits)
 - There is a small $SCRATCH `/scratch/<username>` area on NIRD -> 15TB shared among all users
 
 Per today there is NO mounting between SAGA and NIRD (meaning you cant see your files that are on NIRD from SAGA). This will be fixed in the future. But anyway you wont be able to use NIRD files as input for your analyses. 
