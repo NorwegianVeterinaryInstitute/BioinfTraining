@@ -111,7 +111,26 @@ Little screen summary:
 
 As space both on SAGA and NIRD will be limited, and not everything will be totally functional at the beginning, a good organisation is vital. Therefore: please clean and sort your files before transfer of your data from ABEL to NIRD.
 
-### One or fiew files: `scp <source> <destination>`
+### Setting permissions
+
+If your files do not have the right permissions, then might not be movable to other locations. If some user has set up wrong permission within a shared folders: some files within the shared folder might not be copied. 
+
+You will need to pay attention to the logs after your files: 
+- checking that all files were correctly moved. 
+
+I some files are not moved from a shared folder: this might mean that a person you share data/folder with has set up permission that do not allow you to move the data. Please contact your coworkers. 
+
+Summary: setting permissions: 
+```bash
+# for files
+chmod 550 <file(s)>
+chmod 550 -R <folder>
+```
+Please use `chmod 440` for raw data
+
+- [ ] correct?
+
+### Moving: One or fiew files: `scp <source> <destination>`
 > Not for your initial transfer data from Abel to NIRD, but you can use that afterwards to tranfer between SAGA and NIRD. 
 Provided that you do not have to transfer a lot of data. If lots of data to transfer, use one method bellow. 
 
@@ -125,7 +144,7 @@ scp my_file.tar.gz <username>@login.nird.sigma2.no:/path
 scp -r my_dir/ <username>@login.nird.sigma2.no:/path
 ```
 
-### rsync: many files - not too many data
+### Moving many files but not too many data: `rsync`:
 Typical transfer rate 4TB/day ~50MB/s 
 
 Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered, and check the log.
@@ -164,9 +183,16 @@ rsync -rauPWD <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath \ <user
 tar -xzvf archive_name.tar.gz
 ```
 
+To do: 
+
+1) Move your $HOME folder from Abel to Saga
+
+2) 
+
+
 - [ ] Delete the file/folder in Abel. Be carrefull !
 
-## parsyncfp : Not too many files but a lot of data. Divides in several tasks.
+## Moving not too many files but a lot of data. Divides in several tasks `parsyncfp`:
 Available on Abel. 
 
 - [ ] not tested
