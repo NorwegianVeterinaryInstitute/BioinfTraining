@@ -87,13 +87,13 @@ ssh YOUR_USERNAME@login.nird.sigma2.no
 
 Check where you are: `hostname`
 
-
 ## Checkings disk usage for your quotas
 
-SAGA - [ ] dusage does not work
+SAGA
 - SAGA HOME: `du -h $HOME`
 - SAGA PRROJECTS: `du -h` 
 
+NIRD
 - NIRD HOME: `dusage`
 - NIRD PROJECTS: `dusage -p NS9305K`
 
@@ -108,8 +108,6 @@ Little screen summary:
 - `screen -ls` list your active screen sessions
 - `screen -r <ID>` reattaches your session. 
 - `Ctrl+A K` closes your session
-
-- [ ] was that all essential screen commands?
 
 As space both on SAGA and NIRD will be limited, and not everything will be totally functional at the beginning, a good organisation is vital. Therefore: please clean and sort your files before transfer of your data from ABEL to NIRD.
 
@@ -132,11 +130,11 @@ Typical transfer rate 4TB/day ~50MB/s
 
 Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered, and check the log.
 
-- [ ] Write here difference rsync / and not / in dest
+Note difference: 
+- `rsync -rauPWD source destination` : places the whole source directory into destination directory
+- `rsync -rauPWD source/ destination` : places the **content** of source directory into destination directory
 
 Please do a little test with `--dry-run` to `rsync` : this will simulate the run without copying files: then you can check if they arrive in the folder you chose. There is a difference using `folder/` and `folder`.
-
-- [ ] Pase My Eve notes on that -> in yersinia ?
 
 When you are sure that files will arrive in the correct directory, you can remove `--dry-run` and launch the real moving of files. 
 
@@ -145,8 +143,7 @@ When you are sure that files will arrive in the correct directory, you can remov
 tar -czvf archive_name.tar.gz /directory/data
 
 #general usage: transfer
-rsync -avxh <source> <destination_account/>
-rsync -rauPWD <source> <destination> 
+rsync -rauPWD <source> <destination_account/>
 
 # Example: Logged on abel 
 rsync -rauPWD /work/projects/nn9305k/yruck  <username>@login.nird.sigma2.no:/nird/projects/NS9305K
