@@ -150,8 +150,8 @@ Typical transfer rate 4TB/day ~50MB/s
 Do it twice, to be sure all data has been transfered. Defined blocks that you are sure can be transfered, and check the log.
 
 Note difference: 
-- `rsync -rauPWD source destination` : places the whole source directory into destination directory
-- `rsync -rauPWD source/ destination` : places the **content** of source directory into destination directory
+- `rsync -rauPW source destination` : places the whole source directory into destination directory
+- `rsync -rauPW source/ destination` : places the **content** of source directory into destination directory
 
 Please do a little test with `--dry-run` to `rsync` : this will simulate the run without copying files: then you can check if they arrive in the folder you chose. There is a difference using `folder/` and `folder`.
 
@@ -162,16 +162,16 @@ When you are sure that files will arrive in the correct directory, you can remov
 tar -czvf archive_name.tar.gz /directory/data
 
 #general usage: transfer
-rsync -rauPWD <source> <destination_account/>
+rsync -rauPW <source> <destination_account/>
 
 # Example: Logged on abel 
-rsync -rauPWD /work/projects/nn9305k/yruck  <username>@login.nird.sigma2.no:/nird/projects/NS9305K
+rsync -rauPW /work/projects/nn9305k/yruck  <username>@login.nird.sigma2.no:/nird/projects/NS9305K
 
 # Example: Logged on NIRD -> transfer SAGA 
-rsync -rauPWD <username>@login.nird.sigma2.no:/nird/projects/NS9305K/path_myfiles \       <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath
+rsync -rauPW <username>@login.nird.sigma2.no:/nird/projects/NS9305K/path_myfiles \       <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath
 
 # Example: Logged on SAGA -> transfer NIRD 
-rsync -rauPWD <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath \ <username>@login.nird.sigma2.no:/nird/projects/NS9305K/path_myfiles        
+rsync -rauPW <username>@saga.sigma2.no:/cluster/projects/nn9305k/mypath \ <username>@login.nird.sigma2.no:/nird/projects/NS9305K/path_myfiles        
 
 # options -> we need to choose 
 ## OR: compress files on the flight 
@@ -189,8 +189,6 @@ To do:
 
 2) 
 
-
-- [ ] Delete the file/folder in Abel. Be carrefull !
 
 ## Moving not too many files but a lot of data. Divides in several tasks `parsyncfp`:
 Available on Abel. 
