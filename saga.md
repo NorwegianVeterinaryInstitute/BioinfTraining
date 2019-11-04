@@ -37,7 +37,7 @@ $USER is your username variable
   - `$HOME` or `/cluster/home/$USER` - 20GB - 
   - `$USERWORK` or `/cluster/work/users/$USER`
   - `$SCRATCH`-> created when job is running (same as Abel)
-  - PROJECTS `/cluster/projects/nn9305k` -> for shared things
+  - PROJECTS `/cluster/projects/nn9305k` -> for shared things - **1T** 
   - Per today there is NO /WORK area -> but this is planned at a later stage
   
   > $USERWORK and PROJECTS share the same file system - fast disks - no permanent storage. 
