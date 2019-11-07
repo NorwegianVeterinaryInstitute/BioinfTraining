@@ -17,7 +17,7 @@ Support: `support@metacenter.no` indicate which resource. See informations in do
 # Practical differences Abel - Saga
 
 - Combining storage: NIRD and computing power: SAGA
-  - SAGA will be located in Trondheim. NIRD storage both in Tronheim and Tromsø (right?)
+  - SAGA will be located in Trondheim. NIRD storage both in Trondheim and Tromsø (right?)
   - SAGA will be used for computing power only: at first there will be **NO BACKUP** from data hosted on Saga. It is planned to implement "slow file system where we could have some files at a later stage"
 
 - **Disk space on Saga is much more limited on Saga than on Abel.** This means that we cannot have all our data permanently stored on Saga - only data required for ongoing analyses over some restricted period of time will have to be on Saga. 
