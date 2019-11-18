@@ -1,0 +1,38 @@
+AIM: For Species identification. Compares FastQ reads (also fasta files) against custom databases. Resutls come in proper table format without
+any confusing names and formats. 
+
+1. Create your own species database using downloaded (or your own) genomes locally and create KmerID database using KmerID.
+2. Run KmerID to compare your Fastq reads against the custom database
+3. KmerID also comes with custom databases for few species
+
+KmerID will compare your fastq reads against one or more sets of reference
+genomes.
+
+There is no Conda receipe for KmerID but installation is very easy in a conda environment. 
+
+Link to GitHub:
+https://github.com/phe-bioinformatics/kmerid
+
+Why/When should I use it? 
+(From hands-on experience) We had Vibrio Alginolyticus samples. 
+
+1. Method 1: When compared using Kraken2 only 50-60% of the reads mapped to Vibrio alginolyticus. 
+And, the rest was unknown but Vibrio genus. 
+2. Method 2: The result was similar when used Kaiju database also. 
+3. Method 3: BLAST de nova assembly against NCBI NR database was a mess due to high numnbe of query contigs and too many results. 
+4. Ref-Mapping the reads using bwa. 
+   Pick the unmapped reads
+   build contigs
+   BLAST against NR database
+   Lots of downstream analysis to filter and format the taxa to get any clear results. 
+  
+Quick Solution: KmerID
+I build a local database using selected genomes from NCBI (maximum 15 genomes of a Vibrio alginolyticus). The results showed that 
+the sample we have is ~80% Vibrio alginolyticus. 
+It takes 10mins to download the genomes for database. 2 mins to build the database and another 1 minute to compare your reads to database.
+
+Conclusion: Kraken2 and Kaiju are not enough.  
+
+
+
+
