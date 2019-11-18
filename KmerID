@@ -32,7 +32,7 @@ the sample we have is ~80% Vibrio alginolyticus.
 It takes 10mins to download the genomes for database. 2 mins to build the database and another 1 minute to compare your reads to database.
 
 Conclusion: Kraken2 and Kaiju are not enough.  
-
+ 
 
 
 
