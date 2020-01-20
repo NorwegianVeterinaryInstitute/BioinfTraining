@@ -19,12 +19,12 @@ The above command creates a folder called "Ecoli-Test" and adds "data" folder an
 The above command will ask for the information below
 
 `description [Dataset description]:` <br> 
-`project [Project name]:`
-`confidential [False]:`
-`personally_identifiable_information [False]:`
-`name [Your Name]:`
-`email [you@example.com]:`
-`username [jeevka]:`
+`project [Project name]:` <br> 
+`confidential [False]:`<br>
+`personally_identifiable_information [False]:`<br>
+`name [Your Name]:`<br> 
+`email [you@example.com]:`<br>
+`username [jeevka]:`<br>
 
 Updated readme
 To edit the readme using your default editor:
