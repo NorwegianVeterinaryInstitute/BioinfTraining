@@ -18,7 +18,7 @@ The above command creates a folder called "Ecoli-Test" and adds "data" folder an
 
 The above command will ask for the information below
 
-`description [Dataset description]:`
+`description [Dataset description]:` <br> 
 `project [Project name]:`
 `confidential [False]:`
 `personally_identifiable_information [False]:`
