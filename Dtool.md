@@ -1,5 +1,5 @@
 # Installing Dtool 
-pip install dtool
+`pip install dtool`
 
 # In Saga
 conda activate dtool
