@@ -14,3 +14,6 @@ The above command creates a folder called "Ecoli-Test" and adds "data" folder an
 `Dtool add item Test.fastq Ecoli-Test`
 
 ## Adding metadata to dataset  
+`dtool readme interactive Ecoli-Test`
+Dat
+
