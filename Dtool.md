@@ -11,7 +11,7 @@ The above command creates a folder called "Ecoli-Test" and adds "data" folder an
 "Ecoli-Test" is called a dataset. 
 
 ## Adding data to dat set
-`Dtool add item Test.fastq Ecoli-Test`
+`dtool add item Test.fastq Ecoli-Test`
 
 ## Adding metadata to dataset  
 `dtool readme interactive Ecoli-Test`
@@ -32,3 +32,9 @@ dtool readme edit file://Falcon-Pro.local/Users/jeevka/Dtool/Test2
 
 # Checking the details of the dataset
 `dtool ls Ecoli-Test`
+
+# Displaying the README descriptive metadata
+`dtool readme show Ecoli-Test/`
+
+# Reporting summary information about a dataset
+`dtool summary Ecoli-Test`
