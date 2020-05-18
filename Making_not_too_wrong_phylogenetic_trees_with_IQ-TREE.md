@@ -254,7 +254,7 @@ conda deactivate
 
 Branches that are **considered as supported** when using `fast bootstrap` method of iqtree is:
 
-$$bootstrap \geq 95$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=bootstrap&space;\geq&space;95" target="_blank"><img src="https://latex.codecogs.com/gif.latex?bootstrap&space;\geq&space;95" title="bootstrap \geq 95" /></a>
 
  You can read [here](https://github.com/Cibiv/IQ-TREE/wiki/Frequently-Asked-Questions#how-do-i-interpret-ultrafast-bootstrap-ufboot-support-values) about interpretation.
 
