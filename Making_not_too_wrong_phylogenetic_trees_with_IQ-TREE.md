@@ -156,6 +156,11 @@ You need a tab separated file to run snippy multi (see [documentation](https://g
 
 For those familiar with R, there is a little script to do that in R (which can be improved, so you are welcome to suggest improvement) that can be found [here](https://github.com/NorwegianVeterinaryInstitute/yersinia/blob/master/src/R/prep_tab_for_snippy.R)
 
+Also, another script for creating this tab-separated file can be found here:
+https://github.com/hkaspersen/bash_scripts/blob/master/scripts/snippyfy.bash
+Note that this script needs to be changed to fit your data, as in its current form it needs the read files to end with 1.fastq.gz and 2.fastq.gz. 
+
+
 ```bash
 conda activate Snippy
 
