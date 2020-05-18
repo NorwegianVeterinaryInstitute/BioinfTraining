@@ -323,9 +323,3 @@ But you need to be aware that some softwares (and it is commonly done) allow lab
     - This pipeline runs an **additional step: calculating the snp-distance between pairs of sequences** with `snp-dists` the documentation of snp-dists can be found [here](https://github.com/tseemann/snp-dists). This calculation is done on the MSA filtered for recombinants - in case you want to add snp differences on your tree
     - To run this pipeline on saga use the wrapper: `run_saga_tree` - note you can also run each module separately, but then you have to activate the proper conda environments.
     - Your final tree with support values is the consensus tree: `*.contree`
-
-for embed > https://drive.google.com/file/d/file's ID/preview
-
-for direct link > https://drive.google.com/uc?export=view&id=file's ID
-
-for share > https://drive.google.com/file/d/file's ID/view?usp=sharing
