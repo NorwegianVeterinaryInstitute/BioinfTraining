@@ -1,11 +1,23 @@
-# Sample data location
-Saga: /cluster/projects/nn9305k/tutorial/
-
 # Removing contamination
+
+## Sample data location
+Saga: /cluster/projects/nn9305k/tutorial/
 
 ## Removing PhiX
 
+bbduk.sh threads=5 ref=phix_location,adapter_location in1=INF1 in2=INF2 out=OF1 out2=OF2 k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 stats=stats.txt > log_file
+
 ## Removing Human DNA 
+
+conda activate BBTools
+
+IF1=""
+IF2=""
+OF1=""
+OF2=""
+bbduk.sh threads=5 ref=phix_location,adapter_location in1=$IF1 in2=$IF2 out=$OF1 out2=$OF2 k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 stats=stats.txt > log_file
+
+conda deactivate
 
 ## Other Contamination
 
