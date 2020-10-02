@@ -1,3 +1,6 @@
+# Sample data location
+Saga: /cluster/projects/nn9305k/tutorial/
+
 # Removing contamination
 
 ## Removing PhiX
