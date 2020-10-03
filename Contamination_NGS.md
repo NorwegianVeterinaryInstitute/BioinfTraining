@@ -66,10 +66,14 @@ conda activate kraken2
 ```
 Since the location of the minikraken database is a long line, we want to shorten that a bit. We can do that by putting the directory PATH into a a variable. The variable is kept only for this session.
 
-KR2-DB=(/cluster/shared/biobases/classification_dbs/minikraken_2_8GB_20200312
+```
+MY_DATABASE=/cluster/shared/biobases/classification_dbs/minikraken_2_8GB_20200312
+echo $MY_DATABASE
+```
 
+Now we can use the variable to indicate where to find the database for our kraken analysis. To use a variable we create we have to add a `$` to the variable name. In our case that would be: $MY_DATABASE. So the command we would write without our variable looks like this:
 
-
+```
 kraken2 --db /cluster/shared/biobases/classification_dbs/minikraken_2_8GB_20200312 \
   --threads 4 \
   --output 18-Cjejuni-927.kraken2.out \
@@ -79,14 +83,46 @@ kraken2 --db /cluster/shared/biobases/classification_dbs/minikraken_2_8GB_202003
   --gzip-compressed \
   18-Cjejuni-927_Subsampled_L008_R*_0089.fastq.gz 
 ```
-and
+Or with the variable we just created:
+
 ```
-kraken2 --db /cluster/shared/biobases/classification_dbs/minikraken_2_8GB_20200312 --threads 4 --output 17-Cjejuni-CCUG11284T.kraken2.out --report 17-Cjejuni-CCUG11284T.kraken2_report.txt --minimum-base-quality 20 --paired --gzip-compressed 17-Cjejuni-CCUG11284T_Subsampled_L008_R1_0087.fastq.gz 17-Cjejuni-CCUG11284T_Subsampled_L008_R2_0087.fastq.gz
+kraken2 --db $MY_DATABASE \
+  --threads 4 \
+  --output 18-Cjejuni-927.kraken2.out \
+  --report 18-Cjejuni-927.kraken2_report.txt \
+  --minimum-base-quality 20 \
+  --paired \
+  --gzip-compressed \
+  18-Cjejuni-927_Subsampled_L008_R*_0089.fastq.gz 
 ```
 
+Now, Set-up the same analysis for the other dataset: `17-Cjejuni-CCUG11284T_Subsampled_L008_R1_0087.fastq.gz`.
 
+#### Question: What is the effect of the option `--minimum-base-quality 20`?
+
+The kraken run, created two files: 
+
+* `18-Cjejuni-927.kraken2.out` - the classification for each single read.
+* `18-Cjejuni-927.kraken2_report.out`. - a summary of the classifications per taxon.
+
+Open the later one with the `less` command to explore the classifications of the reads belonging to the *Campylobacter* isolate
+
+```
+less 18-Cjejuni-927.kraken2_report.out
+```
+
+#### Question: Can you spot species that should not be in there? Why do think these are contaminating sequences?.
+
+#### Question: What is the case for the unclassified reads? Should those be removed?
+
+The Illumina sequences of the *Campylobacter jejuni* strain 18-Cjejuni-927, have contamination reads. The most obvious ones (Phix and *Homo sapiens*) can be removed using the reference genomes for both species.
+
+**Note!**: Under normal circumstances we would always do a quality trimming and removal of the obvious contaminations, before we use Kraken2 or something similar to see if there is contaminating data in our datasets. In addition, most people find out that their data is contaminated with something, when something does not work in the way they expected it.
 
 ## Removing PhiX
+
+Phix is a small phage originally isolated from *`E.coli`* (https://en.wikipedia.org/wiki/Phi_X_174). Nowadays it is know as the piece of DNA that is added to Illumina sequencing libraries. Most of the PhiX reads that are sequenced together with your samples are removed from the data. Nonetheless, there will always be reads that are from Phix that manage to end up in your dataset. One way of removing them from your data, is to do the genome assembly, and then look among the small contigs for a contig of about 5386 bases and remove that. There are examples of submitted microbial genomes where phiX was included in the submission as well altough it was never part of the original genome.
+Here we try to prevent that by removing reads that match the PhiX genome before assembly. This is how.
 
 
 ### Input files
@@ -115,7 +151,7 @@ bbduk.sh threads=5 ref=$human_genome in1=$IF1 in2=$IF2 out=$OF1 out2=$OF2 k=31 k
 
 conda deactivate
 
-## Other Contamination
+## Detecting other possible contaminating sequences.
 
 screen
 
