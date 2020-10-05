@@ -158,11 +158,33 @@ k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 force
 
 ## Removing Human DNA 
 
-To remove human contamination, we use the human reference genome `Hg19`. The maker from BBTools, has taken this genome, and then masked all the regions in the genome that match ribosomal sequences, 
+To remove human contamination, we use the human reference genome `Hg19`. The maker from BBTools, has taken this genome and then masked all the regions in the genome that match ribosomal sequences, animals genomes, all plant genomes, fungal genomes. That gives a human genome with regions that are only found in the human genome. So the number of false positive matches is reduced.
+The removal of reads matching the Human genome is done with bbduk.
 
-bbduk.sh threads=5 ref=$human_genome in1=$IF1 in2=$IF2 out=$OF1 out2=$OF2 k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 stats=stats.txt > log_file
+With the current interactive job we have a problem with the memory when we do this with the human genome. We need more memory. Thus we need to cancel our current interactive job and recreate a new one.
 
-conda deactivate
+```
+srun --account=nn9305k --qos=devel --mem-per-cpu=4800M --cpus-per-task=10 --time=0:30:00 --pty bash -i
+```
+
+
+We first make a variable that contains the full path the the PhiX genome, just to make the command for cleaning easier
+
+```
+HUMAN=/cluster/projects/nn9305k/db_flatfiles/contamination_hosts/hg19_main_mask_ribo_animal_allplant_allfungus.fasta
+echo $HUMAN
+```
+The input for this is the output from the PhiX removal step.
+```
+
+bbduk.sh threads=10 \
+ ref=$HUMAN \
+ in1=18.phix_R1.fastq in2=18.phix_R2.fastq \
+ out=18.phix_human_R1.fastq out2=18.phix_human_R2.fastq \
+ stats=18.human_stats.txt \
+ k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 
+```
+When your job went through than you can check the results file.
 
 ## Detecting other possible contaminating sequences.
 
