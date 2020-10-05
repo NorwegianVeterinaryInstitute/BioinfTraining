@@ -15,9 +15,10 @@ The data consists of two raw Illumina datasets from the Airsample project that c
 
 Both datasets were sequenced vry deeply, and here we will use a subsampled dataset for a tutorial on how to clean such datasets.
 
-Besides these two datasets we also need datasets that are from common contaminants.
+Besides these two datasets we also need datasets that are from common contaminants. 
 * the phage PhiX - Phix.fasta
 * The human genome - hg19_main_mask_ribo_animal_allplant_allfungus.fasta 
+Their location on Saga is here: `/cluster/projects/nn9305k/db_flatfiles/contamination_hosts`.
 
 And we need a database that we can use to classify our reads or our contigs.
 We will use a minikraken database retrieved from here: (http://ccb.jhu.edu/software/kraken2/downloads.shtml)
@@ -124,28 +125,40 @@ The Illumina sequences of the *Campylobacter jejuni* strain 18-Cjejuni-927, have
 Phix is a small phage originally isolated from *`E.coli`* (https://en.wikipedia.org/wiki/Phi_X_174). Nowadays it is know as the piece of DNA that is added to Illumina sequencing libraries. Most of the PhiX reads that are sequenced together with your samples are removed from the data. Nonetheless, there will always be reads that are from Phix that manage to end up in your dataset. One way of removing them from your data, is to do the genome assembly, and then look among the small contigs for a contig of about 5386 bases and remove that. There are examples of submitted microbial genomes where phiX was included in the submission as well altough it was never part of the original genome.
 Here we try to prevent that by removing reads that match the PhiX genome before assembly. This is how.
 
+We first make a variable that contains the full path the the PhiX genome, just to make the command for cleaning easier
 
-### Input files
-IF1="/cluster/projects/nn9305k/tutorial/20201005_contamination/18-Cjejuni-927_Subsampled_L008_R1_0089.fastq.gz"
-IF2="/cluster/projects/nn9305k/tutorial/20201005_contamination/18-Cjejuni-927_Subsampled_L008_R2_0089.fastq.gz"
+```
+PHIX=/cluster/projects/nn9305k/db_flatfiles/contamination_hosts/PhiX.fasta
+echo $PHIX
+````
+We will use a tool called BBduk with is part of the BBTools packages (https://jgi.doe.gov/data-and-tools/bbtools/)
 
-### Output files
-OF1="/cluster/projects/nn9305k/tutorial/20201005_contamination/Step1_PhiX_Cleaned_Reads/Step1_18-Cjejuni-927_Subsampled_L008_R1_0089.fastq"
-OF2="/cluster/projects/nn9305k/tutorial/20201005_contamination/Step1_PhiX_Cleaned_Reads/Step1_18-Cjejuni-927_Subsampled_L008_R2_0089.fastq"
-
+We activate the tool like this:
+```
 conda activate BBTools
+bbduk.sh -h 
+```
+Now we use our input datasets to clean our samples.
 
-bbduk.sh threads=5 ref=phix_location,adapter_location in1=INF1 in2=INF2 out=OF1 out2=OF2 k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 stats=stats.txt > log_file
+```
+bbduk.sh threads=4 \
+ ref=$PHIX \
+ in1=18-Cjejuni-927_Subsampled_L008_R1_0089.fastq.gz in2=18-Cjejuni-927_Subsampled_L008_R2_0089.fastq.gz \
+ out=18.phix_R1.fastq out2=18.phix_R2.fastq \
+ stats=18.Phix_stats.txt
+```
+The following is optional, it does add quality trimming and control to the analysis. To add this to the previous command you can add the following:
+```
+k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 
+```
+
+#### Question: How many reads were identify as PhiX in both genomes for this analysis?
+
+#### Question: If you use quality trimming and control, what does that do with identifying PhiX? 
 
 ## Removing Human DNA 
 
-### Input files
-IF1="/cluster/projects/nn9305k/tutorial/20201005_contamination/Step1_PhiX_Cleaned_Reads/Step1_18-Cjejuni-927_Subsampled_L008_R1_0089.fastq"
-IF2="/cluster/projects/nn9305k/tutorial/20201005_contamination/Step1_PhiX_Cleaned_Reads/Step1_18-Cjejuni-927_Subsampled_L008_R2_0089.fastq"
-
-### Output files
-OF1="/cluster/projects/nn9305k/tutorial/20201005_contamination/Step2_Dehumaned_Reads/Step2_18-Cjejuni-927_Subsampled_L008_R1_0089.fastq"
-OF2="/cluster/projects/nn9305k/tutorial/20201005_contamination/Step2_Dehumaned_Reads/Step2_18-Cjejuni-927_Subsampled_L008_R1_0089.fastq"
+To remove human contamination, we use the human reference genome `Hg19`. The maker from BBTools, has taken this genome, and then masked all the regions in the genome that match ribosomal sequences, 
 
 bbduk.sh threads=5 ref=$human_genome in1=$IF1 in2=$IF2 out=$OF1 out2=$OF2 k=31 ktrim=r mink=11 hdist=1 tbo=f tpe=f qtrim=r trimq=15 maq=15 minlen=36 forcetrimright=149 stats=stats.txt > log_file
 
