@@ -55,14 +55,48 @@ conda deactivate
 ## PointFinder
 [PointFinder](https://bitbucket.org/genomicepidemiology/pointfinder/src/master/) service contains one python script PointFinder.py which is the script of the latest version of the PointFinder service. The method detects chromosomal mutations predictive of drug resistance based on WGS data.
 
+
+```
+conda activate cge_addons
+
+python /cluster/projects/nn9305k/src/ponterfinder/pointfinderfinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/pointfinder_db/ -l 0.6 -t 0.8 --acquired --point -o pointerfinder_output/ 
+
+conda deactivate
+```
+
 ## VirulenceFinder
 [VirulenceFinder](https://bitbucket.org/genomicepidemiology/virulencefinder/src/master/) service contains one python script virulencefinder.py which is the script of the latest version of the VirulenceFinder service. VirulenceFinder identifies viruelnce genes in total or partial sequenced isolates of bacteria - at the moment only E. coli, Enterococcus, S. aureus and Listeria are available.
+
+```
+conda activate cge_addons
+
+python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/virulencefinder_db/ -l 0.6 -t 0.8 --acquired --point -o virulencefinder_output/ 
+
+conda deactivate
+```
 
 ## SerotypeFinder
 [SerotypeFinder](https://bitbucket.org/genomicepidemiology/serotypefinder/src/master/) service contains one python script serotypefinder.py which is the script of the latest version of the SerotypeFinder service. SerotypeFinder identifies the serotype in total or partial sequenced isolates of E. coli.
 
+```
+conda activate cge_addons
+
+python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/serotypefinder_db/ -l 0.6 -t 0.8 --acquired --point -o serotypefinder_output/ 
+
+conda deactivate
+```
+
 ## PlasmidFinder
 [PlasmidFinder](https://bitbucket.org/genomicepidemiology/plasmidfinder/src/master/) service contains one python script plasmidfinder.py which is the script of the latest version of the PlasmidFinder service. The service identifies plasmids in total or partial sequenced isolates of bacteria.
+
+
+```
+conda activate cge_addons
+
+python /cluster/projects/nn9305k/src/plasmidfinder/plasmidfinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/plasmidfinder_db/ -l 0.6 -t 0.8 --acquired --point -o plasmidfinder_output/ 
+
+conda deactivate
+```
 
 ## List of all the tools available in DTU
 
