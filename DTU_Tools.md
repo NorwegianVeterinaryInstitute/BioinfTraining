@@ -35,6 +35,8 @@ rsync -rauWP /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/2016-02-
 ls -lh
 ```
 
+**Conda environment "cge_addons" contains all the dependencies for DTU tools. So, dont need to activate any other conda environment.**
+
 ## Points to remember
 These tools can take FastQ reads as the input for their analysis. But they use [Velvet assembler](https://www.ebi.ac.uk/~zerbino/velvet/) to assemble a denova genome and do the downstream analysis using genome.
 Since Vetvet assembler is not as good as [SPAdes](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3342519/), **we suggest** that use [SPAdes]((https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3342519/)) or [Shovill](https://github.com/tseemann/shovill) pipeline first to assemble the genome and use the genome as input for these tools.
