@@ -1,5 +1,5 @@
 # Technical University of Denmark (DTU) tools
-DTU has developed number of tools for whole genome sequencing analysis. And, they are popular and useful. 
+DTU has developed a number of tools for whole genome sequencing analysis. And, they are popular and useful. 
 
 ## Data location in Saga
 ### Login to saga
@@ -46,10 +46,7 @@ srun --account=nn9305k --qos=devel --mem-per-cpu=4800M --cpus-per-task=4 --time=
 **Note: Conda environment "cge_addons" contains all the dependencies for DTU tools. So, dont need to activate any other conda environment.**
 
 ## Points to remember
-These tools can take FastQ reads as the input for their analysis. But they use [Velvet assembler](https://www.ebi.ac.uk/~zerbino/velvet/) to assemble a denova genome and do the downstream analysis using genome.
-Since Vetvet assembler is not as good as [SPAdes](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3342519/), **we suggest** that use [SPAdes]((https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3342519/)) or [Shovill](https://github.com/tseemann/shovill) pipeline first to assemble the genome and use the genome as input for these tools.
-
-The genomes are compared against the respective databases (f. ex. ResFinder compares the input genome to ResFinder_DB database)
+These tools can take both reads and assemblies as input, depending on the user. When assemblies are supplied, as exemplified below, the program will use a BLAST method to identify the genes in the databases. However, when supplying reads, a mapping method will be used. In the older versions of these tools, the reads were assembled before the analysis. This process has been exchanged with the mapping procedure instead. In each tool, the genomes are compared against the respective databases (f. ex. ResFinder compares the input genome to ResFinder_DB database)
 
 ## ResFinder
 [ResFinder](https://bitbucket.org/genomicepidemiology/resfinder/src/master/) identifies acquired antimicrobial resistance genes in total or partial sequenced isolates of bacteria.
@@ -59,7 +56,7 @@ conda activate cge_addons
 
 mkdir resfinder_output
 
-python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 -m_p  /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -o resfinder_output/ 
+python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -m_p  /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -o resfinder_output/ -x
 
 conda deactivate
 ```
@@ -73,20 +70,20 @@ conda activate cge_addons
 
 mkdir pointfinder_output
 
-python /cluster/projects/nn9305k/src/pointfinder/PointFinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/pointfinder_db/ -s "mycobacterium_tuberculosis"  -l 0.6 -t 0.8 -o pointerfinder_output/  -m blastn -m_p blastn
+python /cluster/projects/nn9305k/src/pointfinder/PointFinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/pointfinder_db/ -o pointfinder_output/ -s escherichia_coli -m blastn -m_p /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -x
 
 conda deactivate
 ```
 
 ## VirulenceFinder
-[VirulenceFinder](https://bitbucket.org/genomicepidemiology/virulencefinder/src/master/) service contains one python script virulencefinder.py which is the script of the latest version of the VirulenceFinder service. VirulenceFinder identifies viruelnce genes in total or partial sequenced isolates of bacteria - at the moment only E. coli, Enterococcus, S. aureus and Listeria are available.
+[VirulenceFinder](https://bitbucket.org/genomicepidemiology/virulencefinder/src/master/) service contains one python script virulencefinder.py which is the script of the latest version of the VirulenceFinder service. VirulenceFinder identifies virulence genes in total or partial sequenced isolates of bacteria - at the moment only E. coli, Enterococcus, S. aureus and Listeria are available.
 
 ```
 conda activate cge_addons
 
 mkdir virulencefinder_output
 
-python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/virulencefinder_db/ -l 0.6 -t 0.8 -o virulencefinder_output/ -mp blastn
+python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/virulencefinder_db/ -o virulencefinder_output/ -mp /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -x
 
 conda deactivate
 ```
@@ -99,7 +96,7 @@ conda activate cge_addons
 
 mkdir serotypefinder_output
 
-python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/serotypefinder_db/ -l 0.6 -t 0.8 -o serotypefinder_output/
+python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/serotypefinder_db/ -o serotypefinder_output/ -mp /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -x
 
 conda deactivate
 ``` 
@@ -113,7 +110,7 @@ conda activate cge_addons
 
 mkdir plasmidfinder_output
 
- python /cluster/projects/nn9305k/src/plasmidfinder/plasmidfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/plasmidfinder_db/ -mp blastn -o plasmidfinder_output 
+python /cluster/projects/nn9305k/src/plasmidfinder/plasmidfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/plasmidfinder_db/ -mp /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -x -o plasmidfinder_output
 
 conda deactivate
 ```
