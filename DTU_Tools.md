@@ -17,7 +17,7 @@ DTU has developed number of tools for whole genome sequencing analysis. And, the
      -rwxrwxr-x 1 jeevka nn9305k 4.6M Oct 14 10:49 2016-17-550_S101.fasta
      ```  
 
-## Prepare test working directory for tutorial
+## Techincal preparation for tutorial
 This is a temporary directory for this tutorial.
 
 ```
