@@ -99,7 +99,7 @@ conda activate cge_addons
 
 mkdir serotypefinder_output
 
-python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/serotypefinder_db/ -l 0.6 -t 0.8 --acquired --point -o serotypefinder_output/ 
+python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/serotypefinder_db/ -l 0.6 -t 0.8 -o serotypefinder_output/
 
 conda deactivate
 ``` 
