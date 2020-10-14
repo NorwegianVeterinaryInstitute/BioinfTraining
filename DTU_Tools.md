@@ -57,8 +57,6 @@ The genomes are compared against the respective databases (f. ex. ResFinder comp
 ```
 conda activate cge_addons
 
-module load  BLAST+/2.10.1-gompi-2020a
-
 mkdir resfinder_output
 
 python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 -m_p  /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -o resfinder_output/ 
@@ -75,7 +73,7 @@ conda activate cge_addons
 
 mkdir pointfinder_output
 
-python /cluster/projects/nn9305k/src/pointfinder/PointFinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/pointfinder_db/ -s "mycobacterium_tuberculosis"  -l 0.6 -t 0.8 -o pointerfinder_output/  -m blastn -m_p /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn
+python /cluster/projects/nn9305k/src/pointfinder/PointFinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/pointfinder_db/ -s "mycobacterium_tuberculosis"  -l 0.6 -t 0.8 -o pointerfinder_output/  -m blastn -m_p blastn
 
 conda deactivate
 ```
@@ -88,7 +86,7 @@ conda activate cge_addons
 
 mkdir virulencefinder_output
 
-python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/virulencefinder_db/ -l 0.6 -t 0.8 -o virulencefinder_output/ -mp /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn
+python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/virulencefinder_db/ -l 0.6 -t 0.8 -o virulencefinder_output/ -mp blastn
 
 conda deactivate
 ```
@@ -115,7 +113,7 @@ conda activate cge_addons
 
 mkdir plasmidfinder_output
 
-python /cluster/projects/nn9305k/src/plasmidfinder/plasmidfinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/plasmidfinder_db/ -l 0.6 -t 0.8 --acquired --point -o plasmidfinder_output/ 
+ python /cluster/projects/nn9305k/src/plasmidfinder/plasmidfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/plasmidfinder_db/ -mp blastn -o plasmidfinder_output 
 
 conda deactivate
 ```
