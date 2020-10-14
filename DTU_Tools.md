@@ -118,3 +118,8 @@ conda deactivate
 ## List of all the tools available in DTU
 
 https://bitbucket.org/genomicepidemiology/workspace/repositories
+
+
+## Database management
+
+Database-things goes here
