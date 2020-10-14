@@ -25,9 +25,15 @@ The genomes are compared against the respective databases (f. ex. ResFinder comp
 ## ResFinder
 [ResFinder](https://bitbucket.org/genomicepidemiology/resfinder/src/master/) identifies acquired antimicrobial resistance genes in total or partial sequenced isolates of bacteria.
 
-` conda activate cge_addons `
-` python /cluster/projects/nn9305k/src/resfinder/resfinder.py --help `
+` 
+conda activate cge_addons
+`
 
+`
+python /cluster/projects/nn9305k/src/resfinder/resfinder.py -ifa /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 --acquired --point -o resfinder_output/ 
+`
+
+`conda deactivate`
 
 ## PointFinder
 [PointFinder](https://bitbucket.org/genomicepidemiology/pointfinder/src/master/) service contains one python script PointFinder.py which is the script of the latest version of the PointFinder service. The method detects chromosomal mutations predictive of drug resistance based on WGS data.
