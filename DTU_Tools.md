@@ -104,7 +104,7 @@ mkdir serotypefinder_output
 python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/serotypefinder_db/ -l 0.6 -t 0.8 --acquired --point -o serotypefinder_output/ 
 
 conda deactivate
-```
+``` 
 
 ## PlasmidFinder
 [PlasmidFinder](https://bitbucket.org/genomicepidemiology/plasmidfinder/src/master/) service contains one python script plasmidfinder.py which is the script of the latest version of the PlasmidFinder service. The service identifies plasmids in total or partial sequenced isolates of bacteria.
