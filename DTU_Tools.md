@@ -3,18 +3,36 @@ DTU has developed number of tools for whole genome sequencing analysis. And, the
 
 ## Data location in Saga
 ### Login to saga
-     `ssh yourusername@saga.sigma2.no`
+     ```
+     ssh yourusername@saga.sigma2.no
      
-     `ls -lh /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/`
+     ls -lh /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/
+     ```
      
-     `
+     ```
      -rwxrwxr-x 1 jeevka nn9305k 4.8M Oct 14 10:48 2016-02-522_S70.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.5M Oct 14 10:48 2016-02-620_S35.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.8M Oct 14 10:48 2016-17-164_S61.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.8M Oct 14 10:48 2016-17-292_S51.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.5M Oct 14 10:48 2016-17-363_S52.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.6M Oct 14 10:49 2016-17-550_S101.fasta
-     `
+     ``` 
+
+## Prepare test working directory for tutorial
+This is a temporary directory for this tutorial.
+
+```
+cd $USERWORK
+mkdir dtu_tools
+cd dtu_tools
+```
+
+Copy the data to your current directory 
+
+```
+rsync -rauWP /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/2016-02-522_S70.fasta .
+ls -lh
+```
 
 ## Points to remember
 These tools can take FastQ reads as the input for their analysis. But they use [Velvet assembler](https://www.ebi.ac.uk/~zerbino/velvet/) to assemble a denova genome and do the downstream analysis using genome.
