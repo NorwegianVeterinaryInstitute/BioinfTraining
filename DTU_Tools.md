@@ -8,9 +8,7 @@ DTU has developed number of tools for whole genome sequencing analysis. And, the
      ssh yourusername@saga.sigma2.no
      
      ls -lh /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/
-     ```
      
-     ```
      -rwxrwxr-x 1 jeevka nn9305k 4.8M Oct 14 10:48 2016-02-522_S70.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.5M Oct 14 10:48 2016-02-620_S35.fasta
      -rwxrwxr-x 1 jeevka nn9305k 4.8M Oct 14 10:48 2016-17-164_S61.fasta
