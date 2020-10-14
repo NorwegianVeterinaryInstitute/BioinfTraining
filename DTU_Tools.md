@@ -59,7 +59,7 @@ conda activate cge_addons
 
 mkdir resfinder_output
 
-python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 -o resfinder_output/ 
+python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 -mp  -mp  /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -o resfinder_output/ 
 
 conda deactivate
 ```
