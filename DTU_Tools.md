@@ -33,6 +33,16 @@ rsync -rauWP /cluster/projects/nn9305k/tutorial/20201019_DTU_Tools/data/2016-02-
 ls -lh
 ```
 
+screen command gives a possibility to logout and come back to same screen where we ran all the command before
+```
+screen
+```
+
+set up a interactive job, using the development mode (--qos=devel)
+```
+srun --account=nn9305k --qos=devel --mem-per-cpu=4800M --cpus-per-task=4 --time=0:30:00 --pty bash -i
+```
+
 **Note: Conda environment "cge_addons" contains all the dependencies for DTU tools. So, dont need to activate any other conda environment.**
 
 ## Points to remember
