@@ -57,7 +57,9 @@ The genomes are compared against the respective databases (f. ex. ResFinder comp
 ```
 conda activate cge_addons
 
-python /cluster/projects/nn9305k/src/resfinder/resfinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 --acquired --point -o resfinder_output/ 
+mkdir resfinder_output
+
+python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2016-02-522_S70.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -l 0.6 -t 0.8 -o resfinder_output/ 
 
 conda deactivate
 ```
@@ -68,6 +70,8 @@ conda deactivate
 
 ```
 conda activate cge_addons
+
+mkdir pointfinder_output
 
 python /cluster/projects/nn9305k/src/ponterfinder/pointfinderfinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/pointfinder_db/ -l 0.6 -t 0.8 --acquired --point -o pointerfinder_output/ 
 
@@ -80,6 +84,8 @@ conda deactivate
 ```
 conda activate cge_addons
 
+mkdir virulencefinder_output
+
 python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/virulencefinder_db/ -l 0.6 -t 0.8 --acquired --point -o virulencefinder_output/ 
 
 conda deactivate
@@ -90,6 +96,8 @@ conda deactivate
 
 ```
 conda activate cge_addons
+
+mkdir serotypefinder_output
 
 python /cluster/projects/nn9305k/src/serotypefinder/serotypefinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/serotypefinder_db/ -l 0.6 -t 0.8 --acquired --point -o serotypefinder_output/ 
 
@@ -102,6 +110,8 @@ conda deactivate
 
 ```
 conda activate cge_addons
+
+mkdir plasmidfinder_output
 
 python /cluster/projects/nn9305k/src/plasmidfinder/plasmidfinder.py -ifa 2016-02-522_S70.fasta  -s "Escherichia coli" -db_res /cluster/projects/nn9305k/src/plasmidfinder_db/ -l 0.6 -t 0.8 --acquired --point -o plasmidfinder_output/ 
 
