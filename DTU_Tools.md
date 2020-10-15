@@ -92,7 +92,7 @@ conda deactivate
 ## Database management
 
 The databases used in the tools mentioned above follow the same general structure, with some variations. For simplicity in this tutorial, we will look into detail in the virulencefinder database. 
-The database contain fasta files (\*.fsa) separated on species and/or gene type. Furthermore, it contains files that hold a short description of the gene (notes.txt), and a file that describes each fasta file in the database (config). It also holds a file called INSTALL.py, which is used when installing the database.
+The database itself is comprised wholly of text files, and contain multi-fasta files (\*.fsa) separated on species and/or gene type. Furthermore, it contains files that hold a short description of the gene (notes.txt), and a file that describes each fasta file in the database (config). It also holds a file called INSTALL.py, which is used when installing the database.
 For this tutorial, we only have to think about the config and notes files. 
 
 In this example, the database does not contain known virulence genes from Klebsiella pneumoniae. We will add a gene in a separate fasta file, give it a description in the notes file, and add the fasta file to the list in the config file.
