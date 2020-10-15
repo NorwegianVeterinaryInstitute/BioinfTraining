@@ -75,7 +75,7 @@ conda deactivate
 ```
 
 ## VirulenceFinder
-[VirulenceFinder](https://bitbucket.org/genomicepidemiology/virulencefinder/src/master/) VirulenceFinder identifies virulence genes in total or partial sequenced isolates of bacteria - at the moment only E. coli, Enterococcus, S. aureus and Listeria are available.
+[VirulenceFinder](https://bitbucket.org/genomicepidemiology/virulencefinder/src/master/) identifies virulence genes in total or partial sequenced isolates of bacteria - at the moment only E. coli, Enterococcus, S. aureus and Listeria are available.
 
 ```
 conda activate cge_addons
