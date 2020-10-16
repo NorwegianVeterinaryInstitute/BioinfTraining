@@ -151,7 +151,7 @@ Save the file. You are now ready to run VirulenceFinder with your new addition t
 ```
 conda activate cge_addons
 
-mkdir virulencefinder__newdb_output
+mkdir virulencefinder_newdb_output
 
 python /cluster/projects/nn9305k/src/virulencefinder/virulencefinder.py -i 2018-01-1095_assembly.fasta -p $USERWORK/dtu_tools/virulencefinder_db/ -o virulencefinder__newdb_output -mp /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -x
 
