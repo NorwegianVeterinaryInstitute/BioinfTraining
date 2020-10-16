@@ -2,7 +2,7 @@
 DTU has developed a number of tools for detecting various genes and mutations related to resistance and virulence, determining serotypes, and also to detect plasmid incompatibility types. The tools are available both online and in the terminal. The online versions of the various tools can be found here: https://cge.cbs.dtu.dk/services/. A list of the command line tools can be found here: 
 https://bitbucket.org/genomicepidemiology/workspace/repositories.
 
-The DTU tools can take both reads and assemblies as input, depending on the user. When assemblies are supplied, as exemplified below, the program will use a BLAST method to identify the genes in the databases. However, when supplying reads, a mapping method will be used. In the older versions of these tools, the reads were assembled before the analysis. This process has been exchanged with the mapping procedure instead. In each tool, the genomes are compared against the respective databases (i.e. ResFinder compares the input genome to ResFinder_DB database).
+The DTU tools can take both reads and assemblies as input, depending on the user. When assemblies are supplied, as exemplified below, the program will use a BLAST method to identify the genes in the databases. However, when supplying reads, a mapping method will be used. In the older versions of these tools, the reads were assembled before the analysis. This process has been exchanged with the mapping procedure instead. **NOTE: The newest versions of these tools have not yet been installed on Saga.** In each tool, the genomes are compared against the respective databases (i.e. ResFinder compares the input genome to ResFinder_DB database).
 
 ## Data location in Saga
 ### Login to saga
@@ -69,7 +69,7 @@ conda activate cge_addons
 
 mkdir resfinder_output
 
-python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2018-01-1095_assembly.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -m_p  /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -o resfinder_output/ -x
+python /cluster/projects/nn9305k/src/resfinder/resfinder.py -i 2018-01-1095_assembly.fasta -p /cluster/projects/nn9305k/src/resfinder_db/ -mp  /cluster/software/BLAST+/2.10.1-gompi-2020a/bin/blastn -o resfinder_output/ -x
 
 conda deactivate
 ```
@@ -100,7 +100,7 @@ In this example, the database does not contain known virulence genes from Klebsi
 First, copy the whole database into your $USERWORK directory above (it is not big):
 
 ```
-cp /cluster/projects/nn9305k/src/virulencefinder_db $USERWORK/dtu_tools
+cp -r /cluster/projects/nn9305k/src/virulencefinder_db $USERWORK/dtu_tools
 ls $USERWORK/dtu_tools
 cd $USERWORK/dtu_tools/virulencefinder_db
 ```
@@ -135,10 +135,11 @@ nano k.pneumoniae.fsa
 ```
 
 
-Save the file. Then, open the config file with nano and add the following line:
-(Note that the first column holds the file name without the .fsa ending, followed by a tab separator)
+Save the file. 
+Next up, the config file contains three tab-separated columns that need to be included; db_prefix, name, and description.
+Open the config file with nano and add the following line:
 ```
-k.pneumoniae   Virulence genes for K. pneumoniae
+k.pneumoniae   Klebsiella pneumoniae   Virulence genes for K. pneumoniae
 ```
 
 Save the file, and open the notes.txt file with nano and add the following line:
