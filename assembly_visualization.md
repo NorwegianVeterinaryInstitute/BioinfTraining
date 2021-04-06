@@ -10,9 +10,9 @@
 
 ### 1.1 What is read-mapping
 
-It is simply finding a/the matching locus/area of a read on a sequence. You could think of it at the location of where your read would hybridize to your genome if you could do this experiment
+Read mapping is aligning each of your reads to a/the matching locus on a longer sequence (assembly). You could think of it at the location of where your read would hybridize to your genome if you could do this experiment.
 
-Usually few mismatches are allowed (think about the consequences).
+Usually few mismatches are allowed (think about the consequences). A portion of the reads may map to several loci in your genome (ie. in repeated regions).
 
 Reads can be mapped as paired or single. If paired is used, then the matching regions are defined by the insert size and the length of each read
 
@@ -22,7 +22,7 @@ Reads can be mapped as paired or single. If paired is used, then the matching re
 
 Read mapping techniques are used for several purposes. Some examples:
 
-1) To evaluate the quality of an assembly (or to compare different methods used to assemble your reads). Read mapping can help identifying problematic areas. Indeed, statistics are necessary but might not be sufficient to evaluate the quality of your assembly.
+1) To evaluate the quality of an assembly (or to compare different methods used to assemble your reads). Read mapping can help identifying problematic areas in your assembly process. Indeed, statistics are necessary but might not be sufficient to evaluate the quality of your assembly.
 
    We want to look at:
    - the coverage regularity (ex: some repeated regions might have increased coverage)
@@ -30,21 +30,25 @@ Read mapping techniques are used for several purposes. Some examples:
    - are they positions where pileup of reads show polymorphism?
    - ...
 
-2) To identify SNPs: some methods use reads mapping against a reference genome to identify and type SNPs
+2) Assembly polishing software such as `pilon` and `reapr` use mapped reads to identify potential positions where your assemblies should be improved. It is good to visualize what information they are using.
 
-3) Assembly polishing software such as `pilon` and `reapr` use mapped reads to identify potential improvement in assemblies. It is good to visualize what information they are using.
+   Softwares can use variation in coverage, wrong read pairs orientation, discrepancy between expected insert size and actual insert size obtained from read mapping (ie. longer than expected) to improve assembly.
 
-   Softwares can use variation in coverage, wrong read pairs orientation, discrepancy between expected insert size and   actual insert size obtained from read mapping (ie. longer than expected) to improve assembly.
+3) To identify SNPs: some methods use reads mapping against a reference genome to identify and type variants/SNPs (e.g. [snippy](https://github.com/tseemann/snippy))
 
 
 ### 1.3 Re-map the reads to the assembly
 
 We use [bwa mem] option from [bwa tools] software.
 
-We have assembled reads and annotated using Bifrost pipeline. The data for today's practical are found in `/projects/nn9304k/bioinf_course/Mapping_training`
+We have assembled reads and annotated using Bifrost pipeline. The data for today's practical are found in `/cluster/projects/nn9305k/tutorial/20210412_mapping_visualization`
 
+- [ ] update paths
+-
 You will use the trimmed-filtered reads in: `/projects/nn9305k/bioinf_course/Mapping_training/bifrost_run/bbduk_trimmed` and the assembly: `/projects/nn9305k/bioinf_course/Mapping_training/bifrost_run/prokka/MiSeq_Ecoli_MG1655_50x.fna`
 
+- [ ] find out how I did that
+-
 We have to use the assembly output from `Prokka`to be able to visualize the assembly with IGV. (Scaffold names between assembly and annotations have to be consistent for the visualization).
 
 Note that: `Prokka` transforms scaffold names from the assembly used as input. Annotation and assembly with annotation-matching scaffold names are provided as output files.
@@ -54,10 +58,15 @@ Note that: `Prokka` transforms scaffold names from the assembly used as input. A
 _**Practical:**_
 
 
-In your `project-home` directory make a directory for today's work
+In your `home` directory make a directory for today's work
 and a folder called `mapping` where you will **copy** the input files
 
+Convention: means `<change_me>`
+
+- [ ] update paths
+
 ```bash
+cd <home>
 mkdir mapping
 cd mapping
 
@@ -72,31 +81,45 @@ gunzip -cd MiSeq_Ecoli_MG1655_50x_S_concat_stripped_trimmed.fq.gz | head
 
 ```
 
-We will use the software included in the **Bifrost pipeline**.
-This is available as a **conda environment**, called **bifrost**.
+`bwa tools` is installed in the **Bifrost pipeline** conda environment. We ask for interactive ressources in saga and activate the `bifrost` environment.
 
 ```bash
-qlogin --account=nn9305k --time=00:30:00 --ntasks=4 --mem-per-cpu=4G
-source activate bifrost
+srun --account=nn9305k --mem-per-cpu=4G --cpus-per-task=2 --qos=devel --time=0:30:00 --pty bash -i
 
-# 1) We need to index the reference: we are in this case using the assembly as reference
+conda activate bifrost
+```
+
+Then we:
+1) We need to index the reference: we are in this case using the assembly as reference
+
+```bash
 bwa index <reference.fna>
+```
 
-# 2) We map the reads (attribute the position of the reads according to the index) as PE
+2) We map the reads (attribute the position of the reads according to the index)
+- for paired reads (PE).
+  > NB: We `sort` directly the mapping by index position.
+  > Here `-` means that the output of the pipe `|` is used as input in samtools. And `\` is used to indicate that your code (instructions) continues on the next line
+
+```bash
 bwa mem -t 4 <reference.fna> <in1:read1.fq.gz> <in2:read2.fq.gz> \
 | samtools sort -o <out:PE_mapped_sorted.bam> -
+```
 
-# NB: We `sort` directly the mapping by index position
-#`-` means that the output of the pipe is used as input in samtools
+- For unpaired reads (called S here) we map as such:
 
-# For unpaired reads (called S here)
+```bash
 bwa mem -t 4 <reference.fna> <in:S_reads.fq.gz> \
 | samtools sort -o <out:S_mapped_sorted.bam> -
+```
 
-# 3) We need to merge those two files as one
+3) We need to merge those two files as one
+```bash
 samtools merge <out:all_merged.bam> <in1:S_mapped_sorted.bam> <in2:PE_mapped_sorted.bam>
+```
 
-# 4) To be sure reads are still sorted: we resort
+4) To be sure reads are still sorted: we resort
+```bash
 samtools sort -o <out:final_all_merged.bam> <in:all_merged.bam>
 ```
 <br>
@@ -105,7 +128,9 @@ samtools sort -o <out:final_all_merged.bam> <in:all_merged.bam>
 
 Some software like `Pilon` need and updated index of mapped reads to run
 (eg. after merging bam files). If necessary do:
-`samtools index <final_all_merged.bam>`
+```bash
+samtools index <final_all_merged.bam>
+```
 
 ### 1.4 The [sam/bam file format](https://samtools.github.io/hts-specs/SAMv1.pdf)
 
@@ -115,22 +140,26 @@ You can also have a look at [Samtools article] and at [Samtools manual]
 
 To decompress: chose f.eks. `PE_mapped_sorted.bam` that we did in the first step:
 
-`samtools view -h -o <out.sam> <in.bam>`
+```bash
+samtools view -h -o <out.sam> <in.bam>
+```
 
-Look at your `.sam` file with:
+Look at your `.sam` file using:
 
- `less <filename.sam>`
+```bash
+less <filename.sam>
+```
 
 ### 1.5 looking at how the reads maps against the reference with [Samtools](http://www.htslib.org/doc/samtools.html) `tview` module
 
+- looking at the reads pileup with SAMtools
+> use `-p <position>` if you want to see a specific position
+
+> type `?` to view the navigation help while samtools is running
+
 ```bash
-# look at the reads pileup
 samtools tview  <final_all_merged.bam> --reference <assembly>
-# -p <position> if you want to see a specific position
 ```
-type `?` to view the navigation help while samtools is running
-
-
 # 2.Viewing assembly and mapping with IGV
 
 ## 2.1 Install IGV in conda
@@ -141,7 +170,7 @@ conda create -n <envname> -c bioconda igv
 conda activate <IGV:envname>
 ```
 
-From the folder you want to work in transfer the following files from Abel to your pc:
+From the folder you want to work in transfer the following files from Saga to your pc:
 - the assembly and annotation files
 - the .bam file
 
@@ -153,12 +182,19 @@ scp <user_name>:<your_mapping_folder_assembly_AND_annotation_files> .
 
 We use a little python script from [sequencetools repository](https://github.com/lexnederbragt/sequencetools) to insert gap locations into a file and load it as a track in IGV. This will allow to easily locate the different scaffolds and potentially problematic regions. This is how we generate the file:
 
-```bash
-# On Abel: use biopython installed in conda bifrost to generate the .bed file
-source activate bifrost
-python /work/projects/nn9305k/vi_src/diverse/scaffoldgap2bed_py3.py -i <assembly.fna> > <gap_file>.bed
+- [ ] to test
 
-# From the folder you want to work in, transfer the .bed file from Abel to your pc
+Using this script requires Biopython. On Saga: we use biopython that is installed in bifrost environment to generate the .bed file
+
+> to avoid long lines of commands, we will use a variable to store the path of the script
+
+```bash
+path_script="path"
+conda activate bifrost
+python $path_script/scaffoldgap2bed_py3.py -i <assembly.fna> > <gap_file>.bed
+```
+You can now transfer the .bed file to your pc
+```bash
 scp <user_name>:<your_mapping_folder_bed_file> .
 ```
 ## 2.3 Fetch annotation files `.gff`
