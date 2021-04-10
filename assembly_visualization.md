@@ -40,7 +40,6 @@ Read mapping techniques are used for several purposes. Some examples:
 
 3) To identify SNPs: some methods use reads mapping against a reference genome to identify and type variants/SNPs (e.g. [snippy](https://github.com/tseemann/snippy))
 </br>
-</br>
 
 ### 1.3 Re-map the reads to the assembly
 
@@ -238,7 +237,7 @@ scp <user_name>:<your_mapping_folder_assembly_AND_annotation_files> .
 </div>
 </br>
 
-## 2.2.2 Using Saga with graphical window
+### 2.2.2 Using Saga with graphical window
 
 It is possible to use graphical interface on Saga.
 Login to saga using the `-Y` option
@@ -273,7 +272,7 @@ You will see several error messages that it tries to load a genome file, ignore 
 </br>
 
 
-## 2.4 Loading files in [IGV](https://software.broadinstitute.org/software/igv/)
+## 2.3 Loading files in [IGV](https://software.broadinstitute.org/software/igv/)
 
 ![IGV](./figures/IGV.png)
 
