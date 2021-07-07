@@ -11,7 +11,7 @@ Dataset used during this session can be found in the following location within a
 
 Create a new folder called _Data_pre_processing_Dec14_ in your home area and move there.
 ```
-cd /work/projects/nn9305k/home/<your_user_name>/
+cd /projects/nn9305k/home/<your_user_name>/
 mkdir Data_pre_processing_Dec14
 cd Data_pre_processing_Dec14
 ```
@@ -46,7 +46,7 @@ $ fastqc Ha_R1.fq.gz
 ```
 
 3. Try to find help for _fastqc_ and discuss what flags one can use to process multiple samples.
-  You will use _-t_ option to use multiple threads. One thread will analyse one file at a time.
+  You will use _`-t`_ option to use multiple threads. One thread will analyse one file at a time.
 4. Use _SLURM_ to process the other four files.
 
 _SLURM script_
@@ -82,8 +82,8 @@ mv ../data/*html .
 mv ../data/*.zip .
 ```
 
-6. Copy the _raw_fastqc_ folder from abel to Biolinux in a folder called _Data_pre_processing_Dec14_ in _Desktop_ using scp.
-  Option _-r (stands for recursively)_ will help in copying folders and all the content inside (and do not forget the _'.'_ at the end of the command. 
+6. Copy the _raw_fastqc_ folder from abel to Biolinux in a folder called _Data_pre_processing_Dec14_ in _Desktop_ using `scp`.
+  Option _`-r` (stands for recursively)_ will help in copying folders and all the content inside (and do not forget the _`.`_ at the end of the command. 
   
   **In Biolinux:**
 ```
@@ -91,7 +91,7 @@ cd
 cd Desktop
 mkdir Data_pre_processing_Dec14
 cd Data_pre_processing_Dec14
-scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .
+scp -r <your_user_name>@abel.uio.no:/projects/nn9305k/home/<your_user_name>/Data_pre_processing_Dec14/raw_fastqc .
 ```
 
 7. Go through the html files and discuss.
@@ -100,7 +100,7 @@ scp -r <your_user_name>@abel.uio.no:/work/projects/nn9305k/home/<your_user_name>
 ## Trimmomatic - adapter trimming and removing
 
 We wll use [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic) to trim/remove adapter and low quality reads.
-This tool is NOT available via _module load_ in abel but available at _/work/projects/nn9305k/bin/_. Make sure you know where the adapter sequences are available.
+This tool is NOT available via _module load_ in abel but available at _`/work/projects/nn9305k/bin/`_. Make sure you know where the adapter sequences are available.
 
 --------
 **Task**
@@ -156,7 +156,7 @@ java -jar /work/projects/nn9305k/bin/trimmomatic-0.36.jar SE -threads 12 -phred3
 
 Use trimmomatic to trim/remove adapters and low quality reads in _Br_R1.fq.gz_ and _Br_R2.fq.gz_ (or/and _Ed_R1.fq.gz_ and _Ed_R2.fq.gz_)
 
-1. Remember that you are working with paired end data (Change _SE_ to _PE_). 
+1. Remember that you are working with paired end data (Change _`SE`_ to _`PE`_). 
 2. There are two input files and four output files.
 3. Use _TruSeq3-PE-2.fa_ instead of _TruSeq3-SE.fa_ since we are dealing with paired end reads.
 4. Change _MINLEN_ parameter to _36_.
