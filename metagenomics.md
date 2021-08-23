@@ -12,7 +12,7 @@ We will follow the [Mothur MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) for
 * R-studio / Phyloseq tutorial for diversity analysis.
 * Introduction to shotgun metagenomics.
 
-## Lecture 2018 – 5 – February
+## Lecture 1
 
 During this day we start with the Mothur SOP for [MiSeq data](https://www.mothur.org/wiki/MiSeq_SOP) and we will follow the tutorial using the Biolinux mothur version in our virtual box environment.
 
@@ -55,7 +55,7 @@ The commands can be found here: [20180205 MiSeq_SOP commands](20180205_MiSeq_SOP
 ### homework
 Read the manuscript: `Madness of Microbiome` download [here](http://aem.asm.org/content/early/2018/01/29/AEM.02627-17.abstract).
 
-## Lecture 12 - February - 2018
+## Lecture 2
 
 During this day we discus the manuscript from [Pollock et al., 2018](http://aem.asm.org/content/early/2018/01/29/AEM.02627-17.abstract).
 
@@ -83,7 +83,7 @@ Use the slurm commands you learned during the introduction course to set-up a co
 
 Make sure you ask for the right mothur module and call the script with your commands from your working directory on abel.
 
-## Lecture 26 - February - 2018
+## Lecture 3
 
 We will start with the homework of the last time:
 
@@ -117,7 +117,7 @@ The commands we used: [20180226 MiSeq SOP commands](20180226_MISeq_SOP_commands.
 Communities in R: vegan tutorial] (http://cc.oulu.fi/~jarioksa/opetus/metodi/vegantutor.pdf)
 
 
-## Lecture 7 - March - 2018
+## Lecture 4
 
 Today we made a script with mothur commands to process the MiSeq_SOP dataset,
 that could run on the biolinux machine. The script is here: [commands_edit_v2.txt](metagenomics_scripts/commands_edit_v2.txt)
@@ -138,13 +138,13 @@ Homework for monday 12 March 2018:
 * if it does not work, contact me via email.
 
 
-## Lecture 19 - March 2018
+## Lecture 5
 During this session, we will work on analyzing the Mothur MiSeq SOP data using the R-package Phyloseq using multivariate statistics. [The workflow of this tutorial](phyloseq_tutorial.md).
 
-## Lecture 17 - April 2018
+## Lecture 6
 This is a lecture to introduce the classification tool [Kraken](http://ccb.jhu.edu/software/kraken/MANUAL.html#classification). This tool is going to be used for the proficiency test to identify which organisms were cultivated and sequenced. [The Kraken tutorial](tutorial_kraken.md).
 
-## Lecture 23 - April 2018
+## Lecture 7
 In this lecture we will download SILVA database, use the arb program to export a fasta file from the SILVA database, and curate the database with mothur. At the end we will generate a proper taxonomy file. The tutorial is found here:[Building a 16S rRNA classification database](Building_classification_databases.md).
 
 ## Future Lectures
