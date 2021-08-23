@@ -49,7 +49,7 @@ Next we activate mothur an start working on the MiSeq SOP produced by Pat Schlos
 
 We work until the step where we remove chimeric sequences.
 
-The commands can be found here: [20180205 MiSeq_SOP commands](20180205_MiSeq_SOP_commands.md).
+The commands can be found here: [Metagenomics_lecture_1_SOP_commands](Metagenomics_lecture_1_SOP_commands.md).
 
 **Recommended literature**
 
