@@ -17,7 +17,10 @@ We will follow the [Mothur MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) for
 During this day we start with the Mothur SOP for [MiSeq data](https://www.mothur.org/wiki/MiSeq_SOP) and we will follow the tutorial using the Biolinux mothur version in our virtual box environment.
 
 **important note.**
-You can work yourself through this tutorial, but note that the mothur version on your biolinux is not up to data with the latests mothur versions. This means that for a few commands we need to use an different command than is used in the mothur SOP. Below I will give a link to the commands that we used during the course. This also means that when you work through the tutorial you will not find the same numbers for reads kept or removed.
+This tutorial was written with the main assumption that you use biolinux. Since we at the NVI have moved away from biolinux, and work mostly on the SAGA HPC cluster, it can be that some parts of this tutorial might be slightly different on a HPC cluster. You can find if mothur and other software is installed on the cluster using the command:
+` module avail mothur `.
+
+You can work yourself through this tutorial, but note that the mothur version on the biolinux is not up to data with the latests mothur versions. This means that for a few commands we need to use an different command than is used in the mothur SOP. Below I will give a link to the commands that we used during the course. This also means that when you work through the tutorial you will not find the same numbers for reads kept or removed.
 
 ### Preperation step for the first lecture.
 1. Create directory on the desktop in the Linux Virtual box called: `amplicons`
@@ -26,7 +29,7 @@ You can work yourself through this tutorial, but note that the mothur version on
 	* [SILVA-based bacterial reference alignment](https://www.mothur.org/w/images/9/98/Silva.bacteria.zip)
 	* [mothur-formated version of the RDP training set (v.9)](https://www.mothur.org/w/images/5/59/Trainset9_032012.pds.zip)
 
-3. extract zipped files using the commandline: `unzip FILENAME`. This creates two folders: 1) Miseq_SOP and 2) silva.bacteria. and two lose files.
+3. extract zipped files using the commandline: `unzip FILENAME`. This creates two folders: 1) Miseq_SOP and 2) silva.bacteria, and two single files.
 4. move the directory silva.bacteria to the `Miseq_SOP` folder: `mv silva.bacteria/ Miseq_SOP/`
 5. move the files Trainset* to the `Miseq_SOP` folder: `mv Trainset* Miseq_SOP/`
 
@@ -37,12 +40,12 @@ Since we have a lot of fastq data and we are curious, we want to get an idea of 
 
 1. Open terminal window, and change to the directory with the fastq files.
 2. create a directory called:  `fastqc-results` with the `mkdir` command.
-3. next we run the command: `fastqc -t 2 -o fastqc_results *.fastq` , to understand thie flags in this command type: `fastqc --help`
-4. open firefox and open a fastqc results file: `fastqc_report.html`. You can find for each dataset a folder inside the folder: `fastqc-results`. For instance open the folder for the forward sequences: `F3D0_S188_L001_R1_001_fastqc` and check the results there.
+3. next we run the command: `fastqc -t 2 -o fastqc_results *.fastq` , to understand the flags in this command type: `fastqc --help`
+4. open firefox (in the biolinux), or download from the HPC cluster and open the fastqc results file: `fastqc_report.html`. You can find for each dataset a folder inside the folder: `fastqc-results`. For instance open the folder for the forward sequences: `F3D0_S188_L001_R1_001_fastqc` and check the results there.
 
 Note that this is amplicon data, why is that different from normal shotgun data, and how is that observed in the fastqc file? See also these documents: [Good sequences](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) or [Bad sequences](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html)
 
-Next we open mothur an start working on the MiSeq SOP produced by Pat Schloss.
+Next we activate mothur an start working on the MiSeq SOP produced by Pat Schloss.
 
 We work until the step where we remove chimeric sequences.
 
