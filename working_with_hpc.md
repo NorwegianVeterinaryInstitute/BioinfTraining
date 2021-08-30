@@ -12,7 +12,7 @@ arrow brackets, like \<this\>.
 
 ## Logging in and out
 
-We will use the program called `ssh` to log in and out of abel.
+We will use the program called `ssh` to log in and out of SAGA.
 
 --------
 
@@ -21,7 +21,7 @@ We will use the program called `ssh` to log in and out of abel.
 2. type in the following (don't include the `$`).
 
 ```
-$ ssh <your_user_name>@abel.uio.no
+$ ssh <your_FEIDE_user_name>@saga.sigma2.no
 ```
 
 It will then request a password. Type it in. Remember, passwords are
@@ -31,7 +31,7 @@ case sensitive!
 
 
 NOTE: If you have the same username on your virtual machine and on
-abel, you don't need to type in your username and the at sign in
+SAGA, you don't need to type in your username and the at sign in
 the ssh command.
 
 ### Figuring out which computer you're on
@@ -48,21 +48,21 @@ are.
 
 --------
 
-### File structure on abel
+### File structure on saga
 
 There are three main storage locations that you need to know about on
-abel (Fig. 1).
+SAGA (Fig. 1).
 
- * Your home (**$HOME**) area `usit/abel/u1/username`. When you log in, you will automatically land in what is called your **home area**. You will commonly not use this location much, and it should not be used to store sequence data that is from the Veterinary Institute (Fig. 1).
+ * Your home (**$HOME**) area is `/cluster/home/username`. When you log in, you will automatically land in what is called your **home area**. You will commonly not use this location much, and it should not be used to store sequence data that is from the Veterinary Institute (Fig. 1).
 
- * The **work area**, `/work/projects/nn9305k` (Fig. 1). This is where the Veterinary Institute stores the databases we use and the software we install ourselves. You can store intermediate files here when you are analyzing data, but this area should not be used for storing RAW sequence data. Think of it as one of the common ressource areas on the Veterinary Institute area.
+ * The **work area**, `/cluster/projects/nn9305k` (Fig. 1). This is where the Veterinary Institute stores the databases we use and the software we install ourselves. You can store intermediate files here when you are analyzing data, but this area should not be used for storing RAW sequence data. Think of it as one of the common ressource areas on the Veterinary Institute area.
 
  * The last one is the **project**'s data and analysis backup area. This is
- `/projects/nn9305k`(Fig. 1). This is the area where all RAW sequence data  that belongs to the Veterinary Institute should be stored.
+ `/cluster/projects/nn9305k`(Fig. 1). This is the area where all RAW sequence data  that belongs to the Veterinary Institute should be stored.
 
-![Figure 1 Abel data storage](figures/Abel_overview_VET_WorkAndStore.svg)
+![Figure 1 SAGA data storage](figures/SAGA_overview_VET_WorkAndStore.svg)
 
-**Figure 1** Abel data storage overview for the Veterinary Institute. Variables that can be used in slurm scripts or commands are indicated between brackets. (Figure was copied from https://github.com/uio-cees/hpc/wiki/Data-Storage and then modified for this website)
+**Figure 1** SAGA data storage overview for the Veterinary Institute. Variables that can be used in slurm scripts or commands are indicated between brackets. (Figure was copied from https://github.com/uio-cees/hpc/wiki/Data-Storage and then modified for this website)
 
 There is also a forth area that will be discussed below and that is mainly used for data storage when analyzing data. It should not be used for storage, and after analysis data should be transfered to the **project** or the **work area**. For a detailed overview and how to use these areas please look at the description of [disks_areas](./disk_areas.md) at the Norwegian VeterinaryInstitute, to see the data workflow when launching/running jobs.
 
@@ -72,21 +72,21 @@ There is also a forth area that will be discussed below and that is mainly used 
 1. use `cd` to go to the work-project area.
 2. read the `README` file that is in the top directory of the home area
 3. use the knowledge gained from the README file to figure out where
-adapter files are stored on abel.
+adapter files are stored on SAGA.
 
 ---------
 
 ### Setting up your working directory
 
-Next we will do a bit of setup to get you set up properly on abel.
+Next we will do a bit of setup to get you set up properly on SAGA.
 
 --------
 
 **Task**
-Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/Abel-User-Guide)
+Go to [this webpage here](https://github.com/NorwegianVeterinaryInstitute/organizational/wiki/SAGA-User-Guide)
 and follow the instructions from and bellow: "On first time login".
 
-NB: login out of abel: `exit` or `logout`
+NB: login out of SAGA: `exit` or `logout`
 
 ---------
 
@@ -95,7 +95,7 @@ Note: if you've done this already, you can skip this step.
 During the setup process, you are creating a separate "home directory"
 inside the **project area**. You use this location for things that you
 don't collaborate with people on. If it is a collaborative project,
-that is, other people on abel will also use it, you use directories
+that is, other people on SAGA will also use it, you use directories
 at the top level.
 
 
@@ -103,9 +103,9 @@ at the top level.
 ## Transferring files
 
 We will now explore a couple of methods for getting data to and from
-abel.
+SAGA.
 
-NOTE: any transfer of data to abel happens with permission from Karin!
+NOTE: any transfer of data to SAGA happens with permission from Karin!
 
 --------
 
@@ -119,34 +119,34 @@ and locate the file
 
 ### scp
 
-We will now transfer this file to abel.
+We will now transfer this file to SAGA.
 
 --------
 
 **Task**
 1. on the virtual machine, type in
 ```
-$ scp mb.fsa your_user_name@abel.uio.no:
+$ scp mb.fsa your_user_name@SAGA.uio.no:
 ```
-2. open a different terminal window and log in to abel
+2. open a different terminal window and log in to SAGA
 3. find out where the file is now (hint: `ls`)
 
 --------
 
 You need to have the colon on the end, otherwise you just end up
-copying the file to a file named `your_user_name@abel.uio.no`.
+copying the file to a file named `your_user_name@SAGA.uio.no`.
 
-Note: if you have the same username on your virtual machine as on abel,
+Note: if you have the same username on your virtual machine as on SAGA,
 you don't need to type in your user name or the at sign.
 
-You have now transferred a file from your computer to abel. That file
+You have now transferred a file from your computer to SAGA. That file
 ended up in your home area. What do you have to do to get it into your
 home area on the project area? If you want to put it in a different
 location than the default place you end up when you log in, you need
 to specify the path to that location after the colon. That is:
 
 ```
-$ scp filename your_user_name@abel.uio.no:/path/to/different/place
+$ scp filename your_user_name@SAGA.uio.no:/path/to/different/place
 ```
 
 --------
@@ -156,11 +156,11 @@ Try putting the `mb.fsa` file into your project home area using scp.
 
 --------
 
-We have now transferred to abel. How do we get files to our local
+We have now transferred to SAGA. How do we get files to our local
 computer? To do that, we switch things up in the command:
 
 ```
-$ scp your_user_name@abel.uio.no:/path/to/file/on/abel local_place_path
+$ scp your_user_name@SAGA.uio.no:/path/to/file/on/SAGA local_place_path
 ```
 You need to do this on your local machine.
 
@@ -209,7 +209,7 @@ Better to automate the process if you have many files in the same folder
 
 ### For transfering all files within directories to a new location:
 
-Use rsync to copy all your files from directory to another (ie. moving your directories on Abel)
+Use rsync to copy all your files from directory to another (ie. moving your directories on SAGA)
 
 Example: from `/work/projects/nn9305k/Mydirectory`to Mydirectory in parent_directory `/projects/nn9305k/`
 
@@ -241,14 +241,14 @@ In the parent directory of destination: `find destination_Mydirectory -type f -e
 wget is very useful for getting data from a website to either your local
 computer or to a remote computer.
 
-We will now try to get the `mb.fsa` file onto abel without going via
+We will now try to get the `mb.fsa` file onto SAGA without going via
 our own local machine.
 
 --------
 
 **Task**
 1. right click on the url for the file (see above), and copy the link.
-2. go in your abel terminal window
+2. go in your SAGA terminal window
 3. make sure that you are in your projects-home area
 3. type and paste in
 
@@ -258,20 +258,20 @@ $ wget <paste_the_link_here>
 
 and hit enter.
 
-You will now have downloaded the file directly onto abel.
+You will now have downloaded the file directly onto SAGA.
 
 --------
 
-## Bioinformatics software on abel
+## Bioinformatics software on SAGA
 
-There is a lot of software available on abel. We cannot have all of it
+There is a lot of software available on SAGA. We cannot have all of it
 available at the same time, because they would step on each others'
-toes. To organize software, the abel system uses the `module` system.
+toes. To organize software, the SAGA system uses the `module` system.
 
 --------
 
 **Task**
-1. on abel, type in `module avail`
+1. on SAGA, type in `module avail`
 2. wait for a bit
 3. can you figure out how many versions of blast is installed?
 4. try typing in `module avail blast`, and see what happens.
@@ -290,9 +290,9 @@ that is the version of the program that will be loaded.
 **If you want a different version than the _default version_, you need to
 include what's after the `/`.
 
-NB: You can also look at short description of [Software on Abel] here
+NB: You can also look at short description of [Software on SAGA] here
 
-[Software on Abel]:https://www.uio.no/english/services/it/research/hpc/abel/help/software/
+[Software on SAGA]:https://www.uio.no/english/services/it/research/hpc/SAGA/help/software/
 
 ### Running commands, and using modules
 
@@ -304,7 +304,7 @@ either use too much time (30 minutes) or too much memory, the command
 will be terminated.
 
 When we are `blast`ing, we need sequences that we're searching with
-(`query`), and we need a database to search in. On abel, there are
+(`query`), and we need a database to search in. On SAGA, there are
 versions of the ncbi databases that live here:
 
 
@@ -315,7 +315,7 @@ versions of the ncbi databases that live here:
 --------
 
 **Task**
-1. on abel, type in
+1. on SAGA, type in
 ```
 $ module load blast+
 ```
@@ -325,7 +325,7 @@ $ blastn -help
 ```
 Can you figure out which options that you need to specify a query and
 a database?
-3. On abel, type in
+3. On SAGA, type in
 ```
 $ blastn -query mb.fsa -db /work/databases/bio/ncbi/refseqgene
 ```
