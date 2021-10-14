@@ -12,6 +12,9 @@
 * [Changing your login shell](#Changing-your-login-shell)
 * [Sharing data via a shared folder](#Sharing-data-via-a-shared-folder)
 
+### Working with different R in several conda environment with one Rstudio
+* [One Rstudio for several conda R environments on your PC](#One-Rstudio-for-all-condas)
+
 
 ## [Using screen](#using-screen) to avoid dropped connections
 
@@ -133,6 +136,28 @@ This should give you a prompt that starts with the following:  ```(ncbidown) ```
 	If this again activates the `ncbidown`environment, than your conda set-up was correct. You can deactivate this environment with either: `source deactivate` or `conda deactivate`.
 	
 Now you are all set to use the different conda environments available on the nn9305k project.
+
+## One Rstudio for several conda R environments on your PC
+To avoid multiple installations of Rstudio in several environments, it is possible to define which R (in which conda environment) will be used for interpretation in R studio:
+
+[Rstudio Article](https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop)
+
+For ubuntu
+
+```
+cd ~
+nano .bashrc
+# add the following line to .bashrc
+export RSTUDIO_WHICH_R="which R"
+# save and close .bashrc
+# close and restart console or:
+source .bashrc
+```
+You can now activate the conda environment (with the R version and packages you want to work with) `conda activate <env_name>`or `source activate <env_name` depending on your conda version 
+
+From within the activated conda environment start rstudio with `rstudio &`
+You can check that the appropriate R version is used in R studio with  `R.version.string`
+
 
 ## Sharing data via a shared folder
 We have been working for some time with the biolinux virtualmachine on our Windows laptops. One thing that makes life a lot easier is when we can share files between the Windows host and the linux guest system.
