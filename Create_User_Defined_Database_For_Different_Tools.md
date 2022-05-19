@@ -1,3 +1,2 @@
-# ResFinder/PointFinder 
 # ARIBA 
 # MLST 
