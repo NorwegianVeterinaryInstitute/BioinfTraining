@@ -9,10 +9,7 @@
 # ARIBA: ReadMapping Approach
 Using Fastq (read) files illumina to search against user defined AMR, Virulence and MLST using ARIBA.
 
-### AMR
-1. Live demo of creating database from amr gene sequences (fasta)
-
-### Virulence 
+### AMR/Virulence
 1. Live demo of creating database from amr gene sequences (fasta)
 
 ### MLST
