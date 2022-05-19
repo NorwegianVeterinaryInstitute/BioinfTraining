@@ -10,10 +10,15 @@
 Using Fastq (read) files illumina to search against user defined AMR, Virulence and MLST using ARIBA.
 
 ### AMR
+1. Live demo of creating database from amr gene sequences (fasta)
 
 ### Virulence 
+1. Live demo of creating database from amr gene sequences (fasta)
 
 ### MLST
+1. Live demo of creating database from new MLST schemes 
+
+
 # ResFinder and PointFinder: ReadMapping Approach
 
 
