@@ -9,9 +9,13 @@
 # Working location for hands-on in SAGA
 
 ```
+
 ssh username@saga.sigma2.no
 
 cd /cluster/projects/nn9305k/tutorial/230522_User_Defined_DBs/
+
+conda activate ariba
+
 ```
 
 # ARIBA: ReadMapping Approach
