@@ -6,11 +6,21 @@
 ## Local alignment (BLAST)
  1. How much % of the target is covered and similarity 
 
+# Working location for hands-on in SAGA
+
+```
+ssh username@saga.sigma2.no
+
+cd /cluster/projects/nn9305k/tutorial/230522_User_Defined_DBs/
+```
+
 # ARIBA: ReadMapping Approach
 Using Fastq (read) files illumina to search against user defined AMR, Virulence and MLST using ARIBA.
 
 ### AMR/Virulence
 1. Live demo of creating database from amr gene sequences (fasta)
+
+
 
 ### MLST
 1. Live demo of creating database from new MLST schemes 
