@@ -1,10 +1,10 @@
 # Introduction (PowerPoint slides)
 ## Read Mapping
  1. Read Coverage on target
- 2. How much % of the target is covered and similarity 
- 3. Some of the tools used for read mapping approach
+ 2. Some of the tools used for read mapping approach
 
 ## Local alignment (BLAST)
+ 1. How much % of the target is covered and similarity 
 
 # ARIBA: ReadMapping Approach
 Using Fastq (read) files illumina to search against user defined AMR, Virulence and MLST using ARIBA.
