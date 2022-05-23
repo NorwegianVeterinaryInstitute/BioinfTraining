@@ -16,6 +16,7 @@ cd /cluster/projects/nn9305k/tutorial/230522_User_Defined_DBs/
 
 conda activate ariba
 
+
 ```
 
 # ARIBA: ReadMapping Approach
