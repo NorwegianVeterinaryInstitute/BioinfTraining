@@ -59,6 +59,7 @@ ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_
 [Explanation for Output](https://github.com/sanger-pathogens/ariba/wiki/Task:-run)
 
 
+Deactivate ARIBA conda environment 
 ```
 conda deactivate 
 ```
