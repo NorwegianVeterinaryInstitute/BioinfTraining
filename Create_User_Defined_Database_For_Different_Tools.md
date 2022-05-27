@@ -4,14 +4,13 @@
 
 Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not included in the databases (DBs) which are used by tools. But it is possible to use the latest data with some of the tools. This documentation will walk you through "How to create your own database" for three of the most commonly used tools: 
 1. [ARIBA](https://github.com/sanger-pathogens/ariba): ReadMapping Approach
-2. [ResFinder and PointFinder](https://bitbucket.org/genomicepidemiology/resfinder.git/src): ReadMapping Approach
+2. [ResFinder and PointFinder](https://bitbucket.org/genomicepidemiology/resfinder.git/src): Local alignment Approach
 3. [MLST](https://github.com/tseemann/mlst): Local alignment 
 
 [Link to Introduction Slides](https://vetinst.sharepoint.com/:p:/r/sites/Bioinfadmins/Delte%20dokumenter/General/Bioinfo_Training/UD_DBs_Jeevan_300522.pptx?d=w43117335fecf47edb54fb34d3db21e22&csf=1&web=1&e=CJLpPE)
 
 ## ARIBA as an example. :
-**Input**: Assembly (.fasta) or reads (.fastq)
-
+Input: Assembly (.fasta) or reads (.fastq)
 
 ### Working location for hands-on in SAGA
 
@@ -25,7 +24,7 @@ Activate ARIBA conda environment
 conda activate ARIBA
 ```
 
-Go into tutorial directory which contains test data.  
+Go into test directory.  
 ```
 cd /cluster/projects/nn9305k/tutorial/300522_User_Defined_DBs/
 
@@ -52,10 +51,14 @@ Mapping the reads to newly created db for new virulence genes
 ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_Files/Vibrio_R2.fastq Virulence_Output
 ```
 
-Virulence_Output contains the output files.
+**Virulence_Output/** contains the output files.
 
 "report.tsv" - file contains the results
 
 [Explanation for Output](https://github.com/sanger-pathogens/ariba/wiki/Task:-run)
+
+
+## ResFinder/PointFinder
+**Input**: Assembly (.fasta) or reads (.fastq)
 
 
