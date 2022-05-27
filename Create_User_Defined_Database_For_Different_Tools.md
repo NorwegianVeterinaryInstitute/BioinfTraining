@@ -234,6 +234,8 @@ ATAAAAAAAGAAAATACCTATGAAGGTGTTGAAGCG
 
 
 Activate conda environment for MLST
+
 ```
 conda activate MLST
 ```
+
