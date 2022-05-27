@@ -12,10 +12,11 @@
 
 ssh username@saga.sigma2.no
 
-cd /cluster/projects/nn9305k/tutorial/230522_User_Defined_DBs/
+conda activate ARIBA
 
-conda activate ariba
+cd /cluster/shared/vetinst/ARIBA_DB/
 
+ariba prepareref --all_coding yes -f Add_Virulence_Genes/Additional_Vir_genes.fasta ariba_virulence_genes_DB
 
 ```
 
