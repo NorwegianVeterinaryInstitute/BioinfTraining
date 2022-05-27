@@ -67,7 +67,7 @@ conda deactivate
 ## ResFinder/PointFinder
 **Input**: Assembly (.fasta) or reads (.fastq)
 
-**To create DB**: 
+**To ADD new genes to DB**: 
 1. <resistance_phenotye_class>.fsa file: multifasta file of AMR genes. f. ex. aminoglycoside.fsa
 ```
 head aminoglycoside.fsa
@@ -174,4 +174,66 @@ total 3.6M
 Make/Build DB
 ```
 python3 INSTALL.py </path/to/kma_index> non_interactive
+```
+
+
+## MLST 
+**Input File**:  reads (.fastq)
+**To ADD new schemes**: Fasta file with allele sequences
+
+Create a folder for new scheme
+```
+mkdir sareus
+```
+
+create/copy the necessary files insie the "sareus" folder
+```
+ls 
+saureus.txt
+arcC.tfa
+aroE.tfa
+glpF.tfa
+gmk.tfa
+pta.tfa
+tpi.tfa
+yqiL.tfa
+```
+
+```
+head -n 5 saureus.txt
+ST      arcC    aroE    glpF    gmk     pta     tpi     yqiL    clonal_complex
+1       1       1       1       1       1       1       1
+2       2       2       2       2       2       2       26
+3       1       1       1       9       1       1       12
+4       10      10      8       6       10      3       2
+```
+
+
+Alle sequences
+```
+head -n 20 arcC.tfa
+>arcC_1
+TTATTAATCCAACAAGCTAAATCGAACAGTGACACAACGCCGGCAATGCCATTGGATACT
+TGTGGTGCAATGTCACAGGGTATGATAGGCTATTGGTTGGAAACTGAAATCAATCGCATT
+TTAACTGAAATGAATAGTGATAGAACTGTAGGCACAATCGTTACACGTGTGGAAGTAGAT
+AAAGATGATCCACGATTCAATAACCCAACCAAACCAATTGGTCCTTTTTATACGAAAGAA
+GAAGTTGAAGAATTACAAAAAGAACAGCCAGACTCAGTCTTTAAAGAAGATGCAGGACGT
+GGTTATAGAAAAGTAGTTGCGTCACCACTACCTCAATCTATACTAGAACACCAGTTAATT
+CGAACTTTAGCAGACGGTAAAAATATTGTCATTGCATGCGGTGGTGGCGGTATTCCAGTT
+ATAAAAAAAGAAAATACCTATGAAGGTGTTGAAGCG
+>arcC_2
+TTATTAATCCAACAAGCTAAATCGAACAGTGACACAACGCCGGCAATGCCATTGGATACT
+TGTGGTGCAATGTCACAAGGTATGATAGGCTATTGGTTGGAAACTGAAATCAATCGCATT
+TTAACTGAAATGAATAGTGATAGAACTGTAGGCACAATCGTAACACGTGTGGAAGTAGAT
+AAAGATGATCCACGATTTGATAACCCAACTAAACCAATTGGTCCTTTTTATACGAAAGAA
+GAAGTTGAAGAATTACAAAAAGAACAGCCAGGCTCAGTCTTTAAAGAAGATGCAGGACGT
+GGTTATAGAAAAGTAGTTGCGTCACCACTACCTCAATCTATACTAGAACACCAGTTAATT
+CGAACTTTAGCAGACGGTAAAAATATTGTCATTGCATGCGGTGGTGGCGGTATTCCAGTT
+ATAAAAAAAGAAAATACCTATGAAGGTGTTGAAGCG
+´´´
+
+
+Activate conda environment for MLST
+```
+conda activate MLST
 ```
