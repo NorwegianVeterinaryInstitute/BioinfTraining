@@ -18,6 +18,8 @@ cd /cluster/shared/vetinst/ARIBA_DB/
 
 ariba prepareref --all_coding yes -f Add_Virulence_Genes/Additional_Vir_genes.fasta ariba_virulence_genes_DB
 
+ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_Files/Vibrio_R2.fastq Virulence_Output
+
 ```
 
 # ARIBA: ReadMapping Approach
