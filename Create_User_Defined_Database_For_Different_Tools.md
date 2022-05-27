@@ -92,7 +92,7 @@ AGGCAAGGTACCGTAACCACCCCAGATGGTCCAGCCGTGTACATGGTTCAAACACGCCAG
 GCATTCGAGCGAACACGCAGTGATGCCTAA
 ```
 
-3. phenotypes.txt file : 
+2. "phenotypes.txt" file : 
 ```
 head phenotypes.txt
 
@@ -109,6 +109,36 @@ ant(2'')-Ia_17_JTTZ01000034	Aminoglycoside	Gentamicin, Tobramycin	unpublished	En
 
 ```
 
-4.  
-5. 
+3. "phenotype_panels.txt":
+
+```
+head phenotype_panels.txt
+
+:Panel: Campylobacter
+Ampicillin
+
+:Panel: Campylobacter jejuni
+:Include: Campylobacter
+Ciprofloxacin
+Erythromycin
+Gentamicin
+Nalidixic acid
+Streptomycin
+Tetracycline
+
+:Panel: Campylobacter coli
+:Include: Campylobacter
+Ciprofloxacin
+Erythromycin
+Gentamicin
+Streptomycin
+Tetracycline
+
+:Panel: Escherichia coli
+Amikacin
+Ampicillin
+Ampicillin+Clavulanic acid
+Azithromycin
+Cefepime
+``` 
 
