@@ -54,3 +54,5 @@ ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_
 
 Virulence_Output contains the output files.
 
+
+[Explnation for Output](https://github.com/sanger-pathogens/ariba/wiki/Task:-run)
