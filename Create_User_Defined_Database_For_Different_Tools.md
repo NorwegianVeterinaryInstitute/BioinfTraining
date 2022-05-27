@@ -10,7 +10,7 @@ Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not inclu
 [Link to Introduction Slides](https://vetinst.sharepoint.com/:p:/r/sites/Bioinfadmins/Delte%20dokumenter/General/Bioinfo_Training/UD_DBs_Jeevan_300522.pptx?d=w43117335fecf47edb54fb34d3db21e22&csf=1&web=1&e=CJLpPE)
 
 ## ARIBA:
-Tool Input: Assembly (.fasta) or reads (.fastq)
+Tool Input: Assembly (.fasta) or reads (.fastq). 
 For creating DB: fasta sequence with gene name, which wi
 
 ### Working location for hands-on in SAGA
