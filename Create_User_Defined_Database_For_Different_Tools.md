@@ -52,3 +52,5 @@ Mapping the reads to newly created db for new virulence genes
 ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_Files/Vibrio_R2.fastq Virulence_Output
 ```
 
+Virulence_Output contains the output files.
+
