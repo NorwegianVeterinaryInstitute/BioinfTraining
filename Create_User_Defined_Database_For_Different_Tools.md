@@ -44,8 +44,10 @@ Creating data base from given fasta file
 ariba prepareref --all_coding yes -f Add_Virulence_Genes/Additional_Vir_genes.fasta ariba_virulence_genes_DB
 ```
 Add_Virulence_Genes/Additional_Vir_genes.fasta : input files. 
-ariba_virulence_genes_DB : output folder. 
+ariba_virulence_genes_DB : output folder which contains the db
 
+
+Mapping the reads to newly created db for new virulence genes
 ```
 ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_Files/Vibrio_R2.fastq Virulence_Output
 ```
