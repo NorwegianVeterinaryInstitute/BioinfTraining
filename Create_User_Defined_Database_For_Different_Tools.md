@@ -138,12 +138,40 @@ Erythromycin
 Gentamicin
 Streptomycin
 Tetracycline
-
-:Panel: Escherichia coli
-Amikacin
-Ampicillin
-Ampicillin+Clavulanic acid
-Azithromycin
-Cefepime
 ``` 
 
+Activate conda environment for ResFinder
+```
+conda activate resfinder 
+```
+
+Go into the db_folder 
+```
+cd db_resfinder
+ls -lh 
+
+total 3.6M
+-rw-rw-r-- 1 jeevka nn9305k 197K May 27 13:04 aminoglycoside.fsa
+-rw-rw-r-- 1 jeevka nn9305k 2.8K May 27 13:04 antibiotic_classes.txt
+-rw-rw-r-- 1 jeevka nn9305k 1.8M May 27 13:04 beta-lactam.fsa
+-rwxrwxr-x 1 jeevka nn9305k 2.4K May 27 13:04 CHECK-entries.sh
+-rw-rw-r-- 1 jeevka nn9305k  92K May 27 13:04 colistin.fsa
+-rw-rw-r-- 1 jeevka nn9305k  912 May 27 13:04 config
+-rw-rw-r-- 1 jeevka nn9305k  40K May 27 13:04 history.txt
+-rwxrwxr-x 1 jeevka nn9305k 3.8K May 27 13:04 INSTALL.py
+-rw-rw-r-- 1 jeevka nn9305k 173K May 27 13:04 macrolide.fsa
+-rw-rw-r-- 1 jeevka nn9305k 6.9K May 27 13:04 nitroimidazole.fsa
+-rw-rw-r-- 1 jeevka nn9305k  89K May 27 13:04 notes.txt
+-rw-rw-r-- 1 jeevka nn9305k  45K May 27 13:04 oxazolidinone.fsa
+-rw-rw-r-- 1 jeevka nn9305k  44K May 27 13:04 phenicol.fsa
+-rw-rw-r-- 1 jeevka nn9305k 2.6K May 27 13:04 phenotype_panels.txt
+-rw-rw-r-- 1 jeevka nn9305k 504K May 27 13:04 phenotypes.txt
+-rw-rw-r-- 1 jeevka nn9305k 9.3K May 27 13:04 pseudomonicacid.fsa
+-rw-rw-r-- 1 jeevka nn9305k  92K May 27 13:04 quinolone.fsa
+-rw-rw-r-- 1 jeevka nn9305k 5.4K May 27 13:04 README.md
+```
+
+Make/Build DB
+```
+python3 INSTALL.py </path/to/kma_index> non_interactive
+```
