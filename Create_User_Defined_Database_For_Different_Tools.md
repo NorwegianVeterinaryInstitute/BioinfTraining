@@ -9,8 +9,9 @@ Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not inclu
 
 [Link to Introduction Slides](https://vetinst.sharepoint.com/:p:/r/sites/Bioinfadmins/Delte%20dokumenter/General/Bioinfo_Training/UD_DBs_Jeevan_300522.pptx?d=w43117335fecf47edb54fb34d3db21e22&csf=1&web=1&e=CJLpPE)
 
-## ARIBA as an example. :
-Input: Assembly (.fasta) or reads (.fastq)
+## ARIBA:
+Tool Input: Assembly (.fasta) or reads (.fastq)
+For creating DB: fasta sequence with gene name, which wi
 
 ### Working location for hands-on in SAGA
 
@@ -61,4 +62,25 @@ ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_
 ## ResFinder/PointFinder
 **Input**: Assembly (.fasta) or reads (.fastq)
 
+**To create DB**: 
+1. <resistance_phenotye_class>.fsa file: multifasta file of AMR genes. f. ex. aminoglycoside.fsa
+2. phenotypes.txt file : 
+```
+head phenotypes.txt
+
+Gene_accession no.	Class	Phenotype	PMID	Mechanism of resistance	Notes	Required_gene
+ant(2'')-Ia_1_X04555	Aminoglycoside	Gentamicin, Tobramycin	3024112	Enzymatic modification	Alternative name aadB
+ant(2'')-Ia_10_HM367617	Aminoglycoside	Gentamicin, Tobramycin	21873033	Enzymatic modification
+ant(2'')-Ia_11_HM367620	Aminoglycoside	Gentamicin, Tobramycin	21873033	Enzymatic modification
+ant(2'')-Ia_12_HQ880250	Aminoglycoside	Gentamicin, Tobramycin	unpublished	Enzymatic modification
+ant(2'')-Ia_13_DQ176450	Aminoglycoside	Gentamicin, Tobramycin	16304199	Enzymatic modification
+ant(2'')-Ia_14_DQ266447	Aminoglycoside	Gentamicin, Tobramycin	unpublished	Enzymatic modification
+ant(2'')-Ia_15_EF205594	Aminoglycoside	Gentamicin, Tobramycin	unpublished	Enzymatic modification
+ant(2'')-Ia_16_HQ386848	Aminoglycoside	Gentamicin, Tobramycin	unpublished	Enzymatic modification
+ant(2'')-Ia_17_JTTZ01000034	Aminoglycoside	Gentamicin, Tobramycin	unpublished	Enzymatic modification
+
+```
+
+4.  
+5. 
 
