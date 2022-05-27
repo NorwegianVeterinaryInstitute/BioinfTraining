@@ -1,4 +1,17 @@
-# Introduction (PowerPoint slides)
+# Introduction
+Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not included in the databases (DBs) which are used by tools. But it is possible to use the latest data with some of the tools. This documentation will walk you through "How to create your own database".  
+
+# Tools which can use user defined DBs
+
+1. [ARIBA](https://github.com/sanger-pathogens/ariba): ReadMapping Approach
+2. [ResFinder and PointFinder](https://bitbucket.org/genomicepidemiology/resfinder.git/src): ReadMapping Approach
+3. [MLST](https://github.com/tseemann/mlst): Local alignment 
+
+
+
+## ARIBA as an example. :
+Input: Assembly (.fasta) or reads (.fastq)
+
 ## Read Mapping
  1. Read Coverage on target
  2. Some of the tools used for read mapping approach
@@ -21,22 +34,3 @@ ariba prepareref --all_coding yes -f Add_Virulence_Genes/Additional_Vir_genes.fa
 ariba run ariba_virulence_genes_DB/ Test_Fastq_Files/Vibrio_R1.fastq Test_Fastq_Files/Vibrio_R2.fastq Virulence_Output
 
 ```
-
-# ARIBA: ReadMapping Approach
-Using Fastq (read) files illumina to search against user defined AMR, Virulence and MLST using ARIBA.
-
-### AMR/Virulence
-1. Live demo of creating database from amr gene sequences (fasta)
-
-
-
-### MLST
-1. Live demo of creating database from new MLST schemes 
-
-
-# ResFinder and PointFinder: ReadMapping Approach
-
-
-# MLST tool: Local alignment 
-Adding new MLST schemes to the existing schemes
-
