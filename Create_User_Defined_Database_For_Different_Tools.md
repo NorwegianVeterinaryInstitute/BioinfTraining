@@ -10,7 +10,7 @@ Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not inclu
 [Link to Introduction Slides](https://vetinst.sharepoint.com/:p:/r/sites/Bioinfadmins/Delte%20dokumenter/General/Bioinfo_Training/UD_DBs_Jeevan_300522.pptx?d=w43117335fecf47edb54fb34d3db21e22&csf=1&web=1&e=CJLpPE)
 
 ## ARIBA as an example. :
-Input: Assembly (.fasta) or reads (.fastq)
+**Input**: Assembly (.fasta) or reads (.fastq)
 
 
 ### Working location for hands-on in SAGA
@@ -25,7 +25,7 @@ Activate ARIBA conda environment
 conda activate ARIBA
 ```
 
-Go into test directory.  
+Go into tutorial directory which contains test data.  
 ```
 cd /cluster/projects/nn9305k/tutorial/300522_User_Defined_DBs/
 
