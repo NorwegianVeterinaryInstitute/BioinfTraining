@@ -25,9 +25,15 @@ Activate ARIBA conda environment
 conda activate ARIBA
 ```
 
-Go into test directory 
+Go into test directory.  
 ```
 cd /cluster/projects/nn9305k/tutorial/300522_User_Defined_DBs/
+
+ls -lh 
+
+total 1.0K
+drwxrwsr-x 2 jeevka nn9305k 1 May 27 11:12 Additional_Virulence_Genes
+drwxrwsr-x 2 jeevka nn9305k 2 May 27 11:11 Test_Fastq_Files
 ```
 
 Creating data base from given fasta file 
