@@ -32,8 +32,10 @@ cd /cluster/projects/nn9305k/tutorial/300522_User_Defined_DBs/
 ls -lh 
 
 total 1.0K
-drwxrwsr-x 2 jeevka nn9305k 1 May 27 11:12 Additional_Virulence_Genes
-drwxrwsr-x 2 jeevka nn9305k 2 May 27 11:11 Test_Fastq_Files
+drwxrwsr-x 2 jeevka nn9305k  1 May 27 11:12 Additional_Virulence_Genes
+drwxrwsr-x 3 jeevka nn9305k 28 May 27 13:04 db_resfinder
+drwxrwsr-x 3 jeevka nn9305k  1 May 27 13:49 MLST
+drwxrwsr-x 2 jeevka nn9305k  2 May 27 11:11 Test_Fastq_Files
 ```
 Additional_Virulence_Genes: contains the fasta sequences of additional virulence genes.  
 Test_Fastq_Files: contains a test fastq paired end sequences
