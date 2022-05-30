@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not included in the databases (DBs) which are used by tools. But it is possible to use the latest data with some of the tools. This documentation will walk you through "How to create your own database" for three of the most commonly used tools: 
+Often the new/latest species/data/results (AMR/Virulence/MLST…etc,.) not included in the databases (DBs) which are used by tools. But it is possible to use the latest data with some of the tools. This documentation will walk you through "How to create your own database" or "add the new data to existing database" for three of the most commonly used tools: 
 1. [ARIBA](https://github.com/sanger-pathogens/ariba): ReadMapping Approach
 2. [ResFinder and PointFinder](https://bitbucket.org/genomicepidemiology/resfinder.git/src): Local alignment Approach
 3. [MLST](https://github.com/tseemann/mlst): Local alignment 
