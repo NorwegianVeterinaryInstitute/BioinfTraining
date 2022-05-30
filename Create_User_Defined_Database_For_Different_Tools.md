@@ -237,12 +237,27 @@ ATAAAAAAAGAAAATACCTATGAAGGTGTTGAAGCG
 
 Activate conda environment for MLST
 
+Activate MLST conda environment 
 
 ```
 conda activate MLST
 ```
 
+Adding the scheme
 
+```
+mlst/scripts/mlst-make_blast_db
+```
+
+Check if the scheme is added
+```
+mlst --longlist | grep SCHEME
+```
+
+
+
+
+Deactivate the conda environment 
 ```
 conda deactivate MLST
 ```
